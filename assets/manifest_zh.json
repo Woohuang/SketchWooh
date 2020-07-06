@@ -7,7 +7,7 @@
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
     "version": "1.5.1",
-    "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/appcast.xml",
+    "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
             "name": "临时取消选中所有图层 [tuas]",
             "identifier": "Temporary Unselect All Selections [tuas]",
