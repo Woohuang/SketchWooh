@@ -1,3 +1,5 @@
+# build artifacts
+Wooh.sketchplugin
 
 # npm
 node_modules
@@ -12,3 +14,7 @@ npm-debug.log
 
 # sketch
 # sketch-assets
+
+# Custom
+src/Backup Importatnt !
+src/Backup Temporary
