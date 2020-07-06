@@ -1,6 +1,6 @@
 {
   "name": "my-plugin",
-  "description": "",
+  "description": "## Installation",
   "version": "1.0.2",
   "engines": {
     "sketch": ">=49.0"
@@ -25,6 +25,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Woohuang/SketchWooh.git"
-  }
+    "url": "git+https://github.com/Woohuang/SketchWooh.git"
+  },
+  "dependencies": {
+    "@types/node": "^14.0.13",
+    "axios": "^0.19.2",
+    "leancloud-storage": "^4.6.1",
+    "openurl": "^1.1.1",
+    "sketch-module-google-analytics": "^0.2.1",
+    "sketch-polyfill-fetch": "^0.5.2",
+    "window": "^4.2.7"
+  },
+  "bugs": {
+    "url": "https://github.com/Woohuang/SketchWooh/issues"
+  },
+  "homepage": "https://github.com/Woohuang/SketchWooh#readme",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
