@@ -379,11 +379,6 @@
             "script": "Custom Part Backup [cpb].js"
         },
         {
-            "name": "Doc Data [dd]",
-            "identifier": "Doc Data [dd]",
-            "script": "Doc Data [dd].js"
-        },
-        {
             "name": "Selection Data [sd]",
             "identifier": "Selection Data [sd]",
             "script": "Selection Data [sd].js"
@@ -559,7 +554,6 @@
                     {
                         "title": "Dev",
                         "items": [
-                            "Doc Data [dd]",
                             "Selection Data [sd]",
                             "Temporary",
                             "Reload"
