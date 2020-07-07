@@ -6,7 +6,7 @@
   "author": "Wooh",
   "authorEmail": "im@hihy.me",
   "homepage": "http://xscape.fun/",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
   "commands": [
     {
@@ -380,11 +380,6 @@
       "script": "Custom Part Backup [cpb].js"
     },
     {
-      "name": "Doc Data [dd]",
-      "identifier": "Doc Data [dd]",
-      "script": "Doc Data [dd].js"
-    },
-    {
       "name": "Selection Data [sd]",
       "identifier": "Selection Data [sd]",
       "script": "Selection Data [sd].js"
@@ -562,7 +557,6 @@
           {
             "title": "Dev",
             "items": [
-              "Doc Data [dd]",
               "Selection Data [sd]",
               "Temporary",
               "Reload"
