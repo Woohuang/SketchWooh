@@ -88,7 +88,7 @@ var exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -99,16 +99,125 @@ module.exports = require("sketch");
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Settings = __webpack_require__(2);
+
+var kUUIDKey = "google.analytics.uuid";
+var uuid = null
+var uuid = NSUserDefaults.standardUserDefaults().objectForKey(kUUIDKey);
+if (!uuid) {
+    uuid = NSUUID.UUID().UUIDString();
+    NSUserDefaults.standardUserDefaults().setObject_forKey(uuid, kUUIDKey)
+}
+
+var variant = MSApplicationMetadata.metadata().variant;
+var source =
+    "Sketch " +
+    (variant == "NONAPPSTORE" ? "" : variant + " ") +
+    Settings.version.sketch;
+
+function jsonToQueryString(json) {
+    return Object.keys(json)
+        .map(function(key) {
+            return encodeURIComponent(key) + "=" + encodeURIComponent(json[key]);
+        })
+        .join("&");
+}
+
+function makeRequest(url, options) {
+    if (!url) {
+        return
+    }
+
+    if (options && options.makeRequest) {
+        return options.makeRequest(url)
+    }
+    if (options && options.debug) {
+        var request = NSURLRequest.requestWithURL(url)
+        var responsePtr = MOPointer.alloc().init();
+        var errorPtr = MOPointer.alloc().init();
+
+        var data = NSURLConnection.sendSynchronousRequest_returningResponse_error(request, responsePtr, errorPtr)
+        return data ? NSString.alloc().initWithData_encoding(data, NSUTF8StringEncoding) : errorPtr.value()
+    }
+
+    NSURLSession.sharedSession()
+        .dataTaskWithURL(url)
+        .resume();
+}
+
+module.exports = function(trackingId, hitType, props, options) {
+    var payload = {
+        v: 1,
+        tid: trackingId,
+        ds: source,
+        cid: uuid,
+        t: hitType
+    };
+
+    if (typeof __command !== "undefined") {
+        payload.an = __command.pluginBundle().name();
+        payload.aid = __command.pluginBundle().identifier();
+        payload.av = __command.pluginBundle().version();
+    }
+
+    if (props) {
+        Object.keys(props).forEach(function(key) {
+            payload[key] = props[key];
+        });
+    }
+
+    var url = NSURL.URLWithString(
+        "https://www.google-analytics.com/" + (options && options.debug ? "debug/" : "") + "collect?" +
+        jsonToQueryString(payload) +
+        "&z=" +
+        NSUUID.UUID().UUIDString()
+    );
+
+    return makeRequest(url, options)
+};
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+module.exports = require("sketch/settings");
+
+/***/ }),
+/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 
-var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
+// EXTERNAL MODULE: external "sketch"
+var external_sketch_ = __webpack_require__(0);
+var external_sketch_default = /*#__PURE__*/__webpack_require__.n(external_sketch_);
+
+// CONCATENATED MODULE: ./src/modules/Google Analytics Method.js
+/* harmony default export */ var Google_Analytics_Method = (function (CommandResult) {
+  var track = __webpack_require__(1);
+
+  var variant = MSApplicationMetadata.metadata().variant;
+  var Sketchinfo = "Sketch " + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch;
+  var PluginInfo = context.plugin.identifier() + " [v" + context.plugin.version() + "] " + context.command.identifier();
+  track("UA-169300937-2", "event", {
+    ec: Sketchinfo,
+    // the event category
+    ea: PluginInfo,
+    // the event action
+    el: CommandResult // the event label
+
+  });
+});
+// CONCATENATED MODULE: ./src/Replace Symbol Master [rsm].js
+
+var doc = external_sketch_default.a.getSelectedDocument();
 var Selection = doc.selectedLayers.layers;
-/* harmony default export */ __webpack_exports__["default"] = (function () {
+
+/* harmony default export */ var Replace_Symbol_Master_rsm_ = __webpack_exports__["default"] = (function () {
   var CopiedInfo = NSPasteboard.generalPasteboard().stringForType(NSPasteboardTypeString).split("_.0._.0._.0._");
   var CopiedId = CopiedInfo[0];
   var CopiedSymbolMaster = doc.getLayerWithID(CopiedId).master;
@@ -140,10 +249,13 @@ var Selection = doc.selectedLayers.layers;
   });
 
   if (Result === 1) {
-    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Pasting");
+    external_sketch_default.a.UI.message("Succeed In Pasting");
   } else {
-    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Fail In Pasting");
-  }
+    external_sketch_default.a.UI.message("Fail In Pasting");
+  } //GA
+
+
+  Google_Analytics_Method("NormalResult");
 });
 
 /***/ })

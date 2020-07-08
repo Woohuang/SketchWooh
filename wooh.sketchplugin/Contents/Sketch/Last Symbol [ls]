@@ -88,7 +88,7 @@ var exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -101,16 +101,97 @@ module.exports = require("sketch");
 /* 1 */
 /***/ (function(module, exports) {
 
-module.exports = require("sketch/dom");
+module.exports = require("sketch/settings");
 
 /***/ }),
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports = require("sketch/settings");
+module.exports = require("sketch/dom");
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Settings = __webpack_require__(1);
+
+var kUUIDKey = "google.analytics.uuid";
+var uuid = null
+var uuid = NSUserDefaults.standardUserDefaults().objectForKey(kUUIDKey);
+if (!uuid) {
+    uuid = NSUUID.UUID().UUIDString();
+    NSUserDefaults.standardUserDefaults().setObject_forKey(uuid, kUUIDKey)
+}
+
+var variant = MSApplicationMetadata.metadata().variant;
+var source =
+    "Sketch " +
+    (variant == "NONAPPSTORE" ? "" : variant + " ") +
+    Settings.version.sketch;
+
+function jsonToQueryString(json) {
+    return Object.keys(json)
+        .map(function(key) {
+            return encodeURIComponent(key) + "=" + encodeURIComponent(json[key]);
+        })
+        .join("&");
+}
+
+function makeRequest(url, options) {
+    if (!url) {
+        return
+    }
+
+    if (options && options.makeRequest) {
+        return options.makeRequest(url)
+    }
+    if (options && options.debug) {
+        var request = NSURLRequest.requestWithURL(url)
+        var responsePtr = MOPointer.alloc().init();
+        var errorPtr = MOPointer.alloc().init();
+
+        var data = NSURLConnection.sendSynchronousRequest_returningResponse_error(request, responsePtr, errorPtr)
+        return data ? NSString.alloc().initWithData_encoding(data, NSUTF8StringEncoding) : errorPtr.value()
+    }
+
+    NSURLSession.sharedSession()
+        .dataTaskWithURL(url)
+        .resume();
+}
+
+module.exports = function(trackingId, hitType, props, options) {
+    var payload = {
+        v: 1,
+        tid: trackingId,
+        ds: source,
+        cid: uuid,
+        t: hitType
+    };
+
+    if (typeof __command !== "undefined") {
+        payload.an = __command.pluginBundle().name();
+        payload.aid = __command.pluginBundle().identifier();
+        payload.av = __command.pluginBundle().version();
+    }
+
+    if (props) {
+        Object.keys(props).forEach(function(key) {
+            payload[key] = props[key];
+        });
+    }
+
+    var url = NSURL.URLWithString(
+        "https://www.google-analytics.com/" + (options && options.debug ? "debug/" : "") + "collect?" +
+        jsonToQueryString(payload) +
+        "&z=" +
+        NSUUID.UUID().UUIDString()
+    );
+
+    return makeRequest(url, options)
+};
+
+/***/ }),
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -124,11 +205,11 @@ var external_sketch_default = /*#__PURE__*/__webpack_require__.n(external_sketch
 // CONCATENATED MODULE: ./src/modules/Symbol Next&Last Function.js
 
 
-var Libraries = __webpack_require__(1).getLibraries();
+var Libraries = __webpack_require__(2).getLibraries();
 
 var doc = external_sketch_default.a.getSelectedDocument();
 
-var settings = __webpack_require__(2);
+var settings = __webpack_require__(1);
 
 var Symbol_Next_Last_Function_Symbol_NextAndLast = function Symbol_NextAndLast(counts) {
   //function: WriteSymbolInfo
@@ -245,11 +326,30 @@ var Symbol_Next_Last_Function_Symbol_NextAndLast = function Symbol_NextAndLast(c
 
   WriteSymbolInfo(symbolMaster.symbolId, ThisIndex + counts);
 };
+// CONCATENATED MODULE: ./src/modules/Google Analytics Method.js
+/* harmony default export */ var Google_Analytics_Method = (function (CommandResult) {
+  var track = __webpack_require__(3);
+
+  var variant = MSApplicationMetadata.metadata().variant;
+  var Sketchinfo = "Sketch " + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch;
+  var PluginInfo = context.plugin.identifier() + " [v" + context.plugin.version() + "] " + context.command.identifier();
+  track("UA-169300937-2", "event", {
+    ec: Sketchinfo,
+    // the event category
+    ea: PluginInfo,
+    // the event action
+    el: CommandResult // the event label
+
+  });
+});
 // CONCATENATED MODULE: ./src/Last Symbol [ls].js
 
 
+
 /* harmony default export */ var Last_Symbol_ls_ = __webpack_exports__["default"] = (function () {
-  Symbol_Next_Last_Function_Symbol_NextAndLast(-1);
+  Symbol_Next_Last_Function_Symbol_NextAndLast(-1); //GA
+
+  Google_Analytics_Method("NormalResult");
 });
 
 /***/ })
