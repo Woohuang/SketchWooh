@@ -3,6 +3,8 @@ let doc = sketch.getSelectedDocument()
 let Selection = doc.selectedLayers.layers
 let Settings = require('sketch/settings')
 
+import GA from "./modules/Google Analytics Method"
+
 export default function() {
 
     const LinkPngOptions = { formats: 'jpg', output: false, scales: 1 }
@@ -27,4 +29,7 @@ export default function() {
     } else {
         sketch.UI.message("Please Select 1 Artboard")
     }
+
+    //GA
+    GA("NormalResult")
 }

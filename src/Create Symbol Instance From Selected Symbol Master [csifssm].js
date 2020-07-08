@@ -2,6 +2,8 @@ import sketch from 'sketch'
 let doc = sketch.getSelectedDocument()
 let Selection = doc.selectedLayers.layers
 
+import GA from "./modules/Google Analytics Method"
+
 export default function() {
 
     Selection.forEach(item => {
@@ -14,4 +16,7 @@ export default function() {
             newInstance.selected = true
         }
     })
+
+    //GA
+    GA("NormalResult")
 }

@@ -2,7 +2,9 @@ import sketch from 'sketch'
 let doc = sketch.getSelectedDocument()
 let Selection = doc.selectedLayers.layers
 
-export default function () {
+import GA from "./modules/Google Analytics Method"
+
+export default function() {
     let SelectedSymbols = []
     for (let i = 0, len = Selection.length; i < len; i++) {
         if (Selection[i].type === "SymbolInstance") {
@@ -19,4 +21,7 @@ export default function () {
             item.parent.adjustToFit()
         }
     })
+
+    //GA
+    GA("NormalResult")
 }

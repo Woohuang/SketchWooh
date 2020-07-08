@@ -2,7 +2,9 @@ import sketch from 'sketch'
 let doc = sketch.getSelectedDocument()
 let Selection = doc.selectedLayers.layers
 
-export default function () {
+import GA from "./modules/Google Analytics Method"
+
+export default function() {
 
     Selection.forEach(item => {
 
@@ -24,8 +26,10 @@ export default function () {
 
     if (Result === 1) {
         sketch.UI.message("Succeed In Reseting")
-    }
-    else {
+    } else {
         sketch.UI.message("Fail In Reseting")
     }
+
+    //GA
+    GA("NormalResult")
 }

@@ -3,6 +3,8 @@ let doc = sketch.getSelectedDocument()
 let UI = require('sketch/ui')
 let Selection = doc.selectedLayers.layers
 
+import GA from "./modules/Google Analytics Method"
+
 export default function() {
     let SelectFormat = new String()
     let UnselectResult = 0
@@ -32,4 +34,7 @@ export default function() {
 
     //toast result
     sketch.UI.message("Succeed In Unselecting " + UnselectResult + " Layer(s)")
+
+    //GA
+    GA("NormalResult")
 }

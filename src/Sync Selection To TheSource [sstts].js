@@ -5,6 +5,8 @@ let path = require('path')
 let doc = sketch.getSelectedDocument()
 let Selection = doc.selectedLayers.layers
 
+import GA from "./modules/Google Analytics Method"
+
 export default function() {
 
     //通过文件名判断是否打开 TheSource.sketch
@@ -55,4 +57,7 @@ export default function() {
             }
         }
     }
+
+    //GA
+    GA("NormalResult")
 }

@@ -2,6 +2,8 @@ import sketch from 'sketch'
 let doc = sketch.getSelectedDocument()
 let UI = require('sketch/ui')
 
+import GA from "./modules/Google Analytics Method"
+
 export default function() {
 
     let SelectFormat = new String()
@@ -30,4 +32,7 @@ export default function() {
 
     //toast result
     sketch.UI.message("Succeed In Selecting " + SelectResult + " Layer(s)")
+
+    //GA
+    GA("NormalResult")
 }

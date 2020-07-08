@@ -4,6 +4,8 @@ let doc = sketch.getSelectedDocument()
 let Selection = doc.selectedLayers.layers
 let UI = require('sketch/ui')
 
+import GA from "./modules/Google Analytics Method"
+
 export default function() {
 
     let DuplicateResult = 0
@@ -90,4 +92,7 @@ export default function() {
             sketch.UI.message('Succeed In Duplicating ' + DuplicateResult + ' Artboard(s)')
         }
     }
+
+    //GA
+    GA("NormalResult")
 }

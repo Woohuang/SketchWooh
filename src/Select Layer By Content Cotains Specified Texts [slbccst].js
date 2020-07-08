@@ -2,6 +2,8 @@ import sketch from 'sketch'
 let doc = sketch.getSelectedDocument()
 let UI = require('sketch/ui')
 
+import GA from "./modules/Google Analytics Method"
+
 export default function() {
 
     let CopiedString = NSPasteboard.generalPasteboard().stringForType(NSPasteboardTypeString)
@@ -44,4 +46,7 @@ export default function() {
         }
     )
 
+
+    //GA
+    GA("NormalResult")
 }

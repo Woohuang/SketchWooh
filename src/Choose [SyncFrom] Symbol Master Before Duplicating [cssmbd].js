@@ -3,7 +3,9 @@ let doc = sketch.getSelectedDocument()
 let Selection = doc.selectedLayers.layers
 import { CopyStringToPasteboard } from "./modules/Copy String To Pasteboard"
 
-export default function () {
+import GA from "./modules/Google Analytics Method"
+
+export default function() {
     let SelectResult = 0
 
     //judge selection format
@@ -20,4 +22,7 @@ export default function () {
     } else {
         sketch.UI.message('Fail In Getting SyncFrom Symbol Master')
     }
+
+    //GA
+    GA("NormalResult")
 }

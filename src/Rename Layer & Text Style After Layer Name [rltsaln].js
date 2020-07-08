@@ -2,6 +2,8 @@ import sketch from 'sketch'
 let doc = sketch.getSelectedDocument()
 let Selection = doc.selectedLayers.layers
 
+import GA from "./modules/Google Analytics Method"
+
 export default function() {
     let RenameResult = 0
 
@@ -17,4 +19,7 @@ export default function() {
         sketch.UI.message("Please Select At Least 1 Layer")
     }
 
+
+    //GA
+    GA("NormalResult")
 }

@@ -2,7 +2,9 @@ import sketch from 'sketch'
 let doc = sketch.getSelectedDocument()
 let Selection = doc.selectedLayers.layers
 
-export default function () {
+import GA from "./modules/Google Analytics Method"
+
+export default function() {
 
     let CopiedInfo = NSPasteboard.generalPasteboard().stringForType(NSPasteboardTypeString).split("_.0._.0._.0._")
     let CopiedId = CopiedInfo[0]
@@ -34,13 +36,14 @@ export default function () {
             }
             Result = 1
         }
-    }
-    )
+    })
 
     if (Result === 1) {
         sketch.UI.message("Succeed In Pasting")
-    }
-    else {
+    } else {
         sketch.UI.message("Fail In Pasting")
     }
+
+    //GA
+    GA("NormalResult")
 }

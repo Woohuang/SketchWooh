@@ -3,6 +3,8 @@ import sketch from 'sketch'
 let system = require("./modules/System")
 let doc = sketch.getSelectedDocument()
 
+import GA from "./modules/Google Analytics Method"
+
 export default function() {
 
     //选择 TheSource.sketch
@@ -100,4 +102,7 @@ export default function() {
 
     //toast result
     sketch.UI.message("Done!")
+
+    //GA
+    GA("NormalResult")
 }

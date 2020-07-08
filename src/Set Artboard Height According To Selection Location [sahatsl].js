@@ -2,7 +2,9 @@ import sketch from 'sketch'
 let doc = sketch.getSelectedDocument()
 let Selection = doc.selectedLayers.layers
 
-export default function () {
+import GA from "./modules/Google Analytics Method"
+
+export default function() {
     let string = NSPasteboard.generalPasteboard().stringForType(NSPasteboardTypeString)
     let CopyNumber = 0
     let SetSize = 0
@@ -27,8 +29,7 @@ export default function () {
         } else {
             item.getParentArtboard().frame.height = item.frame.y + item.frame.height + CopyNumber
         }
-    }
-    )
+    })
 
     if (CopyResult === 0) {
         sketch.UI.message("Try copying a Number~")
@@ -36,4 +37,7 @@ export default function () {
 
     //清空剪贴板
     NSPasteboard.generalPasteboard().clearContents()
+
+    //GA
+    GA("NormalResult")
 }

@@ -3,6 +3,8 @@ let doc = sketch.getSelectedDocument()
 let settings = require('sketch/settings')
 let Selection = doc.selectedLayers.layers
 
+import GA from "./modules/Google Analytics Method"
+
 export default function() {
 
     //function: WriteSelectedInfo
@@ -85,4 +87,7 @@ export default function() {
         //toast result
         sketch.UI.message("Recovered")
     }
+
+    //GA
+    GA("NormalResult")
 }

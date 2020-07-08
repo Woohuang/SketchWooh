@@ -13,6 +13,8 @@ DateFormat()
 let ThisDay = new Date().format("yyyy-MM-dd")
 let ThisTime = new Date().format("yyyy-MM-dd hh:mm:ss")
 
+import GA from "./modules/Google Analytics Method"
+
 export default function() {
 
     let LogPage, LogGroup, LogGroupY
@@ -107,4 +109,7 @@ export default function() {
         sketch.UI.message("请至少选中1个画板")
     }
 
+
+    //GA
+    GA("NormalResult")
 }

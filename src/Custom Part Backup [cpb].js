@@ -3,6 +3,8 @@ var Document = require('sketch/dom').Document
 var path = require('path')
     //var SharedStyle = require('sketch/dom').SharedStyle
 
+import GA from "./modules/Google Analytics Method"
+
 export default function() {
     const doc = sketch.getSelectedDocument()
     const doc_pages = doc.pages
@@ -41,4 +43,7 @@ export default function() {
     })
     backup_doc.close()
     sketch.UI.alert("Done", " ")
+
+    //GA
+    GA("NormalResult")
 }

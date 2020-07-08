@@ -5,6 +5,8 @@ let Document = require('sketch/dom').Document
 let UI = require('sketch/ui')
 let SymbolMaster = require('sketch/dom').SymbolMaster
 
+import GA from "./modules/Google Analytics Method"
+
 export default function() {
     let CreateResult = 0
 
@@ -80,4 +82,7 @@ export default function() {
     if (CreateResult === 0) {
         sketch.UI.message("Fail In Creating")
     }
+
+    //GA
+    GA("NormalResult")
 }

@@ -3,7 +3,9 @@ let doc = sketch.getSelectedDocument()
 let Selection = doc.selectedLayers.layers
 let Settings = require('sketch/settings')
 
-export default function () {
+import GA from "./modules/Google Analytics Method"
+
+export default function() {
 
     //read stored ArtboardIds info
     let LogTexts = Selection.filter(item => Settings.layerSettingForKey(item, 'ArtboardIds') !== undefined)
@@ -49,4 +51,7 @@ export default function () {
         sketch.UI.message("请至少选中1个Log文本图层")
     }
 
+
+    //GA
+    GA("NormalResult")
 }

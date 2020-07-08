@@ -9,6 +9,8 @@ import { DateFormat } from './modules/Date Format'
 DateFormat()
 let ThisDate = new Date().format("yyyy-MM-dd hh:mm:ss")
 
+import GA from "./modules/Google Analytics Method"
+
 export default function() {
 
     if (doc.path !== undefined) {
@@ -42,4 +44,7 @@ export default function() {
         doc.save()
     }
 
+
+    //GA
+    GA("NormalResult")
 }

@@ -2,6 +2,8 @@ import sketch from 'sketch'
 let doc = sketch.getSelectedDocument()
 let Selection = doc.selectedLayers.layers
 
+import GA from "./modules/Google Analytics Method"
+
 export default function() {
 
     let SelectionResult = 0
@@ -215,4 +217,7 @@ export default function() {
     } else {
         sketch.UI.message("Succeed In Syncing " + SyncRadiusResult + " Radius Layer(s) And " + SyncShadowsResult + " Shadows Layer(s)")
     }
+
+    //GA
+    GA("NormalResult")
 }

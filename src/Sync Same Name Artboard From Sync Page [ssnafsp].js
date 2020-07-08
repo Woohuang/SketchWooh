@@ -2,6 +2,8 @@ import sketch from 'sketch'
 let doc = sketch.getSelectedDocument()
 let Page = require('sketch/dom').Page
 
+import GA from "./modules/Google Analytics Method"
+
 export default function() {
 
     let SyncResult = 0
@@ -67,4 +69,7 @@ export default function() {
         NewSyncPage.parent = doc
         sketch.UI.message("请将新的同名画板复制到Sync页")
     }
+
+    //GA
+    GA("NormalResult")
 }

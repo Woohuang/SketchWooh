@@ -2,16 +2,18 @@ import sketch from 'sketch'
 let doc = sketch.getSelectedDocument()
 let settings = require('sketch/settings')
 
-export default function () {
+import GA from "./modules/Google Analytics Method"
+
+export default function() {
 
     //function: WriteLockedInfo
-    let WriteLockedInfo = function (item1, item2, item3, item4) {
+    let WriteLockedInfo = function(item1, item2, item3, item4) {
         settings.setSessionVariable('ReadLockedInfo', { LockedLayersId: item1, Locked: item2, DocId: item3, PageId: item4 })
     }
 
     //判断一系列需要初始值的情况 即 WriteLockedInfo([], 1, null)
     let LockedLayersId, Locked, DocId, PageId, LockedLayers
-    // LockedLayers = sketch.find('[locked=true]', doc.selectedPage)
+        // LockedLayers = sketch.find('[locked=true]', doc.selectedPage)
 
     //判断 WriteLockedInfo 为空时
     if (!settings.sessionVariable('ReadLockedInfo')) {
@@ -33,8 +35,8 @@ export default function () {
         //锁定图层数量不为 0 时，判断文档是否切换
         else {
             Locked = 0
-            // LockedLayersId = settings.sessionVariable('ReadLockedInfo').LockedLayersId
-            //DocId = settings.sessionVariable('ReadLockedInfo').DocId
+                // LockedLayersId = settings.sessionVariable('ReadLockedInfo').LockedLayersId
+                //DocId = settings.sessionVariable('ReadLockedInfo').DocId
 
             //文档切换时
             if (settings.sessionVariable('ReadLockedInfo').DocId !== doc.id) {
@@ -83,4 +85,7 @@ export default function () {
 
         sketch.UI.message("Recovered")
     }
+
+    //GA
+    GA("NormalResult")
 }

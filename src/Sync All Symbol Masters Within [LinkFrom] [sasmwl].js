@@ -4,6 +4,8 @@ let Settings = require('sketch/settings')
 let doc = sketch.getSelectedDocument()
 let Selection = doc.selectedLayers.layers
 
+import GA from "./modules/Google Analytics Method"
+
 export default function() {
 
     let LinkResult = 0
@@ -109,4 +111,7 @@ export default function() {
         sketch.UI.message("Succeed In Linking " + LinkResult + " Symbol(s)")
     }
 
+
+    //GA
+    GA("NormalResult")
 }

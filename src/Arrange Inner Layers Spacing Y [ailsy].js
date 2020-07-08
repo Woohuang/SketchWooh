@@ -2,7 +2,9 @@ import sketch from 'sketch'
 let doc = sketch.getSelectedDocument()
 let Selection = doc.selectedLayers.layers
 
-export default function () {
+import GA from "./modules/Google Analytics Method"
+
+export default function() {
 
     //角度转换弧度 function
     function toRadians(angle) {
@@ -60,8 +62,7 @@ export default function () {
             ArrangeResult = 1
 
         }
-    }
-    )
+    })
 
     if (CopiedNumberResult === 0 && ArrangeResult === 1) {
         sketch.UI.message("Try copying a Number~")
@@ -69,4 +70,7 @@ export default function () {
 
     //清空剪贴板
     NSPasteboard.generalPasteboard().clearContents()
+
+    //GA
+    GA("NormalResult")
 }
