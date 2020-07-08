@@ -1,12 +1,12 @@
 {
     "name": "🧑🏻‍🚀Xscape!",
     "description": "Speed up your work flow",
-    "identifier": "com.wooh.sketch.plugin",
+    "identifier": "Xscape",
     "icon": "icon.png",
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.3",
+    "version": "1.5.4",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
             "name": "Temporary Unselect All Selections [tuas]",
