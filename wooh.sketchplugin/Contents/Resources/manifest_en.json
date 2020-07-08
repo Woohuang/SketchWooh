@@ -565,5 +565,6 @@
             "Run With Sketch Runner",
             "Language"
         ]
-    }
+    },
+    "disableCocoaScriptPreprocessor": true
 }
