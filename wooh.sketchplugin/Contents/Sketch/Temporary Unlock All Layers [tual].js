@@ -1,1 +1,354 @@
-var globalThis=this,global=this;function __skpm_run(e,n){globalThis.context=n;try{var o=function(e){var n={};function o(t){if(n[t])return n[t].exports;var i=n[t]={i:t,l:!1,exports:{}};return e[t].call(i.exports,i,i.exports,o),i.l=!0,i.exports}return o.m=e,o.c=n,o.d=function(e,n,t){o.o(e,n)||Object.defineProperty(e,n,{enumerable:!0,get:t})},o.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},o.t=function(e,n){if(1&n&&(e=o(e)),8&n)return e;if(4&n&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(o.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&n&&"string"!=typeof e)for(var i in e)o.d(t,i,function(n){return e[n]}.bind(null,i));return t},o.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return o.d(n,"a",n),n},o.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},o.p="",o(o.s=3)}([function(e,n){e.exports=require("sketch")},function(e,n){e.exports=require("sketch/settings")},function(e,n,o){var t=o(1),i=null;(i=NSUserDefaults.standardUserDefaults().objectForKey("google.analytics.uuid"))||(i=NSUUID.UUID().UUIDString(),NSUserDefaults.standardUserDefaults().setObject_forKey(i,"google.analytics.uuid"));var a=MSApplicationMetadata.metadata().variant,r="Sketch "+("NONAPPSTORE"==a?"":a+" ")+t.version.sketch;e.exports=function(e,n,o,t){var a,s={v:1,tid:e,ds:r,cid:i,t:n};return"undefined"!=typeof __command&&(s.an=__command.pluginBundle().name(),s.aid=__command.pluginBundle().identifier(),s.av=__command.pluginBundle().version()),o&&Object.keys(o).forEach((function(e){s[e]=o[e]})),function(e,n){if(e){if(n&&n.makeRequest)return n.makeRequest(e);if(n&&n.debug){var o=NSURLRequest.requestWithURL(e),t=MOPointer.alloc().init(),i=MOPointer.alloc().init(),a=NSURLConnection.sendSynchronousRequest_returningResponse_error(o,t,i);return a?NSString.alloc().initWithData_encoding(a,NSUTF8StringEncoding):i.value()}NSURLSession.sharedSession().dataTaskWithURL(e).resume()}}(NSURL.URLWithString("https://www.google-analytics.com/"+(t&&t.debug?"debug/":"")+"collect?"+(a=s,Object.keys(a).map((function(e){return encodeURIComponent(e)+"="+encodeURIComponent(a[e])})).join("&")+"&z=")+NSUUID.UUID().UUIDString()),t)}},function(e,o,t){"use strict";t.r(o);var i=t(0),a=t.n(i),r=a.a.getSelectedDocument(),s=t(1);o.default=function(){var e,o,i,d,c,l,u,f,g=function(e,n,o,t){s.setSessionVariable("ReadLockedInfo",{LockedLayersId:e,Locked:n,DocId:o,PageId:t})};if(s.sessionVariable("ReadLockedInfo")?(e=s.sessionVariable("ReadLockedInfo").LockedLayersId,o=s.sessionVariable("ReadLockedInfo").Locked,i=s.sessionVariable("ReadLockedInfo").DocId,d=s.sessionVariable("ReadLockedInfo").PageId,0===s.sessionVariable("ReadLockedInfo").LockedLayersId.length?(e=[],o=1,i=null,d=null):(o=0,(s.sessionVariable("ReadLockedInfo").DocId!==r.id||s.sessionVariable("ReadLockedInfo").PageId!==r.selectedPage.id)&&(e=[],o=1,i=null,d=null))):(e=[],o=1,i=null,d=null),g(e,o,i,d),1===s.sessionVariable("ReadLockedInfo").Locked){g([],0,r.id,r.selectedPage.id);for(var p=0,k=(c=a.a.find("[locked=true]",r.selectedPage)).length;p<k;p++)e.splice(0,0,c[p].id);c.forEach((function(e){e.locked=!1})),g(e,0,r.id,r.selectedPage.id),a.a.UI.message("Succeed In Unlocking")}else if(0===s.sessionVariable("ReadLockedInfo").Locked){g(e,1,null,null);for(var b=0,I=s.sessionVariable("ReadLockedInfo").LockedLayersId.length;b<I;b++){if(r.getLayerWithID(s.sessionVariable("ReadLockedInfo").LockedLayersId[b]))r.getLayerWithID(s.sessionVariable("ReadLockedInfo").LockedLayersId[b]).locked=!0}a.a.UI.message("Recovered")}l="NormalResult",u=t(2),f=MSApplicationMetadata.metadata().variant,u("UA-169300937-2","event",{ec:"Sketch "+("NONAPPSTORE"==f?"":f+" ")+Settings.version.sketch,ea:n.plugin.identifier()+" [v"+n.plugin.version()+"] "+n.command.identifier(),el:l})}}]);if("default"===e&&"function"==typeof o)o(n);else{if("function"!=typeof o[e])throw new Error('Missing export named "'+e+'". Your command should contain something like `export function " + key +"() {}`.');o[e](n)}}catch(t){if("undefined"==typeof process||!process.listenerCount||!process.listenerCount("uncaughtException"))throw t;process.emit("uncaughtException",t,"uncaughtException")}}globalThis.onRun=__skpm_run.bind(this,"default");
+var globalThis = this;
+var global = this;
+function __skpm_run (key, context) {
+  globalThis.context = context;
+  try {
+
+var exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/Temporary Unlock All Layers [tual].js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./node_modules/sketch-module-google-analytics/index.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/sketch-module-google-analytics/index.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
+
+var kUUIDKey = "google.analytics.uuid";
+var uuid = null
+var uuid = NSUserDefaults.standardUserDefaults().objectForKey(kUUIDKey);
+if (!uuid) {
+    uuid = NSUUID.UUID().UUIDString();
+    NSUserDefaults.standardUserDefaults().setObject_forKey(uuid, kUUIDKey)
+}
+
+var variant = MSApplicationMetadata.metadata().variant;
+var source =
+    "Sketch " +
+    (variant == "NONAPPSTORE" ? "" : variant + " ") +
+    Settings.version.sketch;
+
+function jsonToQueryString(json) {
+    return Object.keys(json)
+        .map(function(key) {
+            return encodeURIComponent(key) + "=" + encodeURIComponent(json[key]);
+        })
+        .join("&");
+}
+
+function makeRequest(url, options) {
+    if (!url) {
+        return
+    }
+
+    if (options && options.makeRequest) {
+        return options.makeRequest(url)
+    }
+    if (options && options.debug) {
+        var request = NSURLRequest.requestWithURL(url)
+        var responsePtr = MOPointer.alloc().init();
+        var errorPtr = MOPointer.alloc().init();
+
+        var data = NSURLConnection.sendSynchronousRequest_returningResponse_error(request, responsePtr, errorPtr)
+        return data ? NSString.alloc().initWithData_encoding(data, NSUTF8StringEncoding) : errorPtr.value()
+    }
+
+    NSURLSession.sharedSession()
+        .dataTaskWithURL(url)
+        .resume();
+}
+
+module.exports = function(trackingId, hitType, props, options) {
+    var payload = {
+        v: 1,
+        tid: trackingId,
+        ds: source,
+        cid: uuid,
+        t: hitType
+    };
+
+    if (typeof __command !== "undefined") {
+        payload.an = __command.pluginBundle().name();
+        payload.aid = __command.pluginBundle().identifier();
+        payload.av = __command.pluginBundle().version();
+    }
+
+    if (props) {
+        Object.keys(props).forEach(function(key) {
+            payload[key] = props[key];
+        });
+    }
+
+    var url = NSURL.URLWithString(
+        "https://www.google-analytics.com/" + (options && options.debug ? "debug/" : "") + "collect?" +
+        jsonToQueryString(payload) +
+        "&z=" +
+        NSUUID.UUID().UUIDString()
+    );
+
+    return makeRequest(url, options)
+};
+
+/***/ }),
+
+/***/ "./src/Temporary Unlock All Layers [tual].js":
+/*!***************************************************!*\
+  !*** ./src/Temporary Unlock All Layers [tual].js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Google Analytics Method */ "./src/modules/Google Analytics Method.js");
+
+var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
+
+var settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  //function: WriteLockedInfo
+  var WriteLockedInfo = function WriteLockedInfo(item1, item2, item3, item4) {
+    settings.setSessionVariable('ReadLockedInfo', {
+      LockedLayersId: item1,
+      Locked: item2,
+      DocId: item3,
+      PageId: item4
+    });
+  }; //判断一系列需要初始值的情况 即 WriteLockedInfo([], 1, null)
+
+
+  var LockedLayersId, Locked, DocId, PageId, LockedLayers; // LockedLayers = sketch.find('[locked=true]', doc.selectedPage)
+  //判断 WriteLockedInfo 为空时
+
+  if (!settings.sessionVariable('ReadLockedInfo')) {
+    LockedLayersId = [], Locked = 1, DocId = null, PageId = null;
+  } //WriteLockedInfo 不为空时 
+  else {
+      LockedLayersId = settings.sessionVariable('ReadLockedInfo').LockedLayersId;
+      Locked = settings.sessionVariable('ReadLockedInfo').Locked;
+      DocId = settings.sessionVariable('ReadLockedInfo').DocId;
+      PageId = settings.sessionVariable('ReadLockedInfo').PageId; //储存的锁定图层数量为 0 时
+
+      if (settings.sessionVariable('ReadLockedInfo').LockedLayersId.length === 0) {
+        LockedLayersId = [], Locked = 1, DocId = null, PageId = null;
+      } //锁定图层数量不为 0 时，判断文档是否切换
+      else {
+          Locked = 0; // LockedLayersId = settings.sessionVariable('ReadLockedInfo').LockedLayersId
+          //DocId = settings.sessionVariable('ReadLockedInfo').DocId
+          //文档切换时
+
+          if (settings.sessionVariable('ReadLockedInfo').DocId !== doc.id) {
+            LockedLayersId = [], Locked = 1, DocId = null, PageId = null;
+          } //文档未切换，页面切换时 
+          else if (settings.sessionVariable('ReadLockedInfo').PageId !== doc.selectedPage.id) {
+              LockedLayersId = [], Locked = 1, DocId = null, PageId = null;
+            }
+        }
+    }
+
+  WriteLockedInfo(LockedLayersId, Locked, DocId, PageId); //主要功能开始
+  //Locked 为 1 时 (执行完切换为 0 )
+
+  if (settings.sessionVariable('ReadLockedInfo').Locked === 1) {
+    WriteLockedInfo([], 0, doc.id, doc.selectedPage.id);
+    LockedLayers = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.find('[locked=true]', doc.selectedPage);
+
+    for (var i = 0, len = LockedLayers.length; i < len; i++) {
+      LockedLayersId.splice(0, 0, LockedLayers[i].id);
+    }
+
+    LockedLayers.forEach(function (item) {
+      item.locked = false;
+    });
+    WriteLockedInfo(LockedLayersId, 0, doc.id, doc.selectedPage.id);
+    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Unlocking");
+  } //Locked 为 0 时 (执行完切换为 1 ) 
+  else if (settings.sessionVariable('ReadLockedInfo').Locked === 0) {
+      WriteLockedInfo(LockedLayersId, 1, null, null);
+      /*
+      LockedLayers = sketch.find('[locked=false]', doc.selectedPage)
+      LockedLayers.forEach(item => {
+          if (LockedLayersId.indexOf(item.id) !== -1) {
+              item.locked = true
+          }
+      })
+      */
+
+      for (var _i = 0, _len = settings.sessionVariable('ReadLockedInfo').LockedLayersId.length; _i < _len; _i++) {
+        if (doc.getLayerWithID(settings.sessionVariable('ReadLockedInfo').LockedLayersId[_i])) {
+          var ThisLayer = doc.getLayerWithID(settings.sessionVariable('ReadLockedInfo').LockedLayersId[_i]);
+          ThisLayer.locked = true;
+        }
+      }
+
+      sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Recovered");
+    } //GA
+
+
+  Object(_modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__["default"])("NormalResult");
+});
+
+/***/ }),
+
+/***/ "./src/modules/Google Analytics Method.js":
+/*!************************************************!*\
+  !*** ./src/modules/Google Analytics Method.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
+
+/* harmony default export */ __webpack_exports__["default"] = (function (CommandResult) {
+  var track = __webpack_require__(/*! sketch-module-google-analytics */ "./node_modules/sketch-module-google-analytics/index.js");
+
+  var variant = MSApplicationMetadata.metadata().variant;
+  var Sketchinfo = "Sketch " + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch;
+  var PluginInfo = context.plugin.identifier() + " [v" + context.plugin.version() + "] " + context.command.identifier();
+  track("UA-169300937-2", "event", {
+    ec: Sketchinfo,
+    // the event category
+    ea: PluginInfo,
+    // the event action
+    el: CommandResult // the event label
+
+  });
+});
+
+/***/ }),
+
+/***/ "sketch":
+/*!*************************!*\
+  !*** external "sketch" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("sketch");
+
+/***/ }),
+
+/***/ "sketch/settings":
+/*!**********************************!*\
+  !*** external "sketch/settings" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("sketch/settings");
+
+/***/ })
+
+/******/ });
+    if (key === 'default' && typeof exports === 'function') {
+      exports(context);
+    } else if (typeof exports[key] !== 'function') {
+      throw new Error('Missing export named "' + key + '". Your command should contain something like `export function " + key +"() {}`.');
+    } else {
+      exports[key](context);
+    }
+  } catch (err) {
+    if (typeof process !== 'undefined' && process.listenerCount && process.listenerCount('uncaughtException')) {
+      process.emit("uncaughtException", err, "uncaughtException");
+    } else {
+      throw err
+    }
+  }
+}
+globalThis['onRun'] = __skpm_run.bind(this, 'default')
+
+//# sourceMappingURL=Temporary Unlock All Layers [tual].js.map

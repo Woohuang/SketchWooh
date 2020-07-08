@@ -1,1 +1,280 @@
-var globalThis=this,global=this;function __skpm_run(e,t){globalThis.context=t;try{var n=function(e){var t={};function n(o){if(t[o])return t[o].exports;var r=t[o]={i:o,l:!1,exports:{}};return e[o].call(r.exports,r,r.exports,n),r.l=!0,r.exports}return n.m=e,n.c=t,n.d=function(e,t,o){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:o})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var o=Object.create(null);if(n.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var r in e)n.d(o,r,function(t){return e[t]}.bind(null,r));return o},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=3)}([function(e,t){e.exports=require("sketch")},function(e,t,n){var o=n(2),r=null;(r=NSUserDefaults.standardUserDefaults().objectForKey("google.analytics.uuid"))||(r=NSUUID.UUID().UUIDString(),NSUserDefaults.standardUserDefaults().setObject_forKey(r,"google.analytics.uuid"));var i=MSApplicationMetadata.metadata().variant,a="Sketch "+("NONAPPSTORE"==i?"":i+" ")+o.version.sketch;e.exports=function(e,t,n,o){var i,u={v:1,tid:e,ds:a,cid:r,t:t};return"undefined"!=typeof __command&&(u.an=__command.pluginBundle().name(),u.aid=__command.pluginBundle().identifier(),u.av=__command.pluginBundle().version()),n&&Object.keys(n).forEach((function(e){u[e]=n[e]})),function(e,t){if(e){if(t&&t.makeRequest)return t.makeRequest(e);if(t&&t.debug){var n=NSURLRequest.requestWithURL(e),o=MOPointer.alloc().init(),r=MOPointer.alloc().init(),i=NSURLConnection.sendSynchronousRequest_returningResponse_error(n,o,r);return i?NSString.alloc().initWithData_encoding(i,NSUTF8StringEncoding):r.value()}NSURLSession.sharedSession().dataTaskWithURL(e).resume()}}(NSURL.URLWithString("https://www.google-analytics.com/"+(o&&o.debug?"debug/":"")+"collect?"+(i=u,Object.keys(i).map((function(e){return encodeURIComponent(e)+"="+encodeURIComponent(i[e])})).join("&")+"&z=")+NSUUID.UUID().UUIDString()),o)}},function(e,t){e.exports=require("sketch/settings")},function(e,n,o){"use strict";o.r(n);var r=o(0),i=o.n(r).a.getSelectedDocument().selectedLayers.layers;n.default=function(){var e,n,r;i.length>10?console.log("Easy to Crash If Layers Quantity Greater Than 10"):console.log(i),e="NormalResult",n=o(1),r=MSApplicationMetadata.metadata().variant,n("UA-169300937-2","event",{ec:"Sketch "+("NONAPPSTORE"==r?"":r+" ")+Settings.version.sketch,ea:t.plugin.identifier()+" [v"+t.plugin.version()+"] "+t.command.identifier(),el:e})}}]);if("default"===e&&"function"==typeof n)n(t);else{if("function"!=typeof n[e])throw new Error('Missing export named "'+e+'". Your command should contain something like `export function " + key +"() {}`.');n[e](t)}}catch(o){if("undefined"==typeof process||!process.listenerCount||!process.listenerCount("uncaughtException"))throw o;process.emit("uncaughtException",o,"uncaughtException")}}globalThis.onRun=__skpm_run.bind(this,"default");
+var globalThis = this;
+var global = this;
+function __skpm_run (key, context) {
+  globalThis.context = context;
+  try {
+
+var exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/Selection Data [sd].js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./node_modules/sketch-module-google-analytics/index.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/sketch-module-google-analytics/index.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
+
+var kUUIDKey = "google.analytics.uuid";
+var uuid = null
+var uuid = NSUserDefaults.standardUserDefaults().objectForKey(kUUIDKey);
+if (!uuid) {
+    uuid = NSUUID.UUID().UUIDString();
+    NSUserDefaults.standardUserDefaults().setObject_forKey(uuid, kUUIDKey)
+}
+
+var variant = MSApplicationMetadata.metadata().variant;
+var source =
+    "Sketch " +
+    (variant == "NONAPPSTORE" ? "" : variant + " ") +
+    Settings.version.sketch;
+
+function jsonToQueryString(json) {
+    return Object.keys(json)
+        .map(function(key) {
+            return encodeURIComponent(key) + "=" + encodeURIComponent(json[key]);
+        })
+        .join("&");
+}
+
+function makeRequest(url, options) {
+    if (!url) {
+        return
+    }
+
+    if (options && options.makeRequest) {
+        return options.makeRequest(url)
+    }
+    if (options && options.debug) {
+        var request = NSURLRequest.requestWithURL(url)
+        var responsePtr = MOPointer.alloc().init();
+        var errorPtr = MOPointer.alloc().init();
+
+        var data = NSURLConnection.sendSynchronousRequest_returningResponse_error(request, responsePtr, errorPtr)
+        return data ? NSString.alloc().initWithData_encoding(data, NSUTF8StringEncoding) : errorPtr.value()
+    }
+
+    NSURLSession.sharedSession()
+        .dataTaskWithURL(url)
+        .resume();
+}
+
+module.exports = function(trackingId, hitType, props, options) {
+    var payload = {
+        v: 1,
+        tid: trackingId,
+        ds: source,
+        cid: uuid,
+        t: hitType
+    };
+
+    if (typeof __command !== "undefined") {
+        payload.an = __command.pluginBundle().name();
+        payload.aid = __command.pluginBundle().identifier();
+        payload.av = __command.pluginBundle().version();
+    }
+
+    if (props) {
+        Object.keys(props).forEach(function(key) {
+            payload[key] = props[key];
+        });
+    }
+
+    var url = NSURL.URLWithString(
+        "https://www.google-analytics.com/" + (options && options.debug ? "debug/" : "") + "collect?" +
+        jsonToQueryString(payload) +
+        "&z=" +
+        NSUUID.UUID().UUIDString()
+    );
+
+    return makeRequest(url, options)
+};
+
+/***/ }),
+
+/***/ "./src/Selection Data [sd].js":
+/*!************************************!*\
+  !*** ./src/Selection Data [sd].js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Google Analytics Method */ "./src/modules/Google Analytics Method.js");
+
+var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
+var Selection = doc.selectedLayers.layers;
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  if (Selection.length > 10) {
+    console.log("Easy to Crash If Layers Quantity Greater Than 10");
+  } else {
+    console.log(Selection);
+  } //GA
+
+
+  Object(_modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__["default"])("NormalResult");
+});
+
+/***/ }),
+
+/***/ "./src/modules/Google Analytics Method.js":
+/*!************************************************!*\
+  !*** ./src/modules/Google Analytics Method.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
+
+/* harmony default export */ __webpack_exports__["default"] = (function (CommandResult) {
+  var track = __webpack_require__(/*! sketch-module-google-analytics */ "./node_modules/sketch-module-google-analytics/index.js");
+
+  var variant = MSApplicationMetadata.metadata().variant;
+  var Sketchinfo = "Sketch " + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch;
+  var PluginInfo = context.plugin.identifier() + " [v" + context.plugin.version() + "] " + context.command.identifier();
+  track("UA-169300937-2", "event", {
+    ec: Sketchinfo,
+    // the event category
+    ea: PluginInfo,
+    // the event action
+    el: CommandResult // the event label
+
+  });
+});
+
+/***/ }),
+
+/***/ "sketch":
+/*!*************************!*\
+  !*** external "sketch" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("sketch");
+
+/***/ }),
+
+/***/ "sketch/settings":
+/*!**********************************!*\
+  !*** external "sketch/settings" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("sketch/settings");
+
+/***/ })
+
+/******/ });
+    if (key === 'default' && typeof exports === 'function') {
+      exports(context);
+    } else if (typeof exports[key] !== 'function') {
+      throw new Error('Missing export named "' + key + '". Your command should contain something like `export function " + key +"() {}`.');
+    } else {
+      exports[key](context);
+    }
+  } catch (err) {
+    if (typeof process !== 'undefined' && process.listenerCount && process.listenerCount('uncaughtException')) {
+      process.emit("uncaughtException", err, "uncaughtException");
+    } else {
+      throw err
+    }
+  }
+}
+globalThis['onRun'] = __skpm_run.bind(this, 'default')
+
+//# sourceMappingURL=Selection Data [sd].js.map

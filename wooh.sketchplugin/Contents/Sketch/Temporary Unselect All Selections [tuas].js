@@ -1,1 +1,353 @@
-var globalThis=this,global=this;function __skpm_run(e,t){globalThis.context=t;try{var n=function(e){var t={};function n(i){if(t[i])return t[i].exports;var a=t[i]={i:i,l:!1,exports:{}};return e[i].call(a.exports,a,a.exports,n),a.l=!0,a.exports}return n.m=e,n.c=t,n.d=function(e,t,i){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:i})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var i=Object.create(null);if(n.r(i),Object.defineProperty(i,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var a in e)n.d(i,a,function(t){return e[t]}.bind(null,a));return i},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=3)}([function(e,t){e.exports=require("sketch")},function(e,t){e.exports=require("sketch/settings")},function(e,t,n){var i=n(1),a=null;(a=NSUserDefaults.standardUserDefaults().objectForKey("google.analytics.uuid"))||(a=NSUUID.UUID().UUIDString(),NSUserDefaults.standardUserDefaults().setObject_forKey(a,"google.analytics.uuid"));var o=MSApplicationMetadata.metadata().variant,r="Sketch "+("NONAPPSTORE"==o?"":o+" ")+i.version.sketch;e.exports=function(e,t,n,i){var o,s={v:1,tid:e,ds:r,cid:a,t:t};return"undefined"!=typeof __command&&(s.an=__command.pluginBundle().name(),s.aid=__command.pluginBundle().identifier(),s.av=__command.pluginBundle().version()),n&&Object.keys(n).forEach((function(e){s[e]=n[e]})),function(e,t){if(e){if(t&&t.makeRequest)return t.makeRequest(e);if(t&&t.debug){var n=NSURLRequest.requestWithURL(e),i=MOPointer.alloc().init(),a=MOPointer.alloc().init(),o=NSURLConnection.sendSynchronousRequest_returningResponse_error(n,i,a);return o?NSString.alloc().initWithData_encoding(o,NSUTF8StringEncoding):a.value()}NSURLSession.sharedSession().dataTaskWithURL(e).resume()}}(NSURL.URLWithString("https://www.google-analytics.com/"+(i&&i.debug?"debug/":"")+"collect?"+(o=s,Object.keys(o).map((function(e){return encodeURIComponent(e)+"="+encodeURIComponent(o[e])})).join("&")+"&z=")+NSUUID.UUID().UUIDString()),i)}},function(e,n,i){"use strict";i.r(n);var a=i(0),o=i.n(a),r=o.a.getSelectedDocument(),s=i(1),l=r.selectedLayers.layers;n.default=function(){var e,n,a,c,d,u,f,S=function(e,t,n,i){s.setSessionVariable("ReadSelectedInfo",{SelectedLayersId:e,Selected:t,DocId:n,PageId:i})};if(s.sessionVariable("ReadSelectedInfo")?(e=s.sessionVariable("ReadSelectedInfo").SelectedLayersId,n=s.sessionVariable("ReadSelectedInfo").Selected,a=s.sessionVariable("ReadSelectedInfo").DocId,c=s.sessionVariable("ReadSelectedInfo").PageId,0===s.sessionVariable("ReadSelectedInfo").SelectedLayersId.length?(e=[],n=1,a=null,c=null):(n=0,(s.sessionVariable("ReadSelectedInfo").DocId!==r.id||s.sessionVariable("ReadSelectedInfo").PageId!==r.selectedPage.id)&&(e=[],n=1,a=null,c=null))):(e=[],n=1,a=null,c=null),S(e,n,a,c),1===s.sessionVariable("ReadSelectedInfo").Selected)if(S([],0,r.id,r.selectedPage.id),l.length>0){for(var g=0,p=l.length;g<p;g++)e.splice(0,0,l[g].id);l.forEach((function(e){e.selected=!1})),S(e,0,r.id,r.selectedPage.id),o.a.UI.message("Succeed In Unselecting")}else o.a.UI.message("No Layer Selected");else if(0===s.sessionVariable("ReadSelectedInfo").Selected){r.selectedLayers.clear(),S(e,1,null,null);for(var I=0,b=s.sessionVariable("ReadSelectedInfo").SelectedLayersId.length;I<b;I++){if(r.getLayerWithID(s.sessionVariable("ReadSelectedInfo").SelectedLayersId[I]))r.getLayerWithID(s.sessionVariable("ReadSelectedInfo").SelectedLayersId[I]).selected=!0}o.a.UI.message("Recovered")}d="NormalResult",u=i(2),f=MSApplicationMetadata.metadata().variant,u("UA-169300937-2","event",{ec:"Sketch "+("NONAPPSTORE"==f?"":f+" ")+Settings.version.sketch,ea:t.plugin.identifier()+" [v"+t.plugin.version()+"] "+t.command.identifier(),el:d})}}]);if("default"===e&&"function"==typeof n)n(t);else{if("function"!=typeof n[e])throw new Error('Missing export named "'+e+'". Your command should contain something like `export function " + key +"() {}`.');n[e](t)}}catch(i){if("undefined"==typeof process||!process.listenerCount||!process.listenerCount("uncaughtException"))throw i;process.emit("uncaughtException",i,"uncaughtException")}}globalThis.onRun=__skpm_run.bind(this,"default");
+var globalThis = this;
+var global = this;
+function __skpm_run (key, context) {
+  globalThis.context = context;
+  try {
+
+var exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/Temporary Unselect All Selections [tuas].js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./node_modules/sketch-module-google-analytics/index.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/sketch-module-google-analytics/index.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
+
+var kUUIDKey = "google.analytics.uuid";
+var uuid = null
+var uuid = NSUserDefaults.standardUserDefaults().objectForKey(kUUIDKey);
+if (!uuid) {
+    uuid = NSUUID.UUID().UUIDString();
+    NSUserDefaults.standardUserDefaults().setObject_forKey(uuid, kUUIDKey)
+}
+
+var variant = MSApplicationMetadata.metadata().variant;
+var source =
+    "Sketch " +
+    (variant == "NONAPPSTORE" ? "" : variant + " ") +
+    Settings.version.sketch;
+
+function jsonToQueryString(json) {
+    return Object.keys(json)
+        .map(function(key) {
+            return encodeURIComponent(key) + "=" + encodeURIComponent(json[key]);
+        })
+        .join("&");
+}
+
+function makeRequest(url, options) {
+    if (!url) {
+        return
+    }
+
+    if (options && options.makeRequest) {
+        return options.makeRequest(url)
+    }
+    if (options && options.debug) {
+        var request = NSURLRequest.requestWithURL(url)
+        var responsePtr = MOPointer.alloc().init();
+        var errorPtr = MOPointer.alloc().init();
+
+        var data = NSURLConnection.sendSynchronousRequest_returningResponse_error(request, responsePtr, errorPtr)
+        return data ? NSString.alloc().initWithData_encoding(data, NSUTF8StringEncoding) : errorPtr.value()
+    }
+
+    NSURLSession.sharedSession()
+        .dataTaskWithURL(url)
+        .resume();
+}
+
+module.exports = function(trackingId, hitType, props, options) {
+    var payload = {
+        v: 1,
+        tid: trackingId,
+        ds: source,
+        cid: uuid,
+        t: hitType
+    };
+
+    if (typeof __command !== "undefined") {
+        payload.an = __command.pluginBundle().name();
+        payload.aid = __command.pluginBundle().identifier();
+        payload.av = __command.pluginBundle().version();
+    }
+
+    if (props) {
+        Object.keys(props).forEach(function(key) {
+            payload[key] = props[key];
+        });
+    }
+
+    var url = NSURL.URLWithString(
+        "https://www.google-analytics.com/" + (options && options.debug ? "debug/" : "") + "collect?" +
+        jsonToQueryString(payload) +
+        "&z=" +
+        NSUUID.UUID().UUIDString()
+    );
+
+    return makeRequest(url, options)
+};
+
+/***/ }),
+
+/***/ "./src/Temporary Unselect All Selections [tuas].js":
+/*!*********************************************************!*\
+  !*** ./src/Temporary Unselect All Selections [tuas].js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Google Analytics Method */ "./src/modules/Google Analytics Method.js");
+
+var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
+
+var settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
+
+var Selection = doc.selectedLayers.layers;
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  //function: WriteSelectedInfo
+  var WriteSelectedInfo = function WriteSelectedInfo(item1, item2, item3, item4) {
+    settings.setSessionVariable('ReadSelectedInfo', {
+      SelectedLayersId: item1,
+      Selected: item2,
+      DocId: item3,
+      PageId: item4
+    });
+  }; //判断一系列需要初始值的情况 即 WriteSelectedInfo([], 1, null)
+
+
+  var SelectedLayersId, Selected, DocId, PageId; //判断 WriteSelectedInfo 为空时
+
+  if (!settings.sessionVariable('ReadSelectedInfo')) {
+    SelectedLayersId = [], Selected = 1, DocId = null, PageId = null;
+  } //WriteSelectedInfo 不为空时 
+  else {
+      SelectedLayersId = settings.sessionVariable('ReadSelectedInfo').SelectedLayersId;
+      Selected = settings.sessionVariable('ReadSelectedInfo').Selected;
+      DocId = settings.sessionVariable('ReadSelectedInfo').DocId;
+      PageId = settings.sessionVariable('ReadSelectedInfo').PageId; //储存的选中图层数量为 0 时
+
+      if (settings.sessionVariable('ReadSelectedInfo').SelectedLayersId.length === 0) {
+        SelectedLayersId = [], Selected = 1, DocId = null, PageId = null;
+      } //选中图层数量不为 0 时，判断文档是否切换
+      else {
+          Selected = 0; // SelectedLayersId = settings.sessionVariable('ReadSelectedInfo').SelectedLayersId
+          //DocId = settings.sessionVariable('ReadSelectedInfo').DocId
+          //文档切换时
+
+          if (settings.sessionVariable('ReadSelectedInfo').DocId !== doc.id) {
+            SelectedLayersId = [], Selected = 1, DocId = null, PageId = null;
+          } //文档未切换，页面切换时 
+          else if (settings.sessionVariable('ReadSelectedInfo').PageId !== doc.selectedPage.id) {
+              SelectedLayersId = [], Selected = 1, DocId = null, PageId = null;
+            }
+        }
+    }
+
+  WriteSelectedInfo(SelectedLayersId, Selected, DocId, PageId); //主要功能开始
+  //Selected 为 1 时 (执行完切换为 0 )
+
+  if (settings.sessionVariable('ReadSelectedInfo').Selected === 1) {
+    WriteSelectedInfo([], 0, doc.id, doc.selectedPage.id);
+
+    if (Selection.length > 0) {
+      for (var i = 0, len = Selection.length; i < len; i++) {
+        SelectedLayersId.splice(0, 0, Selection[i].id);
+      }
+
+      Selection.forEach(function (item) {
+        item.selected = false;
+      });
+      WriteSelectedInfo(SelectedLayersId, 0, doc.id, doc.selectedPage.id); //toast result
+
+      sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Unselecting");
+    } else {
+      //toast result
+      sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("No Layer Selected");
+    }
+  } //Selected 为 0 时 (执行完切换为 1 ) 
+  else if (settings.sessionVariable('ReadSelectedInfo').Selected === 0) {
+      doc.selectedLayers.clear();
+      WriteSelectedInfo(SelectedLayersId, 1, null, null);
+
+      for (var _i = 0, _len = settings.sessionVariable('ReadSelectedInfo').SelectedLayersId.length; _i < _len; _i++) {
+        if (doc.getLayerWithID(settings.sessionVariable('ReadSelectedInfo').SelectedLayersId[_i])) {
+          var ThisLayer = doc.getLayerWithID(settings.sessionVariable('ReadSelectedInfo').SelectedLayersId[_i]);
+          ThisLayer.selected = true;
+        }
+      } //toast result
+
+
+      sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Recovered");
+    } //GA
+
+
+  Object(_modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__["default"])("NormalResult");
+});
+
+/***/ }),
+
+/***/ "./src/modules/Google Analytics Method.js":
+/*!************************************************!*\
+  !*** ./src/modules/Google Analytics Method.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
+
+/* harmony default export */ __webpack_exports__["default"] = (function (CommandResult) {
+  var track = __webpack_require__(/*! sketch-module-google-analytics */ "./node_modules/sketch-module-google-analytics/index.js");
+
+  var variant = MSApplicationMetadata.metadata().variant;
+  var Sketchinfo = "Sketch " + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch;
+  var PluginInfo = context.plugin.identifier() + " [v" + context.plugin.version() + "] " + context.command.identifier();
+  track("UA-169300937-2", "event", {
+    ec: Sketchinfo,
+    // the event category
+    ea: PluginInfo,
+    // the event action
+    el: CommandResult // the event label
+
+  });
+});
+
+/***/ }),
+
+/***/ "sketch":
+/*!*************************!*\
+  !*** external "sketch" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("sketch");
+
+/***/ }),
+
+/***/ "sketch/settings":
+/*!**********************************!*\
+  !*** external "sketch/settings" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("sketch/settings");
+
+/***/ })
+
+/******/ });
+    if (key === 'default' && typeof exports === 'function') {
+      exports(context);
+    } else if (typeof exports[key] !== 'function') {
+      throw new Error('Missing export named "' + key + '". Your command should contain something like `export function " + key +"() {}`.');
+    } else {
+      exports[key](context);
+    }
+  } catch (err) {
+    if (typeof process !== 'undefined' && process.listenerCount && process.listenerCount('uncaughtException')) {
+      process.emit("uncaughtException", err, "uncaughtException");
+    } else {
+      throw err
+    }
+  }
+}
+globalThis['onRun'] = __skpm_run.bind(this, 'default')
+
+//# sourceMappingURL=Temporary Unselect All Selections [tuas].js.map
