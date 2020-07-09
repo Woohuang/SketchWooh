@@ -1,7 +1,7 @@
 {
     "name": "my-plugin",
     "description": "## Installation",
-    "version": "1.5.8",
+    "version": "1.5.9",
     "engines": {
         "sketch": ">=49.0"
     },
