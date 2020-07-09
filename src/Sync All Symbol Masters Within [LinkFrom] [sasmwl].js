@@ -53,7 +53,12 @@ export default function() {
                     findSymbolMasters = sketch.find('SymbolMaster')
                     findResult = 1
                 }
-                LinkOriginalMasterId = findSymbolMasters.find(item2 => item2.name === item.overrides[1].value).symbolId
+
+                //something wrong
+                console.log("1")
+                LinkOriginalMasterId = findSymbolMasters.find(item2 => item2.name === item.overrides[1].overrides[1].value).symbolId
+                console.log("2")
+                console.log(LinkOriginalMasterId)
 
                 //set LinkOriginalMasterId info
                 Settings.setLayerSettingForKey(item, 'LinkOriginalMasterId', LinkOriginalMasterId)
