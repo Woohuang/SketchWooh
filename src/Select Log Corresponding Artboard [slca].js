@@ -48,7 +48,7 @@ export default function() {
 
     //selected LogTexts num < 0
     else {
-        sketch.UI.message("请至少选中1个Log文本图层")
+        sketch.UI.message("Please Select At Least 1 Log Text Layer")
     }
 
 

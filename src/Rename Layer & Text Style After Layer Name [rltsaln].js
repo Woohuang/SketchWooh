@@ -16,7 +16,7 @@ export default function() {
         })
         sketch.UI.message("Succeed In Renaming " + RenameResult + " Styles")
     } else {
-        sketch.UI.message("Please Select At Least 1 Layer")
+        sketch.UI.message("Please Select At Least  1 Layer")
     }
 
 

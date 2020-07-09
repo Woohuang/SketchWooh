@@ -7,7 +7,7 @@ let doc = sketch.getSelectedDocument()
 let Selection = doc.selectedLayers.layers
 let Settings = require('sketch/settings')
 
-//引入时间戳
+//acquire date
 import { DateFormat } from './modules/Date Format'
 DateFormat()
 let ThisDay = new Date().format("yyyy-MM-dd")
@@ -80,7 +80,7 @@ export default function() {
         //acquire log content
         let LogContent
         UI.getInputFromUser(
-            "已选中" + ArtboardNum + "个画板" + ":" + ArtboardNames, {
+            "Selected " + ArtboardNum + " Artboard(s)" + ":" + ArtboardNames, {
                 initialValue: 'Enter Change Log',
                 numberOfLines: 3,
             },
@@ -91,7 +91,7 @@ export default function() {
                     //set log text
                     LogContent = value
                     let ChangeLogTxt = new Text({
-                        text: "⌨️ 更新说明：" + "\n" + LogContent + "\n" + "🖱️ 关联页面:" + ArtboardNames,
+                        text: "⌨️ Log:" + "\n" + LogContent + "\n" + "🖱️ Pages:" + ArtboardNames,
                         parent: LogGroup
                     })
                     ChangeLogTxt.name = ThisTime
@@ -106,7 +106,7 @@ export default function() {
             }
         )
     } else {
-        sketch.UI.message("请至少选中1个画板")
+        sketch.UI.message("Please Select At Least 1 Artboard")
     }
 
 

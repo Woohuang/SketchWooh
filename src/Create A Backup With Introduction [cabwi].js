@@ -4,7 +4,7 @@ let UI = require('sketch/ui')
 let doc = sketch.getSelectedDocument()
 let path = require('path')
 
-//引入时间戳
+//acquire date
 import { DateFormat } from './modules/Date Format'
 DateFormat()
 let ThisDate = new Date().format("yyyy-MM-dd hh:mm:ss")
@@ -40,7 +40,7 @@ export default function() {
         })
         sketch.UI.message("Succeed In Backup  At " + ThisDate)
     } else {
-        sketch.UI.message("请先保存文档")
+        sketch.UI.message("Please Save The Document First")
         doc.save()
     }
 

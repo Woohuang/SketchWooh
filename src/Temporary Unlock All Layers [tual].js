@@ -50,8 +50,7 @@ export default function() {
     }
     WriteLockedInfo(LockedLayersId, Locked, DocId, PageId)
 
-    //主要功能开始
-    //Locked 为 1 时 (执行完切换为 0 )
+    //main function begins    //Locked 为 1 时 (执行完切换为 0 )
     if (settings.sessionVariable('ReadLockedInfo').Locked === 1) {
         WriteLockedInfo([], 0, doc.id, doc.selectedPage.id)
         LockedLayers = sketch.find('[locked=true]', doc.selectedPage)

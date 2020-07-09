@@ -6,18 +6,17 @@ import GA from "./modules/Google Analytics Method"
 
 export default function() {
 
-    //角度转换弧度 function
+    //angle convertion function
     function toRadians(angle) {
         return angle * (Math.PI / 180);
     }
 
-    //数字大小排序 function
+    //number sorting function
     function sortNumber(a, b) {
         return a - b
     }
 
-    //主要功能开始
-
+    //main function begins
     let string = NSPasteboard.generalPasteboard().stringForType(NSPasteboardTypeString)
     let CopyNumber = (string - 0) * 1
     let SetSpacing
@@ -68,7 +67,7 @@ export default function() {
         sketch.UI.message("Try copying a Number~")
     }
 
-    //清空剪贴板
+    //empty pasteboard
     NSPasteboard.generalPasteboard().clearContents()
 
     //GA

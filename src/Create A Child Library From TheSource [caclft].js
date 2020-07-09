@@ -22,8 +22,7 @@ export default function() {
         newDocument.readFromURL_ofType_error(fileURL, "com.bohemiancoding.sketch.drawing", error)
         let wrappedDoc = sketch.fromNative(newDocument)
 
-        //main function begins
-        let TC_library = new Document()
+        //main function begins        let TC_library = new Document()
 
         //sync shared styles and colors
         TC_library.sharedTextStyles = wrappedDoc.sharedTextStyles

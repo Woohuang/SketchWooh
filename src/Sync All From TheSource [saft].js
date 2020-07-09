@@ -19,8 +19,6 @@ export default function() {
     newDocument.readFromURL_ofType_error(fileURL, "com.bohemiancoding.sketch.drawing", error)
     let wrappedDoc = sketch.fromNative(newDocument)
 
-    //需要补充一系列检验文件正确性的功能
-
     //Sync 开始
     let TS_doc, TC_doc, TS_pages, TC_pages, TS_StylesArtboards, TC_CuStylesArtboards
     TC_doc = doc, TS_doc = wrappedDoc

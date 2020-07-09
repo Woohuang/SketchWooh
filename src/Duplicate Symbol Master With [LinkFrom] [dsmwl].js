@@ -20,7 +20,7 @@ export default function() {
 
     //acquire LinkFrom master
     UI.getInputFromUser(
-        "确认 [Link/From] 组件 Master", {
+        "Choose The [Link/From-Bridge] Symbol Master", {
             type: UI.INPUT_TYPE.selection,
             possibleValues: LinkFromSymbolLikelyNames,
         },
@@ -36,7 +36,7 @@ export default function() {
     if (LinkFromMaster !== undefined) {
         ChooseLinkFromMasterResult = 1
     } else {
-        sketch.UI.message('未找到正确的 [Link/From] 组件 Master')
+        sketch.UI.message('未找到正确的 [Link/From-Bridge] 组件 Master')
     }
 
     //if LinkFrom master is right

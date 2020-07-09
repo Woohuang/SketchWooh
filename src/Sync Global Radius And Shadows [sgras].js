@@ -51,7 +51,7 @@ export default function() {
         }
     })
 
-    //Radius 功能开始 
+    //Radius function begins 
     CollectRadiusMasters.forEach(item => {
         SelectionResult = 1
         let GlobalRadius = null
@@ -140,7 +140,7 @@ export default function() {
         })
     })
 
-    //Shadows 功能开始 
+    //Shadows function begins 
     CollectShadowMasters.forEach(item => {
         let GlobalShadows = null
 

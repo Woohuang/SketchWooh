@@ -50,8 +50,7 @@ export default function() {
 
     WriteThroughInfo(ThroughGroupsId, Temporary, DocId, PageId)
 
-    //主要功能开始
-    //Temporary 为 0 时 (执行完切换为 1 )
+    //main function begins    //Temporary 为 0 时 (执行完切换为 1 )
     if (settings.sessionVariable('ReadThroughInfo').Temporary === 0) {
         WriteThroughInfo([], 1, doc.id, doc.selectedPage.id)
         ThroughGroups = PageGroups.filter(item => item.sketchObject.hasClickThrough() === 1)

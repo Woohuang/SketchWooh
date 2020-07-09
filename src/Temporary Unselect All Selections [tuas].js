@@ -50,8 +50,7 @@ export default function() {
     }
     WriteSelectedInfo(SelectedLayersId, Selected, DocId, PageId)
 
-    //主要功能开始
-    //Selected 为 1 时 (执行完切换为 0 )
+    //main function begins    //Selected 为 1 时 (执行完切换为 0 )
     if (settings.sessionVariable('ReadSelectedInfo').Selected === 1) {
         WriteSelectedInfo([], 0, doc.id, doc.selectedPage.id)
 

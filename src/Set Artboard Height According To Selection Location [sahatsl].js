@@ -35,7 +35,7 @@ export default function() {
         sketch.UI.message("Try copying a Number~")
     }
 
-    //清空剪贴板
+    //empty pasteboard
     NSPasteboard.generalPasteboard().clearContents()
 
     //GA

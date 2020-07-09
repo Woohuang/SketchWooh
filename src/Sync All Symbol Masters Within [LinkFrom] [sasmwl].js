@@ -2,18 +2,18 @@ import sketch from 'sketch'
 let UI = require('sketch/ui')
 let Settings = require('sketch/settings')
 let doc = sketch.getSelectedDocument()
-    //let Selection = doc.selectedLayers.layers
 
 import GA from "./modules/Google Analytics Method"
 
 export default function() {
 
-    let LinkResult = 0
-    let ChooseLinkFromMasterResult = 0
-    let findSymbolMasters = sketch.find('SymbolMaster')
-    let LinkFromSymbolLikelyList = findSymbolMasters.filter(item => item.name.indexOf("Link") !== -1 && item.name.indexOf("Bridge") !== -1)
-    let LinkFromSymbolLikelyNames = []
-    let LinkFromMaster
+    let LinkResult = 0,
+        ChooseLinkFromMasterResult = 0,
+        findSymbolMasters = sketch.find('SymbolMaster'),
+        LinkFromSymbolLikelyList = findSymbolMasters.filter(item => item.name.indexOf("Link") !== -1 && item.name.indexOf("Bridge") !== -1),
+        LinkFromSymbolLikelyNames = [],
+        LinkFromMaster
+
     LinkFromSymbolLikelyList.forEach(item => {
         ChooseLinkFromMasterResult = ChooseLinkFromMasterResult + 1
         LinkFromSymbolLikelyNames.push(item.name + " [" + ChooseLinkFromMasterResult + "]")
@@ -99,12 +99,7 @@ export default function() {
     }
 
     //result toast
-    if (LinkResult === 0) {
-        sketch.UI.message("Plese Select The [Link/From] Symbol Master")
-    } else {
-        sketch.UI.message("Succeed In Linking " + LinkResult + " Symbol(s)")
-    }
-
+    sketch.UI.message("Succeed In Linking " + LinkResult + " Symbol(s)")
 
     //GA
     GA("NormalResult")

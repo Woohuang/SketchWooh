@@ -20,7 +20,7 @@ export default function() {
         sketch.UI.message("Succeed In Renaming")
     }
 
-    //清空剪贴板
+    //empty pasteboard
     NSPasteboard.generalPasteboard().clearContents()
 
     //GA

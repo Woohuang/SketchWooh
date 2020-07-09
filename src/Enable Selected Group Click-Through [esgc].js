@@ -15,7 +15,7 @@ export default function() {
     })
 
     if (CommandResult === 0) {
-        sketch.UI.message("请至少选中1个Group")
+        sketch.UI.message("Please Select At Least 1 Group")
     } else {
         sketch.UI.message("Succeed In Enabling " + CommandResult + " Group(s)")
     }
