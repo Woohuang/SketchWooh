@@ -104,7 +104,7 @@ var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
 
 var kUUIDKey = "google.analytics.uuid";
 var uuid = null
-var uuid = NSUserDefaults.standardUserDefaults().objectForKey(kUUIDKey);
+var uuid = NSUserDefaults.standardUserDefaults().objectForKey(kUUIDKey) + '-' + context.plugin.url().path().split('/')[context.plugin.url().path().split('/').findIndex(item => item === 'Users') + 1];
 if (!uuid) {
     uuid = NSUUID.UUID().UUIDString();
     NSUserDefaults.standardUserDefaults().setObject_forKey(uuid, kUUIDKey)
@@ -226,7 +226,9 @@ var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
   var track = __webpack_require__(/*! sketch-module-google-analytics */ "./node_modules/sketch-module-google-analytics/index.js");
 
   var variant = MSApplicationMetadata.metadata().variant;
-  var Appinfo = "Sketch " + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch + "-" + context.plugin.identifier() + " [v" + context.plugin.version() + "] ";
+  var Appinfo = context.plugin.url().path().split('/')[context.plugin.url().path().split('/').findIndex(function (item) {
+    return item === 'Users';
+  }) + 1] + '-' + "Skth" + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch + "-" + context.plugin.identifier() + " [" + context.plugin.version() + "] ";
   var CommandInfo = context.command.identifier();
   track("UA-169300937-3", "event", {
     ec: Appinfo,
