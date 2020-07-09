@@ -16,7 +16,12 @@ export default function() {
         sketch.UI.message("Try copying a Number~")
         SetHeight = 10
     }
-    Selection.forEach(item => item.frame.height = item.frame.height + SetHeight)
+    Selection.forEach(item => {
+        item.frame.height = item.frame.height + SetHeight
+        if (item.parent.type === "Group") {
+            item.parent.adjustToFit()
+        }
+    })
 
     //GA
     GA("NormalResult")

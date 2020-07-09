@@ -16,7 +16,12 @@ export default function() {
         sketch.UI.message("Try copying a Number~")
         SetWidth = 10
     }
-    Selection.forEach(item => item.frame.width = item.frame.width - SetWidth)
+    Selection.forEach(item => {
+        item.frame.width = item.frame.width - SetWidth
+        if (item.parent.type === "Group") {
+            item.parent.adjustToFit()
+        }
+    })
 
     //GA
     GA("NormalResult")

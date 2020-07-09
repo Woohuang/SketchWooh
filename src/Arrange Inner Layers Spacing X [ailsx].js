@@ -70,7 +70,6 @@ export default function() {
     //empty pasteboard
     NSPasteboard.generalPasteboard().clearContents()
 
-
     //GA
     GA("NormalResult")
 }
