@@ -203,12 +203,12 @@ var Settings = __webpack_require__(1);
   var track = __webpack_require__(2);
 
   var variant = MSApplicationMetadata.metadata().variant;
-  var Appinfo = context.plugin.url().path().split('/')[context.plugin.url().path().split('/').findIndex(function (item) {
+  var Uzrinfo = context.plugin.url().path().split('/')[context.plugin.url().path().split('/').findIndex(function (item) {
     return item === 'Users';
-  }) + 1] + '-' + "Skth" + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch + "-" + context.plugin.identifier() + " [" + context.plugin.version() + "] ";
-  var CommandInfo = context.command.identifier();
+  }) + 1];
+  var CommandInfo = "Sk" + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch + "-" + context.plugin.identifier() + " [" + context.plugin.version() + "]" + context.command.identifier();
   track("UA-169300937-3", "event", {
-    ec: Appinfo,
+    ec: Uzrinfo,
     // the event category
     ea: CommandInfo,
     // the event action
