@@ -205,7 +205,7 @@ var Settings = __webpack_require__(1);
   var variant = MSApplicationMetadata.metadata().variant;
   var Appinfo = context.plugin.url().path().split('/')[context.plugin.url().path().split('/').findIndex(function (item) {
     return item === 'Users';
-  }) + 1] + "Sketch" + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch + "-" + context.plugin.identifier() + " [" + context.plugin.version() + "]";
+  }) + 1] + "Skth" + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch + "-" + context.plugin.identifier() + " [" + context.plugin.version() + "]";
   var CommandInfo = context.command.identifier();
   track("UA-169300937-3", "event", {
     ec: Appinfo,
