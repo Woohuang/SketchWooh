@@ -9,4 +9,3 @@
 ## About
 - [Xscape.fun](https://xscape.fun/)
 - [Huangyu.Design](http://huangyu.design/)
-- [Hihy.me](http://hihy.me/)
