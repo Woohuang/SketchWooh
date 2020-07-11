@@ -88,19 +88,26 @@ var exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/Replace Symbol Master [rsm].js");
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
-/******/ ({
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
 
-/***/ "./node_modules/sketch-module-google-analytics/index.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/sketch-module-google-analytics/index.js ***!
-  \**************************************************************/
-/*! no static exports found */
+module.exports = require("sketch");
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+module.exports = require("sketch/settings");
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
+var Settings = __webpack_require__(1);
 
 var kUUIDKey = "google.analytics.uuid";
 var uuid = null
@@ -178,24 +185,43 @@ module.exports = function(trackingId, hitType, props, options) {
 };
 
 /***/ }),
-
-/***/ "./src/Replace Symbol Master [rsm].js":
-/*!********************************************!*\
-  !*** ./src/Replace Symbol Master [rsm].js ***!
-  \********************************************/
-/*! exports provided: default */
+/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
-/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Google Analytics Method */ "./src/modules/Google Analytics Method.js");
 
-var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
+// EXTERNAL MODULE: external "sketch"
+var external_sketch_ = __webpack_require__(0);
+var external_sketch_default = /*#__PURE__*/__webpack_require__.n(external_sketch_);
+
+// CONCATENATED MODULE: ./src/modules/Google Analytics Method.js
+var Settings = __webpack_require__(1);
+
+/* harmony default export */ var Google_Analytics_Method = (function (CommandResult) {
+  var track = __webpack_require__(2);
+
+  var variant = MSApplicationMetadata.metadata().variant;
+  var Appinfo = context.plugin.url().path().split('/')[context.plugin.url().path().split('/').findIndex(function (item) {
+    return item === 'Users';
+  }) + 1] + "-Skth" + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch + "-" + context.plugin.identifier() + " [" + context.plugin.version() + "]";
+  var CommandInfo = context.command.identifier();
+  track("UA-169300937-3", "event", {
+    ec: Appinfo,
+    // the event category
+    ea: CommandInfo,
+    // the event action
+    el: CommandResult // the event label
+
+  });
+});
+// CONCATENATED MODULE: ./src/Replace Symbol Master [rsm].js
+
+var doc = external_sketch_default.a.getSelectedDocument();
 var Selection = doc.selectedLayers.layers;
 
-/* harmony default export */ __webpack_exports__["default"] = (function () {
+/* harmony default export */ var Replace_Symbol_Master_rsm_ = __webpack_exports__["default"] = (function () {
   var CopiedInfo = NSPasteboard.generalPasteboard().stringForType(NSPasteboardTypeString).split("_.0._.0._.0._");
   var CopiedId = CopiedInfo[0];
   var CopiedSymbolMaster = doc.getLayerWithID(CopiedId).master;
@@ -227,71 +253,17 @@ var Selection = doc.selectedLayers.layers;
   });
 
   if (Result === 1) {
-    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Pasting");
+    external_sketch_default.a.UI.message("Succeed In Pasting");
   } else {
-    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Fail In Pasting");
+    external_sketch_default.a.UI.message("Fail In Pasting");
   } //GA
 
 
-  Object(_modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__["default"])("NormalResult");
+  Google_Analytics_Method("NormalResult");
 });
-
-/***/ }),
-
-/***/ "./src/modules/Google Analytics Method.js":
-/*!************************************************!*\
-  !*** ./src/modules/Google Analytics Method.js ***!
-  \************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
-
-/* harmony default export */ __webpack_exports__["default"] = (function (CommandResult) {
-  var track = __webpack_require__(/*! sketch-module-google-analytics */ "./node_modules/sketch-module-google-analytics/index.js");
-
-  var variant = MSApplicationMetadata.metadata().variant;
-  var Appinfo = context.plugin.url().path().split('/')[context.plugin.url().path().split('/').findIndex(function (item) {
-    return item === 'Users';
-  }) + 1] + "-Skth" + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch + "-" + context.plugin.identifier() + " [" + context.plugin.version() + "]";
-  var CommandInfo = context.command.identifier();
-  track("UA-169300937-3", "event", {
-    ec: Appinfo,
-    // the event category
-    ea: CommandInfo,
-    // the event action
-    el: CommandResult // the event label
-
-  });
-});
-
-/***/ }),
-
-/***/ "sketch":
-/*!*************************!*\
-  !*** external "sketch" ***!
-  \*************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("sketch");
-
-/***/ }),
-
-/***/ "sketch/settings":
-/*!**********************************!*\
-  !*** external "sketch/settings" ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("sketch/settings");
 
 /***/ })
-
-/******/ });
+/******/ ]);
     if (key === 'default' && typeof exports === 'function') {
       exports(context);
     } else if (typeof exports[key] !== 'function') {
