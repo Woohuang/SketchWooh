@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.15",
+    "version": "1.5.16",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
             "name": "Decrease Width With Fixed Aspect Proportion [dwwfap]",
@@ -349,25 +349,21 @@
         },
         {
             "name": "Copy Symbol [cs]",
-            "shortcut": "ctrl option b",
             "identifier": "Copy Symbol [cs]",
             "script": "Copy Symbol [cs].js"
         },
         {
             "name": "Copy Symbol With Size [csws]",
-            "shortcut": "ctrl option command b",
             "identifier": "Copy Symbol With Size [csws]",
             "script": "Copy Symbol With Size [csws].js"
         },
         {
             "name": "Replace Symbol Master [rsm]",
-            "shortcut": "ctrl option n",
             "identifier": "Replace Symbol Master [rsm]",
             "script": "Replace Symbol Master [rsm]"
         },
         {
             "name": "Replace Symbol Overrides [rso]",
-            "shortcut": "ctrl option m",
             "identifier": "Replace Symbol Overrides [rso]",
             "script": "Replace Symbol Overrides [rso].js"
         },
