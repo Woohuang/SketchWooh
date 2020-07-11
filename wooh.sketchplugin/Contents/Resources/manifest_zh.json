@@ -9,6 +9,11 @@
     "version": "1.5.16",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
+            "name": "建议 & 帮助",
+            "identifier": "Suggest & Help",
+            "script": "Suggest & Help.js"
+        },
+        {
             "name": "固定长宽比减少宽度 [dwwfap]",
             "shortcut": "ctrl option cmd \u001c",
             "identifier": "Decrease Width With Fixed Aspect Proportion [dwwfap]",
@@ -587,6 +592,7 @@
             },
             "-",
             "Run With Sketch Runner",
+            "Suggest & Help",
             "Language"
         ]
     },

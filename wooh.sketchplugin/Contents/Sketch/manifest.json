@@ -6,9 +6,14 @@
   "author": "Wooh",
   "authorEmail": "im@hihy.me",
   "homepage": "http://xscape.fun/",
-  "version": "1.5.15",
+  "version": "1.5.16",
   "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
   "commands": [
+    {
+      "name": "Suggest & Help",
+      "identifier": "Suggest & Help",
+      "script": "Suggest & Help.js"
+    },
     {
       "name": "Decrease Width With Fixed Aspect Proportion [dwwfap]",
       "shortcut": "ctrl option cmd \u001c",
@@ -591,6 +596,7 @@
       },
       "-",
       "Run With Sketch Runner",
+      "Suggest & Help",
       "Language"
     ]
   },
