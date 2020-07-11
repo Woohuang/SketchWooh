@@ -17,7 +17,7 @@
     },
     {
       "name": "Decrease Height With Fixed Aspect Proportion [dhwfap]",
-      "shortcut": "ctrl option cmd \u001f",
+      "shortcut": "ctrl option cmd \u001e",
       "identifier": "Decrease Height With Fixed Aspect Proportion [dhwfap]",
       "script": "Decrease Height With Fixed Aspect Proportion [dhwfap].js"
     },
