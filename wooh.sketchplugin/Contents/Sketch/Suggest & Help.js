@@ -202,13 +202,13 @@ var UI = __webpack_require__(/*! sketch/ui */ "sketch/ui");
       userContact = "null"; //issue content
 
   UI.getInputFromUser("Write your suggestion or question here and I will contact you as soon as possible", {
-    initialValue: '(less than 100 words…)',
+    initialValue: '(less than 140 words…)',
     numberOfLines: 5
   }, function (err, value) {
     if (err) {
       return;
     } else {
-      if (value.length < 120) {
+      if (value.length < 145) {
         userWords = value; //contact content
 
         UI.getInputFromUser("And your contact if possible", {
@@ -225,7 +225,7 @@ var UI = __webpack_require__(/*! sketch/ui */ "sketch/ui");
         });
       } else {
         userWords = "[Too Much Words (" + value.length + ")]";
-        UI.alert("Too much words", "It must be less than 100 words. Or you can send me an email to im@hihy.me directly");
+        UI.alert("Too much words", "It must be less than 140 words. Or you can directly send me an email to im@hihy.me");
       }
     }
   });
