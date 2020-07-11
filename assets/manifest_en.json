@@ -9,6 +9,29 @@
     "version": "1.5.12",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
+            "name": "Decrease Width With Fixed Aspect Proportion [dwwfap]",
+            "shortcut": "ctrl option cmd \u001c",
+            "identifier": "Decrease Width With Fixed Aspect Proportion [dwwfap]",
+            "script": "Decrease Width With Fixed Aspect Proportion [dwwfap].js"
+        }, {
+            "name": "Decrease Height With Fixed Aspect Proportion [dhwfap]",
+            "shortcut": "ctrl option cmd \u001f",
+            "identifier": "Decrease Height With Fixed Aspect Proportion [dhwfap]",
+            "script": "Decrease Height With Fixed Aspect Proportion [dhwfap].js"
+        },
+        {
+            "name": "Increase Width With Fixed Aspect Proportion [iwwfap]",
+            "shortcut": "ctrl option cmd \u001d",
+            "identifier": "Increase Width With Fixed Aspect Proportion [iwwfap]",
+            "script": "Increase Width With Fixed Aspect Proportion [iwwfap].js"
+        },
+        {
+            "name": "Increase Height With Fixed Aspect Proportion [ihwfap]",
+            "shortcut": "ctrl option cmd \u001f",
+            "identifier": "Increase Height With Fixed Aspect Proportion [ihwfap]",
+            "script": "Increase Height With Fixed Aspect Proportion [ihwfap].js"
+        },
+        {
             "name": "Temporary Unselect All Selections [tuas]",
             "identifier": "Temporary Unselect All Selections [tuas]",
             "script": "Temporary Unselect All Selections [tuas].js"

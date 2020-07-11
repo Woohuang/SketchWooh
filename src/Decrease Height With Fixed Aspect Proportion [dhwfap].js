@@ -8,16 +8,18 @@ export default function() {
 
     let string = NSPasteboard.generalPasteboard().stringForType(NSPasteboardTypeString)
     let CopyNumber = (string - 0) * 1
-    let SetWidth
+    let SetHeight
 
     if (CopyNumber > 0) {
-        SetWidth = CopyNumber
+        SetHeight = CopyNumber
     } else {
         sketch.UI.message("Try copying a Number~")
-        SetWidth = 10
+        SetHeight = 10
     }
     Selection.forEach(item => {
-        item.frame.width = item.frame.width + SetWidth
+        let proportion = item.frame.width / item.frame.height
+        item.frame.height = item.frame.height - SetHeight
+        item.frame.width = item.frame.height * proportion
 
         //adjust parent groups' frame
         let i = 0

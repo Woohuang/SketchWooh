@@ -88,32 +88,19 @@ var exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/Last Symbol [ls].js");
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
+/******/ ({
 
-module.exports = require("sketch");
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-module.exports = require("sketch/settings");
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-module.exports = require("sketch/dom");
-
-/***/ }),
-/* 3 */
+/***/ "./node_modules/sketch-module-google-analytics/index.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/sketch-module-google-analytics/index.js ***!
+  \**************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Settings = __webpack_require__(1);
+var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
 
 var kUUIDKey = "google.analytics.uuid";
 var uuid = null
@@ -191,27 +178,83 @@ module.exports = function(trackingId, hitType, props, options) {
 };
 
 /***/ }),
-/* 4 */
+
+/***/ "./src/Last Symbol [ls].js":
+/*!*********************************!*\
+  !*** ./src/Last Symbol [ls].js ***!
+  \*********************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-
-// EXTERNAL MODULE: external "sketch"
-var external_sketch_ = __webpack_require__(0);
-var external_sketch_default = /*#__PURE__*/__webpack_require__.n(external_sketch_);
-
-// CONCATENATED MODULE: ./src/modules/Symbol Next&Last Function.js
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _modules_Symbol_Next_Last_Function__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Symbol Next&Last Function */ "./src/modules/Symbol Next&Last Function.js");
+/* harmony import */ var _modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/Google Analytics Method */ "./src/modules/Google Analytics Method.js");
 
 
-var Libraries = __webpack_require__(2).getLibraries();
 
-var doc = external_sketch_default.a.getSelectedDocument();
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  Object(_modules_Symbol_Next_Last_Function__WEBPACK_IMPORTED_MODULE_1__["Symbol_NextAndLast"])(-1); //GA
 
-var settings = __webpack_require__(1);
+  Object(_modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_2__["default"])("NormalResult");
+});
 
-var Symbol_Next_Last_Function_Symbol_NextAndLast = function Symbol_NextAndLast(counts) {
+/***/ }),
+
+/***/ "./src/modules/Google Analytics Method.js":
+/*!************************************************!*\
+  !*** ./src/modules/Google Analytics Method.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
+
+/* harmony default export */ __webpack_exports__["default"] = (function (CommandResult) {
+  var track = __webpack_require__(/*! sketch-module-google-analytics */ "./node_modules/sketch-module-google-analytics/index.js");
+
+  var variant = MSApplicationMetadata.metadata().variant;
+  var Appinfo = context.plugin.url().path().split('/')[context.plugin.url().path().split('/').findIndex(function (item) {
+    return item === 'Users';
+  }) + 1] + "-Skth" + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch + "-" + context.plugin.identifier() + " [" + context.plugin.version() + "]";
+  var CommandInfo = context.command.identifier();
+  track("UA-169300937-3", "event", {
+    ec: Appinfo,
+    // the event category
+    ea: CommandInfo,
+    // the event action
+    el: CommandResult // the event label
+
+  });
+});
+
+/***/ }),
+
+/***/ "./src/modules/Symbol Next&Last Function.js":
+/*!**************************************************!*\
+  !*** ./src/modules/Symbol Next&Last Function.js ***!
+  \**************************************************/
+/*! exports provided: Symbol_NextAndLast */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Symbol_NextAndLast", function() { return Symbol_NextAndLast; });
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Libraries = __webpack_require__(/*! sketch/dom */ "sketch/dom").getLibraries();
+
+var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
+
+var settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
+
+var Symbol_NextAndLast = function Symbol_NextAndLast(counts) {
   //function: WriteSymbolInfo
   var WriteSymbolInfo = function WriteSymbolInfo(item1, item2, item3) {
     settings.setSessionVariable('ReadSymbolInfo', {
@@ -243,7 +286,7 @@ var Symbol_Next_Last_Function_Symbol_NextAndLast = function Symbol_NextAndLast(c
   });
 
   if (JudgeSymbolResult !== -1) {
-    external_sketch_default.a.UI.message("Please Select Symbol With Same Master");
+    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Please Select Symbol With Same Master");
   } //开始主要功能
   else {
       //所选为 library symbol 时
@@ -285,7 +328,7 @@ var Symbol_Next_Last_Function_Symbol_NextAndLast = function Symbol_NextAndLast(c
       } //所选为 local symbol 时 
       else {
           //不能用 let DocSymbols =  doc.getSymbols(), 会取到引入的其它 library symbol
-          var DocSymbols = external_sketch_default.a.find('[type="SymbolMaster"]'); //判断是否需要重新获取 ThisIndex
+          var DocSymbols = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.find('[type="SymbolMaster"]'); //判断是否需要重新获取 ThisIndex
 
           if (JudgeSymbolId === ReadSymbolInfo.JudgeSymbolId) {
             ThisIndex = ReadSymbolInfo.ThisIndex;
@@ -319,45 +362,50 @@ var Symbol_Next_Last_Function_Symbol_NextAndLast = function Symbol_NextAndLast(c
         }
     }
 
-  external_sketch_default.a.UI.message(symbolMaster.name);
+  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message(symbolMaster.name);
   SelectedSymbols.forEach(function (item) {
     return item.master = symbolMaster;
   }); //储存 symbol 临时信息
 
   WriteSymbolInfo(symbolMaster.symbolId, ThisIndex + counts);
 };
-// CONCATENATED MODULE: ./src/modules/Google Analytics Method.js
-var Settings = __webpack_require__(1);
 
-/* harmony default export */ var Google_Analytics_Method = (function (CommandResult) {
-  var track = __webpack_require__(3);
+/***/ }),
 
-  var variant = MSApplicationMetadata.metadata().variant;
-  var Appinfo = context.plugin.url().path().split('/')[context.plugin.url().path().split('/').findIndex(function (item) {
-    return item === 'Users';
-  }) + 1] + "-Skth" + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch + "-" + context.plugin.identifier() + " [" + context.plugin.version() + "]";
-  var CommandInfo = context.command.identifier();
-  track("UA-169300937-3", "event", {
-    ec: Appinfo,
-    // the event category
-    ea: CommandInfo,
-    // the event action
-    el: CommandResult // the event label
+/***/ "sketch":
+/*!*************************!*\
+  !*** external "sketch" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-  });
-});
-// CONCATENATED MODULE: ./src/Last Symbol [ls].js
+module.exports = require("sketch");
 
+/***/ }),
 
+/***/ "sketch/dom":
+/*!*****************************!*\
+  !*** external "sketch/dom" ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-/* harmony default export */ var Last_Symbol_ls_ = __webpack_exports__["default"] = (function () {
-  Symbol_Next_Last_Function_Symbol_NextAndLast(-1); //GA
+module.exports = require("sketch/dom");
 
-  Google_Analytics_Method("NormalResult");
-});
+/***/ }),
+
+/***/ "sketch/settings":
+/*!**********************************!*\
+  !*** external "sketch/settings" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("sketch/settings");
 
 /***/ })
-/******/ ]);
+
+/******/ });
     if (key === 'default' && typeof exports === 'function') {
       exports(context);
     } else if (typeof exports[key] !== 'function') {

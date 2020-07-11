@@ -56,7 +56,17 @@ export default function() {
                 MinPosition = MinPosition + Math.abs(Width * Math.cos(RotationPI)) + Math.abs(Height * Math.sin(RotationPI)) + SetSpacing
             }
 
-            item.adjustToFit()
+            //adjust parent groups' frame
+            let i = 0
+            let findParentGroup = item
+            for (; i < 1;) {
+                if (findParentGroup.type === "Group") {
+                    findParentGroup.adjustToFit()
+                    findParentGroup = findParentGroup.parent
+                } else {
+                    i = 1
+                }
+            }
 
             ArrangeResult = 1
 

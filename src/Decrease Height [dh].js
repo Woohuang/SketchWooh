@@ -18,8 +18,17 @@ export default function() {
     }
     Selection.forEach(item => {
         item.frame.height = item.frame.height - SetHeight
-        if (item.parent.type === "Group") {
-            item.parent.adjustToFit()
+
+        //adjust parent groups' frame
+        let i = 0
+        let findParentGroup = item.parent
+        for (; i < 1;) {
+            if (findParentGroup.type === "Group") {
+                findParentGroup.adjustToFit()
+                findParentGroup = findParentGroup.parent
+            } else {
+                i = 1
+            }
         }
     })
 

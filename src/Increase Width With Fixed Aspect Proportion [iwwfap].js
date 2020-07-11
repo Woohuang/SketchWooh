@@ -17,7 +17,9 @@ export default function() {
         SetWidth = 10
     }
     Selection.forEach(item => {
+        let proportion = item.frame.width / item.frame.height
         item.frame.width = item.frame.width + SetWidth
+        item.frame.height = item.frame.width / proportion
 
         //adjust parent groups' frame
         let i = 0
