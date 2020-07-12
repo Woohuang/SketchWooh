@@ -260,14 +260,14 @@
             "script": "Move Each Selection Backward [mesb].js"
         },
         {
-            "name": "Arrange Inner Layers Spacing X [ailsx]",
-            "identifier": "Arrange Inner Layers Spacing X [ailsx]",
-            "script": "Arrange Inner Layers Spacing X [ailsx].js"
+            "name": "Arrange Group Inner Layers Spacing X [agilsx]",
+            "identifier": "Arrange Group Inner Layers Spacing X [agilsx]",
+            "script": "Arrange Group Inner Layers Spacing X [agilsx].js"
         },
         {
-            "name": "Arrange Inner Layers Spacing Y [ailsy]",
-            "identifier": "Arrange Inner Layers Spacing Y [ailsy]",
-            "script": "Arrange Inner Layers Spacing Y [ailsy].js"
+            "name": "Arrange Group Inner Layers Spacing Y [agilsy]",
+            "identifier": "Arrange Group Inner Layers Spacing Y [agilsy]",
+            "script": "Arrange Group Inner Layers Spacing Y [agilsy].js"
         },
         {
             "name": "Temporary Unlock All Layers [tual]",
@@ -545,8 +545,8 @@
             {
                 "title": "Location",
                 "items": [
-                    "Arrange Inner Layers Spacing X [ailsx]",
-                    "Arrange Inner Layers Spacing Y [ailsy]"
+                    "Arrange Group Inner Layers Spacing X [agilsx]",
+                    "Arrange Group Inner Layers Spacing Y [agilsy]"
                 ]
             },
             {

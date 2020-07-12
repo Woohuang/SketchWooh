@@ -259,14 +259,14 @@
             "script": "Move Each Selection Backward [mesb].js"
         },
         {
-            "name": "整理选中编组的内部图层的X间距 [ailsx]",
-            "identifier": "Arrange Inner Layers Spacing X [ailsx]",
-            "script": "Arrange Inner Layers Spacing X [ailsx].js"
+            "name": "整理选中编组的内部图层的X间距 [agilsx]",
+            "identifier": "Arrange Group Inner Layers Spacing X [agilsx]",
+            "script": "Arrange Group Inner Layers Spacing X [agilsx].js"
         },
         {
-            "name": "整理选中编组的内部图层的Y间距 [ailsy]",
-            "identifier": "Arrange Inner Layers Spacing Y [ailsy]",
-            "script": "Arrange Inner Layers Spacing Y [ailsy].js"
+            "name": "整理选中编组的内部图层的Y间距 [agilsy]",
+            "identifier": "Arrange Group Inner Layers Spacing Y [agilsy]",
+            "script": "Arrange Group Inner Layers Spacing Y [agilsy].js"
         },
         {
             "name": "临时解锁所有图层 [tual]",
@@ -544,8 +544,8 @@
             {
                 "title": "位置",
                 "items": [
-                    "Arrange Inner Layers Spacing X [ailsx]",
-                    "Arrange Inner Layers Spacing Y [ailsy]"
+                    "Arrange Group Inner Layers Spacing X [agilsx]",
+                    "Arrange Group Inner Layers Spacing Y [agilsy]"
                 ]
             },
             {
