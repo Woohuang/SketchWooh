@@ -353,7 +353,7 @@ var Settings = __webpack_require__(1);
 /* harmony default export */ var Last_Symbol_ls_ = __webpack_exports__["default"] = (function () {
   Symbol_Next_Last_Function_Symbol_NextAndLast(-1); //GA
 
-  Google_Analytics_Method("NormalResult");
+  Google_Analytics_Method("");
 });
 
 /***/ })

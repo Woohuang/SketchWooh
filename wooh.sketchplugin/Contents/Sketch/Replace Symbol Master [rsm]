@@ -259,7 +259,7 @@ var Selection = doc.selectedLayers.layers;
   } //GA
 
 
-  Google_Analytics_Method("NormalResult");
+  Google_Analytics_Method("");
 });
 
 /***/ })
