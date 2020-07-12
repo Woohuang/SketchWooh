@@ -413,11 +413,6 @@
             "script": "Selection Data [sd].js"
         },
         {
-            "name": "Temporary",
-            "identifier": "Temporary",
-            "script": "Temporary.js"
-        },
-        {
             "name": "Language/语言",
             "identifier": "Language",
             "script": "Language.js"
@@ -591,7 +586,6 @@
                         "title": "Dev",
                         "items": [
                             "Selection Data [sd]",
-                            "Temporary",
                             "Reload"
                         ]
                     }
