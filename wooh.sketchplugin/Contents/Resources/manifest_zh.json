@@ -9,6 +9,11 @@
     "version": "1.5.22",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
+            "name": "在 Finder 中显示文件  [sdif]",
+            "identifier": "Show Document In Finder  [sdif]",
+            "script": "Show Document In Finder  [sdif].js"
+        },
+        {
             "name": "建议 & 帮助",
             "identifier": "Suggest & Help",
             "script": "Suggest & Help.js"
@@ -424,6 +429,8 @@
         "items": [{
                 "title": "文档",
                 "items": [
+                    "Show Document In Finder  [sdif]",
+                    "-",
                     "Create A Backup [cab]",
                     "Create A Backup With Introduction [cabwi]",
                     "-",

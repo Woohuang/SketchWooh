@@ -6,9 +6,14 @@
   "author": "Wooh",
   "authorEmail": "im@hihy.me",
   "homepage": "http://xscape.fun/",
-  "version": "1.5.21",
+  "version": "1.5.22",
   "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
   "commands": [
+    {
+      "name": "Show Document In Finder  [sdif]",
+      "identifier": "Show Document In Finder  [sdif]",
+      "script": "Show Document In Finder  [sdif].js"
+    },
     {
       "name": "Suggest & Help",
       "identifier": "Suggest & Help",
@@ -427,6 +432,8 @@
       {
         "title": "Document",
         "items": [
+          "Show Document In Finder  [sdif]",
+          "-",
           "Create A Backup [cab]",
           "Create A Backup With Introduction [cabwi]",
           "-",
