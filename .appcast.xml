@@ -2,12 +2,15 @@
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
   <channel>
     <item>
-    <description>
-     <![CDATA[
-            <ul>
-            <li>Add "Show Document In Finder"</li>
-            </ul>
-          ]]>
+      <enclosure url="https://github.com/Woohuang/SketchWooh/releases/download/v1.5.22/wooh.sketchplugin.zip" sparkle:version="1.5.22"/>
+    </item>
+    <item>
+      <description>
+     
+            &lt;ul&gt;
+            &lt;li&gt;Add "Show Document In Finder"&lt;/li&gt;
+            &lt;/ul&gt;
+          
     </description>
       <enclosure url="https://github.com/Woohuang/SketchWooh/releases/download/v1.5.22/wooh.sketchplugin.zip" sparkle:version="1.5.22"/>
     </item>
