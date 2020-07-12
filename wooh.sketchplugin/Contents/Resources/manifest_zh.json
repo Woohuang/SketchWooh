@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.23",
+    "version": "1.5.24",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
             "name": "在 Finder 中显示文件  [sdif]",
