@@ -6,9 +6,19 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.27",
+    "version": "1.5.28",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
+            "name": "Set Selection Height According To Parent Group Border [sshatpgb]",
+            "identifier": "Set Selection Height According To Parent Group Border [sshatpgb]",
+            "script": "Set Selection Height According To Parent Group Border [sshatpgb].js"
+        },
+        {
+            "name": "Set Selection Width According To Parent Group Border [sswatpgb]",
+            "identifier": "Set Selection Width According To Parent Group Border [sswatpgb]",
+            "script": "Set Selection Width According To Parent Group Border [sswatpgb].js"
+        },
+        {
             "name": "Show Document In Finder  [sdif]",
             "identifier": "Show Document In Finder  [sdif]",
             "script": "Show Document In Finder  [sdif].js"
@@ -523,15 +533,17 @@
                 "title": "Size",
                 "items": [
                     "Increase Width [iw]",
-                    "Decrease Width [dw]",
                     "Increase Height [ih]",
+                    "Decrease Width [dw]",
                     "Decrease Height [dh]",
                     "-",
                     "Increase Width With Fixed Aspect Proportion [iwwfap]",
-                    "Decrease Width With Fixed Aspect Proportion [dwwfap]",
                     "Increase Height With Fixed Aspect Proportion [ihwfap]",
+                    "Decrease Width With Fixed Aspect Proportion [dwwfap]",
                     "Decrease Height With Fixed Aspect Proportion [dhwfap]",
                     "-",
+                    "Set Selection Width According To Parent Group Border [sswatpgb]",
+                    "Set Selection Height According To Parent Group Border [sshatpgb]",
                     "Set Selection To Artboard Width [sstaw]",
                     "Set Selection To Artboard Height [sstah]",
                     "-",
