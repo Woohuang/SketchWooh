@@ -9,12 +9,12 @@
     "version": "1.5.28",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
-            "name": "将选中项高度设为父级编组高度 [sstph]",
+            "name": "根据父级编组边界设置选中项高度 [sstph]",
             "identifier": "Set Selection Height According To Parent Group Border [sshatpgb]",
             "script": "Set Selection Height According To Parent Group Border [sshatpgb].js"
         },
         {
-            "name": "将选中项宽度设为父级编组宽度 [sstpw]",
+            "name": "根据父级编组边界设置选中项宽度 [sstpw]",
             "identifier": "Set Selection Width According To Parent Group Border [sswatpgb]",
             "script": "Set Selection Width According To Parent Group Border [sswatpgb].js"
         },
@@ -423,8 +423,8 @@
             "script": "Selection Data [sd].js"
         },
         {
-            "name": "Language/语言",
-            "identifier": "Language",
+            "name": "Language 语言",
+            "identifier": "Language 语言",
             "script": "Language.js"
         }
     ],
@@ -606,7 +606,7 @@
             "-",
             "Run With Sketch Runner",
             "Suggest & Help",
-            "Language"
+            "Language 语言"
         ]
     },
     "disableCocoaScriptPreprocessor": true

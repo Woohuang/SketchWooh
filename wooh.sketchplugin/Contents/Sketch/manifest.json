@@ -424,8 +424,8 @@
             "script": "Selection Data [sd].js"
         },
         {
-            "name": "Language/语言",
-            "identifier": "Language",
+            "name": "Language 语言",
+            "identifier": "Language 语言",
             "script": "Language.js"
         }
     ],
@@ -607,7 +607,7 @@
             "-",
             "Run With Sketch Runner",
             "Suggest & Help",
-            "Language"
+            "Language 语言"
         ]
     },
     "disableCocoaScriptPreprocessor": true
