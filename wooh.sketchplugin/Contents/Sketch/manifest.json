@@ -1,615 +1,618 @@
 {
-    "name": "🧑🏻‍🚀Xscape!",
-    "description": "Speed up your work flow",
-    "identifier": "Xscape",
-    "icon": "icon.png",
-    "author": "Wooh",
-    "authorEmail": "im@hihy.me",
-    "homepage": "http://xscape.fun/",
-    "version": "1.5.37",
-    "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
-    "commands": [{
-            "name": "Set Selection Height According To Parent Group Border [sshatpgb]",
-            "identifier": "Set Selection Height According To Parent Group Border [sshatpgb]",
-            "script": "Set Selection Height According To Parent Group Border [sshatpgb].js"
-        },
-        {
-            "name": "Set Selection Width According To Parent Group Border [sswatpgb]",
-            "identifier": "Set Selection Width According To Parent Group Border [sswatpgb]",
-            "script": "Set Selection Width According To Parent Group Border [sswatpgb].js"
-        },
-        {
-            "name": "Show Document In Finder  [sdif]",
-            "identifier": "Show Document In Finder  [sdif]",
-            "script": "Show Document In Finder  [sdif].js"
-        },
-        {
-            "name": "Suggest & Help",
-            "identifier": "Suggest & Help",
-            "script": "Suggest & Help.js"
-        },
-        {
-            "name": "Decrease Width With Fixed Aspect Proportion [dwwfap]",
-            "shortcut": "ctrl option cmd \u001c",
-            "identifier": "Decrease Width With Fixed Aspect Proportion [dwwfap]",
-            "script": "Decrease Width With Fixed Aspect Proportion [dwwfap].js"
-        },
-        {
-            "name": "Decrease Height With Fixed Aspect Proportion [dhwfap]",
-            "shortcut": "ctrl option cmd \u001e",
-            "identifier": "Decrease Height With Fixed Aspect Proportion [dhwfap]",
-            "script": "Decrease Height With Fixed Aspect Proportion [dhwfap].js"
-        },
-        {
-            "name": "Increase Width With Fixed Aspect Proportion [iwwfap]",
-            "shortcut": "ctrl option cmd \u001d",
-            "identifier": "Increase Width With Fixed Aspect Proportion [iwwfap]",
-            "script": "Increase Width With Fixed Aspect Proportion [iwwfap].js"
-        },
-        {
-            "name": "Increase Height With Fixed Aspect Proportion [ihwfap]",
-            "shortcut": "ctrl option cmd \u001f",
-            "identifier": "Increase Height With Fixed Aspect Proportion [ihwfap]",
-            "script": "Increase Height With Fixed Aspect Proportion [ihwfap].js"
-        },
-        {
-            "name": "Temporary Unselect All Selections [tuas]",
-            "identifier": "Temporary Unselect All Selections [tuas]",
-            "script": "Temporary Unselect All Selections [tuas].js"
-        },
-        {
-            "name": "Reload",
-            "identifier": "Reload",
-            "script": "Reload.js"
-        },
-        {
-            "name": "Run With Sketch Runner",
-            "identifier": "Run With Sketch Runner",
-            "script": "Run With Sketch Runner.js"
-        },
-        {
-            "name": "Create A Child Library From TheSource [caclft]",
-            "identifier": "Create A Child Library From TheSource [caclft]",
-            "script": "Create A Child Library From TheSource [caclft].js"
-        },
-        {
-            "name": "Create Symbol Instance From Selected Symbol Master [csifssm]",
-            "identifier": "Create Symbol Instance From Selected Symbol Master [csifssm]",
-            "script": "Create Symbol Instance From Selected Symbol Master [csifssm].js"
-        },
-        {
-            "name": "Rename Layer & Text Style After Layer Name [rltsaln]",
-            "identifier": "Rename Layer & Text Style After Layer Name [rltsaln]",
-            "script": "Rename Layer & Text Style After Layer Name [rltsaln].js"
-        },
-        {
-            "name": "Select Layer By Type [slbt]",
-            "identifier": "Select Layer By Type [slbt]",
-            "script": "Select Layer By Type [slbt].js"
-        },
-        {
-            "name": "Unselect Layer Except Type [ulet]",
-            "identifier": "Unselect Layer Except Type [ulet]",
-            "script": "Unselect Layer Except Type [ulet].js"
-        },
-        {
-            "name": "Unselect Layer By Type [ulbt]",
-            "identifier": "Unselect Layer By Type [ulbt]",
-            "script": "Unselect Layer By Type [ulbt].js"
-        },
-        {
-            "name": "Create A Backup With Introduction [cabwi]",
-            "identifier": "Create A Backup With Introduction [cabwi]",
-            "script": "Create A Backup With Introduction [cabwi].js"
-        },
-        {
-            "name": "Duplicate Symbol Master With [LinkFrom] [dsmwl]",
-            "identifier": "Duplicate Symbol Master With [LinkFrom] [dsmwl]",
-            "script": "Duplicate Symbol Master With [LinkFrom] [dsmwl].js"
-        },
-        {
-            "name": "Sync All Symbol Masters Within [LinkFrom] [sasmwl]",
-            "identifier": "Sync All Symbol Masters Within [LinkFrom] [sasmwl]",
-            "script": "Sync All Symbol Masters Within [LinkFrom] [sasmwl].js"
-        },
-        {
-            "name": "Select All Artboards In This Page [saaitp]",
-            "identifier": "Select All Artboards In This Page [saaitp]",
-            "script": "Select All Artboards In This Page [saaitp].js"
-        },
-        {
-            "name": "Disable Selected Group Click-Through [dsgc]",
-            "identifier": "Disable Selected Group Click-Through [dsgc]",
-            "script": "Disable Selected Group Click-Through [dsgc].js"
-        },
-        {
-            "name": "Enable Selected Group Click-Through [esgc]",
-            "identifier": "Enable Selected Group Click-Through [esgc]",
-            "script": "Enable Selected Group Click-Through [esgc].js"
-        },
-        {
-            "name": "Temporary Enable All Groups Click-Through [teagc]",
-            "identifier": "Temporary Enable All Groups Click-Through [teagc]",
-            "script": "Temporary Enable All Groups Click-Through [teagc].js"
-        },
-        {
-            "name": "Temporary Disable All Groups Click-Through [tdagc]",
-            "identifier": "Temporary Disable All Groups Click-Through [tdagc]",
-            "script": "Temporary Disable All Groups Click-Through [tdagc].js"
-        },
-        {
-            "name": "Unselect Layer By Name Uncontains Specified Texts [ulbnust]",
-            "identifier": "Unselect Layer By Name Uncontains Specified Texts [ulbnust]",
-            "script": "Unselect Layer By Name Uncontains Specified Texts [ulbnust].js"
-        },
-        {
-            "name": "Unselect Layer By Content Uncontains Specified Texts [ulbcust]",
-            "identifier": "Unselect Layer By Content Uncontains Specified Texts [ulbcust]",
-            "script": "Unselect Layer By Content Uncontains Specified Texts [ulbcust].js"
-        },
-        {
-            "name": "Unselect Layer By Content Cotains Specified Texts [ulbccst]",
-            "identifier": "Unselect Layer By Content Cotains Specified Texts [ulbccst]",
-            "script": "Unselect Layer By Content Cotains Specified Texts [ulbccst].js"
-        },
-        {
-            "name": "Select Layer By Content Cotains Specified Texts [slbccst]",
-            "identifier": "Select Layer By Content Cotains Specified Texts [slbccst]",
-            "script": "Select Layer By Content Cotains Specified Texts [slbccst].js"
-        },
-        {
-            "name": "Sync Global Radius And Shadows [sgras]",
-            "identifier": "Sync Global Radius And Shadows [sgras]",
-            "script": "Sync Global Radius And Shadows [sgras].js"
-        },
-        {
-            "name": "Select Log Corresponding Artboard [slca]",
-            "identifier": "Select Log Corresponding Artboard [slca]",
-            "script": "Select Log Corresponding Artboard [slca].js"
-        },
-        {
-            "name": "Create A Change Log [cacl]",
-            "identifier": "Create A Change Log [cacl]",
-            "script": "Create A Change Log [cacl].js"
-        },
-        {
-            "name": "Reset Symbol Overrides [rso]",
-            "identifier": "Reset Symbol Overrides [rso]",
-            "script": "Reset Symbol Overrides [rso].js"
-        },
-        {
-            "name": "Unselect Layer By Name Cotains Specified Texts [ulbncst]",
-            "identifier": "Unselect Layer By Name Cotains Specified Texts [ulbncst]",
-            "script": "Unselect Layer By Name Cotains Specified Texts [ulbncst].js"
-        },
-        {
-            "name": "Select Layer By Name Cotains Specified Texts [slbncst]",
-            "identifier": "Select Layer By Name Cotains Specified Texts [slbncst]",
-            "script": "Select Layer By Name Cotains Specified Texts [slbncst].js"
-        },
-        {
-            "name": "Select One Backward [sob]",
-            "identifier": "Select One Backward [sob]",
-            "script": "Select One Backward [sob].js"
-        },
-        {
-            "name": "Select One Forward [sof]",
-            "identifier": "Select One Forward [sof]",
-            "script": "Select One Forward [sof].js"
-        },
-        {
-            "name": "Set Symbol To Original Size [sstos]",
-            "shortcut": "ctrl command option ]",
-            "identifier": "Set Symbol To Original Size [sstos]",
-            "script": "Set Symbol To Original Size [sstos].js"
-        },
-        {
-            "name": "Move Selection Into Group Above [msiga]",
-            "identifier": "Move Selection Into Group Above [msiga]",
-            "script": "Move Selection Into Group Above [msiga].js"
-        },
-        {
-            "name": "Create A Backup [cab]",
-            "identifier": "Create A Backup [cab]",
-            "script": "Create A Backup [cab].js"
-        },
-        {
-            "name": "Set Symbol To Overrides Friendly Size [sstofs]",
-            "shortcut": "ctrl command option '",
-            "identifier": "Set Symbol To Overrides Friendly Size [sstofs]",
-            "script": "Set Symbol To Overrides Friendly Size [sstofs].js"
-        },
-        {
-            "name": "Create Artboard Link Layer [call]",
-            "identifier": "Create Artboard Link Layer [call]",
-            "script": "Create Artboard Link Layer [call].js"
-        },
-        {
-            "name": "Sync Artboard Link Layer [sall]",
-            "identifier": "Sync Artboard Link Layer [sall]",
-            "script": "Sync Artboard Link Layer [sall].js"
-        },
-        {
-            "name": "Select All Rectangles Except AutoStyle [sarea]",
-            "identifier": "Select All Rectangles Except AutoStyle [sarea]",
-            "script": "Select All Rectangles Except AutoStyle [sarea].js"
-        },
-        {
-            "name": "Sync Same Name Artboard From Sync Page [ssnafsp]",
-            "identifier": "Sync Same Name Artboard From Sync Page [ssnafsp]",
-            "script": "Sync Same Name Artboard From Sync Page [ssnafsp].js"
-        },
-        {
-            "name": "Rename AutoStyle Layers [ral]",
-            "identifier": "Rename AutoStyle Layers [ral]",
-            "script": "Rename AutoStyle Layers [ral].js"
-        },
-        {
-            "name": "Change To Select One Backward [ctsob]",
-            "identifier": "Change To Select One Backward [ctsob]",
-            "script": "Change To Select One Backward [ctsob].js"
-        },
-        {
-            "name": "Change To Select One Forward [ctsof]",
-            "identifier": "Change To Select One Forward [ctsof]",
-            "script": "Change To Select One Forward [ctsof].js"
-        },
-        {
-            "name": "Duplicate Selection [ds]",
-            "identifier": "Duplicate Selection [ds]",
-            "script": "Duplicate Selection [ds].js"
-        },
-        {
-            "name": "Move Each Selection Forward [mesf]",
-            "identifier": "Move Each Selection Forward [mesf]",
-            "script": "Move Each Selection Forward [mesf].js"
-        },
-        {
-            "name": "Move Each Selection Backward [mesb]",
-            "identifier": "Move Each Selection Backward [mesb]",
-            "script": "Move Each Selection Backward [mesb].js"
-        },
-        {
-            "name": "Arrange Group Inner Layers Spacing X [agilsx]",
-            "identifier": "Arrange Group Inner Layers Spacing X [agilsx]",
-            "script": "Arrange Group Inner Layers Spacing X [agilsx].js"
-        },
-        {
-            "name": "Arrange Group Inner Layers Spacing Y [agilsy]",
-            "identifier": "Arrange Group Inner Layers Spacing Y [agilsy]",
-            "script": "Arrange Group Inner Layers Spacing Y [agilsy].js"
-        },
-        {
-            "name": "Temporary Unlock All Layers [tual]",
-            "identifier": "Temporary Unlock All Layers [tual]",
-            "script": "Temporary Unlock All Layers [tual].js"
-        },
-        {
-            "name": "Copy Layer Name [cln]",
-            "identifier": "Copy Layer Name [cln]",
-            "script": "Copy Layer Name [cln].js"
-        },
-        {
-            "name": "Paste Layer Name [pln]",
-            "identifier": "Paste Layer Name [pln]",
-            "script": "Paste Layer Name [pln].js"
-        },
-        {
-            "name": "Increase Width [iw]",
-            "shortcut": "ctrl option \u001d",
-            "identifier": "Increase Width [iw]",
-            "script": "Increase Width [iw].js"
-        },
-        {
-            "name": "Decrease Width [dw]",
-            "shortcut": "ctrl option \u001c",
-            "identifier": "Decrease Width [dw]",
-            "script": "Decrease Width [dw].js"
-        },
-        {
-            "name": "Increase Height [ih]",
-            "shortcut": "ctrl option \u001f",
-            "identifier": "Increase Height [ih]",
-            "script": "Increase Height [ih].js"
-        },
-        {
-            "name": "Decrease Height [dh]",
-            "shortcut": "ctrl option \u001e",
-            "identifier": "Decrease Height [dh]",
-            "script": "Decrease Height [dh].js"
-        },
-        {
-            "name": "Set Selection To Artboard Width [sstaw]",
-            "identifier": "Set Selection To Artboard Width [sstaw]",
-            "script": "Set Selection To Artboard Width [sstaw].js"
-        },
-        {
-            "name": "Set Selection To Artboard Height [sstah]",
-            "identifier": "Set Selection To Artboard Height [sstah]",
-            "script": "Set Selection To Artboard Height [sstah].js"
-        },
-        {
-            "name": "Set Artboard Height According To Selection Location [sahatsl]",
-            "identifier": "Set Artboard Height According To Selection Location [sahatsl]",
-            "script": "Set Artboard Height According To Selection Location [sahatsl].js"
-        },
-        {
-            "name": "Set Artboard Width According To Selection Location [sawatsl]",
-            "identifier": "Set Artboard Width According To Selection Location [sawatsl]",
-            "script": "Set Artboard Width According To Selection Location [sawatsl].js"
-        },
-        {
-            "name": "Set Symbol To Fixed Size [sstfs]",
-            "shortcut": "ctrl command option /",
-            "identifier": "Set Symbol To Fixed Size [sstfs]",
-            "script": "Set Symbol To Fixed Size [sstfs].js"
-        },
-        {
-            "name": "Next Symbol [ns]",
-            "shortcut": "ctrl option .",
-            "identifier": "Next Symbol [ns]",
-            "script": "Next Symbol [ns].js"
-        },
-        {
-            "name": "Last Symbol [ls]",
-            "shortcut": "ctrl option ,",
-            "identifier": "Last Symbol [ls]",
-            "script": "Last Symbol [ls]"
-        },
-        {
-            "name": "Next 10th Symbol [n10s]",
-            "shortcut": "ctrl cmd option .",
-            "identifier": "Next 10th Symbol [n10s]",
-            "script": "Next 10th Symbol [n10s].js"
-        },
-        {
-            "name": "Last 10th Symbol [l10s]",
-            "shortcut": "ctrl cmd option ,",
-            "identifier": "Last 10th Symbol [l10s]",
-            "script": "Last 10th Symbol [l10s].js"
-        },
-        {
-            "name": "Copy Symbol [cs]",
-            "identifier": "Copy Symbol [cs]",
-            "script": "Copy Symbol [cs].js"
-        },
-        {
-            "name": "Copy Symbol With Size [csws]",
-            "identifier": "Copy Symbol With Size [csws]",
-            "script": "Copy Symbol With Size [csws].js"
-        },
-        {
-            "name": "Replace Symbol Master [rsm]",
-            "identifier": "Replace Symbol Master [rsm]",
-            "script": "Replace Symbol Master [rsm]"
-        },
-        {
-            "name": "Replace Symbol Overrides [rso]",
-            "identifier": "Replace Symbol Overrides [rso]",
-            "script": "Replace Symbol Overrides [rso].js"
-        },
-        {
-            "name": "Replace Symbol Overrides Only Text [rsoot]",
-            "identifier": "Replace Symbol Overrides Only Text [rsoot]",
-            "script": "Replace Symbol Overrides Only Text [rsoot].js"
-        },
-        {
-            "name": "Replace Symbol Overrides Except Text [rsoet]",
-            "identifier": "Replace Symbol Overrides Except Text [rsoet]",
-            "script": "Replace Symbol Overrides Except Text [rsoet].js"
-        },
-        {
-            "name": "Sync All From TheSource [saft]",
-            "identifier": "Sync All From TheSource [saft]",
-            "script": "Sync All From TheSource [saft].js"
-        },
-        {
-            "name": "Sync Selection To TheSource [sstts]",
-            "identifier": "Sync Selection To TheSource [sstts]",
-            "script": "Sync Selection To TheSource [sstts].js"
-        },
-        {
-            "name": "Sync Selection To TheChild [ssttc]",
-            "identifier": "Sync Selection To TheChild [ssttc]",
-            "script": "Sync Selection To TheChild [ssttc].js"
-        },
-        {
-            "name": "Custom Part Backup [cpb]",
-            "identifier": "Custom Part Backup [cpb]",
-            "script": "Custom Part Backup [cpb].js"
-        },
-        {
-            "name": "Selection Data [sd]",
-            "identifier": "Selection Data [sd]",
-            "script": "Selection Data [sd].js"
-        },
-        {
-            "name": "Language 语言",
-            "identifier": "Language 语言",
-            "script": "Language.js"
-        }
-    ],
-    "menu": {
-        "title": "🧑🏻‍🚀Xscape!",
-        "isRoot": false,
-        "items": [{
-                "title": "Document",
-                "items": [
-                    "Show Document In Finder  [sdif]",
-                    "-",
-                    "Create A Backup [cab]",
-                    "Create A Backup With Introduction [cabwi]",
-                    "-",
-                    "Create A Change Log [cacl]",
-                    "Select Log Corresponding Artboard [slca]"
-                ]
-            },
-            {
-                "title": "Artboard",
-                "items": [
-                    "Create Artboard Link Layer [call]",
-                    "Sync Artboard Link Layer [sall]",
-                    "-",
-                    "Sync Same Name Artboard From Sync Page [ssnafsp]"
-                ]
-            },
-            {
-                "title": "Group",
-                "items": [
-                    "Move Selection Into Group Above [msiga]",
-                    "-",
-                    "Enable Selected Group Click-Through [esgc]",
-                    "Disable Selected Group Click-Through [dsgc]",
-                    "Temporary Enable All Groups Click-Through [teagc]",
-                    "Temporary Disable All Groups Click-Through [tdagc]"
-                ]
-            },
-            {
-                "title": "Layer",
-                "items": [
-                    "Move Each Selection Forward [mesf]",
-                    "Move Each Selection Backward [mesb]",
-                    "-",
-                    "Copy Layer Name [cln]",
-                    "Paste Layer Name [pln]",
-                    "-",
-                    "Duplicate Selection [ds]",
-                    "-",
-                    "Temporary Unlock All Layers [tual]"
-                ]
-            },
-            {
-                "title": "Symbol ",
-                "items": [
-                    "Next Symbol [ns]",
-                    "Last Symbol [ls]",
-                    "Next 10th Symbol [n10s]",
-                    "Last 10th Symbol [l10s]",
-                    "-",
-                    "Copy Symbol [cs]",
-                    "Copy Symbol With Size [csws]",
-                    "-",
-                    "Replace Symbol Master [rsm]",
-                    "Replace Symbol Overrides [rso]",
-                    "Replace Symbol Overrides Only Text [rsoot]",
-                    "Replace Symbol Overrides Except Text [rsoet]",
-                    "Reset Symbol Overrides [rso]",
-                    "-",
-                    "Create Symbol Instance From Selected Symbol Master [csifssm]"
-                ]
-            },
-            {
-                "title": "Select",
-                "items": [
-                    "Select All Artboards In This Page [saaitp]",
-                    "-",
-                    "Select One Forward [sof]",
-                    "Select One Backward [sob]",
-                    "Change To Select One Forward [ctsof]",
-                    "Change To Select One Backward [ctsob]",
-                    "-",
-                    "Select Layer By Name Cotains Specified Texts [slbncst]",
-                    "Unselect Layer By Name Cotains Specified Texts [ulbncst]",
-                    "Unselect Layer By Name Uncontains Specified Texts [ulbnust]",
-                    "-",
-                    "Select Layer By Content Cotains Specified Texts [slbccst]",
-                    "Unselect Layer By Content Cotains Specified Texts [ulbccst]",
-                    "Unselect Layer By Content Uncontains Specified Texts [ulbcust]",
-                    "-",
-                    "Select Layer By Type [slbt]",
-                    "Unselect Layer By Type [ulbt]",
-                    "Unselect Layer Except Type [ulet]",
-                    "-",
-                    "Temporary Unselect All Selections [tuas]"
-                ]
-            },
-            {
-                "title": "Rename",
-                "items": [
-                    "Rename Layer & Text Style After Layer Name [rltsaln]"
-                ]
-            },
-            {
-                "title": "Size",
-                "items": [
-                    "Increase Width [iw]",
-                    "Increase Height [ih]",
-                    "Decrease Width [dw]",
-                    "Decrease Height [dh]",
-                    "-",
-                    "Increase Width With Fixed Aspect Proportion [iwwfap]",
-                    "Increase Height With Fixed Aspect Proportion [ihwfap]",
-                    "Decrease Width With Fixed Aspect Proportion [dwwfap]",
-                    "Decrease Height With Fixed Aspect Proportion [dhwfap]",
-                    "-",
-                    "Set Selection Width According To Parent Group Border [sswatpgb]",
-                    "Set Selection Height According To Parent Group Border [sshatpgb]",
-                    "Set Selection To Artboard Width [sstaw]",
-                    "Set Selection To Artboard Height [sstah]",
-                    "-",
-                    "Set Artboard Width According To Selection Location [sawatsl]",
-                    "Set Artboard Height According To Selection Location [sahatsl]",
-                    "-",
-                    "Set Symbol To Original Size [sstos]",
-                    "Set Symbol To Overrides Friendly Size [sstofs]"
-                ]
-            },
-            {
-                "title": "Location",
-                "items": [
-                    "Arrange Group Inner Layers Spacing X [agilsx]",
-                    "Arrange Group Inner Layers Spacing Y [agilsy]"
-                ]
-            },
-            "-",
-            {
-                "title": "TheSource",
-                "items": [{
-                        "title": "Library",
-                        "items": [
-                            "Sync All From TheSource [saft]",
-                            "Sync Selection To TheSource [sstts]",
-                            "Sync Selection To TheChild [ssttc]",
-                            "Custom Part Backup [cpb]",
-                            "-",
-                            "Create A Child Library From TheSource [caclft]"
-                        ]
-                    },
-                    {
-                        "title": "Symbol ",
-                        "items": [
-                            "Duplicate Symbol Master With [LinkFrom] [dsmwl]",
-                            "Sync All Symbol Masters Within [LinkFrom] [sasmwl]"
-                        ]
-                    },
-                    {
-                        "title": "Style",
-                        "items": [
-                            "Sync Global Radius And Shadows [sgras]",
-                            "Select All Rectangles Except AutoStyle [sarea]",
-                            "Rename AutoStyle Layers [ral]"
-                        ]
-                    },
-                    {
-                        "title": "Size",
-                        "items": [
-                            "Set Symbol To Fixed Size [sstfs]"
-                        ]
-                    },
-                    {
-                        "title": "Dev",
-                        "items": [
-                            "Selection Data [sd]",
-                            "Reload"
-                        ]
-                    }
-                ]
-            },
-            "-",
-            "Run With Sketch Runner",
-            "Suggest & Help",
-            "Language 语言"
-        ]
+  "name": "🧑🏻‍🚀Xscape!",
+  "description": "Speed up your work flow",
+  "identifier": "Xscape",
+  "icon": "icon.png",
+  "author": "Wooh",
+  "authorEmail": "im@hihy.me",
+  "homepage": "http://xscape.fun/",
+  "version": "1.5.37",
+  "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
+  "commands": [
+    {
+      "name": "Set Selection Height According To Parent Group Border [sshatpgb]",
+      "identifier": "Set Selection Height According To Parent Group Border [sshatpgb]",
+      "script": "Set Selection Height According To Parent Group Border [sshatpgb].js"
     },
-    "disableCocoaScriptPreprocessor": true
+    {
+      "name": "Set Selection Width According To Parent Group Border [sswatpgb]",
+      "identifier": "Set Selection Width According To Parent Group Border [sswatpgb]",
+      "script": "Set Selection Width According To Parent Group Border [sswatpgb].js"
+    },
+    {
+      "name": "Show Document In Finder  [sdif]",
+      "identifier": "Show Document In Finder  [sdif]",
+      "script": "Show Document In Finder  [sdif].js"
+    },
+    {
+      "name": "Suggest & Help",
+      "identifier": "Suggest & Help",
+      "script": "Suggest & Help.js"
+    },
+    {
+      "name": "Decrease Width With Fixed Aspect Proportion [dwwfap]",
+      "shortcut": "ctrl option cmd \u001c",
+      "identifier": "Decrease Width With Fixed Aspect Proportion [dwwfap]",
+      "script": "Decrease Width With Fixed Aspect Proportion [dwwfap].js"
+    },
+    {
+      "name": "Decrease Height With Fixed Aspect Proportion [dhwfap]",
+      "shortcut": "ctrl option cmd \u001e",
+      "identifier": "Decrease Height With Fixed Aspect Proportion [dhwfap]",
+      "script": "Decrease Height With Fixed Aspect Proportion [dhwfap].js"
+    },
+    {
+      "name": "Increase Width With Fixed Aspect Proportion [iwwfap]",
+      "shortcut": "ctrl option cmd \u001d",
+      "identifier": "Increase Width With Fixed Aspect Proportion [iwwfap]",
+      "script": "Increase Width With Fixed Aspect Proportion [iwwfap].js"
+    },
+    {
+      "name": "Increase Height With Fixed Aspect Proportion [ihwfap]",
+      "shortcut": "ctrl option cmd \u001f",
+      "identifier": "Increase Height With Fixed Aspect Proportion [ihwfap]",
+      "script": "Increase Height With Fixed Aspect Proportion [ihwfap].js"
+    },
+    {
+      "name": "Temporary Unselect All Selections [tuas]",
+      "identifier": "Temporary Unselect All Selections [tuas]",
+      "script": "Temporary Unselect All Selections [tuas].js"
+    },
+    {
+      "name": "Reload",
+      "identifier": "Reload",
+      "script": "Reload.js"
+    },
+    {
+      "name": "Run With Sketch Runner",
+      "identifier": "Run With Sketch Runner",
+      "script": "Run With Sketch Runner.js"
+    },
+    {
+      "name": "Create A Child Library From TheSource [caclft]",
+      "identifier": "Create A Child Library From TheSource [caclft]",
+      "script": "Create A Child Library From TheSource [caclft].js"
+    },
+    {
+      "name": "Create Symbol Instance From Selected Symbol Master [csifssm]",
+      "identifier": "Create Symbol Instance From Selected Symbol Master [csifssm]",
+      "script": "Create Symbol Instance From Selected Symbol Master [csifssm].js"
+    },
+    {
+      "name": "Rename Layer & Text Style After Layer Name [rltsaln]",
+      "identifier": "Rename Layer & Text Style After Layer Name [rltsaln]",
+      "script": "Rename Layer & Text Style After Layer Name [rltsaln].js"
+    },
+    {
+      "name": "Select Layer By Type [slbt]",
+      "identifier": "Select Layer By Type [slbt]",
+      "script": "Select Layer By Type [slbt].js"
+    },
+    {
+      "name": "Unselect Layer Except Type [ulet]",
+      "identifier": "Unselect Layer Except Type [ulet]",
+      "script": "Unselect Layer Except Type [ulet].js"
+    },
+    {
+      "name": "Unselect Layer By Type [ulbt]",
+      "identifier": "Unselect Layer By Type [ulbt]",
+      "script": "Unselect Layer By Type [ulbt].js"
+    },
+    {
+      "name": "Create A Backup With Introduction [cabwi]",
+      "identifier": "Create A Backup With Introduction [cabwi]",
+      "script": "Create A Backup With Introduction [cabwi].js"
+    },
+    {
+      "name": "Duplicate Symbol Master With [LinkFrom] [dsmwl]",
+      "identifier": "Duplicate Symbol Master With [LinkFrom] [dsmwl]",
+      "script": "Duplicate Symbol Master With [LinkFrom] [dsmwl].js"
+    },
+    {
+      "name": "Sync All Symbol Masters Within [LinkFrom] [sasmwl]",
+      "identifier": "Sync All Symbol Masters Within [LinkFrom] [sasmwl]",
+      "script": "Sync All Symbol Masters Within [LinkFrom] [sasmwl].js"
+    },
+    {
+      "name": "Select All Artboards In This Page [saaitp]",
+      "identifier": "Select All Artboards In This Page [saaitp]",
+      "script": "Select All Artboards In This Page [saaitp].js"
+    },
+    {
+      "name": "Disable Selected Group Click-Through [dsgc]",
+      "identifier": "Disable Selected Group Click-Through [dsgc]",
+      "script": "Disable Selected Group Click-Through [dsgc].js"
+    },
+    {
+      "name": "Enable Selected Group Click-Through [esgc]",
+      "identifier": "Enable Selected Group Click-Through [esgc]",
+      "script": "Enable Selected Group Click-Through [esgc].js"
+    },
+    {
+      "name": "Temporary Enable All Groups Click-Through [teagc]",
+      "identifier": "Temporary Enable All Groups Click-Through [teagc]",
+      "script": "Temporary Enable All Groups Click-Through [teagc].js"
+    },
+    {
+      "name": "Temporary Disable All Groups Click-Through [tdagc]",
+      "identifier": "Temporary Disable All Groups Click-Through [tdagc]",
+      "script": "Temporary Disable All Groups Click-Through [tdagc].js"
+    },
+    {
+      "name": "Unselect Layer By Name Uncontains Specified Texts [ulbnust]",
+      "identifier": "Unselect Layer By Name Uncontains Specified Texts [ulbnust]",
+      "script": "Unselect Layer By Name Uncontains Specified Texts [ulbnust].js"
+    },
+    {
+      "name": "Unselect Layer By Content Uncontains Specified Texts [ulbcust]",
+      "identifier": "Unselect Layer By Content Uncontains Specified Texts [ulbcust]",
+      "script": "Unselect Layer By Content Uncontains Specified Texts [ulbcust].js"
+    },
+    {
+      "name": "Unselect Layer By Content Cotains Specified Texts [ulbccst]",
+      "identifier": "Unselect Layer By Content Cotains Specified Texts [ulbccst]",
+      "script": "Unselect Layer By Content Cotains Specified Texts [ulbccst].js"
+    },
+    {
+      "name": "Select Layer By Content Cotains Specified Texts [slbccst]",
+      "identifier": "Select Layer By Content Cotains Specified Texts [slbccst]",
+      "script": "Select Layer By Content Cotains Specified Texts [slbccst].js"
+    },
+    {
+      "name": "Sync Global Radius And Shadows [sgras]",
+      "identifier": "Sync Global Radius And Shadows [sgras]",
+      "script": "Sync Global Radius And Shadows [sgras].js"
+    },
+    {
+      "name": "Select Log Corresponding Artboard [slca]",
+      "identifier": "Select Log Corresponding Artboard [slca]",
+      "script": "Select Log Corresponding Artboard [slca].js"
+    },
+    {
+      "name": "Create A Change Log [cacl]",
+      "identifier": "Create A Change Log [cacl]",
+      "script": "Create A Change Log [cacl].js"
+    },
+    {
+      "name": "Reset Symbol Overrides [rso]",
+      "identifier": "Reset Symbol Overrides [rso]",
+      "script": "Reset Symbol Overrides [rso].js"
+    },
+    {
+      "name": "Unselect Layer By Name Cotains Specified Texts [ulbncst]",
+      "identifier": "Unselect Layer By Name Cotains Specified Texts [ulbncst]",
+      "script": "Unselect Layer By Name Cotains Specified Texts [ulbncst].js"
+    },
+    {
+      "name": "Select Layer By Name Cotains Specified Texts [slbncst]",
+      "identifier": "Select Layer By Name Cotains Specified Texts [slbncst]",
+      "script": "Select Layer By Name Cotains Specified Texts [slbncst].js"
+    },
+    {
+      "name": "Select One Backward [sob]",
+      "identifier": "Select One Backward [sob]",
+      "script": "Select One Backward [sob].js"
+    },
+    {
+      "name": "Select One Forward [sof]",
+      "identifier": "Select One Forward [sof]",
+      "script": "Select One Forward [sof].js"
+    },
+    {
+      "name": "Set Symbol To Original Size [sstos]",
+      "shortcut": "ctrl command option ]",
+      "identifier": "Set Symbol To Original Size [sstos]",
+      "script": "Set Symbol To Original Size [sstos].js"
+    },
+    {
+      "name": "Move Selection Into Group Above [msiga]",
+      "identifier": "Move Selection Into Group Above [msiga]",
+      "script": "Move Selection Into Group Above [msiga].js"
+    },
+    {
+      "name": "Create A Backup [cab]",
+      "identifier": "Create A Backup [cab]",
+      "script": "Create A Backup [cab].js"
+    },
+    {
+      "name": "Set Symbol To Overrides Friendly Size [sstofs]",
+      "shortcut": "ctrl command option '",
+      "identifier": "Set Symbol To Overrides Friendly Size [sstofs]",
+      "script": "Set Symbol To Overrides Friendly Size [sstofs].js"
+    },
+    {
+      "name": "Create Artboard Link Layer [call]",
+      "identifier": "Create Artboard Link Layer [call]",
+      "script": "Create Artboard Link Layer [call].js"
+    },
+    {
+      "name": "Sync Artboard Link Layer [sall]",
+      "identifier": "Sync Artboard Link Layer [sall]",
+      "script": "Sync Artboard Link Layer [sall].js"
+    },
+    {
+      "name": "Select All Rectangles Except AutoStyle [sarea]",
+      "identifier": "Select All Rectangles Except AutoStyle [sarea]",
+      "script": "Select All Rectangles Except AutoStyle [sarea].js"
+    },
+    {
+      "name": "Sync Same Name Artboard From Sync Page [ssnafsp]",
+      "identifier": "Sync Same Name Artboard From Sync Page [ssnafsp]",
+      "script": "Sync Same Name Artboard From Sync Page [ssnafsp].js"
+    },
+    {
+      "name": "Rename AutoStyle Layers [ral]",
+      "identifier": "Rename AutoStyle Layers [ral]",
+      "script": "Rename AutoStyle Layers [ral].js"
+    },
+    {
+      "name": "Change To Select One Backward [ctsob]",
+      "identifier": "Change To Select One Backward [ctsob]",
+      "script": "Change To Select One Backward [ctsob].js"
+    },
+    {
+      "name": "Change To Select One Forward [ctsof]",
+      "identifier": "Change To Select One Forward [ctsof]",
+      "script": "Change To Select One Forward [ctsof].js"
+    },
+    {
+      "name": "Duplicate Selection [ds]",
+      "identifier": "Duplicate Selection [ds]",
+      "script": "Duplicate Selection [ds].js"
+    },
+    {
+      "name": "Move Each Selection Forward [mesf]",
+      "identifier": "Move Each Selection Forward [mesf]",
+      "script": "Move Each Selection Forward [mesf].js"
+    },
+    {
+      "name": "Move Each Selection Backward [mesb]",
+      "identifier": "Move Each Selection Backward [mesb]",
+      "script": "Move Each Selection Backward [mesb].js"
+    },
+    {
+      "name": "Arrange Group Inner Layers Spacing X [agilsx]",
+      "identifier": "Arrange Group Inner Layers Spacing X [agilsx]",
+      "script": "Arrange Group Inner Layers Spacing X [agilsx].js"
+    },
+    {
+      "name": "Arrange Group Inner Layers Spacing Y [agilsy]",
+      "identifier": "Arrange Group Inner Layers Spacing Y [agilsy]",
+      "script": "Arrange Group Inner Layers Spacing Y [agilsy].js"
+    },
+    {
+      "name": "Temporary Unlock All Layers [tual]",
+      "identifier": "Temporary Unlock All Layers [tual]",
+      "script": "Temporary Unlock All Layers [tual].js"
+    },
+    {
+      "name": "Copy Layer Name [cln]",
+      "identifier": "Copy Layer Name [cln]",
+      "script": "Copy Layer Name [cln].js"
+    },
+    {
+      "name": "Paste Layer Name [pln]",
+      "identifier": "Paste Layer Name [pln]",
+      "script": "Paste Layer Name [pln].js"
+    },
+    {
+      "name": "Increase Width [iw]",
+      "shortcut": "ctrl option \u001d",
+      "identifier": "Increase Width [iw]",
+      "script": "Increase Width [iw].js"
+    },
+    {
+      "name": "Decrease Width [dw]",
+      "shortcut": "ctrl option \u001c",
+      "identifier": "Decrease Width [dw]",
+      "script": "Decrease Width [dw].js"
+    },
+    {
+      "name": "Increase Height [ih]",
+      "shortcut": "ctrl option \u001f",
+      "identifier": "Increase Height [ih]",
+      "script": "Increase Height [ih].js"
+    },
+    {
+      "name": "Decrease Height [dh]",
+      "shortcut": "ctrl option \u001e",
+      "identifier": "Decrease Height [dh]",
+      "script": "Decrease Height [dh].js"
+    },
+    {
+      "name": "Set Selection To Artboard Width [sstaw]",
+      "identifier": "Set Selection To Artboard Width [sstaw]",
+      "script": "Set Selection To Artboard Width [sstaw].js"
+    },
+    {
+      "name": "Set Selection To Artboard Height [sstah]",
+      "identifier": "Set Selection To Artboard Height [sstah]",
+      "script": "Set Selection To Artboard Height [sstah].js"
+    },
+    {
+      "name": "Set Artboard Height According To Selection Location [sahatsl]",
+      "identifier": "Set Artboard Height According To Selection Location [sahatsl]",
+      "script": "Set Artboard Height According To Selection Location [sahatsl].js"
+    },
+    {
+      "name": "Set Artboard Width According To Selection Location [sawatsl]",
+      "identifier": "Set Artboard Width According To Selection Location [sawatsl]",
+      "script": "Set Artboard Width According To Selection Location [sawatsl].js"
+    },
+    {
+      "name": "Set Symbol To Fixed Size [sstfs]",
+      "shortcut": "ctrl command option /",
+      "identifier": "Set Symbol To Fixed Size [sstfs]",
+      "script": "Set Symbol To Fixed Size [sstfs].js"
+    },
+    {
+      "name": "Next Symbol [ns]",
+      "shortcut": "ctrl option .",
+      "identifier": "Next Symbol [ns]",
+      "script": "Next Symbol [ns].js"
+    },
+    {
+      "name": "Last Symbol [ls]",
+      "shortcut": "ctrl option ,",
+      "identifier": "Last Symbol [ls]",
+      "script": "Last Symbol [ls]"
+    },
+    {
+      "name": "Next 10th Symbol [n10s]",
+      "shortcut": "ctrl cmd option .",
+      "identifier": "Next 10th Symbol [n10s]",
+      "script": "Next 10th Symbol [n10s].js"
+    },
+    {
+      "name": "Last 10th Symbol [l10s]",
+      "shortcut": "ctrl cmd option ,",
+      "identifier": "Last 10th Symbol [l10s]",
+      "script": "Last 10th Symbol [l10s].js"
+    },
+    {
+      "name": "Copy Symbol [cs]",
+      "identifier": "Copy Symbol [cs]",
+      "script": "Copy Symbol [cs].js"
+    },
+    {
+      "name": "Copy Symbol With Size [csws]",
+      "identifier": "Copy Symbol With Size [csws]",
+      "script": "Copy Symbol With Size [csws].js"
+    },
+    {
+      "name": "Replace Symbol Master [rsm]",
+      "identifier": "Replace Symbol Master [rsm]",
+      "script": "Replace Symbol Master [rsm]"
+    },
+    {
+      "name": "Replace Symbol Overrides [rso]",
+      "identifier": "Replace Symbol Overrides [rso]",
+      "script": "Replace Symbol Overrides [rso].js"
+    },
+    {
+      "name": "Replace Symbol Overrides Only Text [rsoot]",
+      "identifier": "Replace Symbol Overrides Only Text [rsoot]",
+      "script": "Replace Symbol Overrides Only Text [rsoot].js"
+    },
+    {
+      "name": "Replace Symbol Overrides Except Text [rsoet]",
+      "identifier": "Replace Symbol Overrides Except Text [rsoet]",
+      "script": "Replace Symbol Overrides Except Text [rsoet].js"
+    },
+    {
+      "name": "Sync All From TheSource [saft]",
+      "identifier": "Sync All From TheSource [saft]",
+      "script": "Sync All From TheSource [saft].js"
+    },
+    {
+      "name": "Sync Selection To TheSource [sstts]",
+      "identifier": "Sync Selection To TheSource [sstts]",
+      "script": "Sync Selection To TheSource [sstts].js"
+    },
+    {
+      "name": "Sync Selection To TheChild [ssttc]",
+      "identifier": "Sync Selection To TheChild [ssttc]",
+      "script": "Sync Selection To TheChild [ssttc].js"
+    },
+    {
+      "name": "Custom Part Backup [cpb]",
+      "identifier": "Custom Part Backup [cpb]",
+      "script": "Custom Part Backup [cpb].js"
+    },
+    {
+      "name": "Selection Data [sd]",
+      "identifier": "Selection Data [sd]",
+      "script": "Selection Data [sd].js"
+    },
+    {
+      "name": "Language 语言",
+      "identifier": "Language 语言",
+      "script": "Language.js"
+    }
+  ],
+  "menu": {
+    "title": "🧑🏻‍🚀Xscape!",
+    "isRoot": false,
+    "items": [
+      {
+        "title": "Document",
+        "items": [
+          "Show Document In Finder  [sdif]",
+          "-",
+          "Create A Backup [cab]",
+          "Create A Backup With Introduction [cabwi]",
+          "-",
+          "Create A Change Log [cacl]",
+          "Select Log Corresponding Artboard [slca]"
+        ]
+      },
+      {
+        "title": "Artboard",
+        "items": [
+          "Create Artboard Link Layer [call]",
+          "Sync Artboard Link Layer [sall]",
+          "-",
+          "Sync Same Name Artboard From Sync Page [ssnafsp]"
+        ]
+      },
+      {
+        "title": "Group",
+        "items": [
+          "Move Selection Into Group Above [msiga]",
+          "-",
+          "Enable Selected Group Click-Through [esgc]",
+          "Disable Selected Group Click-Through [dsgc]",
+          "Temporary Enable All Groups Click-Through [teagc]",
+          "Temporary Disable All Groups Click-Through [tdagc]"
+        ]
+      },
+      {
+        "title": "Layer",
+        "items": [
+          "Move Each Selection Forward [mesf]",
+          "Move Each Selection Backward [mesb]",
+          "-",
+          "Copy Layer Name [cln]",
+          "Paste Layer Name [pln]",
+          "-",
+          "Duplicate Selection [ds]",
+          "-",
+          "Temporary Unlock All Layers [tual]"
+        ]
+      },
+      {
+        "title": "Symbol ",
+        "items": [
+          "Next Symbol [ns]",
+          "Last Symbol [ls]",
+          "Next 10th Symbol [n10s]",
+          "Last 10th Symbol [l10s]",
+          "-",
+          "Copy Symbol [cs]",
+          "Copy Symbol With Size [csws]",
+          "-",
+          "Replace Symbol Master [rsm]",
+          "Replace Symbol Overrides [rso]",
+          "Replace Symbol Overrides Only Text [rsoot]",
+          "Replace Symbol Overrides Except Text [rsoet]",
+          "Reset Symbol Overrides [rso]",
+          "-",
+          "Create Symbol Instance From Selected Symbol Master [csifssm]"
+        ]
+      },
+      {
+        "title": "Select",
+        "items": [
+          "Select All Artboards In This Page [saaitp]",
+          "-",
+          "Select One Forward [sof]",
+          "Select One Backward [sob]",
+          "Change To Select One Forward [ctsof]",
+          "Change To Select One Backward [ctsob]",
+          "-",
+          "Select Layer By Name Cotains Specified Texts [slbncst]",
+          "Unselect Layer By Name Cotains Specified Texts [ulbncst]",
+          "Unselect Layer By Name Uncontains Specified Texts [ulbnust]",
+          "-",
+          "Select Layer By Content Cotains Specified Texts [slbccst]",
+          "Unselect Layer By Content Cotains Specified Texts [ulbccst]",
+          "Unselect Layer By Content Uncontains Specified Texts [ulbcust]",
+          "-",
+          "Select Layer By Type [slbt]",
+          "Unselect Layer By Type [ulbt]",
+          "Unselect Layer Except Type [ulet]",
+          "-",
+          "Temporary Unselect All Selections [tuas]"
+        ]
+      },
+      {
+        "title": "Rename",
+        "items": [
+          "Rename Layer & Text Style After Layer Name [rltsaln]"
+        ]
+      },
+      {
+        "title": "Size",
+        "items": [
+          "Increase Width [iw]",
+          "Increase Height [ih]",
+          "Decrease Width [dw]",
+          "Decrease Height [dh]",
+          "-",
+          "Increase Width With Fixed Aspect Proportion [iwwfap]",
+          "Increase Height With Fixed Aspect Proportion [ihwfap]",
+          "Decrease Width With Fixed Aspect Proportion [dwwfap]",
+          "Decrease Height With Fixed Aspect Proportion [dhwfap]",
+          "-",
+          "Set Selection Width According To Parent Group Border [sswatpgb]",
+          "Set Selection Height According To Parent Group Border [sshatpgb]",
+          "Set Selection To Artboard Width [sstaw]",
+          "Set Selection To Artboard Height [sstah]",
+          "-",
+          "Set Artboard Width According To Selection Location [sawatsl]",
+          "Set Artboard Height According To Selection Location [sahatsl]",
+          "-",
+          "Set Symbol To Original Size [sstos]",
+          "Set Symbol To Overrides Friendly Size [sstofs]"
+        ]
+      },
+      {
+        "title": "Location",
+        "items": [
+          "Arrange Group Inner Layers Spacing X [agilsx]",
+          "Arrange Group Inner Layers Spacing Y [agilsy]"
+        ]
+      },
+      "-",
+      {
+        "title": "TheSource",
+        "items": [
+          {
+            "title": "Library",
+            "items": [
+              "Sync All From TheSource [saft]",
+              "Sync Selection To TheSource [sstts]",
+              "Sync Selection To TheChild [ssttc]",
+              "Custom Part Backup [cpb]",
+              "-",
+              "Create A Child Library From TheSource [caclft]"
+            ]
+          },
+          {
+            "title": "Symbol ",
+            "items": [
+              "Duplicate Symbol Master With [LinkFrom] [dsmwl]",
+              "Sync All Symbol Masters Within [LinkFrom] [sasmwl]"
+            ]
+          },
+          {
+            "title": "Style",
+            "items": [
+              "Sync Global Radius And Shadows [sgras]",
+              "Select All Rectangles Except AutoStyle [sarea]",
+              "Rename AutoStyle Layers [ral]"
+            ]
+          },
+          {
+            "title": "Size",
+            "items": [
+              "Set Symbol To Fixed Size [sstfs]"
+            ]
+          },
+          {
+            "title": "Dev",
+            "items": [
+              "Selection Data [sd]",
+              "Reload"
+            ]
+          }
+        ]
+      },
+      "-",
+      "Run With Sketch Runner",
+      "Suggest & Help",
+      "Language 语言"
+    ]
+  },
+  "disableCocoaScriptPreprocessor": true
 }
