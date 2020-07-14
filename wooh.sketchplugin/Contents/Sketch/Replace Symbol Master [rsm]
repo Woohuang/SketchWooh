@@ -227,9 +227,9 @@ var Selection = doc.selectedLayers.layers;
   });
 
   if (Result === 1) {
-    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Pasting");
+    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Replacing");
   } else {
-    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Fail In Pasting");
+    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Fail In Replacing");
   } //GA
 
 

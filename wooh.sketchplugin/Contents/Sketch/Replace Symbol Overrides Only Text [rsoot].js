@@ -227,7 +227,7 @@ var SymbolInstance = __webpack_require__(/*! sketch/dom */ "sketch/dom").SymbolI
   });
 
   if (Result === 1) {
-    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Pasting");
+    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Replacing");
   } else {
     sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Fail In Following The Not Similar Symbol");
   } //GA

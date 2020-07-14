@@ -290,10 +290,9 @@ var Symbol_NextAndLast = function Symbol_NextAndLast(counts) {
   } //开始主要功能
   else {
       //所选为 library symbol 时
-      if (SelectedSymbols[0].master.getLibrary()) {
-        ThisLibrary = Libraries.find(function (item) {
-          return item.name === SelectedSymbols[0].master.getLibrary().name;
-        });
+      ThisLibrary = SelectedSymbols[0].master.getLibrary();
+
+      if (ThisLibrary) {
         var symbolReferences = ThisLibrary.getImportableSymbolReferencesForDocument(doc); //判断是否需要重新获取 ThisIndex
 
         if (JudgeSymbolId === ReadSymbolInfo.JudgeSymbolId) {
