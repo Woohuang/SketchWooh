@@ -88,7 +88,7 @@ var exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/Select Layer By Name Cotains Specified Texts [slbncst].js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/Sync All Symbol Masters Within [LinkFrom-Bridge] [sasmwl].js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -179,10 +179,10 @@ module.exports = function(trackingId, hitType, props, options) {
 
 /***/ }),
 
-/***/ "./src/Select Layer By Name Cotains Specified Texts [slbncst].js":
-/*!***********************************************************************!*\
-  !*** ./src/Select Layer By Name Cotains Specified Texts [slbncst].js ***!
-  \***********************************************************************/
+/***/ "./src/Sync All Symbol Masters Within [LinkFrom-Bridge] [sasmwl].js":
+/*!**************************************************************************!*\
+  !*** ./src/Sync All Symbol Masters Within [LinkFrom-Bridge] [sasmwl].js ***!
+  \**************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -192,45 +192,111 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Google Analytics Method */ "./src/modules/Google Analytics Method.js");
 
-var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
 
 var UI = __webpack_require__(/*! sketch/ui */ "sketch/ui");
 
+var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
+
+var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  var CopiedString = NSPasteboard.generalPasteboard().stringForType(NSPasteboardTypeString);
+  var LinkResult = 0,
+      ChooseLinkFromMasterResult = 0,
+      findSymbolMasters = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.find('SymbolMaster'),
+      LinkFromSymbolLikelyList = findSymbolMasters.filter(function (item) {
+    return item.name.indexOf("Link") !== -1 && item.name.indexOf("Bridge") !== -1;
+  }),
+      LinkFromSymbolLikelyNames = [],
+      LinkFromMaster;
+  LinkFromSymbolLikelyList.forEach(function (item) {
+    ChooseLinkFromMasterResult = ChooseLinkFromMasterResult + 1;
+    LinkFromSymbolLikelyNames.push(item.name + " [" + ChooseLinkFromMasterResult + "]");
+  }); //acquire LinkFrom master
 
-  if (CopiedString === null) {
-    CopiedString = "";
-  }
-
-  var SearchLayersLen = 0;
-  var SearchResult = 0; //start main function
-
-  UI.getInputFromUser("Enter Keywords To Filter", {
-    initialValue: CopiedString
+  UI.getInputFromUser("Choose [Link/From-Bridge] Symbol Master", {
+    type: UI.INPUT_TYPE.selection,
+    possibleValues: LinkFromSymbolLikelyNames
   }, function (err, value) {
     if (err) {
       return;
-    } //start select
-    else {
-        CopiedString = value;
-        var SearchLayers = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.find('*', doc.selectedPage).filter(function (item) {
-          return item.name.indexOf(CopiedString) !== -1;
-        });
-        SearchLayersLen = SearchLayers.length;
-        SearchLayers.forEach(function (item) {
-          item.selected = true;
-          SearchResult = 1;
-        }); //toast result
+    } else {
+      LinkFromMaster = LinkFromSymbolLikelyList[LinkFromSymbolLikelyNames.findIndex(function (item) {
+        return item === value;
+      })];
+    }
+  });
 
-        if (SearchResult === 1) {
-          sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Selecting " + SearchLayersLen + " Layers That Name Contains [" + CopiedString + "]");
-        } else {
-          sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("No Object Fits");
-        }
+  if (LinkFromMaster !== undefined) {
+    LinkFromMaster.getAllInstances().forEach(function (item) {
+      //acquire LinkOriginalMasterId info
+      var LinkOriginalMasterId;
+
+      if (item.overrides[0].value !== LinkFromMaster.layers[0].symbolId) {
+        LinkOriginalMasterId = item.overrides[0].value; //set LinkOriginalMasterId info
+
+        Settings.setLayerSettingForKey(item, 'LinkOriginalMasterId', LinkOriginalMasterId);
+      } else if (Settings.layerSettingForKey(item, 'LinkOriginalMasterId') !== undefined) {
+        LinkOriginalMasterId = Settings.layerSettingForKey(item, 'LinkOriginalMasterId');
+      } else {
+        LinkOriginalMasterId = findSymbolMasters.find(function (item2) {
+          return item2.name === item.overrides[1].value;
+        }).symbolId; //set LinkOriginalMasterId info
+
+        Settings.setLayerSettingForKey(item, 'LinkOriginalMasterId', LinkOriginalMasterId);
       }
-  }); //GA
+
+      if (LinkOriginalMasterId !== undefined) {
+        var LinkMaster = doc.getSymbolMasterWithID(LinkOriginalMasterId); //remove old layers
+
+        item.parent.layers.filter(function (item2) {
+          return item2.id !== item.id;
+        }).forEach(function (item2) {
+          return item2.remove();
+        }); //reset 'artboards' or 'group' frame
+
+        if (item.parent.type === 'Artboard' || item.parent.type === 'SymbolMaster') {
+          item.parent.frame.width = LinkMaster.frame.width;
+          item.parent.frame.height = LinkMaster.frame.height;
+        } //duplicate layers
+
+
+        LinkMaster.layers.forEach(function (item2) {
+          item2.duplicate().parent = item.parent;
+        }); //reset group frame size
+
+        if (item.parent.type === 'Group') {
+          item.parent.frame.x = 0;
+          item.parent.frame.y = 0; //item.parent.adjustToFit()
+
+          var AllGroups = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.find('Group', item.getParentArtboard());
+
+          for (var i = 0; i < AllGroups.length; i++) {
+            AllGroups.forEach(function (item) {
+              return item.adjustToFit();
+            });
+          }
+        } //reset LinkFrom symbol instance
+
+
+        item.index = 0;
+        item.overrides[0].value = LinkFromMaster.overrides[0].value;
+        item.overrides[1].value = LinkMaster.name;
+        item.name = "⚙️LinkFrom: " + LinkMaster.name;
+        item.frame.width = 0.1;
+        item.frame.height = 0.1;
+        item.frame.x = item.parent.frame.width / 2;
+        item.frame.y = item.parent.frame.height / 2;
+        item.locked = true;
+        item.hidden = true;
+      } //result counts
+
+
+      LinkResult = LinkResult + 1;
+    });
+  } //result toast
+
+
+  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Linking " + LinkResult + " Symbol(s)"); //GA
 
   Object(_modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__["default"])(":-)");
 });
@@ -319,4 +385,4 @@ module.exports = require("sketch/ui");
 }
 globalThis['onRun'] = __skpm_run.bind(this, 'default')
 
-//# sourceMappingURL=Select Layer By Name Cotains Specified Texts [slbncst].js.map
+//# sourceMappingURL=Sync All Symbol Masters Within [LinkFrom-Bridge] [sasmwl].js.map

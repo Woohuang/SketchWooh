@@ -1,1 +1,425 @@
-var globalThis=this,global=this;function __skpm_run(e,n){globalThis.context=n;try{var t=function(e){var n={};function t(r){if(n[r])return n[r].exports;var o=n[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,t),o.l=!0,o.exports}return t.m=e,t.c=n,t.d=function(e,n,r){t.o(e,n)||Object.defineProperty(e,n,{enumerable:!0,get:r})},t.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},t.t=function(e,n){if(1&n&&(e=t(e)),8&n)return e;if(4&n&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(t.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&n&&"string"!=typeof e)for(var o in e)t.d(r,o,function(n){return e[n]}.bind(null,o));return r},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},t.p="",t(t.s=4)}([function(e,n){e.exports=require("sketch")},function(e,n){e.exports=require("sketch/settings")},function(e,n){e.exports=require("sketch/dom")},function(e,t,r){var o=r(1),i=null;(i=NSUserDefaults.standardUserDefaults().objectForKey("google.analytics.uuid")+"-"+n.plugin.url().path().split("/")[n.plugin.url().path().split("/").findIndex(e=>"Users"===e)+1])||(i=NSUUID.UUID().UUIDString(),NSUserDefaults.standardUserDefaults().setObject_forKey(i,"google.analytics.uuid"));var a=MSApplicationMetadata.metadata().variant,u="Sketch "+("NONAPPSTORE"==a?"":a+" ")+o.version.sketch;e.exports=function(e,n,t,r){var o,a={v:1,tid:e,ds:u,cid:i,t:n};return"undefined"!=typeof __command&&(a.an=__command.pluginBundle().name(),a.aid=__command.pluginBundle().identifier(),a.av=__command.pluginBundle().version()),t&&Object.keys(t).forEach((function(e){a[e]=t[e]})),function(e,n){if(e){if(n&&n.makeRequest)return n.makeRequest(e);if(n&&n.debug){var t=NSURLRequest.requestWithURL(e),r=MOPointer.alloc().init(),o=MOPointer.alloc().init(),i=NSURLConnection.sendSynchronousRequest_returningResponse_error(t,r,o);return i?NSString.alloc().initWithData_encoding(i,NSUTF8StringEncoding):o.value()}NSURLSession.sharedSession().dataTaskWithURL(e).resume()}}(NSURL.URLWithString("https://www.google-analytics.com/"+(r&&r.debug?"debug/":"")+"collect?"+(o=a,Object.keys(o).map((function(e){return encodeURIComponent(e)+"="+encodeURIComponent(o[e])})).join("&")+"&z=")+NSUUID.UUID().UUIDString()),r)}},function(e,t,r){"use strict";r.r(t);var o=r(0),i=r.n(o),a=(r(2).getLibraries(),i.a.getSelectedDocument()),u=r(1),l=r(1);t.default=function(){var e,t,o;!function(e){u.sessionVariable("ReadSymbolInfo")||u.setSessionVariable("ReadSymbolInfo",{JudgeSymbolId:null,ThisIndex:null});var n,t,r,o,l,s=u.sessionVariable("ReadSymbolInfo"),c=a.selectedLayers.layers.filter((function(e){return"SymbolInstance"===e.type})),d=c[0].symbolId;if(-1!==c.findIndex((function(e){return e.symbolId!==d})))i.a.UI.message("Please Select Symbol With Same Master");else if(r=c[0].master.getLibrary()){var f=r.getImportableSymbolReferencesForDocument(a);n=d===s.JudgeSymbolId?s.ThisIndex:f.findIndex((function(e){return e.import().symbolId===d})),e>0?(e>f.length&&(e-=f.length),n+e>=f.length&&(n-=f.length)):(-e>f.length&&(e=-(-e-f.length)),n+e<0&&(n=f.length-n)),t=f[n+e].import()}else{var g=i.a.find('[type="SymbolMaster"]');n=d===s.JudgeSymbolId?s.ThisIndex:g.findIndex((function(e){return e.symbolId===d})),e>0?(e>g.length&&(e-=g.length),n+e>=g.length&&(n-=g.length)):(-e>g.length&&(e=-(-e-g.length)),n+e<0&&(n=g.length-n)),t=g[n+e]}i.a.UI.message(t.name),c.forEach((function(e){return e.master=t})),o=t.symbolId,l=n+e,u.setSessionVariable("ReadSymbolInfo",{JudgeSymbolId:o,ThisIndex:l})}(-10),e=":-)",t=r(3),o=MSApplicationMetadata.metadata().variant,t("UA-169300937-3","event",{ec:n.plugin.url().path().split("/")[n.plugin.url().path().split("/").findIndex((function(e){return"Users"===e}))+1]+"-Skth"+("NONAPPSTORE"==o?"":o+" ")+l.version.sketch+"-"+n.plugin.identifier()+" ["+n.plugin.version()+"]",ea:n.command.identifier(),el:e})}}]);if("default"===e&&"function"==typeof t)t(n);else{if("function"!=typeof t[e])throw new Error('Missing export named "'+e+'". Your command should contain something like `export function " + key +"() {}`.');t[e](n)}}catch(r){if("undefined"==typeof process||!process.listenerCount||!process.listenerCount("uncaughtException"))throw r;process.emit("uncaughtException",r,"uncaughtException")}}globalThis.onRun=__skpm_run.bind(this,"default");
+var globalThis = this;
+var global = this;
+function __skpm_run (key, context) {
+  globalThis.context = context;
+  try {
+
+var exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/Last 10th Symbol [l10s].js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./node_modules/sketch-module-google-analytics/index.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/sketch-module-google-analytics/index.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
+
+var kUUIDKey = "google.analytics.uuid";
+var uuid = null
+var uuid = NSUserDefaults.standardUserDefaults().objectForKey(kUUIDKey) + '-' + context.plugin.url().path().split('/')[context.plugin.url().path().split('/').findIndex(item => item === 'Users') + 1];
+if (!uuid) {
+    uuid = NSUUID.UUID().UUIDString();
+    NSUserDefaults.standardUserDefaults().setObject_forKey(uuid, kUUIDKey)
+}
+
+var variant = MSApplicationMetadata.metadata().variant;
+var source =
+    "Sketch " +
+    (variant == "NONAPPSTORE" ? "" : variant + " ") +
+    Settings.version.sketch;
+
+function jsonToQueryString(json) {
+    return Object.keys(json)
+        .map(function(key) {
+            return encodeURIComponent(key) + "=" + encodeURIComponent(json[key]);
+        })
+        .join("&");
+}
+
+function makeRequest(url, options) {
+    if (!url) {
+        return
+    }
+
+    if (options && options.makeRequest) {
+        return options.makeRequest(url)
+    }
+    if (options && options.debug) {
+        var request = NSURLRequest.requestWithURL(url)
+        var responsePtr = MOPointer.alloc().init();
+        var errorPtr = MOPointer.alloc().init();
+
+        var data = NSURLConnection.sendSynchronousRequest_returningResponse_error(request, responsePtr, errorPtr)
+        return data ? NSString.alloc().initWithData_encoding(data, NSUTF8StringEncoding) : errorPtr.value()
+    }
+
+    NSURLSession.sharedSession()
+        .dataTaskWithURL(url)
+        .resume();
+}
+
+module.exports = function(trackingId, hitType, props, options) {
+    var payload = {
+        v: 1,
+        tid: trackingId,
+        ds: source,
+        cid: uuid,
+        t: hitType
+    };
+
+    if (typeof __command !== "undefined") {
+        payload.an = __command.pluginBundle().name();
+        payload.aid = __command.pluginBundle().identifier();
+        payload.av = __command.pluginBundle().version();
+    }
+
+    if (props) {
+        Object.keys(props).forEach(function(key) {
+            payload[key] = props[key];
+        });
+    }
+
+    var url = NSURL.URLWithString(
+        "https://www.google-analytics.com/" + (options && options.debug ? "debug/" : "") + "collect?" +
+        jsonToQueryString(payload) +
+        "&z=" +
+        NSUUID.UUID().UUIDString()
+    );
+
+    return makeRequest(url, options)
+};
+
+/***/ }),
+
+/***/ "./src/Last 10th Symbol [l10s].js":
+/*!****************************************!*\
+  !*** ./src/Last 10th Symbol [l10s].js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _modules_Symbol_Next_Last_Function__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Symbol Next&Last Function */ "./src/modules/Symbol Next&Last Function.js");
+/* harmony import */ var _modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/Google Analytics Method */ "./src/modules/Google Analytics Method.js");
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  Object(_modules_Symbol_Next_Last_Function__WEBPACK_IMPORTED_MODULE_1__["Symbol_NextAndLast"])(-10); //GA
+
+  Object(_modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_2__["default"])(":-)");
+});
+
+/***/ }),
+
+/***/ "./src/modules/Google Analytics Method.js":
+/*!************************************************!*\
+  !*** ./src/modules/Google Analytics Method.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
+
+/* harmony default export */ __webpack_exports__["default"] = (function (CommandResult) {
+  var track = __webpack_require__(/*! sketch-module-google-analytics */ "./node_modules/sketch-module-google-analytics/index.js");
+
+  var variant = MSApplicationMetadata.metadata().variant;
+  var Appinfo = context.plugin.url().path().split('/')[context.plugin.url().path().split('/').findIndex(function (item) {
+    return item === 'Users';
+  }) + 1] + "-Skth" + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch + "-" + context.plugin.identifier() + " [" + context.plugin.version() + "]";
+  var CommandInfo = context.command.identifier();
+  track("UA-169300937-3", "event", {
+    ec: Appinfo,
+    // the event category
+    ea: CommandInfo,
+    // the event action
+    el: CommandResult // the event label
+
+  });
+});
+
+/***/ }),
+
+/***/ "./src/modules/Symbol Next&Last Function.js":
+/*!**************************************************!*\
+  !*** ./src/modules/Symbol Next&Last Function.js ***!
+  \**************************************************/
+/*! exports provided: Symbol_NextAndLast */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Symbol_NextAndLast", function() { return Symbol_NextAndLast; });
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Libraries = __webpack_require__(/*! sketch/dom */ "sketch/dom").getLibraries();
+
+var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
+
+var settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
+
+var selections = doc.selectedLayers.layers;
+var Symbol_NextAndLast = function Symbol_NextAndLast(counts) {
+  //function: WriteSymbolInfo
+  var WriteSymbolInfo = function WriteSymbolInfo(item1, item2, item3) {
+    settings.setSessionVariable('ReadSymbolInfo', {
+      JudgeSymbolId: item1,
+      ThisIndex: item2
+    });
+  }; //判断是否有 WriteSymbolInfo 避免报错
+
+
+  if (!settings.sessionVariable('ReadSymbolInfo')) {
+    settings.setSessionVariable('ReadSymbolInfo', {
+      JudgeSymbolId: null,
+      ThisIndex: null
+    });
+  }
+
+  var ReadSymbolInfo = settings.sessionVariable('ReadSymbolInfo');
+  var ThisIndex, symbolMaster, ThisLibrary; //获取选中的 symbol
+
+  var SelectedSymbols = selections.filter(function (item) {
+    return item.type === "SymbolInstance";
+  }); //判断是否同类 symbol
+
+  var JudgeSymbolId = SelectedSymbols[0].symbolId;
+  var JudgeSymbolResult;
+  JudgeSymbolResult = SelectedSymbols.findIndex(function (item) {
+    return item.symbolId !== JudgeSymbolId;
+  });
+
+  if (JudgeSymbolResult !== -1) {
+    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Please Select Symbol With Same Master");
+  } //开始主要功能
+  else {
+      //所选为 library symbol 时
+      ThisLibrary = SelectedSymbols[0].master.getLibrary();
+
+      if (ThisLibrary) {
+        var symbolReferences = ThisLibrary.getImportableSymbolReferencesForDocument(doc); //判断是否需要重新获取 ThisIndex
+
+        if (JudgeSymbolId === ReadSymbolInfo.JudgeSymbolId) {
+          ThisIndex = ReadSymbolInfo.ThisIndex;
+        } else {
+          ThisIndex = symbolReferences.findIndex(function (item) {
+            return item.import().symbolId === JudgeSymbolId;
+          });
+        } //ThisIndex + counts 超出正常范围时
+
+
+        if (counts > 0) {
+          if (counts > symbolReferences.length) {
+            counts = counts - symbolReferences.length;
+          }
+
+          if (ThisIndex + counts >= symbolReferences.length) {
+            ThisIndex = ThisIndex - symbolReferences.length;
+          }
+        } else {
+          if (-counts > symbolReferences.length) {
+            counts = -(-counts - symbolReferences.length);
+          }
+
+          if (ThisIndex + counts < 0) {
+            ThisIndex = symbolReferences.length - ThisIndex;
+          }
+        } //获取待替换 symbolMaster
+
+
+        symbolMaster = symbolReferences[ThisIndex + counts].import();
+      } //所选为 local symbol 时 
+      else {
+          //不能用 let DocSymbols =  doc.getSymbols(), 会取到引入的其它 library symbol
+          var DocSymbols = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.find('[type="SymbolMaster"]'); //判断是否需要重新获取 ThisIndex
+
+          if (JudgeSymbolId === ReadSymbolInfo.JudgeSymbolId) {
+            ThisIndex = ReadSymbolInfo.ThisIndex;
+          } else {
+            ThisIndex = DocSymbols.findIndex(function (item) {
+              return item.symbolId === JudgeSymbolId;
+            });
+          } //ThisIndex + counts 超出正常范围时
+
+
+          if (counts > 0) {
+            if (counts > DocSymbols.length) {
+              counts = counts - DocSymbols.length;
+            }
+
+            if (ThisIndex + counts >= DocSymbols.length) {
+              ThisIndex = ThisIndex - DocSymbols.length;
+            }
+          } else {
+            if (-counts > DocSymbols.length) {
+              counts = -(-counts - DocSymbols.length);
+            }
+
+            if (ThisIndex + counts < 0) {
+              ThisIndex = DocSymbols.length - ThisIndex;
+            }
+          } //获取待替换 symbolMaster
+
+
+          symbolMaster = DocSymbols[ThisIndex + counts];
+        }
+    }
+
+  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message(symbolMaster.name);
+  SelectedSymbols.forEach(function (item) {
+    return item.master = symbolMaster;
+  }); //储存 symbol 临时信息
+
+  WriteSymbolInfo(symbolMaster.symbolId, ThisIndex + counts);
+};
+
+/***/ }),
+
+/***/ "sketch":
+/*!*************************!*\
+  !*** external "sketch" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("sketch");
+
+/***/ }),
+
+/***/ "sketch/dom":
+/*!*****************************!*\
+  !*** external "sketch/dom" ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("sketch/dom");
+
+/***/ }),
+
+/***/ "sketch/settings":
+/*!**********************************!*\
+  !*** external "sketch/settings" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("sketch/settings");
+
+/***/ })
+
+/******/ });
+    if (key === 'default' && typeof exports === 'function') {
+      exports(context);
+    } else if (typeof exports[key] !== 'function') {
+      throw new Error('Missing export named "' + key + '". Your command should contain something like `export function " + key +"() {}`.');
+    } else {
+      exports[key](context);
+    }
+  } catch (err) {
+    if (typeof process !== 'undefined' && process.listenerCount && process.listenerCount('uncaughtException')) {
+      process.emit("uncaughtException", err, "uncaughtException");
+    } else {
+      throw err
+    }
+  }
+}
+globalThis['onRun'] = __skpm_run.bind(this, 'default')
+
+//# sourceMappingURL=Last 10th Symbol [l10s].js.map
