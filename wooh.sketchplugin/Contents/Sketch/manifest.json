@@ -6,9 +6,14 @@
   "author": "Wooh",
   "authorEmail": "im@hihy.me",
   "homepage": "http://xscape.fun/",
-  "version": "1.5.40",
+  "version": "1.5.41",
   "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
   "commands": [
+    {
+      "name": "Sync Artboard Link Lose Layer By Layer Name [salllbln]",
+      "identifier": "Sync Artboard Link Lose Layer By Layer Name [salllbln]",
+      "script": "Sync Artboard Link Lose Layer By Layer Name [salllbln].js"
+    },
     {
       "name": "Set Selection Height According To Parent Group Border [sshatpgb]",
       "identifier": "Set Selection Height According To Parent Group Border [sshatpgb]",
@@ -451,6 +456,7 @@
         "items": [
           "Create Artboard Link Layer [call]",
           "Sync Artboard Link Layer [sall]",
+          "Sync Artboard Link Lose Layer By Layer Name [salllbln]",
           "-",
           "Sync Same Name Artboard From Sync Page [ssnafsp]"
         ]

@@ -88,7 +88,7 @@ var exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/Select Layer By Name Cotains Specified Texts [slbncst].js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/Sync Artboard Link Lose Layer By Layer Name [salllbln].js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -179,9 +179,9 @@ module.exports = function(trackingId, hitType, props, options) {
 
 /***/ }),
 
-/***/ "./src/Select Layer By Name Cotains Specified Texts [slbncst].js":
+/***/ "./src/Sync Artboard Link Lose Layer By Layer Name [salllbln].js":
 /*!***********************************************************************!*\
-  !*** ./src/Select Layer By Name Cotains Specified Texts [slbncst].js ***!
+  !*** ./src/Sync Artboard Link Lose Layer By Layer Name [salllbln].js ***!
   \***********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -194,43 +194,89 @@ __webpack_require__.r(__webpack_exports__);
 
 var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
 
-var UI = __webpack_require__(/*! sketch/ui */ "sketch/ui");
+var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  var CopiedString = NSPasteboard.generalPasteboard().stringForType(NSPasteboardTypeString);
+  //acquire Link_ layer
+  var AllImg = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.find('Image');
+  var allLoseLinkPngs = AllImg.filter(function (item) {
+    return item.name.indexOf("Link_") !== -1 && item.name.indexOf("Lose") !== -1;
+  });
 
-  if (CopiedString === null) {
-    CopiedString = "";
-  }
+  if (allLoseLinkPngs.length > 0) {
+    //acquire all arrboards
+    var allArtboards = [];
+    doc.pages.forEach(function (item) {
+      allArtboards = allArtboards.concat(item.layers.filter(function (item) {
+        return item.type === "Artboard";
+      }));
+    }); //collect Link_ names
 
-  var SearchLayersLen = 0;
-  var SearchResult = 0; //start main function
+    var NameArray = [];
 
-  UI.getInputFromUser("Enter Keywords To Filter", {
-    initialValue: CopiedString
-  }, function (err, value) {
-    if (err) {
-      return;
-    } //start select
-    else {
-        CopiedString = value;
-        var SearchLayers = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.find('*', doc.selectedPage).filter(function (item) {
-          return item.name.indexOf(CopiedString) !== -1;
-        });
-        SearchLayersLen = SearchLayers.length;
-        SearchLayers.forEach(function (item) {
-          item.selected = true;
-          SearchResult = 1;
-        }); //toast result
+    var _loop = function _loop(i, len) {
+      var artboartName = allLoseLinkPngs[i].name.split("Link_").pop();
 
-        if (SearchResult === 1) {
-          sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Selecting " + SearchLayersLen + " Layers That Name Contains [" + CopiedString + "]");
-        } else {
-          sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("No Object Fits");
-        }
+      if (NameArray.findIndex(function (item) {
+        return item === artboartName;
+      }) === -1) {
+        NameArray.splice(NameArray.length, 0, artboartName);
       }
-  }); //GA
+    };
+
+    for (var i = 0, len = allLoseLinkPngs.length; i < len; i++) {
+      _loop(i, len);
+    } //set export option
+
+
+    var LinkPngOptions = {
+      formats: 'jpg',
+      output: false,
+      scales: 1
+    };
+    var fitArtboards;
+    var SyncResult = 0; //start syncing
+
+    NameArray.forEach(function (item) {
+      fitArtboards = allArtboards.filter(function (item2) {
+        return item2.name === item;
+      }); //name unique and available
+
+      if (fitArtboards.length === 1) {
+        var LinkArtboard = fitArtboards[0];
+        var LinkPng = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.export(LinkArtboard, LinkPngOptions);
+        var LinkPngLayer = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.createLayerFromData(LinkPng, 'bitmap');
+        allLoseLinkPngs.filter(function (item2) {
+          return item2.name.split("Link_").pop() === item;
+        }).forEach(function (item3) {
+          item3.image = LinkPngLayer.image;
+          item3.frame.width = LinkArtboard.frame.width;
+          item3.frame.height = LinkArtboard.frame.height;
+          item3.name = "🧶Link_" + LinkArtboard.name;
+          item3.locked = true;
+          SyncResult = SyncResult + 1; //LinkPngLayer 储存 Artboard id
+
+          Settings.setLayerSettingForKey(item3, 'ArtboardId', LinkArtboard.id);
+        });
+      } //id unavailable
+      else if (fitArtboards.length > 1) {
+          fitArtboards.forEach(function (item2) {
+            item2.name.replace("Lose", "NameRepetition_Lose");
+          });
+        }
+    }); //toast message
+
+    if (SyncResult === 0) {
+      sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Fail In Syncing");
+    } else {
+      sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Syncing " + SyncResult + " Layer(s)");
+    }
+  } //no link lose layer
+  else {
+      sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("No Link Lose Layer");
+    } //GA
+
 
   Object(_modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__["default"])(":-)");
 });
@@ -288,17 +334,6 @@ module.exports = require("sketch");
 
 module.exports = require("sketch/settings");
 
-/***/ }),
-
-/***/ "sketch/ui":
-/*!****************************!*\
-  !*** external "sketch/ui" ***!
-  \****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("sketch/ui");
-
 /***/ })
 
 /******/ });
@@ -319,4 +354,4 @@ module.exports = require("sketch/ui");
 }
 globalThis['onRun'] = __skpm_run.bind(this, 'default')
 
-//# sourceMappingURL=Select Layer By Name Cotains Specified Texts [slbncst].js.map
+//# sourceMappingURL=Sync Artboard Link Lose Layer By Layer Name [salllbln].js.map
