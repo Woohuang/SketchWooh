@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.43",
+    "version": "1.5.44",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
             "name": "Sync Artboard Link Lose Layer By Layer Name [salllbln]",
@@ -394,14 +394,14 @@
             "script": "Replace Symbol Overrides [rso].js"
         },
         {
-            "name": "Replace Symbol Overrides Only Text [rsoot]",
-            "identifier": "Replace Symbol Overrides Only Text [rsoot]",
-            "script": "Replace Symbol Overrides Only Text [rsoot].js"
+            "name": "Replace Symbol Text Content Overrides [rstco]",
+            "identifier": "Replace Symbol Text Content Overrides [rstco]",
+            "script": "Replace Symbol Text Content Overrides [rstco].js"
         },
         {
-            "name": "Replace Symbol Overrides Except Text [rsoet]",
-            "identifier": "Replace Symbol Overrides Except Text [rsoet]",
-            "script": "Replace Symbol Overrides Except Text [rsoet].js"
+            "name": "Replace Symbol Overrides Except Text Content [rsoetc]",
+            "identifier": "Replace Symbol Overrides Except Text Content [rsoetc]",
+            "script": "Replace Symbol Overrides Except Text Content [rsoetc].js"
         },
         {
             "name": "Sync All From TheSource [saft]",
@@ -497,8 +497,8 @@
                     "-",
                     "Replace Symbol Master [rsm]",
                     "Replace Symbol Overrides [rso]",
-                    "Replace Symbol Overrides Only Text [rsoot]",
-                    "Replace Symbol Overrides Except Text [rsoet]",
+                    "Replace Symbol Text Content Overrides [rstco]",
+                    "Replace Symbol Overrides Except Text Content [rsoetc]",
                     "Reset Symbol Overrides [rso]",
                     "-",
                     "Create Symbol Instance From Selected Symbol Master [csifssm]"

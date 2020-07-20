@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.43",
+    "version": "1.5.44",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
             "name": "通过名字同步画板链接丢失的图层 [sall] [salllbln]",
@@ -394,13 +394,13 @@
         },
         {
             "name": "替换组件文本覆盖层 [rsoot]",
-            "identifier": "Replace Symbol Overrides Only Text [rsoot]",
-            "script": "Replace Symbol Overrides Only Text [rsoot].js"
+            "identifier": "Replace Symbol Text Content Overrides [rstco]",
+            "script": "Replace Symbol Text Content Overrides [rstco].js"
         },
         {
             "name": "替换组件除文本外的覆盖层 [rsoet]",
-            "identifier": "Replace Symbol Overrides Except Text [rsoet]",
-            "script": "Replace Symbol Overrides Except Text [rsoet].js"
+            "identifier": "Replace Symbol Overrides Except Text Content [rsoetc]",
+            "script": "Replace Symbol Overrides Except Text Content [rsoetc].js"
         },
         {
             "name": "从TheSource同步所有 [saft]",
@@ -496,8 +496,8 @@
                     "-",
                     "Replace Symbol Master [rsm]",
                     "Replace Symbol Overrides [rso]",
-                    "Replace Symbol Overrides Only Text [rsoot]",
-                    "Replace Symbol Overrides Except Text [rsoet]",
+                    "Replace Symbol Text Content Overrides [rstco]",
+                    "Replace Symbol Overrides Except Text Content [rsoetc]",
                     "Reset Symbol Overrides [rso]",
                     "-",
                     "Create Symbol Instance From Selected Symbol Master [csifssm]"
