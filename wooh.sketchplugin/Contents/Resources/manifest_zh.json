@@ -393,12 +393,12 @@
             "script": "Replace Symbol Overrides [rso].js"
         },
         {
-            "name": "替换组件文本覆盖层 [rsoot]",
+            "name": "替换组件文本内容覆盖层 [rstco]",
             "identifier": "Replace Symbol Text Content Overrides [rstco]",
             "script": "Replace Symbol Text Content Overrides [rstco].js"
         },
         {
-            "name": "替换组件除文本外的覆盖层 [rsoet]",
+            "name": "替换组件除文本内容的覆盖层 [rsoetc]",
             "identifier": "Replace Symbol Overrides Except Text Content [rsoetc]",
             "script": "Replace Symbol Overrides Except Text Content [rsoetc].js"
         },
