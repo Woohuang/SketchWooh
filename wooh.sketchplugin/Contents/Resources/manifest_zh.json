@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.46",
+    "version": "1.5.47",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
             "name": "通过名字同步画板链接丢失的图层 [sall] [salllbln]",
@@ -30,7 +30,7 @@
         },
         {
             "name": "建议 & 帮助",
-            "identifier": "Suggest & Help",
+            "identifier": "Suggest",
             "script": "Suggest & Help.js"
         },
         {
@@ -612,7 +612,7 @@
             },
             "-",
             "Run With Sketch Runner",
-            "Suggest & Help",
+            "Suggest",
             "Language 语言"
         ]
     },

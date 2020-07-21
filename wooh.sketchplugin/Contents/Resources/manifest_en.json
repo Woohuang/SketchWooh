@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.46",
+    "version": "1.5.47",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
             "name": "Sync Artboard Link Lose Layer By Layer Name [salllbln]",
@@ -29,8 +29,8 @@
             "script": "Show Document In Finder  [sdif].js"
         },
         {
-            "name": "Suggest & Help",
-            "identifier": "Suggest & Help",
+            "name": "Suggest",
+            "identifier": "Suggest",
             "script": "Suggest & Help.js"
         },
         {
@@ -613,7 +613,7 @@
             },
             "-",
             "Run With Sketch Runner",
-            "Suggest & Help",
+            "Suggest",
             "Language 语言"
         ]
     },
