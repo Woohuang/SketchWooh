@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.45",
+    "version": "1.5.46",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
             "name": "通过名字同步画板链接丢失的图层 [sall] [salllbln]",
@@ -113,8 +113,8 @@
         },
         {
             "name": "同步所有含有 [LinkFrom] 的源组件 [sasmwl]",
-            "identifier": "Sync All Symbol Masters Within [LinkFrom-Bridge] [sasmwl]",
-            "script": "Sync All Symbol Masters Within [LinkFrom-Bridge] [sasmwl].js"
+            "identifier": "Sync All Symbol Masters With [LinkFrom-Bridge] [sasmwl]",
+            "script": "Sync All Symbol Masters With [LinkFrom-Bridge] [sasmwl].js"
         },
         {
             "name": "选中当前页面所有画板 [saaitp]",
@@ -584,7 +584,7 @@
                         "title": "组件 ",
                         "items": [
                             "Duplicate Symbol Master With [LinkFrom] [dsmwl]",
-                            "Sync All Symbol Masters Within [LinkFrom-Bridge] [sasmwl]"
+                            "Sync All Symbol Masters With [LinkFrom-Bridge] [sasmwl]"
                         ]
                     },
                     {

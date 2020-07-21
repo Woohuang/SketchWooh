@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.45",
+    "version": "1.5.46",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
             "name": "Sync Artboard Link Lose Layer By Layer Name [salllbln]",
@@ -113,9 +113,9 @@
             "script": "Duplicate Symbol Master With [LinkFrom] [dsmwl].js"
         },
         {
-            "name": "Sync All Symbol Masters Within [LinkFrom-Bridge] [sasmwl]",
-            "identifier": "Sync All Symbol Masters Within [LinkFrom-Bridge] [sasmwl]",
-            "script": "Sync All Symbol Masters Within [LinkFrom-Bridge] [sasmwl].js"
+            "name": "Sync All Symbol Masters With [LinkFrom-Bridge] [sasmwl]",
+            "identifier": "Sync All Symbol Masters With [LinkFrom-Bridge] [sasmwl]",
+            "script": "Sync All Symbol Masters With [LinkFrom-Bridge] [sasmwl].js"
         },
         {
             "name": "Select All Artboards In This Page [saaitp]",
@@ -585,7 +585,7 @@
                         "title": "Symbol ",
                         "items": [
                             "Duplicate Symbol Master With [LinkFrom] [dsmwl]",
-                            "Sync All Symbol Masters Within [LinkFrom-Bridge] [sasmwl]"
+                            "Sync All Symbol Masters With [LinkFrom-Bridge] [sasmwl]"
                         ]
                     },
                     {
