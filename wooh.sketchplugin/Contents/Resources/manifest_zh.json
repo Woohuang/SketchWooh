@@ -16,19 +16,19 @@
         }, {
             "name": "粘贴图层位置 [plp]",
             "shortcut": "ctrl shift p",
-            "identifier": "Paster Layer Position [plp]",
-            "script": "Paster Layer Position [plp].js"
+            "identifier": "Paste Layer Position [plp]",
+            "script": "Paste Layer Position [plp].js"
         }, {
             "name": "粘贴图层X位置 [plx]",
             "shortcut": "ctrl shift x",
-            "identifier": "Paster Layer X-Position [plx]",
-            "script": "Paster Layer X-Position [plx].js"
+            "identifier": "Paste Layer X-Position [plx]",
+            "script": "Paste Layer X-Position [plx].js"
         },
         {
             "name": "粘贴图层Y位置 [ply]",
             "shortcut": "ctrl shift y",
-            "identifier": "Paster Layer Y-Position [ply]",
-            "script": "Paster Layer Y-Position [ply].js"
+            "identifier": "Paste Layer Y-Position [ply]",
+            "script": "Paste Layer Y-Position [ply].js"
         },
         {
             "name": "通过名字同步画板链接丢失的图层 [sall] [salllbln]",
@@ -585,9 +585,9 @@
                 "title": "位置",
                 "items": [
                     "Copy Layer Position [clp]",
-                    "Paster Layer Position [plp]",
-                    "Paster Layer X-Position [plx]",
-                    "Paster Layer Y-Position [ply]",
+                    "Paste Layer Position [plp]",
+                    "Paste Layer X-Position [plx]",
+                    "Paste Layer Y-Position [ply]",
                     "-",
                     "Arrange Group Inner Layers X-Spacing [agilx]",
                     "Arrange Group Inner Layers Y-Spacing [agily]"

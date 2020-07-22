@@ -14,21 +14,21 @@
             "identifier": "Copy Layer Position [clp]",
             "script": "Copy Layer Position [clp].js"
         }, {
-            "name": "Paster Layer Position [plp]",
+            "name": "Paste Layer Position [plp]",
             "shortcut": "ctrl shift p",
-            "identifier": "Paster Layer Position [plp]",
-            "script": "Paster Layer Position [plp].js"
+            "identifier": "Paste Layer Position [plp]",
+            "script": "Paste Layer Position [plp].js"
         }, {
-            "name": "Paster Layer X-Position [plx]",
+            "name": "Paste Layer X-Position [plx]",
             "shortcut": "ctrl shift x",
-            "identifier": "Paster Layer X-Position [plx]",
-            "script": "Paster Layer X-Position [plx].js"
+            "identifier": "Paste Layer X-Position [plx]",
+            "script": "Paste Layer X-Position [plx].js"
         },
         {
-            "name": "Paster Layer Y-Position [ply]",
+            "name": "Paste Layer Y-Position [ply]",
             "shortcut": "ctrl shift y",
-            "identifier": "Paster Layer Y-Position [ply]",
-            "script": "Paster Layer Y-Position [ply].js"
+            "identifier": "Paste Layer Y-Position [ply]",
+            "script": "Paste Layer Y-Position [ply].js"
         },
         {
             "name": "Sync Artboard Link Lose Layer By Layer Name [salllbln]",
@@ -586,9 +586,9 @@
                 "title": "Position",
                 "items": [
                     "Copy Layer Position [clp]",
-                    "Paster Layer Position [plp]",
-                    "Paster Layer X-Position [plx]",
-                    "Paster Layer Y-Position [ply]",
+                    "Paste Layer Position [plp]",
+                    "Paste Layer X-Position [plx]",
+                    "Paste Layer Y-Position [ply]",
                     "-",
                     "Arrange Group Inner Layers X-Spacing [agilx]",
                     "Arrange Group Inner Layers Y-Spacing [agily]"
