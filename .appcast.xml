@@ -2,13 +2,13 @@
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
   <channel>
     <item>
-      <enclosure url="https://github.com/Woohuang/SketchWooh/releases/download/v1.5.49/wooh.sketchplugin.zip" sparkle:version="1.5.49"/>
+      <enclosure url="https://github.com/Woohuang/SketchWooh/releases/latest/download/Wooh.sketchplugin.zip" sparkle:version="1.5.49"/>
     </item>
     <item>
-      <enclosure url="https://github.com/Woohuang/SketchWooh/releases/download/v1.5.48/wooh.sketchplugin.zip" sparkle:version="1.5.48"/>
+      <enclosure url="https://github.com/Woohuang/SketchWooh/releases/latest/download/Wooh.sketchplugin.zip" sparkle:version="1.5.48"/>
     </item>
     <item>
-      <enclosure url="https://github.com/Woohuang/SketchWooh/releases/download/v1.5.48/wooh.sketchplugin.zip" sparkle:version="1.5.48"/>
+      <enclosure url="https://github.com/Woohuang/SketchWooh/releases/latest/download/Wooh.sketchplugin.zip" sparkle:version="1.5.48"/>
     </item>
     <item>
       <enclosure url="https://github.com/Woohuang/SketchWooh/releases/latest/download/Wooh.sketchplugin.zip" sparkle:version="1.5.47"/>
