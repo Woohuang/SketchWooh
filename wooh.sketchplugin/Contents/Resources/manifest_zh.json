@@ -9,23 +9,23 @@
     "version": "1.5.52",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
-            "name": "复制图层尺寸 [pls]",
+            "name": "粘贴图层尺寸 [pls]",
             "shortcut": "ctrl shift v",
             "identifier": "Paste Layer Size [pls]",
             "script": "Paste Layer Size [pls].js"
         }, {
-            "name": "复制图层宽度 [plw]",
+            "name": "粘贴图层宽度 [plw]",
             "shortcut": "ctrl shift w",
             "identifier": "Paste Layer Width [plw]",
             "script": "Paste Layer Width [plw].js"
         }, {
-            "name": "复制图层高度 [plh]",
+            "name": "粘贴图层高度 [plh]",
             "shortcut": "ctrl shift h",
             "identifier": "Paste Layer Height [plh]",
             "script": "Paste Layer Height [plh].js"
         },
         {
-            "name": "复制图层位置 [clp]",
+            "name": "复制图层尺寸与位置 [clsap]",
             "shortcut": "ctrl shift c",
             "identifier": "Copy Layer Size And Position [clsap]",
             "script": "Copy Layer Size And Position [clsap].js"
