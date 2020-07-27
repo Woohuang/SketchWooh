@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.53",
+    "version": "1.5.54",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
             "name": "Paste Layer Size [pls]",
