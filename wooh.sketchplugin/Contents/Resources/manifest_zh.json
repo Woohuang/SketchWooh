@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.54",
+    "version": "1.5.55",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
             "name": "粘贴图层尺寸 [pls]",
@@ -67,7 +67,7 @@
             "script": "Show Document In Finder  [sdif].js"
         },
         {
-            "name": "建议 & 帮助",
+            "name": "建议",
             "identifier": "Suggest",
             "script": "Suggest & Help.js"
         },
