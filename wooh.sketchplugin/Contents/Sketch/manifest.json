@@ -6,7 +6,7 @@
   "author": "Wooh",
   "authorEmail": "im@hihy.me",
   "homepage": "http://xscape.fun/",
-  "version": "1.5.55",
+  "version": "1.5.57",
   "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
   "commands": [
     {
@@ -151,9 +151,9 @@
       "script": "Create A Backup With Introduction [cabwi].js"
     },
     {
-      "name": "Duplicate Symbol Master With [LinkFrom] [dsmwl]",
-      "identifier": "Duplicate Symbol Master With [LinkFrom] [dsmwl]",
-      "script": "Duplicate Symbol Master With [LinkFrom] [dsmwl].js"
+      "name": "Create Symbol Master With [LinkFrom-Bridge] [csmwl]",
+      "identifier": "Create Symbol Master With [LinkFrom-Bridge] [csmwl]",
+      "script": "Create Symbol Master With [LinkFrom-Bridge] [csmwl].js"
     },
     {
       "name": "Sync All Symbol Masters With [LinkFrom-Bridge] [sasmwl]",
@@ -549,6 +549,12 @@
         ]
       },
       {
+        "title": "Style",
+        "items": [
+          "Rename Layer & Text Style After Layer Name [rltsaln]"
+        ]
+      },
+      {
         "title": "Select",
         "items": [
           "Select All Artboards In This Page [saaitp]",
@@ -571,12 +577,6 @@
           "Unselect Layer Except Type [ulet]",
           "-",
           "Temporary Unselect All Selections [tuas]"
-        ]
-      },
-      {
-        "title": "Rename",
-        "items": [
-          "Rename Layer & Text Style After Layer Name [rltsaln]"
         ]
       },
       {
@@ -639,7 +639,7 @@
           {
             "title": "Symbol ",
             "items": [
-              "Duplicate Symbol Master With [LinkFrom] [dsmwl]",
+              "Create Symbol Master With [LinkFrom-Bridge] [csmwl]",
               "Sync All Symbol Masters With [LinkFrom-Bridge] [sasmwl]"
             ]
           },

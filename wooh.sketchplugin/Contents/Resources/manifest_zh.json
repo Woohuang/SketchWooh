@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.56",
+    "version": "1.5.57",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
             "name": "粘贴图层尺寸 [pls]",
@@ -145,12 +145,12 @@
             "script": "Create A Backup With Introduction [cabwi].js"
         },
         {
-            "name": "通过 [LinkFrom] 复制源组件 [dssm]",
-            "identifier": "Duplicate Symbol Master With [LinkFrom] [dsmwl]",
-            "script": "Duplicate Symbol Master With [LinkFrom] [dsmwl].js"
+            "name": "通过 [LinkFrom-Bridge] 复制源组件 [dssm]",
+            "identifier": "Create Symbol Master With [LinkFrom-Bridge] [csmwl]",
+            "script": "Create Symbol Master With [LinkFrom-Bridge] [csmwl].js"
         },
         {
-            "name": "同步所有含有 [LinkFrom] 的源组件 [sasmwl]",
+            "name": "同步所有含有 [LinkFrom-Bridge] 的源组件 [sasmwl]",
             "identifier": "Sync All Symbol Masters With [LinkFrom-Bridge] [sasmwl]",
             "script": "Sync All Symbol Masters With [LinkFrom-Bridge] [sasmwl].js"
         },
@@ -542,6 +542,12 @@
                 ]
             },
             {
+                "title": "命名",
+                "items": [
+                    "Rename Layer & Text Style After Layer Name [rltsaln]"
+                ]
+            },
+            {
                 "title": "选择",
                 "items": [
                     "Select All Artboards In This Page [saaitp]",
@@ -564,12 +570,6 @@
                     "Unselect Layer Except Type [ulet]",
                     "-",
                     "Temporary Unselect All Selections [tuas]"
-                ]
-            },
-            {
-                "title": "命名",
-                "items": [
-                    "Rename Layer & Text Style After Layer Name [rltsaln]"
                 ]
             },
             {
@@ -631,7 +631,7 @@
                     {
                         "title": "组件 ",
                         "items": [
-                            "Duplicate Symbol Master With [LinkFrom] [dsmwl]",
+                            "Create Symbol Master With [LinkFrom-Bridge] [csmwl]",
                             "Sync All Symbol Masters With [LinkFrom-Bridge] [sasmwl]"
                         ]
                     },

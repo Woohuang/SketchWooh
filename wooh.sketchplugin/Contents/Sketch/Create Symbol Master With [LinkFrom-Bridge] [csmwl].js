@@ -88,7 +88,7 @@ var exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/Select Layer By Name Cotains Specified Texts [slbncst].js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/Create Symbol Master With [LinkFrom-Bridge] [csmwl].js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -179,10 +179,10 @@ module.exports = function(trackingId, hitType, props, options) {
 
 /***/ }),
 
-/***/ "./src/Select Layer By Name Cotains Specified Texts [slbncst].js":
-/*!***********************************************************************!*\
-  !*** ./src/Select Layer By Name Cotains Specified Texts [slbncst].js ***!
-  \***********************************************************************/
+/***/ "./src/Create Symbol Master With [LinkFrom-Bridge] [csmwl].js":
+/*!********************************************************************!*\
+  !*** ./src/Create Symbol Master With [LinkFrom-Bridge] [csmwl].js ***!
+  \********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -192,45 +192,99 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Google Analytics Method */ "./src/modules/Google Analytics Method.js");
 
+
+var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
+
 var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
+var Selection = doc.selectedLayers.layers;
 
 var UI = __webpack_require__(/*! sketch/ui */ "sketch/ui");
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  var CopiedString = NSPasteboard.generalPasteboard().stringForType(NSPasteboardTypeString);
+  var DuplicateResult = 0;
+  var ChooseLinkFromMasterResult = 0;
+  var LinkFromSymbolLikelyList = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.find('SymbolMaster').filter(function (item) {
+    return item.name.indexOf("Link") !== -1 && item.name.indexOf("Bridge") !== -1;
+  });
+  var LinkFromSymbolLikelyNames = [];
+  var LinkFromMaster;
+  LinkFromSymbolLikelyList.forEach(function (item) {
+    ChooseLinkFromMasterResult = ChooseLinkFromMasterResult + 1;
+    LinkFromSymbolLikelyNames.push(item.name + " [" + ChooseLinkFromMasterResult + "]");
+  }); //acquire LinkFrom master
 
-  if (CopiedString === null) {
-    CopiedString = "";
-  }
-
-  var SearchLayersLen = 0;
-  var SearchResult = 0; //start main function
-
-  UI.getInputFromUser("Enter Keywords To Filter", {
-    initialValue: CopiedString
+  UI.getInputFromUser("Choose The [Link/From-Bridge] Symbol Master", {
+    type: UI.INPUT_TYPE.selection,
+    possibleValues: LinkFromSymbolLikelyNames
   }, function (err, value) {
     if (err) {
       return;
-    } //start select
-    else {
-        CopiedString = value;
-        var SearchLayers = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.find('*', doc.selectedPage).filter(function (item) {
-          return item.name.indexOf(CopiedString) !== -1;
-        });
-        SearchLayersLen = SearchLayers.length;
-        SearchLayers.forEach(function (item) {
-          item.selected = true;
-          SearchResult = 1;
-        }); //toast result
+    } else {
+      LinkFromMaster = LinkFromSymbolLikelyList[LinkFromSymbolLikelyNames.findIndex(function (item) {
+        return item === value;
+      })];
+    }
+  });
 
-        if (SearchResult === 1) {
-          sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Selecting " + SearchLayersLen + " Layers That Name Contains [" + CopiedString + "]");
-        } else {
-          sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("No Object Fits");
+  if (LinkFromMaster !== undefined) {
+    ChooseLinkFromMasterResult = 1;
+  } else {
+    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('未找到正确的 [Link/From-Bridge] 组件 Master');
+  } //if LinkFrom master is right
+  //acquire Artboards to Link
+
+
+  if (ChooseLinkFromMasterResult === 1) {
+    var ToDuplicateArtboards = [];
+    Selection.forEach(function (item) {
+      if (item.type === 'SymbolMaster' || item.type === 'Artboard') {
+        if (ToDuplicateArtboards.findIndex(function (item2) {
+          return item2.id === item.id;
+        }) === -1) {
+          ToDuplicateArtboards.push(item);
+        }
+      } else if (item.getParentArtboard() !== undefined) {
+        if (ToDuplicateArtboards.findIndex(function (item2) {
+          return item2.id === item.getParentArtboard().id;
+        }) !== -1) {
+          ToDuplicateArtboards.push(item.getParentArtboard());
         }
       }
-  }); //GA
+    }); //clear selection
+
+    doc.selectedLayers.clear(); //duplicate ToDuplicateArtboards
+
+    ToDuplicateArtboards.forEach(function (item) {
+      //set duplicate SymbolMaster Artboard
+      var DuplicateArtboard = item.duplicate();
+      DuplicateArtboard.name = "⚙️LinkFrom: " + item.name;
+      DuplicateArtboard.frame.x = item.frame.x + item.frame.width + 2;
+      DuplicateArtboard.selected = true; //set duplicate SymbolMaster layers
+
+      var LinkFromInstance = LinkFromMaster.createNewInstance();
+      LinkFromInstance.parent = DuplicateArtboard;
+      LinkFromInstance.index = 0;
+      LinkFromInstance.overrides[1].value = item.name;
+      LinkFromInstance.name = "⚙️LinkFrom: " + item.name;
+      LinkFromInstance.frame.width = 0.1;
+      LinkFromInstance.frame.height = 0.1;
+      LinkFromInstance.frame.x = DuplicateArtboard.frame.width / 2;
+      LinkFromInstance.frame.y = DuplicateArtboard.frame.height / 2;
+      LinkFromInstance.locked = true;
+      LinkFromInstance.hidden = true;
+      Settings.setLayerSettingForKey(LinkFromInstance, 'LinkOriginalMasterId', item.symbolId); //result counts
+
+      DuplicateResult = DuplicateResult + 1;
+    }); //toast result
+
+    if (DuplicateResult === 0) {
+      sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('Fain In Duplicating');
+    } else if (DuplicateResult > 0) {
+      sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('Succeed In Duplicating ' + DuplicateResult + ' Artboard(s)');
+    }
+  } //GA
+
 
   Object(_modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__["default"])(":-)");
 });
@@ -319,4 +373,4 @@ module.exports = require("sketch/ui");
 }
 globalThis['onRun'] = __skpm_run.bind(this, 'default')
 
-//# sourceMappingURL=Select Layer By Name Cotains Specified Texts [slbncst].js.map
+//# sourceMappingURL=Create Symbol Master With [LinkFrom-Bridge] [csmwl].js.map
