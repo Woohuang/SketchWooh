@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.57",
+    "version": "1.5.58",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
             "name": "粘贴图层尺寸 [pls]",
@@ -526,8 +526,6 @@
                 "items": [
                     "Next Symbol [ns]",
                     "Last Symbol [ls]",
-                    "Next 10th Symbol [n10s]",
-                    "Last 10th Symbol [l10s]",
                     "-",
                     "Copy Symbol [cs]",
                     "Copy Symbol With Size [csws]",
