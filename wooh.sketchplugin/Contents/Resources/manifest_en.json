@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.60",
+    "version": "1.5.61",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
             "name": "Preview In Browser [pib]",
