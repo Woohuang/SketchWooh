@@ -6,9 +6,29 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.59",
+    "version": "1.5.60",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
+            "name": "Preview In Browser [pib]",
+            "shortcut": "cmd shift .",
+            "identifier": "Preview In Browser [pib]",
+            "script": "Preview In Browser [pib].js"
+        },
+        {
+            "name": "Preview In Browser [pib]-autoRefreshHandler",
+            "script": "Preview In Browser [pib].js",
+            "handlers": {
+                "actions": {
+                    "ArtboardChanged": "autoRefreshHandler"
+                }
+            }
+        },
+        {
+            "name": "Auto Refresh Switch [ars]",
+            "identifier": "Auto Refresh Switch [ars]",
+            "script": "Auto Refresh Switch [ars].js"
+        },
+        {
             "name": "Paste Layer Size [pls]",
             "shortcut": "ctrl shift v",
             "identifier": "Paste Layer Size [pls]",
@@ -611,6 +631,13 @@
                     "-",
                     "Arrange Group Inner Layers X-Spacing [agilx]",
                     "Arrange Group Inner Layers Y-Spacing [agily]"
+                ]
+            },
+            {
+                "title": "Preview",
+                "items": [
+                    "Preview In Browser [pib]",
+                    "Auto Refresh Switch [ars]"
                 ]
             },
             "-",

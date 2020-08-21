@@ -6,19 +6,41 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.59",
+    "version": "1.5.60",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
+            "name": "浏览器预览 [pib]",
+            "shortcut": "cmd shift .",
+            "identifier": "Preview In Browser [pib]",
+            "script": "Preview In Browser [pib].js"
+        },
+        {
+            "name": "浏览器预览 [pib]-autoRefreshHandler",
+            "script": "Preview In Browser [pib].js",
+            "handlers": {
+                "actions": {
+                    "ArtboardChanged": "autoRefreshHandler"
+                }
+            }
+        },
+        {
+            "name": "自动刷新开关 [ars]",
+            "identifier": "Auto Refresh Switch [ars]",
+            "script": "Auto Refresh Switch [ars].js"
+        },
+        {
             "name": "粘贴图层尺寸 [pls]",
             "shortcut": "ctrl shift v",
             "identifier": "Paste Layer Size [pls]",
             "script": "Paste Layer Size [pls].js"
-        }, {
+        },
+        {
             "name": "粘贴图层宽度 [plw]",
             "shortcut": "ctrl shift w",
             "identifier": "Paste Layer Width [plw]",
             "script": "Paste Layer Width [plw].js"
-        }, {
+        },
+        {
             "name": "粘贴图层高度 [plh]",
             "shortcut": "ctrl shift h",
             "identifier": "Paste Layer Height [plh]",
@@ -29,12 +51,14 @@
             "shortcut": "ctrl shift c",
             "identifier": "Copy Layer Size And Position [clsap]",
             "script": "Copy Layer Size And Position [clsap].js"
-        }, {
+        },
+        {
             "name": "粘贴图层位置 [plp]",
             "shortcut": "ctrl shift p",
             "identifier": "Paste Layer Position [plp]",
             "script": "Paste Layer Position [plp].js"
-        }, {
+        },
+        {
             "name": "粘贴图层X位置 [plx]",
             "shortcut": "ctrl shift x",
             "identifier": "Paste Layer X-Position [plx]",
@@ -76,7 +100,8 @@
             "shortcut": "ctrl option cmd \u001c",
             "identifier": "Decrease Width With Fixed Aspect Proportion [dwwfap]",
             "script": "Decrease Width With Fixed Aspect Proportion [dwwfap].js"
-        }, {
+        },
+        {
             "name": "固定长宽比减少高度 [dhwfap]",
             "shortcut": "ctrl option cmd \u001e",
             "identifier": "Decrease Height With Fixed Aspect Proportion [dhwfap]",
@@ -610,6 +635,13 @@
                     "-",
                     "Arrange Group Inner Layers X-Spacing [agilx]",
                     "Arrange Group Inner Layers Y-Spacing [agily]"
+                ]
+            },
+            {
+                "title": "预览",
+                "items": [
+                    "Preview In Browser [pib]",
+                    "Auto Refresh Switch [ars]"
                 ]
             },
             "-",
