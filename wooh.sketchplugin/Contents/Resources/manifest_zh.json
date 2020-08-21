@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.67",
+    "version": "1.5.68",
 
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
@@ -20,7 +20,7 @@
             "handlers": {
                 "actions": {
                     "DocumentSaved": "autoRefreshHandlerSave",
-                    "SelectionChanged.finish": "autoRefreshHandler",
+                    "ArtboardChanged.finish": "autoRefreshHandler",
                     "HideLayer": "autoRefreshHandler",
                     "InsertVector": "autoRefreshHandler",
                     "LayersMoved": "autoRefreshHandler",
