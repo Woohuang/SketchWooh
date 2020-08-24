@@ -1,0 +1,19 @@
+# npm
+node_modules
+.npm
+npm-debug.log
+
+# mac
+.DS_Store
+
+# WebStorm
+.idea
+
+# sketch
+# sketch-assets
+
+#custom
+src
+assets
+*.zip
+.gitignore
