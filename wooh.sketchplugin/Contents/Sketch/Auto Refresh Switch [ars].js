@@ -229,21 +229,21 @@ var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
   if (artboard == 0 && doc.selectedPage.layers.find(function (item) {
     return item.type === "Artboard";
   })) {
-    doc.selectedPage.layers.find(function (item) {
+    artboard = doc.selectedPage.layers.find(function (item) {
       return item.type === "Artboard";
-    }).selected = true;
+    });
   } //toastMessage
 
 
   if (autoRefreshKey === "Auto refresh") {
     sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('Auto Refresh In Browser: On');
-    Object(_Preview_In_Browser_pib___WEBPACK_IMPORTED_MODULE_2__["artboardBrowse"])("AutoRefreshing", "500");
+    Object(_Preview_In_Browser_pib___WEBPACK_IMPORTED_MODULE_2__["artboardBrowse"])(artboard, "AutoRefreshing", "500");
   } else if (autoRefreshKey === "Refresh when saving document") {
     sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('It Will Refresh When You Save Document Pressing Command + S');
-    Object(_Preview_In_Browser_pib___WEBPACK_IMPORTED_MODULE_2__["artboardBrowse"])("AutoRefreshing", "500");
+    Object(_Preview_In_Browser_pib___WEBPACK_IMPORTED_MODULE_2__["artboardBrowse"])(artboard, "AutoRefreshing", "500");
   } else {
     sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('Auto Refresh In Browser: Off');
-    Object(_Preview_In_Browser_pib___WEBPACK_IMPORTED_MODULE_2__["artboardBrowse"])(artboard.name, 604800016);
+    Object(_Preview_In_Browser_pib___WEBPACK_IMPORTED_MODULE_2__["artboardBrowse"])(artboard, artboard.name, 604800016);
   } //GA
 
 
@@ -268,8 +268,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Google Analytics Method */ "./src/modules/Google Analytics Method.js");
 
- //import { Console } from 'console'
-//thank gaddafirusli
+ //thank gaddafirusli
 
 var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
     Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings"),
@@ -289,9 +288,9 @@ if (selection.length > 0) {
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   if (autoRefreshKey === "Auto refresh" || autoRefreshKey === "Refresh when saving document") {
-    artboardBrowse("AutoRefreshing", "500");
+    artboardBrowse(artboard, "AutoRefreshing", "500");
   } else {
-    artboardBrowse(artboard.name, 604800016);
+    artboardBrowse(artboard, artboard.name, 604800016);
   } //GA
 
 
@@ -308,7 +307,7 @@ function autoRefreshHandlerSave() {
   }
 } //functions
 
-function artboardBrowse(pageTitle, refreshInterval) {
+function artboardBrowse(artboard, pageTitle, refreshInterval) {
   if (artboard === 0) {
     sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Please Select 1 Artboard");
   } else {

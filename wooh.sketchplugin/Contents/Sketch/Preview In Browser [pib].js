@@ -195,8 +195,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Google Analytics Method */ "./src/modules/Google Analytics Method.js");
 
- //import { Console } from 'console'
-//thank gaddafirusli
+ //thank gaddafirusli
 
 var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
     Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings"),
@@ -216,9 +215,9 @@ if (selection.length > 0) {
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   if (autoRefreshKey === "Auto refresh" || autoRefreshKey === "Refresh when saving document") {
-    artboardBrowse("AutoRefreshing", "500");
+    artboardBrowse(artboard, "AutoRefreshing", "500");
   } else {
-    artboardBrowse(artboard.name, 604800016);
+    artboardBrowse(artboard, artboard.name, 604800016);
   } //GA
 
 
@@ -235,7 +234,7 @@ function autoRefreshHandlerSave() {
   }
 } //functions
 
-function artboardBrowse(pageTitle, refreshInterval) {
+function artboardBrowse(artboard, pageTitle, refreshInterval) {
   if (artboard === 0) {
     sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Please Select 1 Artboard");
   } else {
