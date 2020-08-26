@@ -353,13 +353,14 @@ function artboardBrowse(artboard, pageTitle, customBlockKey) {
                 while (runKey == 0 && stopRefreshKey == false && deadline.timeRemaining() > 1) {\
                     runKey = 1;\
                     document.getElementById('mainImg').src=document.getElementById('mainImg').src+'?t='+Math.random();\
-                    setTimeout (runKey = 0,500);};\
+                    setTimeout (function() {runKey = 0;},500);};\
                     window.requestIdleCallback(workLoop);\
-                }\
+                };\
             window.requestIdleCallback(workLoop);\
             let refreshBlock = function() {\
                 if (stopRefreshKey == false) { stopRefreshKey = true; document.getElementById('refreshBlock').innerHTML='Continue To Refresh';}\
-                else { stopRefreshKey = false; window.requestIdleCallback(workLoop); document.getElementById('refreshBlock').innerHTML='Stop Refreshing'}\
+                else { location.reload()\
+                    /*stopRefreshKey = false; window.requestIdleCallback(workLoop); document.getElementById('refreshBlock').innerHTML='Stop Refreshing';*/};\
             };\
             </script>\
             </html>");
