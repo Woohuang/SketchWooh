@@ -348,14 +348,12 @@ function artboardBrowse(artboard, pageTitle, customBlockKey) {
             <script>\
             let stopRefreshKey = JSON.parse(document.getElementsByTagName('body')[0].id);\
             if (stopRefreshKey == true) {document.getElementById('refreshBlock').remove();};\
-            let runKey = 0;\
             function workLoop(deadline) {\
-                while (runKey == 0 && stopRefreshKey == false && deadline.timeRemaining() > 1) {\
-                    runKey = 1;\
+                if (stopRefreshKey == false && deadline.timeRemaining() > 1 ) {\
                     document.getElementById('mainImg').src=document.getElementById('mainImg').src+'?t='+Math.random();\
-                    setTimeout (function() {runKey = 0;},500);};\
-                    window.requestIdleCallback(workLoop);\
                 };\
+                setTimeout('window.requestIdleCallback(workLoop)',1000);\
+            };\
             window.requestIdleCallback(workLoop);\
             let refreshBlock = function() {\
                 if (stopRefreshKey == false) { stopRefreshKey = true; document.getElementById('refreshBlock').innerHTML='Continue To Refresh';}\

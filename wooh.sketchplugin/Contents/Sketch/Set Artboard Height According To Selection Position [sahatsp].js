@@ -236,7 +236,7 @@ var Selection = doc.selectedLayers.layers;
   });
 
   if (CopyResult === 0) {
-    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('Try copying Something Like "20 > 520" Before This');
+    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('Try Copying A Number~');
   } //empty pasteboard
 
 
