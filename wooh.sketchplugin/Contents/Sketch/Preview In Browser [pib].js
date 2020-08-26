@@ -395,6 +395,11 @@ globalThis['onRun'] = __skpm_run.bind(this, 'default');
 globalThis['autoRefreshHandlerSave'] = __skpm_run.bind(this, 'autoRefreshHandlerSave');
 globalThis['autoRefreshHandler'] = __skpm_run.bind(this, 'autoRefreshHandler');
 globalThis['autoRefreshHandler'] = __skpm_run.bind(this, 'autoRefreshHandler');
+globalThis['autoRefreshHandler'] = __skpm_run.bind(this, 'autoRefreshHandler');
+globalThis['autoRefreshHandler'] = __skpm_run.bind(this, 'autoRefreshHandler');
+globalThis['autoRefreshHandler'] = __skpm_run.bind(this, 'autoRefreshHandler');
+globalThis['autoRefreshHandler'] = __skpm_run.bind(this, 'autoRefreshHandler');
+globalThis['autoRefreshHandler'] = __skpm_run.bind(this, 'autoRefreshHandler');
 globalThis['autoRefreshHandler'] = __skpm_run.bind(this, 'autoRefreshHandler')
 
 //# sourceMappingURL=Preview In Browser [pib].js.map
