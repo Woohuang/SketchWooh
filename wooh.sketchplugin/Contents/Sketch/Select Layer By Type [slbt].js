@@ -218,7 +218,7 @@ var UI = __webpack_require__(/*! sketch/ui */ "sketch/ui");
       }
   }); //toast result
 
-  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Selecting " + SelectResult + " Layer(s)"); //GA
+  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Selecting " + SelectResult + " Layer"); //GA
 
   Object(_modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__["default"])(":-)");
 });

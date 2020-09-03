@@ -1,329 +1,405 @@
 var globalThis = this;
 var global = this;
-function __skpm_run (key, context) {
-  globalThis.context = context;
-  try {
 
-var exports =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/Unselect Layer By Content Uncontains Specified Texts [ulbcust].js");
-/******/ })
-/************************************************************************/
-/******/ ({
+function __skpm_run(key, context) {
+    globalThis.context = context;
+    try {
 
-/***/ "./node_modules/sketch-module-google-analytics/index.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/sketch-module-google-analytics/index.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+        var exports =
+            /******/
+            (function(modules) { // webpackBootstrap
+                /******/ // The module cache
+                /******/
+                var installedModules = {};
+                /******/
+                /******/ // The require function
+                /******/
+                function __webpack_require__(moduleId) {
+                    /******/
+                    /******/ // Check if module is in cache
+                    /******/
+                    if (installedModules[moduleId]) {
+                        /******/
+                        return installedModules[moduleId].exports;
+                        /******/
+                    }
+                    /******/ // Create a new module (and put it into the cache)
+                    /******/
+                    var module = installedModules[moduleId] = {
+                        /******/
+                        i: moduleId,
+                        /******/
+                        l: false,
+                        /******/
+                        exports: {}
+                        /******/
+                    };
+                    /******/
+                    /******/ // Execute the module function
+                    /******/
+                    modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+                    /******/
+                    /******/ // Flag the module as loaded
+                    /******/
+                    module.l = true;
+                    /******/
+                    /******/ // Return the exports of the module
+                    /******/
+                    return module.exports;
+                    /******/
+                }
+                /******/
+                /******/
+                /******/ // expose the modules object (__webpack_modules__)
+                /******/
+                __webpack_require__.m = modules;
+                /******/
+                /******/ // expose the module cache
+                /******/
+                __webpack_require__.c = installedModules;
+                /******/
+                /******/ // define getter function for harmony exports
+                /******/
+                __webpack_require__.d = function(exports, name, getter) {
+                    /******/
+                    if (!__webpack_require__.o(exports, name)) {
+                        /******/
+                        Object.defineProperty(exports, name, { enumerable: true, get: getter });
+                        /******/
+                    }
+                    /******/
+                };
+                /******/
+                /******/ // define __esModule on exports
+                /******/
+                __webpack_require__.r = function(exports) {
+                    /******/
+                    if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+                        /******/
+                        Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+                        /******/
+                    }
+                    /******/
+                    Object.defineProperty(exports, '__esModule', { value: true });
+                    /******/
+                };
+                /******/
+                /******/ // create a fake namespace object
+                /******/ // mode & 1: value is a module id, require it
+                /******/ // mode & 2: merge all properties of value into the ns
+                /******/ // mode & 4: return value when already ns object
+                /******/ // mode & 8|1: behave like require
+                /******/
+                __webpack_require__.t = function(value, mode) {
+                    /******/
+                    if (mode & 1) value = __webpack_require__(value);
+                    /******/
+                    if (mode & 8) return value;
+                    /******/
+                    if ((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+                    /******/
+                    var ns = Object.create(null);
+                    /******/
+                    __webpack_require__.r(ns);
+                    /******/
+                    Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+                    /******/
+                    if (mode & 2 && typeof value != 'string')
+                        for (var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+                    /******/
+                    return ns;
+                    /******/
+                };
+                /******/
+                /******/ // getDefaultExport function for compatibility with non-harmony modules
+                /******/
+                __webpack_require__.n = function(module) {
+                    /******/
+                    var getter = module && module.__esModule ?
+                        /******/
+                        function getDefault() { return module['default']; } :
+                        /******/
+                        function getModuleExports() { return module; };
+                    /******/
+                    __webpack_require__.d(getter, 'a', getter);
+                    /******/
+                    return getter;
+                    /******/
+                };
+                /******/
+                /******/ // Object.prototype.hasOwnProperty.call
+                /******/
+                __webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+                /******/
+                /******/ // __webpack_public_path__
+                /******/
+                __webpack_require__.p = "";
+                /******/
+                /******/
+                /******/ // Load entry module and return exports
+                /******/
+                return __webpack_require__(__webpack_require__.s = "./src/Unselect Layer By Text Content Without Specified Word [ulbtcwsw].js");
+                /******/
+            })
+            /************************************************************************/
+            /******/
+            ({
 
-var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
+                /***/
+                "./node_modules/sketch-module-google-analytics/index.js":
+                /*!**************************************************************!*\
+                  !*** ./node_modules/sketch-module-google-analytics/index.js ***!
+                  \**************************************************************/
+                /*! no static exports found */
+                /***/
+                    (function(module, exports, __webpack_require__) {
 
-var kUUIDKey = "google.analytics.uuid";
-var uuid = null
-var uuid = NSUserDefaults.standardUserDefaults().objectForKey(kUUIDKey) + '-' + context.plugin.url().path().split('/')[context.plugin.url().path().split('/').findIndex(item => item === 'Users') + 1];
-if (!uuid) {
-    uuid = NSUUID.UUID().UUIDString();
-    NSUserDefaults.standardUserDefaults().setObject_forKey(uuid, kUUIDKey)
-}
+                    var Settings = __webpack_require__( /*! sketch/settings */ "sketch/settings");
 
-var variant = MSApplicationMetadata.metadata().variant;
-var source =
-    "Sketch " +
-    (variant == "NONAPPSTORE" ? "" : variant + " ") +
-    Settings.version.sketch;
+                    var kUUIDKey = "google.analytics.uuid";
+                    var uuid = null
+                    var uuid = NSUserDefaults.standardUserDefaults().objectForKey(kUUIDKey) + '-' + context.plugin.url().path().split('/')[context.plugin.url().path().split('/').findIndex(item => item === 'Users') + 1];
+                    if (!uuid) {
+                        uuid = NSUUID.UUID().UUIDString();
+                        NSUserDefaults.standardUserDefaults().setObject_forKey(uuid, kUUIDKey)
+                    }
 
-function jsonToQueryString(json) {
-    return Object.keys(json)
-        .map(function(key) {
-            return encodeURIComponent(key) + "=" + encodeURIComponent(json[key]);
-        })
-        .join("&");
-}
+                    var variant = MSApplicationMetadata.metadata().variant;
+                    var source =
+                        "Sketch " +
+                        (variant == "NONAPPSTORE" ? "" : variant + " ") +
+                        Settings.version.sketch;
 
-function makeRequest(url, options) {
-    if (!url) {
-        return
-    }
+                    function jsonToQueryString(json) {
+                        return Object.keys(json)
+                            .map(function(key) {
+                                return encodeURIComponent(key) + "=" + encodeURIComponent(json[key]);
+                            })
+                            .join("&");
+                    }
 
-    if (options && options.makeRequest) {
-        return options.makeRequest(url)
-    }
-    if (options && options.debug) {
-        var request = NSURLRequest.requestWithURL(url)
-        var responsePtr = MOPointer.alloc().init();
-        var errorPtr = MOPointer.alloc().init();
+                    function makeRequest(url, options) {
+                        if (!url) {
+                            return
+                        }
 
-        var data = NSURLConnection.sendSynchronousRequest_returningResponse_error(request, responsePtr, errorPtr)
-        return data ? NSString.alloc().initWithData_encoding(data, NSUTF8StringEncoding) : errorPtr.value()
-    }
+                        if (options && options.makeRequest) {
+                            return options.makeRequest(url)
+                        }
+                        if (options && options.debug) {
+                            var request = NSURLRequest.requestWithURL(url)
+                            var responsePtr = MOPointer.alloc().init();
+                            var errorPtr = MOPointer.alloc().init();
 
-    NSURLSession.sharedSession()
-        .dataTaskWithURL(url)
-        .resume();
-}
+                            var data = NSURLConnection.sendSynchronousRequest_returningResponse_error(request, responsePtr, errorPtr)
+                            return data ? NSString.alloc().initWithData_encoding(data, NSUTF8StringEncoding) : errorPtr.value()
+                        }
 
-module.exports = function(trackingId, hitType, props, options) {
-    var payload = {
-        v: 1,
-        tid: trackingId,
-        ds: source,
-        cid: uuid,
-        t: hitType
-    };
+                        NSURLSession.sharedSession()
+                            .dataTaskWithURL(url)
+                            .resume();
+                    }
 
-    if (typeof __command !== "undefined") {
-        payload.an = __command.pluginBundle().name();
-        payload.aid = __command.pluginBundle().identifier();
-        payload.av = __command.pluginBundle().version();
-    }
+                    module.exports = function(trackingId, hitType, props, options) {
+                        var payload = {
+                            v: 1,
+                            tid: trackingId,
+                            ds: source,
+                            cid: uuid,
+                            t: hitType
+                        };
 
-    if (props) {
-        Object.keys(props).forEach(function(key) {
-            payload[key] = props[key];
-        });
-    }
+                        if (typeof __command !== "undefined") {
+                            payload.an = __command.pluginBundle().name();
+                            payload.aid = __command.pluginBundle().identifier();
+                            payload.av = __command.pluginBundle().version();
+                        }
 
-    var url = NSURL.URLWithString(
-        "https://www.google-analytics.com/" + (options && options.debug ? "debug/" : "") + "collect?" +
-        jsonToQueryString(payload) +
-        "&z=" +
-        NSUUID.UUID().UUIDString()
-    );
+                        if (props) {
+                            Object.keys(props).forEach(function(key) {
+                                payload[key] = props[key];
+                            });
+                        }
 
-    return makeRequest(url, options)
-};
+                        var url = NSURL.URLWithString(
+                            "https://www.google-analytics.com/" + (options && options.debug ? "debug/" : "") + "collect?" +
+                            jsonToQueryString(payload) +
+                            "&z=" +
+                            NSUUID.UUID().UUIDString()
+                        );
 
-/***/ }),
+                        return makeRequest(url, options)
+                    };
 
-/***/ "./src/Unselect Layer By Content Uncontains Specified Texts [ulbcust].js":
-/*!*******************************************************************************!*\
-  !*** ./src/Unselect Layer By Content Uncontains Specified Texts [ulbcust].js ***!
-  \*******************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+                    /***/
+                }),
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
-/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Google Analytics Method */ "./src/modules/Google Analytics Method.js");
+                /***/
+                "./src/Unselect Layer By Text Content Without Specified Word [ulbtcwsw].js":
+                /*!*******************************************************************************!*\
+                  !*** ./src/Unselect Layer By Text Content Without Specified Word [ulbtcwsw].js ***!
+                  \*******************************************************************************/
+                /*! exports provided: default */
+                /***/
+                    (function(module, __webpack_exports__, __webpack_require__) {
 
-var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
+                    "use strict";
+                    __webpack_require__.r(__webpack_exports__);
+                    /* harmony import */
+                    var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__( /*! sketch */ "sketch");
+                    /* harmony import */
+                    var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+                    /* harmony import */
+                    var _modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__( /*! ./modules/Google Analytics Method */ "./src/modules/Google Analytics Method.js");
 
-var UI = __webpack_require__(/*! sketch/ui */ "sketch/ui");
+                    var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
 
-var Selection = doc.selectedLayers.layers;
+                    var UI = __webpack_require__( /*! sketch/ui */ "sketch/ui");
 
-/* harmony default export */ __webpack_exports__["default"] = (function () {
-  var CopiedString = NSPasteboard.generalPasteboard().stringForType(NSPasteboardTypeString);
+                    var Selection = doc.selectedLayers.layers;
 
-  if (CopiedString === null) {
-    CopiedString = "";
-  }
+                    /* harmony default export */
+                    __webpack_exports__["default"] = (function() {
+                        var CopiedString = NSPasteboard.generalPasteboard().stringForType(NSPasteboardTypeString);
 
-  var SearchResult = 0; //start main function
+                        if (CopiedString === null) {
+                            CopiedString = "";
+                        }
 
-  UI.getInputFromUser("Input Key Text", {
-    initialValue: CopiedString
-  }, function (err, value) {
-    if (err) {
-      return;
-    } //start select
-    else {
-        CopiedString = value;
-        var SearchLayers = Selection.filter(function (item) {
-          if (item.type === 'Text') {
-            return item.text.indexOf(CopiedString) === -1;
-          } else if (item.type === 'SymbolInstance') {
-            return item.overrides.findIndex(function (item2) {
-              return item2.affectedLayer.type === "Text" && item2.value.indexOf(CopiedString) !== -1;
-            }) === -1;
-          } else {
-            return false;
-          }
-        });
-        SearchLayers.forEach(function (item) {
-          item.selected = false;
-          SearchResult = SearchResult + 1;
-        }); //toast result
+                        var SearchResult = 0; //start main function
 
-        if (SearchResult > 0) {
-          sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Unselecting " + SearchResult + " Layers That Name Contains [" + CopiedString + "]");
+                        UI.getInputFromUser("Input Key Text", {
+                            initialValue: CopiedString
+                        }, function(err, value) {
+                            if (err) {
+                                return;
+                            } //start select
+                            else {
+                                CopiedString = value;
+                                var SearchLayers = Selection.filter(function(item) {
+                                    if (item.type === 'Text') {
+                                        return item.text.indexOf(CopiedString) === -1;
+                                    } else if (item.type === 'SymbolInstance') {
+                                        return item.overrides.findIndex(function(item2) {
+                                            return item2.affectedLayer.type === "Text" && item2.value.indexOf(CopiedString) !== -1;
+                                        }) === -1;
+                                    } else {
+                                        return false;
+                                    }
+                                });
+                                SearchLayers.forEach(function(item) {
+                                    item.selected = false;
+                                    SearchResult = SearchResult + 1;
+                                }); //toast result
+
+                                if (SearchResult > 0) {
+                                    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Unselecting " + SearchResult + " Layers That Name Contains [" + CopiedString + "]");
+                                } else {
+                                    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("No Object Fits");
+                                }
+                            }
+                        }); //GA
+
+                        Object(_modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__["default"])(":-)");
+                    });
+
+                    /***/
+                }),
+
+                /***/
+                "./src/modules/Google Analytics Method.js":
+                /*!************************************************!*\
+                  !*** ./src/modules/Google Analytics Method.js ***!
+                  \************************************************/
+                /*! exports provided: default */
+                /***/
+                    (function(module, __webpack_exports__, __webpack_require__) {
+
+                    "use strict";
+                    __webpack_require__.r(__webpack_exports__);
+                    var Settings = __webpack_require__( /*! sketch/settings */ "sketch/settings");
+
+                    /* harmony default export */
+                    __webpack_exports__["default"] = (function(CommandResult) {
+                        var track = __webpack_require__( /*! sketch-module-google-analytics */ "./node_modules/sketch-module-google-analytics/index.js");
+
+                        var variant = MSApplicationMetadata.metadata().variant;
+                        var Appinfo = context.plugin.url().path().split('/')[context.plugin.url().path().split('/').findIndex(function(item) {
+                            return item === 'Users';
+                        }) + 1] + "-Skth" + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch + "-" + context.plugin.identifier() + " [" + context.plugin.version() + "]";
+                        var CommandInfo = context.command.identifier();
+                        track("UA-169300937-3", "event", {
+                            ec: Appinfo,
+                            // the event category
+                            ea: CommandInfo,
+                            // the event action
+                            el: CommandResult // the event label
+
+                        });
+                    });
+
+                    /***/
+                }),
+
+                /***/
+                "sketch":
+                /*!*************************!*\
+                  !*** external "sketch" ***!
+                  \*************************/
+                /*! no static exports found */
+                /***/
+                    (function(module, exports) {
+
+                    module.exports = require("sketch");
+
+                    /***/
+                }),
+
+                /***/
+                "sketch/settings":
+                /*!**********************************!*\
+                  !*** external "sketch/settings" ***!
+                  \**********************************/
+                /*! no static exports found */
+                /***/
+                    (function(module, exports) {
+
+                    module.exports = require("sketch/settings");
+
+                    /***/
+                }),
+
+                /***/
+                "sketch/ui":
+                /*!****************************!*\
+                  !*** external "sketch/ui" ***!
+                  \****************************/
+                /*! no static exports found */
+                /***/
+                    (function(module, exports) {
+
+                    module.exports = require("sketch/ui");
+
+                    /***/
+                })
+
+                /******/
+            });
+        if (key === 'default' && typeof exports === 'function') {
+            exports(context);
+        } else if (typeof exports[key] !== 'function') {
+            throw new Error('Missing export named "' + key + '". Your command should contain something like `export function " + key +"() {}`.');
         } else {
-          sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("No Object Fits");
+            exports[key](context);
         }
-      }
-  }); //GA
-
-  Object(_modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__["default"])(":-)");
-});
-
-/***/ }),
-
-/***/ "./src/modules/Google Analytics Method.js":
-/*!************************************************!*\
-  !*** ./src/modules/Google Analytics Method.js ***!
-  \************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
-
-/* harmony default export */ __webpack_exports__["default"] = (function (CommandResult) {
-  var track = __webpack_require__(/*! sketch-module-google-analytics */ "./node_modules/sketch-module-google-analytics/index.js");
-
-  var variant = MSApplicationMetadata.metadata().variant;
-  var Appinfo = context.plugin.url().path().split('/')[context.plugin.url().path().split('/').findIndex(function (item) {
-    return item === 'Users';
-  }) + 1] + "-Skth" + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch + "-" + context.plugin.identifier() + " [" + context.plugin.version() + "]";
-  var CommandInfo = context.command.identifier();
-  track("UA-169300937-3", "event", {
-    ec: Appinfo,
-    // the event category
-    ea: CommandInfo,
-    // the event action
-    el: CommandResult // the event label
-
-  });
-});
-
-/***/ }),
-
-/***/ "sketch":
-/*!*************************!*\
-  !*** external "sketch" ***!
-  \*************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("sketch");
-
-/***/ }),
-
-/***/ "sketch/settings":
-/*!**********************************!*\
-  !*** external "sketch/settings" ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("sketch/settings");
-
-/***/ }),
-
-/***/ "sketch/ui":
-/*!****************************!*\
-  !*** external "sketch/ui" ***!
-  \****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("sketch/ui");
-
-/***/ })
-
-/******/ });
-    if (key === 'default' && typeof exports === 'function') {
-      exports(context);
-    } else if (typeof exports[key] !== 'function') {
-      throw new Error('Missing export named "' + key + '". Your command should contain something like `export function " + key +"() {}`.');
-    } else {
-      exports[key](context);
+    } catch (err) {
+        if (typeof process !== 'undefined' && process.listenerCount && process.listenerCount('uncaughtException')) {
+            process.emit("uncaughtException", err, "uncaughtException");
+        } else {
+            throw err
+        }
     }
-  } catch (err) {
-    if (typeof process !== 'undefined' && process.listenerCount && process.listenerCount('uncaughtException')) {
-      process.emit("uncaughtException", err, "uncaughtException");
-    } else {
-      throw err
-    }
-  }
 }
 globalThis['onRun'] = __skpm_run.bind(this, 'default')
 
-//# sourceMappingURL=Unselect Layer By Content Uncontains Specified Texts [ulbcust].js.map
+//# sourceMappingURL=Unselect Layer By Text Content Without Specified Word [ulbtcwsw].js.map

@@ -215,7 +215,7 @@ var Selection = doc.selectedLayers.layers;
     }); //Result Message
 
     if (MoveResult === 1) {
-      sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Moving " + MoveResult + " Layer(s)");
+      sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Moving " + MoveResult + " Layer");
     } else {
       sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Fail In Moving");
     }

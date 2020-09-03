@@ -296,7 +296,7 @@ var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
   } //result toast
 
 
-  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Linking " + LinkResult + " Symbol(s)"); //GA
+  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Linking " + LinkResult + " Symbol"); //GA
 
   Object(_modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__["default"])(":-)");
 });

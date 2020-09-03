@@ -257,7 +257,7 @@ var Selection = doc.selectedLayers.layers;
             }
 
             if (SyncResult > 0) {
-              sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Syncing " + SyncResult + " Symbol Master(s)");
+              sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Syncing " + SyncResult + " Symbol Master");
             } else {
               sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Fail In Syncing");
             }

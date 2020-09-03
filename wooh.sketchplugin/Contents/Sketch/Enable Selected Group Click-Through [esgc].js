@@ -207,7 +207,7 @@ var Selection = doc.selectedLayers.layers;
   if (CommandResult === 0) {
     sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Please Select At Least 1 Group");
   } else {
-    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Enabling " + CommandResult + " Group(s)");
+    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Enabling " + CommandResult + " Group");
   } //GA
 
 

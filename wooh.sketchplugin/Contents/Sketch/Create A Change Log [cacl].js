@@ -280,7 +280,7 @@ var ThisTime = new Date().format("yyyy-MM-dd hh:mm:ss");
   if (ArtboardNum > 0) {
     //acquire log content
     var LogContent;
-    UI.getInputFromUser("Selected " + ArtboardNum + " Artboard(s)" + ":" + ArtboardNames, {
+    UI.getInputFromUser("Selected " + ArtboardNum + " Artboard" + ":" + ArtboardNames, {
       initialValue: 'Enter Change Log',
       numberOfLines: 3
     }, function (err, value) {

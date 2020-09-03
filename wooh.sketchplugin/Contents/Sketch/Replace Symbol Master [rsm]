@@ -88,7 +88,7 @@ var exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/Replace Symbol Master [rsm].js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/Paste Symbol Master [psm].js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -179,9 +179,9 @@ module.exports = function(trackingId, hitType, props, options) {
 
 /***/ }),
 
-/***/ "./src/Replace Symbol Master [rsm].js":
+/***/ "./src/Paste Symbol Master [psm].js":
 /*!********************************************!*\
-  !*** ./src/Replace Symbol Master [rsm].js ***!
+  !*** ./src/Paste Symbol Master [psm].js ***!
   \********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {

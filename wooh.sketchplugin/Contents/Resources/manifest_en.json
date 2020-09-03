@@ -213,24 +213,24 @@
             "script": "Temporary Disable All Groups Click-Through [tdagc].js"
         },
         {
-            "name": "Unselect Layer By Name Uncontains Specified Texts [ulbnust]",
-            "identifier": "Unselect Layer By Name Uncontains Specified Texts [ulbnust]",
-            "script": "Unselect Layer By Name Uncontains Specified Texts [ulbnust].js"
+            "name": "Unselect Layer By Name Without Specified Word [ulbnwsw]",
+            "identifier": "Unselect Layer By Name Without Specified Word [ulbnwsw]",
+            "script": "Unselect Layer By Name Without Specified Word [ulbnwsw].js"
         },
         {
-            "name": "Unselect Layer By Content Uncontains Specified Texts [ulbcust]",
-            "identifier": "Unselect Layer By Content Uncontains Specified Texts [ulbcust]",
-            "script": "Unselect Layer By Content Uncontains Specified Texts [ulbcust].js"
+            "name": "Unselect Layer By Text Content Without Specified Word [ulbtcwsw]",
+            "identifier": "Unselect Layer By Text Content Without Specified Word [ulbtcwsw]",
+            "script": "Unselect Layer By Text Content Without Specified Word [ulbtcwsw].js"
         },
         {
             "name": "Unselect Layer By Content Cotains Specified Texts [ulbccst]",
             "identifier": "Unselect Layer By Content Cotains Specified Texts [ulbccst]",
-            "script": "Unselect Layer By Content Cotains Specified Texts [ulbccst].js"
+            "script": "Unselect Layer By Name [ulbn]"
         },
         {
-            "name": "Select Layer By Content Cotains Specified Texts [slbccst]",
-            "identifier": "Select Layer By Content Cotains Specified Texts [slbccst]",
-            "script": "Select Layer By Content Cotains Specified Texts [slbccst].js"
+            "name": "Select Layer By Text Content [slbtc]",
+            "identifier": "Select Layer By Text Content [slbtc]",
+            "script": "Select Layer By Text Content [slbtc].js"
         },
         {
             "name": "Sync Global Radius And Shadows [sgras]",
@@ -253,14 +253,14 @@
             "script": "Reset Symbol Overrides [rso].js"
         },
         {
-            "name": "Unselect Layer By Name Cotains Specified Texts [ulbncst]",
-            "identifier": "Unselect Layer By Name Cotains Specified Texts [ulbncst]",
-            "script": "Unselect Layer By Name Cotains Specified Texts [ulbncst].js"
+            "name": "Unselect Layer By Name [ulbn]",
+            "identifier": "Unselect Layer By Name [ulbn]",
+            "script": "Unselect Layer By Name [ulbn].js"
         },
         {
-            "name": "Select Layer By Name Cotains Specified Texts [slbncst]",
-            "identifier": "Select Layer By Name Cotains Specified Texts [slbncst]",
-            "script": "Select Layer By Name Cotains Specified Texts [slbncst].js"
+            "name": "Select Layer By Name [slbn]",
+            "identifier": "Select Layer By Name [slbn]",
+            "script": "Select Layer By Name [slbn].js"
         },
         {
             "name": "Select One Backward [sob]",
@@ -454,24 +454,24 @@
             "script": "Copy Symbol With Size [csws].js"
         },
         {
-            "name": "Replace Symbol Master [rsm]",
-            "identifier": "Replace Symbol Master [rsm]",
-            "script": "Replace Symbol Master [rsm]"
+            "name": "Paste Symbol Master [psm]",
+            "identifier": "Paste Symbol Master [psm]",
+            "script": "Paste Symbol Master [psm]"
         },
         {
-            "name": "Replace Symbol Overrides [rso]",
-            "identifier": "Replace Symbol Overrides [rso]",
-            "script": "Replace Symbol Overrides [rso].js"
+            "name": "Paste Overrides [po]",
+            "identifier": "Paste Overrides [po]",
+            "script": "Paste Overrides [po].js"
         },
         {
-            "name": "Replace Symbol Text Content Overrides [rstco]",
-            "identifier": "Replace Symbol Text Content Overrides [rstco]",
-            "script": "Replace Symbol Text Content Overrides [rstco].js"
+            "name": "Replace Text Overrides [rto]",
+            "identifier": "Replace Text Overrides [rto]",
+            "script": "Replace Text Overrides [rto].js"
         },
         {
-            "name": "Replace Symbol Overrides Except Text Content [rsoetc]",
-            "identifier": "Replace Symbol Overrides Except Text Content [rsoetc]",
-            "script": "Replace Symbol Overrides Except Text Content [rsoetc].js"
+            "name": "Paste Overrides Except Text [poet]",
+            "identifier": "Paste Overrides Except Text [poet]",
+            "script": "Paste Overrides Except Text [poet].js"
         },
         {
             "name": "Sync All From TheSource [saft]",
@@ -563,10 +563,10 @@
                     "Copy Symbol [cs]",
                     "Copy Symbol With Size [csws]",
                     "-",
-                    "Replace Symbol Master [rsm]",
-                    "Replace Symbol Overrides [rso]",
-                    "Replace Symbol Text Content Overrides [rstco]",
-                    "Replace Symbol Overrides Except Text Content [rsoetc]",
+                    "Paste Symbol Master [psm]",
+                    "Paste Overrides [po]",
+                    "Replace Text Overrides [rto]",
+                    "Paste Overrides Except Text [poet]",
                     "Reset Symbol Overrides [rso]",
                     "-",
                     "Create Symbol Instance From Selected Symbol Master [csifssm]"
@@ -588,13 +588,13 @@
                     "Change To Select One Forward [ctsof]",
                     "Change To Select One Backward [ctsob]",
                     "-",
-                    "Select Layer By Name Cotains Specified Texts [slbncst]",
-                    "Unselect Layer By Name Cotains Specified Texts [ulbncst]",
-                    "Unselect Layer By Name Uncontains Specified Texts [ulbnust]",
+                    "Select Layer By Name [slbn]",
+                    "Unselect Layer By Name [ulbn]",
+                    "Unselect Layer By Name Without Specified Word [ulbnwsw]",
                     "-",
-                    "Select Layer By Content Cotains Specified Texts [slbccst]",
+                    "Select Layer By Text Content [slbtc]",
                     "Unselect Layer By Content Cotains Specified Texts [ulbccst]",
-                    "Unselect Layer By Content Uncontains Specified Texts [ulbcust]",
+                    "Unselect Layer By Text Content Without Specified Word [ulbtcwsw]",
                     "-",
                     "Select Layer By Type [slbt]",
                     "Unselect Layer By Type [ulbt]",

@@ -400,7 +400,7 @@ var Selection = doc.selectedLayers.layers;
   } else if (SyncRadiusResult + SyncShadowsResult === 0) {
     sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("同步 AutoStyle 图层属性时失败");
   } else {
-    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Syncing " + SyncRadiusResult + " Radius Layer(s) And " + SyncShadowsResult + " Shadows Layer(s)");
+    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Syncing " + SyncRadiusResult + " Radius Layer And " + SyncShadowsResult + " Shadows Layer");
   } //GA
 
 

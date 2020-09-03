@@ -205,7 +205,7 @@ var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
   RadiusRectangles.forEach(function (item) {
     return item.selected = true;
   });
-  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Select " + RadiusRectangles.length + " Layer(s)"); //GA
+  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Select " + RadiusRectangles.length + " Layer"); //GA
 
   Object(_modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__["default"])(":-)");
 });

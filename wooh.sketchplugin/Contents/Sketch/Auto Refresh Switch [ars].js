@@ -268,7 +268,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Google Analytics Method */ "./src/modules/Google Analytics Method.js");
 
- //thank gaddafirusli
+ //let fs = require('@skpm/fs')
+//thank gaddafirusli
 
 var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
     Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings"),
@@ -314,7 +315,15 @@ function artboardBrowse(artboard, pageTitle, customBlockKey) {
     var artboardname = pageTitle;
     artboardname = artboardname.replace(/['|'|/|#|.|\\|"|"]/g, '');
     var filename = NSTemporaryDirectory() + artboardname + ".png";
-    doc.sketchObject.saveArtboardOrSlice_toFile(scaleArtboard(artboard, 2), filename); //htmlContent
+    doc.sketchObject.saveArtboardOrSlice_toFile(scaleArtboard(artboard, 2), filename);
+    /*
+                const options = { scales: '2', formats: 'png', output: NSTemporaryDirectory() }
+                sketch.export(artboard, options)
+                let exportedImagePath = NSTemporaryDirectory() + artboard.name + ".png",
+                    newImagePath = exportedImagePath.replace(artboard.name, pageTitle)
+                fs.renameSync(exportedImagePath, newImagePath);
+    */
+    //htmlContent
 
     var htmlContent = NSString.stringWithString_("<html>\
             <head><meta charset='UTF-8'></head>" + "<body id='" + customBlockKey + "'>\

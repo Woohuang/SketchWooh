@@ -203,7 +203,7 @@ var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
   });
   sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Selecting " + doc.selectedPage.layers.filter(function (item) {
     return item.type === "Artboard" || item.type === "SymbolMaster";
-  }).length + " Artbaord(s)"); //GA
+  }).length + " Artbaord"); //GA
 
   Object(_modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__["default"])(":-)");
 });

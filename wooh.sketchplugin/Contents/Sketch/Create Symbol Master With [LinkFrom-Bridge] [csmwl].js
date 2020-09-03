@@ -281,7 +281,7 @@ var UI = __webpack_require__(/*! sketch/ui */ "sketch/ui");
     if (DuplicateResult === 0) {
       sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('Fain In Duplicating');
     } else if (DuplicateResult > 0) {
-      sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('Succeed In Duplicating ' + DuplicateResult + ' Artboard(s)');
+      sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('Succeed In Duplicating ' + DuplicateResult + ' Artboard');
     }
   } //GA
 

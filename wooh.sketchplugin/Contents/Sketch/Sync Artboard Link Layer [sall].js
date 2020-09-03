@@ -267,7 +267,7 @@ var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
   if (SyncResult === 0) {
     sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Fail In Syncing");
   } else {
-    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Syncing " + SyncResult + " Layer(s) In This Page");
+    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Syncing " + SyncResult + " Layer In This Page");
   } //GA
 
 

@@ -220,7 +220,7 @@ var Selection = doc.selectedLayers.layers;
       }
   }); //toast result
 
-  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Unselecting " + UnselectResult + " Layer(s)"); //GA
+  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Unselecting " + UnselectResult + " Layer"); //GA
 
   Object(_modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__["default"])(":-)");
 });
