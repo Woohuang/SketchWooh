@@ -138,7 +138,7 @@ function __skpm_run(key, context) {
                 /******/
                 /******/ // Load entry module and return exports
                 /******/
-                return __webpack_require__(__webpack_require__.s = "./src/Unselect Layer By Name [ulbn].js");
+                return __webpack_require__(__webpack_require__.s = "./src/Auto Refresh Settings [ars].js");
                 /******/
             })
             /************************************************************************/
@@ -235,10 +235,10 @@ function __skpm_run(key, context) {
                 }),
 
                 /***/
-                "./src/Unselect Layer By Name [ulbn].js":
-                /*!*************************************************************************!*\
-                  !*** ./src/Unselect Layer By Name [ulbn].js ***!
-                  \*************************************************************************/
+                "./src/Auto Refresh Settings [ars].js":
+                /*!*******************************************!*\
+                  !*** ./src/Auto Refresh Settings [ars].js ***!
+                  \*******************************************/
                 /*! exports provided: default */
                 /***/
                     (function(module, __webpack_exports__, __webpack_require__) {
@@ -251,49 +251,229 @@ function __skpm_run(key, context) {
                     var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
                     /* harmony import */
                     var _modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__( /*! ./modules/Google Analytics Method */ "./src/modules/Google Analytics Method.js");
+                    /* harmony import */
+                    var _Preview_In_Browser_pib___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__( /*! ./Preview In Browser [pib] */ "./src/Preview In Browser [pib].js");
 
-                    var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
 
-                    var UI = __webpack_require__( /*! sketch/ui */ "sketch/ui");
 
-                    var Selection = doc.selectedLayers.layers;
+                    var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
+                        selection = doc.selectedLayers.layers,
+                        UI = __webpack_require__( /*! sketch/ui */ "sketch/ui"),
+                        Settings = __webpack_require__( /*! sketch/settings */ "sketch/settings"),
+                        artboard = 0;
+
 
                     /* harmony default export */
                     __webpack_exports__["default"] = (function() {
-                        var CopiedString = NSPasteboard.generalPasteboard().stringForType(NSPasteboardTypeString);
-
-                        if (CopiedString === null) {
-                            CopiedString = "";
-                        }
-
-                        var SearchResult = 0; //start main function
-
-                        UI.getInputFromUser("Input Key Text", {
-                            initialValue: CopiedString
+                        var autoRefreshKey;
+                        UI.getInputFromUser("Choose Auto Refresh Mode", {
+                            type: UI.INPUT_TYPE.selection,
+                            possibleValues: ["No auto refresh", "Refresh when saving document", "Auto refresh"]
                         }, function(err, value) {
                             if (err) {
                                 return;
-                            } //start select
-                            else {
-                                CopiedString = value;
-                                var SearchLayers = Selection.filter(function(item) {
-                                    return item.name.indexOf(CopiedString) !== -1;
-                                });
-                                SearchLayers.forEach(function(item) {
-                                    item.selected = false;
-                                    SearchResult = SearchResult + 1;
-                                }); //toast result
+                            } else {
+                                Settings.setSessionVariable('autoRefreshKey', value);
+                                autoRefreshKey = value;
+                            }
+                        }); //setDefaultSelectedArtboard
 
-                                if (SearchResult > 0) {
-                                    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Unselecting " + SearchResult + " Layers That Name Contains [" + CopiedString + "]");
-                                } else {
-                                    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("No Object Fits");
+                        if (selection.length > 0) {
+                            for (var i = 0; artboard == 0 && i < selection.length; i++) {
+                                artboard = selection[i].getParentArtboard() || selection[i];
+
+                                if (artboard.type !== "Artboard") {
+                                    artboard = 0;
                                 }
                             }
-                        }); //GA
+                        }
+
+                        if (artboard == 0 && doc.selectedPage.layers.find(function(item) {
+                                return item.type === "Artboard";
+                            })) {
+                            artboard = doc.selectedPage.layers.find(function(item) {
+                                return item.type === "Artboard";
+                            });
+                        } //toastMessage
+
+
+                        if (autoRefreshKey === "Auto refresh") {
+                            sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('Auto Refresh In Browser: On');
+                            Object(_Preview_In_Browser_pib___WEBPACK_IMPORTED_MODULE_2__["artboardBrowse"])(artboard, "AutoRefreshing", false);
+                        } else if (autoRefreshKey === "Refresh when saving document") {
+                            sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('It Will Refresh When You Save Document Pressing Command + S');
+                            Object(_Preview_In_Browser_pib___WEBPACK_IMPORTED_MODULE_2__["artboardBrowse"])(artboard, "AutoRefreshing", false);
+                        } else {
+                            sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('Auto Refresh In Browser: Off');
+                            Object(_Preview_In_Browser_pib___WEBPACK_IMPORTED_MODULE_2__["artboardBrowse"])(artboard, artboard.name, true);
+                        } //GA
+
+
+                        Object(_modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__["default"])(autoRefreshKey);
+                    });
+
+                    /***/
+                }),
+
+                /***/
+                "./src/Preview In Browser [pib].js":
+                /*!*****************************************!*\
+                  !*** ./src/Preview In Browser [pib].js ***!
+                  \*****************************************/
+                /*! exports provided: default, autoRefreshHandler, autoRefreshHandlerSave, artboardBrowse */
+                /***/
+                    (function(module, __webpack_exports__, __webpack_require__) {
+
+                    "use strict";
+                    __webpack_require__.r(__webpack_exports__);
+                    /* harmony export (binding) */
+                    __webpack_require__.d(__webpack_exports__, "autoRefreshHandler", function() { return autoRefreshHandler; });
+                    /* harmony export (binding) */
+                    __webpack_require__.d(__webpack_exports__, "autoRefreshHandlerSave", function() { return autoRefreshHandlerSave; });
+                    /* harmony export (binding) */
+                    __webpack_require__.d(__webpack_exports__, "artboardBrowse", function() { return artboardBrowse; });
+                    /* harmony import */
+                    var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__( /*! sketch */ "sketch");
+                    /* harmony import */
+                    var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+                    /* harmony import */
+                    var _modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__( /*! ./modules/Google Analytics Method */ "./src/modules/Google Analytics Method.js");
+
+                    //let fs = require('@skpm/fs')
+                    //thank gaddafirusli
+
+                    var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
+                        Settings = __webpack_require__( /*! sketch/settings */ "sketch/settings"),
+                        autoRefreshKey = Settings.sessionVariable('autoRefreshKey'),
+                        selection = doc.selectedLayers.layers,
+                        artboard = 0;
+
+                    if (selection.length > 0) {
+                        for (var i = 0; artboard == 0 && i < selection.length; i++) {
+                            artboard = selection[i].getParentArtboard() || selection[i];
+
+                            if (artboard.type !== "Artboard") {
+                                artboard = 0;
+                            }
+                        }
+                    }
+
+                    /* harmony default export */
+                    __webpack_exports__["default"] = (function() {
+                        if (autoRefreshKey === "Auto refresh" || autoRefreshKey === "Refresh when saving document") {
+                            artboardBrowse(artboard, "AutoRefreshing", false);
+                        } else {
+                            artboardBrowse(artboard, artboard.name, true);
+                        } //GA
+
 
                         Object(_modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_1__["default"])(":-)");
                     });
+
+                    function autoRefreshHandler() {
+                        if (autoRefreshKey === "Auto refresh") {
+                            refreshImg();
+                        }
+                    }
+
+                    function autoRefreshHandlerSave() {
+                        if (autoRefreshKey === "Refresh when saving document") {
+                            refreshImg();
+                        }
+                    } //functions
+
+                    function artboardBrowse(artboard, pageTitle, customBlockKey) {
+                        if (artboard === 0) {
+                            sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Please Select 1 Artboard");
+                        } else {
+                            var artboardname = pageTitle;
+                            artboardname = artboardname.replace(/['|'|/|#|.|\\|"|"]/g, '');
+                            var filename = NSTemporaryDirectory() + artboardname + ".png";
+                            doc.sketchObject.saveArtboardOrSlice_toFile(scaleArtboard(artboard, 2), filename);
+                            /*
+                                        const options = { scales: '2', formats: 'png', output: NSTemporaryDirectory() }
+                                        sketch.export(artboard, options)
+                                        let exportedImagePath = NSTemporaryDirectory() + artboard.name + ".png",
+                                            newImagePath = exportedImagePath.replace(artboard.name, pageTitle)
+                                        fs.renameSync(exportedImagePath, newImagePath);
+                            */
+                            //htmlContent
+
+                            var htmlContent = NSString.stringWithString_("<html>\
+            <head><meta charset='UTF-8'></head>" + "<body id='" + customBlockKey + "'>\
+            <img id='mainImg' width=" + artboard.sketchObject.frame().width() + " src='./" + artboardname + ".png' center top no-repeat;'>\
+            <div id='refreshBlock' onClick='refreshBlock()'>Stop Refreshing</div>\
+            </body>\
+            <style type='text/css'>\
+            body {\
+                text-align: center;\
+                margin: 0;\
+                padding: 0;\
+                background:" + colorToRGBA(artboard.sketchObject.backgroundColor()) + ";}\
+            body::-webkit-scrollbar {\
+                display: none;}\
+            #refreshBlock {\
+                opacity: .3;\
+                position: fixed;\
+                right: 20px;\
+                bottom: 10px;\
+                background: rgba(0, 0, 0, .8);\
+                border-radius: 100px;\
+                font-family: sans - serif;\
+                font-size: 12px;\
+                padding: 1px 8px;\
+                color: white;\
+                cursor: pointer;\
+                user-select: none;}\
+            #refreshBlock:hover {opacity: .9;\
+                transition: .25s;}\
+            </style>\
+            <script>\
+            let stopRefreshKey = JSON.parse(document.getElementsByTagName('body')[0].id);\
+            if (stopRefreshKey == true) {document.getElementById('refreshBlock').remove();};\
+            function workLoop(deadline) {\
+                if (stopRefreshKey == false && deadline.timeRemaining() > 1 ) {\
+                    document.getElementById('mainImg').src=document.getElementById('mainImg').src+'?t='+Math.random();\
+                };\
+                setTimeout('window.requestIdleCallback(workLoop)',1000);\
+            };\
+            window.requestIdleCallback(workLoop);\
+            let refreshBlock = function() {\
+                if (stopRefreshKey == false) { stopRefreshKey = true; document.getElementById('refreshBlock').innerHTML='Continue To Refresh';}\
+                else { location.reload()\
+                    /*stopRefreshKey = false; window.requestIdleCallback(workLoop); document.getElementById('refreshBlock').innerHTML='Stop Refreshing';*/};\
+            };\
+            </script>\
+            </html>");
+                            var filepath = NSTemporaryDirectory() + artboardname + ".html";
+                            htmlContent.dataUsingEncoding_(NSUTF8StringEncoding).writeToFile_atomically_(filepath, true);
+                            var file = NSURL.fileURLWithPath(filepath);
+                            NSWorkspace.sharedWorkspace().openFile(file.path());
+                        }
+                    }
+
+                    function refreshImg() {
+                        if (artboard !== 0) {
+                            var artboardname = "AutoRefreshing";
+                            artboardname = artboardname.replace(/['|'|/|#|.|\\|"|"]/g, '');
+                            var filename = NSTemporaryDirectory() + artboardname + ".png";
+                            doc.sketchObject.saveArtboardOrSlice_toFile(scaleArtboard(artboard, 2), filename);
+                            sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Browser Preview Refreshing");
+                        }
+                    }
+
+                    function scaleArtboard(layer, times) {
+                        var rect = layer.sketchObject.absoluteInfluenceRect();
+                        var request = MSExportRequest.new();
+                        request.rect = rect;
+                        request.scale = times;
+                        return request;
+                    }
+
+                    function colorToRGBA(color) {
+                        var rgbaValue = "rgba(" + (color.red() * 255).toFixed(0) + "," + (color.green() * 255).toFixed(0) + "," + (color.blue() * 255).toFixed(0) + "," + color.alpha().toFixed(2) + ")";
+                        return rgbaValue;
+                    }
 
                     /***/
                 }),
@@ -394,4 +574,4 @@ function __skpm_run(key, context) {
 }
 globalThis['onRun'] = __skpm_run.bind(this, 'default')
 
-//# sourceMappingURL=Unselect Layer By Name [ulbn].js.map
+//# sourceMappingURL=Auto Refresh Settings [ars].js.map

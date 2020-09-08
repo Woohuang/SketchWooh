@@ -6,10 +6,22 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.78",
-
+    "version": "1.5.79",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
+            "name": "自动文本记录 [tar]",
+            "identifier": "Text Auto Recorder [tar]",
+            "script": "Text Auto Recorder [tar].js"
+        },
+        {
+            "script": "Text Auto Recorder [tar].js",
+            "handlers": {
+                "actions": {
+                    "TextChanged.finish": "textRecorder"
+                }
+            }
+        },
+        {
             "name": "浏览器预览 [pib]",
             "shortcut": "cmd shift .",
             "identifier": "Preview In Browser [pib]",
@@ -33,8 +45,8 @@
         },
         {
             "name": "自动刷新开关 [ars]",
-            "identifier": "Auto Refresh Switch [ars]",
-            "script": "Auto Refresh Switch [ars].js"
+            "identifier": "Auto Refresh Settings [ars]",
+            "script": "Auto Refresh Settings [ars].js"
         },
         {
             "name": "粘贴图层尺寸 [pls]",
@@ -95,8 +107,8 @@
         },
         {
             "name": "在 Finder 中显示文件  [sdif]",
-            "identifier": "Show Document In Finder  [sdif]",
-            "script": "Show Document In Finder  [sdif].js"
+            "identifier": "Show Document In Finder [sdif]",
+            "script": "Show Document In Finder [sdif].js"
         },
         {
             "name": "建议",
@@ -128,9 +140,9 @@
             "script": "Increase Height With Fixed Aspect Proportion [ihwfap].js"
         },
         {
-            "name": "临时取消选中所有图层 [tuas]",
-            "identifier": "Temporary Unselect All Selections [tuas]",
-            "script": "Temporary Unselect All Selections [tuas].js"
+            "name": "临时取消选中所有图层 [tsas]",
+            "identifier": "Temporary Unselect All Selections [tsas]",
+            "script": "Temporary Unselect All Selections [tsas].js"
         },
         {
             "name": "Reload",
@@ -163,7 +175,7 @@
             "script": "Select Layer By Type [slbt].js"
         },
         {
-            "name": "取消选中除指定类型的图层 [ulet]",
+            "name": "取消选中指定类型外的图层 [ulet]",
             "identifier": "Unselect Layer Except Type [ulet]",
             "script": "Unselect Layer Except Type [ulet].js"
         },
@@ -213,19 +225,19 @@
             "script": "Temporary Disable All Groups Click-Through [tdagc].js"
         },
         {
-            "name": "取消选中名称不包含指定文本的图层 [ulbnust]",
+            "name": "取消选中名称不包含指定文本的图层 [ulbnwsw]",
             "identifier": "Unselect Layer By Name Without Specified Word [ulbnwsw]",
             "script": "Unselect Layer By Name Without Specified Word [ulbnwsw].js"
         },
         {
-            "name": "取消选中内容不包含指定文本的图层 [ulbcust]",
+            "name": "取消选中内容不包含指定文本的图层 [ulbtcwsw]",
             "identifier": "Unselect Layer By Text Content Without Specified Word [ulbtcwsw]",
             "script": "Unselect Layer By Text Content Without Specified Word [ulbtcwsw].js"
         },
         {
-            "name": "取消选中内容包含指定文本的图层 [ulbccst]",
-            "identifier": "Unselect Layer By Content Cotains Specified Texts [ulbccst]",
-            "script": "Unselect Layer By Name [ulbn]"
+            "name": "取消选中内容包含指定文本的图层 [ulbtc]",
+            "identifier": "Unselect Layer By Text Content [ulbtc]",
+            "script": "Unselect Layer By Text Content [ulbtc]"
         },
         {
             "name": "通过文本内容搜索图层 [slbtc]",
@@ -258,7 +270,7 @@
             "script": "Unselect Layer By Name [ulbn].js"
         },
         {
-            "name": "通过图层名称搜索图层 [slbln]",
+            "name": "通过图层名称搜索图层 [slbn]",
             "identifier": "Select Layer By Name [slbn]",
             "script": "Select Layer By Name [slbn].js"
         },
@@ -466,7 +478,7 @@
         {
             "name": "粘贴文本覆盖层 [rstco]",
             "identifier": "Replace Text Overrides [rto]",
-            "script": "Replace Text Overrides [rto].js"
+            "script": "Paste Text Overrides [pto]"
         },
         {
             "name": "粘贴除文本的覆盖层 [rsoetc]",
@@ -510,7 +522,7 @@
         "items": [{
                 "title": "文档",
                 "items": [
-                    "Show Document In Finder  [sdif]",
+                    "Show Document In Finder [sdif]",
                     "-",
                     "Create A Backup [cab]",
                     "Create A Backup With Introduction [cabwi]",
@@ -593,14 +605,14 @@
                     "Unselect Layer By Name Without Specified Word [ulbnwsw]",
                     "-",
                     "Select Layer By Text Content [slbtc]",
-                    "Unselect Layer By Content Cotains Specified Texts [ulbccst]",
+                    "Unselect Layer By Text Content [ulbtc]",
                     "Unselect Layer By Text Content Without Specified Word [ulbtcwsw]",
                     "-",
                     "Select Layer By Type [slbt]",
                     "Unselect Layer By Type [ulbt]",
                     "Unselect Layer Except Type [ulet]",
                     "-",
-                    "Temporary Unselect All Selections [tuas]"
+                    "Temporary Unselect All Selections [tsas]"
                 ]
             },
             {
@@ -646,10 +658,16 @@
                 ]
             },
             {
+                "title": "文本",
+                "items": [
+                    "Text Auto Recorder [tar]"
+                ]
+            },
+            {
                 "title": "预览",
                 "items": [
                     "Preview In Browser [pib]",
-                    "Auto Refresh Switch [ars]"
+                    "Auto Refresh Settings [ars]"
                 ]
             },
             "-",
@@ -685,13 +703,6 @@
                         "title": "尺寸",
                         "items": [
                             "Set Symbol To Fixed Size [sstfs]"
-                        ]
-                    },
-                    {
-                        "title": "Dev",
-                        "items": [
-                            "Selection Data [sd]",
-                            "Reload"
                         ]
                     }
                 ]

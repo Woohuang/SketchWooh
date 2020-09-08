@@ -190,100 +190,116 @@ module.exports = function(trackingId, hitType, props, options) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _modules_Symbol_Next_Last_Function__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Symbol Next&Last Function */ "./src/modules/Symbol Next&Last Function.js");
-/* harmony import */ var _modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/Google Analytics Method */ "./src/modules/Google Analytics Method.js");
+/* harmony import */ var _modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/xscapeFunctions */ "./src/modules/xscapeFunctions.js");
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  Object(_modules_Symbol_Next_Last_Function__WEBPACK_IMPORTED_MODULE_1__["Symbol_NextAndLast"])(1); //GA
+  Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["symbolLooper"])(1); //GA
 
-  Object(_modules_Google_Analytics_Method__WEBPACK_IMPORTED_MODULE_2__["default"])(":-)");
+  Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])(":-)");
 });
 
 /***/ }),
 
-/***/ "./src/modules/Google Analytics Method.js":
-/*!************************************************!*\
-  !*** ./src/modules/Google Analytics Method.js ***!
-  \************************************************/
-/*! exports provided: default */
+/***/ "./src/modules/xscapeFunctions.js":
+/*!****************************************!*\
+  !*** ./src/modules/xscapeFunctions.js ***!
+  \****************************************/
+/*! exports provided: copyStringToPasteboard, dateFormat, symbolLooper, GA, userInfo, callWebviewFunction, sendWebviewInfo, getWebviewInfo, sendPluginInfo, getPluginInfo */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
-
-/* harmony default export */ __webpack_exports__["default"] = (function (CommandResult) {
-  var track = __webpack_require__(/*! sketch-module-google-analytics */ "./node_modules/sketch-module-google-analytics/index.js");
-
-  var variant = MSApplicationMetadata.metadata().variant;
-  var Appinfo = context.plugin.url().path().split('/')[context.plugin.url().path().split('/').findIndex(function (item) {
-    return item === 'Users';
-  }) + 1] + "-Skth" + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch + "-" + context.plugin.identifier() + " [" + context.plugin.version() + "]";
-  var CommandInfo = context.command.identifier();
-  track("UA-169300937-3", "event", {
-    ec: Appinfo,
-    // the event category
-    ea: CommandInfo,
-    // the event action
-    el: CommandResult // the event label
-
-  });
-});
-
-/***/ }),
-
-/***/ "./src/modules/Symbol Next&Last Function.js":
-/*!**************************************************!*\
-  !*** ./src/modules/Symbol Next&Last Function.js ***!
-  \**************************************************/
-/*! exports provided: Symbol_NextAndLast */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Symbol_NextAndLast", function() { return Symbol_NextAndLast; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "copyStringToPasteboard", function() { return copyStringToPasteboard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dateFormat", function() { return dateFormat; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "symbolLooper", function() { return symbolLooper; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GA", function() { return GA; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userInfo", function() { return userInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "callWebviewFunction", function() { return callWebviewFunction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendWebviewInfo", function() { return sendWebviewInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getWebviewInfo", function() { return getWebviewInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendPluginInfo", function() { return sendPluginInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPluginInfo", function() { return getPluginInfo; });
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
-var Libraries = __webpack_require__(/*! sketch/dom */ "sketch/dom").getLibraries();
 
-var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
+var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings"),
+    doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
+    selections = doc.selectedLayers.layers;
 
-var settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
+var copyStringToPasteboard = function copyStringToPasteboard(item) {
+  var pasteboard = NSPasteboard.generalPasteboard();
+  pasteboard.clearContents();
+  pasteboard.writeObjects([item]);
+};
+var dateFormat = function dateFormat() {
+  Date.prototype.format = function (fmt) {
+    var o = {
+      "M+": this.getMonth() + 1,
+      //月份
+      "d+": this.getDate(),
+      //日
+      "h+": this.getHours(),
+      //小时
+      "m+": this.getMinutes(),
+      //分
+      "s+": this.getSeconds(),
+      //秒
+      "q+": Math.floor((this.getMonth() + 3) / 3),
+      //季度
+      "S": this.getMilliseconds() //毫秒
 
-var selections = doc.selectedLayers.layers;
-var Symbol_NextAndLast = function Symbol_NextAndLast(counts) {
+    };
+
+    if (/(y+)/.test(fmt)) {
+      fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    }
+
+    for (var k in o) {
+      if (new RegExp("(" + k + ")").test(fmt)) {
+        fmt = fmt.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
+      }
+    }
+
+    return fmt;
+  };
+};
+var symbolLooper = function symbolLooper(counts) {
   //function: WriteSymbolInfo
   var WriteSymbolInfo = function WriteSymbolInfo(item1, item2, item3) {
-    settings.setSessionVariable('ReadSymbolInfo', {
+    Settings.setSessionVariable('ReadSymbolInfo', {
       JudgeSymbolId: item1,
       ThisIndex: item2
     });
   }; //判断是否有 WriteSymbolInfo 避免报错
 
 
-  if (!settings.sessionVariable('ReadSymbolInfo')) {
-    settings.setSessionVariable('ReadSymbolInfo', {
+  if (!Settings.sessionVariable('ReadSymbolInfo')) {
+    Settings.setSessionVariable('ReadSymbolInfo', {
       JudgeSymbolId: null,
       ThisIndex: null
     });
   }
 
-  var ReadSymbolInfo = settings.sessionVariable('ReadSymbolInfo');
+  var ReadSymbolInfo = Settings.sessionVariable('ReadSymbolInfo');
   var ThisIndex, symbolMaster, ThisLibrary; //获取选中的 symbol
 
   var SelectedSymbols = selections.filter(function (item) {
     return item.type === "SymbolInstance";
   }); //判断是否同类 symbol
 
-  var JudgeSymbolId = SelectedSymbols[0].symbolId;
-  var JudgeSymbolResult;
-  JudgeSymbolResult = SelectedSymbols.findIndex(function (item) {
-    return item.symbolId !== JudgeSymbolId;
-  });
+  var JudgeSymbolId, JudgeSymbolResult;
+
+  if (SelectedSymbols.length !== 1) {
+    JudgeSymbolId = SelectedSymbols[0].symbolId;
+    JudgeSymbolResult = SelectedSymbols.findIndex(function (item) {
+      return item.symbolId !== JudgeSymbolId;
+    });
+  }
 
   if (JudgeSymbolResult !== -1) {
     sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Please Select Symbol With Same Master");
@@ -368,6 +384,106 @@ var Symbol_NextAndLast = function Symbol_NextAndLast(counts) {
 
   WriteSymbolInfo(symbolMaster.symbolId, ThisIndex + counts);
 };
+var GA = function GA(CommandResult) {
+  var track = __webpack_require__(/*! sketch-module-google-analytics */ "./node_modules/sketch-module-google-analytics/index.js"),
+      variant = MSApplicationMetadata.metadata().variant,
+      Appinfo = context.plugin.url().path().split('/')[context.plugin.url().path().split('/').findIndex(function (item) {
+    return item === 'Users';
+  }) + 1] + "-Skth" + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch + "-" + context.plugin.identifier() + " [" + context.plugin.version() + "]",
+      CommandInfo = context.command.identifier();
+
+  track("UA-169300937-3", "event", {
+    ec: Appinfo,
+    // the event category
+    ea: CommandInfo,
+    // the event action
+    el: CommandResult // the event label
+
+  });
+};
+var userInfo = {
+  set: function set(methodOrObject, key, value) {
+    var methodOrObjectType = methodOrObject.type ? methodOrObject.type : methodOrObject;
+
+    switch (methodOrObjectType) {
+      case "ss":
+        Settings.sessionVariable(key, value);
+        break;
+
+      case "p":
+        Settings.setSettingForKey(key, value);
+        break;
+
+      case "s":
+        Settings.setGlobalSettingForKey(key, value);
+        break;
+
+      case "d":
+        Settings.setDocumentSettingForKey(methodOrObject, key, value);
+        break;
+
+      default:
+        //judge if it's a layer type by a frame parameter
+        if (methodOrObject.frame) {
+          Settings.setLayerSettingForKey(methodOrObject, key, value);
+        }
+
+        break;
+    }
+  },
+  get: function get(methodOrObject, key) {
+    var methodOrObjectType = methodOrObject.type ? methodOrObject.type : methodOrObject;
+
+    switch (methodOrObjectType) {
+      case "ss":
+        return Settings.sessionVariable(key);
+
+      case "p":
+        return Settings.settingForKey(key);
+
+      case "s":
+        return Settings.globalSettingForKey(key);
+
+      case "d":
+        return Settings.documentSettingForKey(methodOrObject, key);
+
+      default:
+        var keyValue; //judge if it's a layer type by a frame parameter
+
+        if (methodOrObject.frame) {
+          keyValue = Settings.layerSettingForKey(methodOrObject, key);
+        }
+
+        return keyValue;
+    }
+  }
+}; //plugin calls webview function
+
+var callWebviewFunction = function callWebviewFunction(functionName, functionPara) {
+  return browserWindow.webContents.executeJavaScript("".concat(functionName, "(").concat(_typeof(functionPara) === 'object' ? JSON.stringify(functionPara) : functionPara, ")")).then(function (res) {
+    return res;
+  });
+}; //plugin sends webview info
+
+var sendWebviewInfo = function sendWebviewInfo(objectOrString) {
+  return callWebviewFunction('getFromPlugin', objectOrString);
+}; //plugin gets webview info
+
+var getWebviewInfo = function getWebviewInfo(infoKey) {
+  return browserWindow.webContents.on(infoKey, function (infoValue) {
+    return infoValue;
+  });
+}; //webview sends plugin info
+
+var sendPluginInfo = function sendPluginInfo(infoKey, infoValue) {
+  return window.postMessage(infoKey, infoValue).then(function (res) {
+    return res;
+  });
+}; //webview gets plugin info
+
+var getPluginInfo = function getPluginInfo(objectOrString) {
+  return objectOrString;
+};
 
 /***/ }),
 
@@ -379,17 +495,6 @@ var Symbol_NextAndLast = function Symbol_NextAndLast(counts) {
 /***/ (function(module, exports) {
 
 module.exports = require("sketch");
-
-/***/ }),
-
-/***/ "sketch/dom":
-/*!*****************************!*\
-  !*** external "sketch/dom" ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("sketch/dom");
 
 /***/ }),
 

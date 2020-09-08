@@ -6,10 +6,27 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.78",
-
+    "version": "1.5.79",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
+            "name": "Test",
+            "identifier": "Test",
+            "script": "Test.js"
+        },
+        {
+            "name": "Text Auto Recorder [tar]",
+            "identifier": "Text Auto Recorder [tar]",
+            "script": "Text Auto Recorder [tar].js"
+        },
+        {
+            "script": "Text Auto Recorder [tar].js",
+            "handlers": {
+                "actions": {
+                    "TextChanged.finish": "textRecorder"
+                }
+            }
+        },
+        {
             "name": "Preview In Browser [pib]",
             "shortcut": "cmd shift .",
             "identifier": "Preview In Browser [pib]",
@@ -32,9 +49,9 @@
             }
         },
         {
-            "name": "Auto Refresh Switch [ars]",
-            "identifier": "Auto Refresh Switch [ars]",
-            "script": "Auto Refresh Switch [ars].js"
+            "name": "Auto Refresh Settings [ars]",
+            "identifier": "Auto Refresh Settings [ars]",
+            "script": "Auto Refresh Settings [ars].js"
         },
         {
             "name": "Paste Layer Size [pls]",
@@ -94,9 +111,9 @@
             "script": "Set Selection Width According To Parent Group Border [sswatpgb].js"
         },
         {
-            "name": "Show Document In Finder  [sdif]",
-            "identifier": "Show Document In Finder  [sdif]",
-            "script": "Show Document In Finder  [sdif].js"
+            "name": "Show Document In Finder [sdif]",
+            "identifier": "Show Document In Finder [sdif]",
+            "script": "Show Document In Finder [sdif].js"
         },
         {
             "name": "Suggest",
@@ -128,9 +145,9 @@
             "script": "Increase Height With Fixed Aspect Proportion [ihwfap].js"
         },
         {
-            "name": "Temporary Unselect All Selections [tuas]",
-            "identifier": "Temporary Unselect All Selections [tuas]",
-            "script": "Temporary Unselect All Selections [tuas].js"
+            "name": "Temporary Unselect All Selections [tsas]",
+            "identifier": "Temporary Unselect All Selections [tsas]",
+            "script": "Temporary Unselect All Selections [tsas].js"
         },
         {
             "name": "Reload",
@@ -223,8 +240,8 @@
             "script": "Unselect Layer By Text Content Without Specified Word [ulbtcwsw].js"
         },
         {
-            "name": "Unselect Layer By Content Cotains Specified Texts [ulbccst]",
-            "identifier": "Unselect Layer By Content Cotains Specified Texts [ulbccst]",
+            "name": "Unselect Layer By Text Content [ulbtc]",
+            "identifier": "Unselect Layer By Text Content [ulbtc]",
             "script": "Unselect Layer By Name [ulbn]"
         },
         {
@@ -466,7 +483,7 @@
         {
             "name": "Replace Text Overrides [rto]",
             "identifier": "Replace Text Overrides [rto]",
-            "script": "Replace Text Overrides [rto].js"
+            "script": "Paste Text Overrides [pto]"
         },
         {
             "name": "Paste Overrides Except Text [poet]",
@@ -510,7 +527,7 @@
         "items": [{
                 "title": "Document",
                 "items": [
-                    "Show Document In Finder  [sdif]",
+                    "Show Document In Finder [sdif]",
                     "-",
                     "Create A Backup [cab]",
                     "Create A Backup With Introduction [cabwi]",
@@ -593,14 +610,14 @@
                     "Unselect Layer By Name Without Specified Word [ulbnwsw]",
                     "-",
                     "Select Layer By Text Content [slbtc]",
-                    "Unselect Layer By Content Cotains Specified Texts [ulbccst]",
+                    "Unselect Layer By Text Content [ulbtc]",
                     "Unselect Layer By Text Content Without Specified Word [ulbtcwsw]",
                     "-",
                     "Select Layer By Type [slbt]",
                     "Unselect Layer By Type [ulbt]",
                     "Unselect Layer Except Type [ulet]",
                     "-",
-                    "Temporary Unselect All Selections [tuas]"
+                    "Temporary Unselect All Selections [tsas]"
                 ]
             },
             {
@@ -646,10 +663,16 @@
                 ]
             },
             {
+                "title": "Text",
+                "items": [
+                    "Text Auto Recorder [tar]"
+                ]
+            },
+            {
                 "title": "Preview",
                 "items": [
                     "Preview In Browser [pib]",
-                    "Auto Refresh Switch [ars]"
+                    "Auto Refresh Settings [ars]"
                 ]
             },
             "-",
@@ -691,6 +714,7 @@
                         "title": "Dev",
                         "items": [
                             "Selection Data [sd]",
+                            "Test",
                             "Reload"
                         ]
                     }
