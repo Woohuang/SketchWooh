@@ -6,9 +6,14 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.80",
+    "version": "1.5.81",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
+            "name": "Convert Image To Shape Layer [citsl]",
+            "identifier": "Convert Image To Shape Layer [citsl]",
+            "script": "Convert Image To Shape Layer [citsl].js"
+        },
+        {
             "name": "Test",
             "identifier": "Test",
             "script": "Test.js"
@@ -590,6 +595,18 @@
                 ]
             },
             {
+                "title": "Image",
+                "items": [
+                    "Convert Image To Shape Layer [citsl]"
+                ]
+            },
+            {
+                "title": "Text",
+                "items": [
+                    "Text Auto Recorder [tar]"
+                ]
+            },
+            {
                 "title": "Style",
                 "items": [
                     "Rename Layer & Text Style After Layer Name [rltsaln]"
@@ -660,12 +677,6 @@
                     "-",
                     "Arrange Group Inner Layers X-Spacing [agilx]",
                     "Arrange Group Inner Layers Y-Spacing [agily]"
-                ]
-            },
-            {
-                "title": "Text",
-                "items": [
-                    "Text Auto Recorder [tar]"
                 ]
             },
             {

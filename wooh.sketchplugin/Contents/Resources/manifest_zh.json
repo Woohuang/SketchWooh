@@ -6,9 +6,13 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.80",
+    "version": "1.5.81",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
+            "name": "将图片转化为形状图层 [citsl]",
+            "identifier": "Convert Image To Shape Layer [citsl]",
+            "script": "Convert Image To Shape Layer [citsl].js"
+        }, {
             "name": "自动文本记录 [tar]",
             "identifier": "Text Auto Recorder [tar]",
             "script": "Text Auto Recorder [tar].js"
@@ -585,6 +589,18 @@
                 ]
             },
             {
+                "title": "图片",
+                "items": [
+                    "Convert Image To Shape Layer [citsl]"
+                ]
+            },
+            {
+                "title": "文本",
+                "items": [
+                    "Text Auto Recorder [tar]"
+                ]
+            },
+            {
                 "title": "命名",
                 "items": [
                     "Rename Layer & Text Style After Layer Name [rltsaln]"
@@ -655,12 +671,6 @@
                     "-",
                     "Arrange Group Inner Layers X-Spacing [agilx]",
                     "Arrange Group Inner Layers Y-Spacing [agily]"
-                ]
-            },
-            {
-                "title": "文本",
-                "items": [
-                    "Text Auto Recorder [tar]"
                 ]
             },
             {

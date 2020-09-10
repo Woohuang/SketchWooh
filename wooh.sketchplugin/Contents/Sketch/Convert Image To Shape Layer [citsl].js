@@ -88,7 +88,7 @@ var exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/Unselect Layer By Text Content Without Specified Word [ulbtcwsw].js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/Convert Image To Shape Layer [citsl].js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -179,10 +179,10 @@ module.exports = function(trackingId, hitType, props, options) {
 
 /***/ }),
 
-/***/ "./src/Unselect Layer By Text Content Without Specified Word [ulbtcwsw].js":
-/*!*********************************************************************************!*\
-  !*** ./src/Unselect Layer By Text Content Without Specified Word [ulbtcwsw].js ***!
-  \*********************************************************************************/
+/***/ "./src/Convert Image To Shape Layer [citsl].js":
+/*!*****************************************************!*\
+  !*** ./src/Convert Image To Shape Layer [citsl].js ***!
+  \*****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -192,52 +192,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/xscapeFunctions */ "./src/modules/xscapeFunctions.js");
 
-var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
 
-var UI = __webpack_require__(/*! sketch/ui */ "sketch/ui");
+var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
+    selection = doc.selectedLayers.layers,
+    shapePath = __webpack_require__(/*! sketch/dom */ "sketch/dom").ShapePath;
 
-var Selection = doc.selectedLayers.layers;
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  var CopiedString = NSPasteboard.generalPasteboard().stringForType(NSPasteboardTypeString);
-
-  if (CopiedString === null) {
-    CopiedString = "";
-  }
-
-  var SearchResult = 0; //start main function
-
-  UI.getInputFromUser("Input Key Text", {
-    initialValue: CopiedString
-  }, function (err, value) {
-    if (err) {
-      return;
-    } //start select
-    else {
-        CopiedString = value;
-        var SearchLayers = Selection.filter(function (item) {
-          if (item.type === 'Text') {
-            return item.text.indexOf(CopiedString) === -1;
-          } else if (item.type === 'SymbolInstance') {
-            return item.overrides.findIndex(function (item2) {
-              return item2.affectedLayer.type === "Text" && item2.value.indexOf(CopiedString) !== -1;
-            }) === -1;
-          } else {
-            return false;
-          }
-        });
-        SearchLayers.forEach(function (item) {
-          item.selected = false;
-          SearchResult = SearchResult + 1;
-        }); //toast result
-
-        if (SearchResult > 0) {
-          sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Unselecting " + SearchResult + " Layers That Name Contains [" + CopiedString + "]");
-        } else {
-          sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("No Object Fits");
+  var counts = 0;
+  selection.forEach(function (item) {
+    if (item.type === "Image") {
+      var newImageShape = new shapePath({
+        name: item.name,
+        frame: item.frame,
+        style: {
+          fills: [{
+            fillType: "Pattern",
+            pattern: {
+              image: item.image
+            }
+          }]
         }
-      }
-  }); //GA
+      });
+      item.parent.layers.splice(item.index, 1, newImageShape);
+      counts++;
+    }
+  });
+  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Converting " + counts + " Image"); //GA
 
   Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])(":-)");
 });
@@ -545,6 +526,17 @@ module.exports = require("sketch");
 
 /***/ }),
 
+/***/ "sketch/dom":
+/*!*****************************!*\
+  !*** external "sketch/dom" ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("sketch/dom");
+
+/***/ }),
+
 /***/ "sketch/settings":
 /*!**********************************!*\
   !*** external "sketch/settings" ***!
@@ -553,17 +545,6 @@ module.exports = require("sketch");
 /***/ (function(module, exports) {
 
 module.exports = require("sketch/settings");
-
-/***/ }),
-
-/***/ "sketch/ui":
-/*!****************************!*\
-  !*** external "sketch/ui" ***!
-  \****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("sketch/ui");
 
 /***/ })
 
@@ -585,4 +566,4 @@ module.exports = require("sketch/ui");
 }
 globalThis['onRun'] = __skpm_run.bind(this, 'default')
 
-//# sourceMappingURL=Unselect Layer By Text Content Without Specified Word [ulbtcwsw].js.map
+//# sourceMappingURL=Convert Image To Shape Layer [citsl].js.map

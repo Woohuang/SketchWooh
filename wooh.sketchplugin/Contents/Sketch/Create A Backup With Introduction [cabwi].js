@@ -240,7 +240,7 @@ var ThisDate = new Date().format("yyyy-MM-dd hh:mm:ss");
 /*!****************************************!*\
   !*** ./src/modules/xscapeFunctions.js ***!
   \****************************************/
-/*! exports provided: copyStringToPasteboard, dateFormat, symbolLooper, GA, userInfo, runWebviewFunction, sendToWebview, getFromWebview, sendToPlugin, getFromPlugin */
+/*! exports provided: copyStringToPasteboard, dateFormat, symbolLooper, GA, userInfo, runWebviewFunction, sendToWebview, getFromPlugin, sendToPlugin, getFromWebview */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -252,9 +252,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userInfo", function() { return userInfo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "runWebviewFunction", function() { return runWebviewFunction; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendToWebview", function() { return sendToWebview; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFromWebview", function() { return getFromWebview; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendToPlugin", function() { return sendToPlugin; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFromPlugin", function() { return getFromPlugin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendToPlugin", function() { return sendToPlugin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFromWebview", function() { return getFromWebview; });
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -506,22 +506,22 @@ var runWebviewFunction = function runWebviewFunction(functionName, functionPara)
 
 var sendToWebview = function sendToWebview(valueObject) {
   return callWebviewFunction("getFromPlugin", valueObject);
-}; //plugin gets webview info
+}; //webview gets plugin info
 
-var getFromWebview = function getFromWebview(infoKey) {
-  return browserWindow.webContents.on(infoKey, function (infoValue) {
-    return infoValue;
-  });
+var getFromPlugin = function getFromPlugin(infoStoredObject, valueObject) {
+  anObject;
 }; //webview sends plugin info
 
 var sendToPlugin = function sendToPlugin(infoKey, infoValue) {
   return window.postMessage(infoKey, infoValue).then(function (res) {
     return res;
   });
-}; //webview gets plugin info
+}; //plugin gets webview info
 
-var getFromPlugin = function getFromPlugin(key, valueObject) {
-  return anObject;
+var getFromWebview = function getFromWebview(infoKey) {
+  return browserWindow.webContents.on(infoKey, function (infoValue) {
+    return infoValue;
+  });
 };
 
 /***/ }),

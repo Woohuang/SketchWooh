@@ -801,15 +801,17 @@ module.exports = function(trackingId, hitType, props, options) {
 /*!*****************************************!*\
   !*** ./src/Text Auto Recorder [tar].js ***!
   \*****************************************/
-/*! exports provided: default, textRecorder */
+/*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "textRecorder", function() { return textRecorder; });
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/xscapeFunctions */ "./src/modules/xscapeFunctions.js");
+/* harmony import */ var sketch_module_google_analytics__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sketch-module-google-analytics */ "./node_modules/sketch-module-google-analytics/index.js");
+/* harmony import */ var sketch_module_google_analytics__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sketch_module_google_analytics__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
@@ -818,58 +820,64 @@ var fs = __webpack_require__(/*! @skpm/fs */ "./node_modules/@skpm/fs/index.js")
     UI = __webpack_require__(/*! sketch/ui */ "sketch/ui"),
     doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
 
-/* harmony default export */ __webpack_exports__["default"] = (function () {
-  //auto switch settings
-  var autoTextRecorderKey;
-  UI.getInputFromUser("Turn On Text Auto Recorder", {
-    type: UI.INPUT_TYPE.selection,
-    possibleValues: ["Yes", "No"]
-  }, function (err, value) {
-    if (err) {
-      return;
-    } else {
-      _modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["userInfo"].set('p', 'autoTextRecorderKey', value);
-      autoTextRecorderKey = value;
-    }
-  });
-  Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])(":-)");
-});
-function textRecorder(context) {
-  //judge auto switch states
-  if (_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["userInfo"].get('p', 'autoTextRecorderKey') === 'Yes') {
-    var ocActionLayer = context.actionContext.layer,
-        actionLayer = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.fromNative(ocActionLayer),
-        savePath = decodeURI(doc.path.replace('.sketch', '.csv')); //if text layer
+sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('This Feature Is Being Developed');
+/*
+export default function() {
+    //auto switch settings
+    let autoTextRecorderKey
+    UI.getInputFromUser(
+        "Turn On Text Auto Recorder", {
+            type: UI.INPUT_TYPE.selection,
+            possibleValues: ["Yes", "No"],
+        },
+        (err, value) => {
+            if (err) {
+                return
+            } else {
+                userInfo.set('p', 'autoTextRecorderKey', value)
+                autoTextRecorderKey = value
+            }
+        }
+    )
+    GA(":-)")
+}
 
-    if (actionLayer.type === "Text" && context.actionContext.new !== context.actionContext.old) {
-      appendToCsv(savePath, generateTxtCsv(actionLayer));
-    } //if symbol override
-    else if (actionLayer.type == "symbolInstance") {}
-  } else {}
+export function textRecorder(context) {
+    //judge auto switch states
+    if (userInfo.get('p', 'autoTextRecorderKey') === 'Yes') {
+        let ocActionLayer = context.actionContext.layer,
+            actionLayer = sketch.fromNative(ocActionLayer),
+            savePath = decodeURI(doc.path.replace('.sketch', '.csv'))
 
-  Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])("textRecorder");
+        //if text layer
+        if (actionLayer.type === "Text" && context.actionContext.new !== context.actionContext.old) {
+            appendToCsv(savePath, generateTxtCsv(actionLayer))
+        }
+        //if symbol override
+        else if (actionLayer.type == "symbolInstance") {}
+    } else {}
+    GA("textRecorder")
 }
 
 function generateTxtCsv(sketchLayer) {
-  //collect text layer info to csv
-  var time = new Date(),
-      nowDate = time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate();
-  return csvFormat(nowDate) + ',' + csvFormat(sketchLayer.text) + ',' + 'Text Layer' + ',' + csvFormat(sketchLayer.getParentArtboard().name) + "\n";
+    //collect text layer info to csv
+    let time = new Date(),
+        nowDate = time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate()
+    return csvFormat(nowDate) + ',' + csvFormat(sketchLayer.text) + ',' + 'Text Layer' + ',' + csvFormat(sketchLayer.getParentArtboard().name) + "\n"
 }
 
 function csvFormat(string) {
-  string.replace(/(?<!")"/g, '"');
-
-  if (string.indexOf(',') !== -1) {
-    string = '"' + string + '"';
-  }
-
-  return string;
+    string.replace(/(?<!")"/g, '"')
+    if (string.indexOf(',') !== -1) {
+        string = '"' + string + '"'
+    }
+    return string
 }
 
 function appendToCsv(path, csvFormatString) {
-  fs.appendFileSync(path, csvFormatString);
-}
+    fs.appendFileSync(path, csvFormatString)
+}    
+*/
 
 /***/ }),
 
@@ -877,7 +885,7 @@ function appendToCsv(path, csvFormatString) {
 /*!****************************************!*\
   !*** ./src/modules/xscapeFunctions.js ***!
   \****************************************/
-/*! exports provided: copyStringToPasteboard, dateFormat, symbolLooper, GA, userInfo, runWebviewFunction, sendToWebview, getFromWebview, sendToPlugin, getFromPlugin */
+/*! exports provided: copyStringToPasteboard, dateFormat, symbolLooper, GA, userInfo, runWebviewFunction, sendToWebview, getFromPlugin, sendToPlugin, getFromWebview */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -889,9 +897,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userInfo", function() { return userInfo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "runWebviewFunction", function() { return runWebviewFunction; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendToWebview", function() { return sendToWebview; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFromWebview", function() { return getFromWebview; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendToPlugin", function() { return sendToPlugin; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFromPlugin", function() { return getFromPlugin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendToPlugin", function() { return sendToPlugin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFromWebview", function() { return getFromWebview; });
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1143,22 +1151,22 @@ var runWebviewFunction = function runWebviewFunction(functionName, functionPara)
 
 var sendToWebview = function sendToWebview(valueObject) {
   return callWebviewFunction("getFromPlugin", valueObject);
-}; //plugin gets webview info
+}; //webview gets plugin info
 
-var getFromWebview = function getFromWebview(infoKey) {
-  return browserWindow.webContents.on(infoKey, function (infoValue) {
-    return infoValue;
-  });
+var getFromPlugin = function getFromPlugin(infoStoredObject, valueObject) {
+  anObject;
 }; //webview sends plugin info
 
 var sendToPlugin = function sendToPlugin(infoKey, infoValue) {
   return window.postMessage(infoKey, infoValue).then(function (res) {
     return res;
   });
-}; //webview gets plugin info
+}; //plugin gets webview info
 
-var getFromPlugin = function getFromPlugin(key, valueObject) {
-  return anObject;
+var getFromWebview = function getFromWebview(infoKey) {
+  return browserWindow.webContents.on(infoKey, function (infoValue) {
+    return infoValue;
+  });
 };
 
 /***/ }),
