@@ -274,7 +274,7 @@ var settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
 /*!****************************************!*\
   !*** ./src/modules/xscapeFunctions.js ***!
   \****************************************/
-/*! exports provided: copyStringToPasteboard, dateFormat, symbolLooper, GA, userInfo, callWebviewFunction, sendWebviewInfo, getWebviewInfo, sendPluginInfo, getPluginInfo */
+/*! exports provided: copyStringToPasteboard, dateFormat, symbolLooper, GA, userInfo, runWebviewFunction, sendToWebview, getFromWebview, sendToPlugin, getFromPlugin */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -284,26 +284,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "symbolLooper", function() { return symbolLooper; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GA", function() { return GA; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userInfo", function() { return userInfo; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "callWebviewFunction", function() { return callWebviewFunction; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendWebviewInfo", function() { return sendWebviewInfo; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getWebviewInfo", function() { return getWebviewInfo; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendPluginInfo", function() { return sendPluginInfo; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPluginInfo", function() { return getPluginInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "runWebviewFunction", function() { return runWebviewFunction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendToWebview", function() { return sendToWebview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFromWebview", function() { return getFromWebview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendToPlugin", function() { return sendToPlugin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFromPlugin", function() { return getFromPlugin; });
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
 
-var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings"),
+var settings = __webpack_require__(/*! sketch/settings */ "sketch/settings"),
     doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
-    selections = doc.selectedLayers.layers;
+    selections = doc.selectedLayers.layers; //copy string to pasteboard
+
 
 var copyStringToPasteboard = function copyStringToPasteboard(item) {
   var pasteboard = NSPasteboard.generalPasteboard();
   pasteboard.clearContents();
   pasteboard.writeObjects([item]);
-};
+}; //generate date string
+
 var dateFormat = function dateFormat() {
   Date.prototype.format = function (fmt) {
     var o = {
@@ -319,7 +321,7 @@ var dateFormat = function dateFormat() {
       //秒
       "q+": Math.floor((this.getMonth() + 3) / 3),
       //季度
-      "S": this.getMilliseconds() //毫秒
+      S: this.getMilliseconds() //毫秒
 
     };
 
@@ -335,25 +337,26 @@ var dateFormat = function dateFormat() {
 
     return fmt;
   };
-};
+}; //shortcut to change last or netx symbol instance
+
 var symbolLooper = function symbolLooper(counts) {
   //function: WriteSymbolInfo
   var WriteSymbolInfo = function WriteSymbolInfo(item1, item2, item3) {
-    Settings.setSessionVariable('ReadSymbolInfo', {
+    settings.setSessionVariable("ReadSymbolInfo", {
       JudgeSymbolId: item1,
       ThisIndex: item2
     });
   }; //判断是否有 WriteSymbolInfo 避免报错
 
 
-  if (!Settings.sessionVariable('ReadSymbolInfo')) {
-    Settings.setSessionVariable('ReadSymbolInfo', {
+  if (!settings.sessionVariable("ReadSymbolInfo")) {
+    settings.setSessionVariable("ReadSymbolInfo", {
       JudgeSymbolId: null,
       ThisIndex: null
     });
   }
 
-  var ReadSymbolInfo = Settings.sessionVariable('ReadSymbolInfo');
+  var ReadSymbolInfo = settings.sessionVariable("ReadSymbolInfo");
   var ThisIndex, symbolMaster, ThisLibrary; //获取选中的 symbol
 
   var SelectedSymbols = selections.filter(function (item) {
@@ -408,7 +411,7 @@ var symbolLooper = function symbolLooper(counts) {
 
 
         symbolMaster = symbolReferences[ThisIndex + counts].import();
-      } //所选为 local symbol 时 
+      } //所选为 local symbol 时
       else {
           //不能用 let DocSymbols =  doc.getSymbols(), 会取到引入的其它 library symbol
           var DocSymbols = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.find('[type="SymbolMaster"]'); //判断是否需要重新获取 ThisIndex
@@ -451,13 +454,14 @@ var symbolLooper = function symbolLooper(counts) {
   }); //储存 symbol 临时信息
 
   WriteSymbolInfo(symbolMaster.symbolId, ThisIndex + counts);
-};
+}; //google analytics
+
 var GA = function GA(CommandResult) {
   var track = __webpack_require__(/*! sketch-module-google-analytics */ "./node_modules/sketch-module-google-analytics/index.js"),
       variant = MSApplicationMetadata.metadata().variant,
-      Appinfo = context.plugin.url().path().split('/')[context.plugin.url().path().split('/').findIndex(function (item) {
-    return item === 'Users';
-  }) + 1] + "-Skth" + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch + "-" + context.plugin.identifier() + " [" + context.plugin.version() + "]",
+      Appinfo = context.plugin.url().path().split("/")[context.plugin.url().path().split("/").findIndex(function (item) {
+    return item === "Users";
+  }) + 1] + "-Skth" + (variant == "NONAPPSTORE" ? "" : variant + " ") + settings.version.sketch + "-" + context.plugin.identifier() + " [" + context.plugin.version() + "]",
       CommandInfo = context.command.identifier();
 
   track("UA-169300937-3", "event", {
@@ -468,32 +472,33 @@ var GA = function GA(CommandResult) {
     el: CommandResult // the event label
 
   });
-};
+}; //write user info
+
 var userInfo = {
   set: function set(methodOrObject, key, value) {
     var methodOrObjectType = methodOrObject.type ? methodOrObject.type : methodOrObject;
 
     switch (methodOrObjectType) {
       case "ss":
-        Settings.sessionVariable(key, value);
+        settings.sessionVariable(key, value);
         break;
 
       case "p":
-        Settings.setSettingForKey(key, value);
+        settings.setSettingForKey(key, value);
         break;
 
       case "s":
-        Settings.setGlobalSettingForKey(key, value);
+        settings.setGlobalSettingForKey(key, value);
         break;
 
       case "d":
-        Settings.setDocumentSettingForKey(methodOrObject, key, value);
+        settings.setDocumentSettingForKey(methodOrObject, key, value);
         break;
 
       default:
         //judge if it's a layer type by a frame parameter
         if (methodOrObject.frame) {
-          Settings.setLayerSettingForKey(methodOrObject, key, value);
+          settings.setLayerSettingForKey(methodOrObject, key, value);
         }
 
         break;
@@ -504,53 +509,53 @@ var userInfo = {
 
     switch (methodOrObjectType) {
       case "ss":
-        return Settings.sessionVariable(key);
+        return settings.sessionVariable(key);
 
       case "p":
-        return Settings.settingForKey(key);
+        return settings.settingForKey(key);
 
       case "s":
-        return Settings.globalSettingForKey(key);
+        return settings.globalSettingForKey(key);
 
       case "d":
-        return Settings.documentSettingForKey(methodOrObject, key);
+        return settings.documentSettingForKey(methodOrObject, key);
 
       default:
         var keyValue; //judge if it's a layer type by a frame parameter
 
         if (methodOrObject.frame) {
-          keyValue = Settings.layerSettingForKey(methodOrObject, key);
+          keyValue = settings.layerSettingForKey(methodOrObject, key);
         }
 
         return keyValue;
     }
   }
-}; //plugin calls webview function
+}; //plugin runs webview function
 
-var callWebviewFunction = function callWebviewFunction(functionName, functionPara) {
-  return browserWindow.webContents.executeJavaScript("".concat(functionName, "(").concat(_typeof(functionPara) === 'object' ? JSON.stringify(functionPara) : functionPara, ")")).then(function (res) {
+var runWebviewFunction = function runWebviewFunction(functionName, functionPara) {
+  return browserWindow.webContents.executeJavaScript("".concat(functionName, "(").concat(_typeof(functionPara) === "object" ? JSON.stringify(functionPara) : functionPara, ")")).then(function (res) {
     return res;
   });
 }; //plugin sends webview info
 
-var sendWebviewInfo = function sendWebviewInfo(objectOrString) {
-  return callWebviewFunction('getFromPlugin', objectOrString);
+var sendToWebview = function sendToWebview(valueObject) {
+  return callWebviewFunction("getFromPlugin", valueObject);
 }; //plugin gets webview info
 
-var getWebviewInfo = function getWebviewInfo(infoKey) {
+var getFromWebview = function getFromWebview(infoKey) {
   return browserWindow.webContents.on(infoKey, function (infoValue) {
     return infoValue;
   });
 }; //webview sends plugin info
 
-var sendPluginInfo = function sendPluginInfo(infoKey, infoValue) {
+var sendToPlugin = function sendToPlugin(infoKey, infoValue) {
   return window.postMessage(infoKey, infoValue).then(function (res) {
     return res;
   });
 }; //webview gets plugin info
 
-var getPluginInfo = function getPluginInfo(objectOrString) {
-  return objectOrString;
+var getFromPlugin = function getFromPlugin(key, valueObject) {
+  return anObject;
 };
 
 /***/ }),
