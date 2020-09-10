@@ -6,10 +6,10 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.85",
+    "version": "1.5.86",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
-            "name": "将图片转化为形状图层 [citsl]",
+            "name": "将图像转化为形状图层 [citsl]",
             "identifier": "Convert Image To Shape Layer [citsl]",
             "script": "Convert Image To Shape Layer [citsl].js"
         }, {
@@ -37,12 +37,10 @@
                 "actions": {
                     "DocumentSaved": "autoRefreshHandlerSave",
                     "SelectionChanged.finish": "autoRefreshHandler",
-                    "ArtboardChanged": "autoRefreshHandler",
                     "HideLayer": "autoRefreshHandler",
                     "InsertImage": "autoRefreshHandler",
                     "InsertVector": "autoRefreshHandler",
                     "LayersMoved": "autoRefreshHandler",
-                    "Shape": "autoRefreshHandler",
                     "Edit.finish": "autoRefreshHandler"
                 }
             }
@@ -589,7 +587,7 @@
                 ]
             },
             {
-                "title": "图片",
+                "title": "图像",
                 "items": [
                     "Convert Image To Shape Layer [citsl]"
                 ]

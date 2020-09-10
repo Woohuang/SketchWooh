@@ -277,7 +277,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
     Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings"),
-    autoRefreshKey = Settings.sessionVariable('autoRefreshKey'),
+    autoRefreshKey = Settings.sessionVariable("autoRefreshKey"),
     selection = doc.selectedLayers.layers,
     artboard = 0;
 
@@ -306,19 +306,23 @@ if (selection.length > 0) {
 function autoRefreshHandler() {
   if (autoRefreshKey === "Auto refresh @2x") {
     refreshImg(2);
-    Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])("autoRefresh@2x");
+    Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])("autoRefresh@2x"); //console.log(autoRefreshKey)
+    //console.log('auto2')
   } else if (autoRefreshKey === "Auto refresh @1x") {
     refreshImg(1);
-    Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])("autoRefresh@1x");
+    Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])("autoRefresh@1x"); //console.log(autoRefreshKey)
+    //console.log('auto1')
   }
 }
 function autoRefreshHandlerSave() {
   if (autoRefreshKey === "Refresh when saving document @2x") {
     refreshImg(2);
-    Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])("saveRefresh@2x");
+    Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])("saveRefresh@2x"); //console.log(autoRefreshKey)
+    //console.log('save2')
   } else if (autoRefreshKey === "Refresh when saving document @1x") {
     refreshImg(1);
-    Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])("saveRefresh@1x");
+    Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])("saveRefresh@1x"); //console.log(autoRefreshKey)
+    //console.log('save1')
   }
 } //functions
 
@@ -327,7 +331,7 @@ function artboardBrowse(artboard, pageTitle, customBlockKey, scaleValue) {
     sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Please Select 1 Artboard");
   } else {
     var artboardname = pageTitle;
-    artboardname = artboardname.replace(/['|'|/|#|.|\\|"|"]/g, '');
+    artboardname = artboardname.replace(/['|'|/|#|.|\\|"|"]/g, "");
     var filename = NSTemporaryDirectory() + artboardname + ".png";
     doc.sketchObject.saveArtboardOrSlice_toFile(scaleArtboard(artboard, scaleValue), filename); //htmlContent
 
@@ -387,7 +391,7 @@ function artboardBrowse(artboard, pageTitle, customBlockKey, scaleValue) {
 function refreshImg(scaleValue) {
   if (artboard !== 0) {
     var artboardname = "AutoRefreshing";
-    artboardname = artboardname.replace(/['|'|/|#|.|\\|"|"]/g, '');
+    artboardname = artboardname.replace(/['|'|/|#|.|\\|"|"]/g, "");
     var filename = NSTemporaryDirectory() + artboardname + ".png";
     doc.sketchObject.saveArtboardOrSlice_toFile(scaleArtboard(artboard, scaleValue), filename);
     sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Browser Preview Refreshing");
