@@ -306,23 +306,27 @@ if (selection.length > 0) {
 function autoRefreshHandler() {
   if (autoRefreshKey === "Auto refresh @2x") {
     refreshImg(2);
-    Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])("autoRefresh@2x"); //console.log(autoRefreshKey)
-    //console.log('auto2')
+    Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])("autoRefresh@2x");
+    console.log(autoRefreshKey);
+    console.log('auto2');
   } else if (autoRefreshKey === "Auto refresh @1x") {
     refreshImg(1);
-    Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])("autoRefresh@1x"); //console.log(autoRefreshKey)
-    //console.log('auto1')
+    Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])("autoRefresh@1x");
+    console.log(autoRefreshKey);
+    console.log('auto1');
   }
 }
 function autoRefreshHandlerSave() {
   if (autoRefreshKey === "Refresh when saving document @2x") {
     refreshImg(2);
-    Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])("saveRefresh@2x"); //console.log(autoRefreshKey)
-    //console.log('save2')
+    Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])("saveRefresh@2x");
+    console.log(autoRefreshKey);
+    console.log('save2');
   } else if (autoRefreshKey === "Refresh when saving document @1x") {
     refreshImg(1);
-    Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])("saveRefresh@1x"); //console.log(autoRefreshKey)
-    //console.log('save1')
+    Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])("saveRefresh@1x");
+    console.log(autoRefreshKey);
+    console.log('save1');
   }
 } //functions
 

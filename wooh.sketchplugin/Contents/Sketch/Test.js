@@ -93,17 +93,6 @@ var exports =
 /************************************************************************/
 /******/ ({
 
-/***/ "./assets/webview.html":
-/*!*****************************!*\
-  !*** ./assets/webview.html ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "file://" + String(context.scriptPath).split(".sketchplugin/Contents/Sketch")[0] + ".sketchplugin/Contents/Resources/_webpack_resources/037468711fb28c27cb823f6a2416973e.html";
-
-/***/ }),
-
 /***/ "./node_modules/@skpm/promise/index.js":
 /*!*********************************************!*\
   !*** ./node_modules/@skpm/promise/index.js ***!
@@ -2617,15 +2606,19 @@ __webpack_require__.r(__webpack_exports__);
 
 var doc = sketch__WEBPACK_IMPORTED_MODULE_2___default.a.getSelectedDocument();
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  if (doc.pages[0].name === 'XscapeTest') {
-    var option = {
-      identifier: new Date(),
-      width: 400,
-      height: 400,
-      transparent: true
+  if (doc.pages[0].name === 'testtest') {
+    /*
+    const option = {
+        identifier: new Date(),
+        width: 400,
+        height: 400,
+        transparent: true,
     };
-    var browserWindow = new sketch_module_web_view__WEBPACK_IMPORTED_MODULE_0___default.a(option);
-    browserWindow.loadURL(__webpack_require__(/*! ../assets/webview.html */ "./assets/webview.html"));
+    let browserWindow = new BrowserWindow(option);
+    browserWindow.loadURL(require("../assets/webview.html"));
+     */
+    //async function hello() { console.log("Hello") };
+    //hello()
   }
 });
 
