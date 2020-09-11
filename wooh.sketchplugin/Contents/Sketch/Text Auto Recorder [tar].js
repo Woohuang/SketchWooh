@@ -1232,6 +1232,6 @@ module.exports = require("sketch/ui");
   }
 }
 globalThis['onRun'] = __skpm_run.bind(this, 'default');
-globalThis['textRecorder'] = __skpm_run.bind(this, 'textRecorder')
+globalThis['textRecorder_unfinished'] = __skpm_run.bind(this, 'textRecorder_unfinished')
 
 //# sourceMappingURL=Text Auto Recorder [tar].js.map

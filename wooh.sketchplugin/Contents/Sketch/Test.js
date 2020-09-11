@@ -2598,27 +2598,46 @@ module.exports = function buildAPI(browserWindow, panel, webview) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sketch_module_web_view__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch-module-web-view */ "./node_modules/sketch-module-web-view/lib/index.js");
 /* harmony import */ var sketch_module_web_view__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch_module_web_view__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/xscapeFunctions */ "./src/modules/xscapeFunctions.js");
-/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sketch */ "sketch");
-/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/xscapeFunctions */ "./src/modules/xscapeFunctions.js");
 
 
 
-var doc = sketch__WEBPACK_IMPORTED_MODULE_2___default.a.getSelectedDocument();
+var doc = sketch__WEBPACK_IMPORTED_MODULE_1___default.a.getSelectedDocument(),
+    selections = doc.selectedLayers.layers;
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  if (doc.pages[0].name === 'testtest') {
+  if (doc.pages[0].name === "ttest") {
     /*
-    const option = {
-        identifier: new Date(),
-        width: 400,
-        height: 400,
-        transparent: true,
-    };
-    let browserWindow = new BrowserWindow(option);
-    browserWindow.loadURL(require("../assets/webview.html"));
-     */
-    //async function hello() { console.log("Hello") };
-    //hello()
+                    const option = {
+                        identifier: new Date(),
+                        width: 400,
+                        height: 400,
+                        transparent: true,
+                    };
+                    let browserWindow = new BrowserWindow(option);
+                    browserWindow.loadURL(require("../assets/webview.html"));
+        
+                */
+    // console.log(selections[0].parent)
+    //console.log(selections[1].parent)
+    if (selections.findIndex(function (item) {
+      return item.parent.id !== selections[0].parent.id;
+    }) === -1) {
+      var indexInfo = [];
+      selections.forEach(function (item) {
+        return indexInfo.push(item.index);
+      });
+      selections.sort(function (a, b) {
+        return a.frame.x !== b.frame.x ? a.frame.x - b.frame.x : a.frame.width !== b.frame.width ? a.frame.width - b.frame.width : a.frame.height - b.frame.height;
+      });
+      selections.forEach(function (item) {
+        return item.index = indexInfo[selections.indexOf(item)];
+      });
+      sketch__WEBPACK_IMPORTED_MODULE_1___default.a.UI.message("Succeed In Sorting ".concat(selections.length, " Layers"));
+    } else {
+      sketch__WEBPACK_IMPORTED_MODULE_1___default.a.UI.message("Selected Layers Are Not From The Same Group Or Artboard");
+    }
   }
 });
 

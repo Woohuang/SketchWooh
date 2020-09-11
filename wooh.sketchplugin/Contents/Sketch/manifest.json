@@ -10,6 +10,21 @@
   "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
   "commands": [
     {
+      "name": "Reverse Layer Order [rlo]",
+      "identifier": "Reverse Layer Order [rlo]",
+      "script": "Reverse Layer Order [rlo].js"
+    },
+    {
+      "name": "Sort Layer Order By X-Position [slobx]",
+      "identifier": "Sort Layer Order By X-Position [slobx]",
+      "script": "Sort Layer Order By X-Position [slobx].js"
+    },
+    {
+      "name": "Sort Layer Order By Y-Position [sloby]",
+      "identifier": "Sort Layer Order By Y-Position [sloby]",
+      "script": "Sort Layer Order By Y-Position [sloby].js"
+    },
+    {
       "name": "Convert Image To Shape Layer [citsl]",
       "identifier": "Convert Image To Shape Layer [citsl]",
       "script": "Convert Image To Shape Layer [citsl].js"
@@ -28,7 +43,7 @@
       "script": "Text Auto Recorder [tar].js",
       "handlers": {
         "actions": {
-          "TextChanged.finish": "textRecorder"
+          "TextChanged.finish": "textRecorder_unfinished"
         }
       }
     },
@@ -676,7 +691,11 @@
           "Paste Layer Y-Position [ply]",
           "-",
           "Arrange Group Inner Layers X-Spacing [agilx]",
-          "Arrange Group Inner Layers Y-Spacing [agily]"
+          "Arrange Group Inner Layers Y-Spacing [agily]",
+          "-",
+          "Sort Layer Order By X-Position [slobx]",
+          "Sort Layer Order By Y-Position [sloby]",
+          "Reverse Layer Order [rlo]"
         ]
       },
       {

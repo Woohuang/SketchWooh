@@ -6,9 +6,24 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.87",
+    "version": "1.5.86",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
+            "name": "反转图层层级 [rlh]",
+            "identifier": "Reverse Layer Order [rlo]",
+            "script": "Reverse Layer Order [rlo].js"
+        },
+        {
+            "name": "根据X轴位置调整图层层级 [stlhbx]",
+            "identifier": "Sort Layer Order By X-Position [slobx]",
+            "script": "Sort Layer Order By X-Position [slobx].js"
+        },
+        {
+            "name": "根据Y轴位置调整图层层级 [stlhby]",
+            "identifier": "Sort Layer Order By Y-Position [sloby]",
+            "script": "Sort Layer Order By Y-Position [sloby].js"
+        },
+        {
             "name": "将图像转化为形状图层 [citsl]",
             "identifier": "Convert Image To Shape Layer [citsl]",
             "script": "Convert Image To Shape Layer [citsl].js"
@@ -21,7 +36,7 @@
             "script": "Text Auto Recorder [tar].js",
             "handlers": {
                 "actions": {
-                    "TextChanged.finish": "textRecorder"
+                    "TextChanged.finish": "textRecorder_unfinished"
                 }
             }
         },
@@ -81,13 +96,13 @@
             "script": "Paste Layer Position [plp].js"
         },
         {
-            "name": "粘贴图层X位置 [plx]",
+            "name": "粘贴图层X轴位置 [plx]",
             "shortcut": "ctrl shift x",
             "identifier": "Paste Layer X-Position [plx]",
             "script": "Paste Layer X-Position [plx].js"
         },
         {
-            "name": "粘贴图层Y位置 [ply]",
+            "name": "粘贴图层Y轴位置 [ply]",
             "shortcut": "ctrl shift y",
             "identifier": "Paste Layer Y-Position [ply]",
             "script": "Paste Layer Y-Position [ply].js"
@@ -359,12 +374,12 @@
             "script": "Move Each Selection Backward [mesb].js"
         },
         {
-            "name": "整理选中编组中内部图层的X间距 [agilsx]",
+            "name": "整理选中编组中内部图层的X轴间距 [agilsx]",
             "identifier": "Arrange Group Inner Layers X-Spacing [agilx]",
             "script": "Arrange Group Inner Layers X-Spacing [agilx].js"
         },
         {
-            "name": "整理选中编组中内部图层的Y间距 [agilsy]",
+            "name": "整理选中编组中内部图层的Y轴间距 [agilsy]",
             "identifier": "Arrange Group Inner Layers Y-Spacing [agily]",
             "script": "Arrange Group Inner Layers Y-Spacing [agily].js"
         },
@@ -668,7 +683,11 @@
                     "Paste Layer Y-Position [ply]",
                     "-",
                     "Arrange Group Inner Layers X-Spacing [agilx]",
-                    "Arrange Group Inner Layers Y-Spacing [agily]"
+                    "Arrange Group Inner Layers Y-Spacing [agily]",
+                    "-",
+                    "Sort Layer Order By X-Position [slobx]",
+                    "Sort Layer Order By Y-Position [sloby]",
+                    "Reverse Layer Order [rlo]"
                 ]
             },
             {

@@ -6,9 +6,24 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.87",
+    "version": "1.5.86",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
+            "name": "Reverse Layer Order [rlo]",
+            "identifier": "Reverse Layer Order [rlo]",
+            "script": "Reverse Layer Order [rlo].js"
+        },
+        {
+            "name": "Sort Layer Order By X-Position [slobx]",
+            "identifier": "Sort Layer Order By X-Position [slobx]",
+            "script": "Sort Layer Order By X-Position [slobx].js"
+        },
+        {
+            "name": "Sort Layer Order By Y-Position [sloby]",
+            "identifier": "Sort Layer Order By Y-Position [sloby]",
+            "script": "Sort Layer Order By Y-Position [sloby].js"
+        },
+        {
             "name": "Convert Image To Shape Layer [citsl]",
             "identifier": "Convert Image To Shape Layer [citsl]",
             "script": "Convert Image To Shape Layer [citsl].js"
@@ -27,7 +42,7 @@
             "script": "Text Auto Recorder [tar].js",
             "handlers": {
                 "actions": {
-                    "TextChanged.finish": "textRecorder"
+                    "TextChanged.finish": "textRecorder_unfinished"
                 }
             }
         },
@@ -594,21 +609,15 @@
             },
             {
                 "title": "Image",
-                "items": [
-                    "Convert Image To Shape Layer [citsl]"
-                ]
+                "items": ["Convert Image To Shape Layer [citsl]"]
             },
             {
                 "title": "Text",
-                "items": [
-                    "Text Auto Recorder [tar]"
-                ]
+                "items": ["Text Auto Recorder [tar]"]
             },
             {
                 "title": "Style",
-                "items": [
-                    "Rename Layer & Text Style After Layer Name [rltsaln]"
-                ]
+                "items": ["Rename Layer & Text Style After Layer Name [rltsaln]"]
             },
             {
                 "title": "Select",
@@ -674,15 +683,16 @@
                     "Paste Layer Y-Position [ply]",
                     "-",
                     "Arrange Group Inner Layers X-Spacing [agilx]",
-                    "Arrange Group Inner Layers Y-Spacing [agily]"
+                    "Arrange Group Inner Layers Y-Spacing [agily]",
+                    "-",
+                    "Sort Layer Order By X-Position [slobx]",
+                    "Sort Layer Order By Y-Position [sloby]",
+                    "Reverse Layer Order [rlo]"
                 ]
             },
             {
                 "title": "Preview",
-                "items": [
-                    "Preview In Browser [pib]",
-                    "Auto Refresh Settings [ars]"
-                ]
+                "items": ["Preview In Browser [pib]", "Auto Refresh Settings [ars]"]
             },
             "-",
             {
@@ -715,17 +725,11 @@
                     },
                     {
                         "title": "Size",
-                        "items": [
-                            "Set Symbol To Fixed Size [sstfs]"
-                        ]
+                        "items": ["Set Symbol To Fixed Size [sstfs]"]
                     },
                     {
                         "title": "Dev",
-                        "items": [
-                            "Selection Data [sd]",
-                            "Test",
-                            "Reload"
-                        ]
+                        "items": ["Selection Data [sd]", "Test", "Reload"]
                     }
                 ]
             },
