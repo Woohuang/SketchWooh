@@ -88,19 +88,26 @@ var exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/Paste Text Overrides [pto].js");
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
-/******/ ({
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
 
-/***/ "./node_modules/sketch-module-google-analytics/index.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/sketch-module-google-analytics/index.js ***!
-  \**************************************************************/
-/*! no static exports found */
+module.exports = require("sketch");
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+module.exports = require("sketch/settings");
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
+var Settings = __webpack_require__(1);
 
 var kUUIDKey = "google.analytics.uuid";
 var uuid = null
@@ -178,94 +185,24 @@ module.exports = function(trackingId, hitType, props, options) {
 };
 
 /***/ }),
-
-/***/ "./src/Paste Text Overrides [pto].js":
-/*!*******************************************!*\
-  !*** ./src/Paste Text Overrides [pto].js ***!
-  \*******************************************/
-/*! exports provided: default */
+/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
-/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/xscapeFunctions */ "./src/modules/xscapeFunctions.js");
 
-var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
-var Selection = doc.selectedLayers.layers; //let SymbolInstance = require('sketch/dom').SymbolInstance
+// EXTERNAL MODULE: external "sketch"
+var external_sketch_ = __webpack_require__(0);
+var external_sketch_default = /*#__PURE__*/__webpack_require__.n(external_sketch_);
 
-var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function () {
-  //let CopiedInfo = NSPasteboard.generalPasteboard().stringForType(NSPasteboardTypeString).split("_.0._.0._.0._")
-  var CopiedInfo = Settings.settingForKey('copySymbolInfo').split("_.0._.0._.0._");
-  var CopiedId = CopiedInfo[0];
-  var copiedOverrides = doc.getLayerWithID(CopiedId).overrides; //let copiedOverridesLen = copiedOverrides.length
-
-  var Result = 0;
-  Selection.forEach(function (item) {
-    //read size info if exsits
-    if (CopiedInfo[1] && CopiedInfo[2]) {
-      item.frame.width = CopiedInfo[1];
-      item.frame.height = CopiedInfo[2];
-    }
-
-    if (item.type === "SymbolInstance") {
-      var itemTextOverrides = item.overrides.filter(function (item2) {
-        return item2.editable === true && item2.property === "stringValue";
-      }),
-          copiedTextOverrides = copiedOverrides.filter(function (item2) {
-        return item2.editable === true && item2.property === "stringValue";
-      });
-
-      for (var i = 0; i < copiedTextOverrides.length && i < itemTextOverrides.length; i++) {
-        item.setOverrideValue(itemTextOverrides[i], copiedTextOverrides[i].value);
-        Result = 1;
-      }
-    }
-  });
-
-  if (Result === 1) {
-    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Succeed In Replacing");
-  } else {
-    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Fail Because Of The Not Similar Symbol");
-  } //GA
-
-
-  Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])(":-)");
-});
-
-/***/ }),
-
-/***/ "./src/modules/xscapeFunctions.js":
-/*!****************************************!*\
-  !*** ./src/modules/xscapeFunctions.js ***!
-  \****************************************/
-/*! exports provided: copyStringToPasteboard, dateFormat, symbolLooper, GA, userInfo, runWebviewFunction, sendToWebview, getFromPlugin, sendToPlugin, getFromWebview */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "copyStringToPasteboard", function() { return copyStringToPasteboard; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dateFormat", function() { return dateFormat; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "symbolLooper", function() { return symbolLooper; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GA", function() { return GA; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userInfo", function() { return userInfo; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "runWebviewFunction", function() { return runWebviewFunction; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendToWebview", function() { return sendToWebview; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFromPlugin", function() { return getFromPlugin; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendToPlugin", function() { return sendToPlugin; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFromWebview", function() { return getFromWebview; });
-/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
-/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+// CONCATENATED MODULE: ./src/modules/xscapeFunctions.js
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
 
-var settings = __webpack_require__(/*! sketch/settings */ "sketch/settings"),
-    doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
+var settings = __webpack_require__(1),
+    doc = external_sketch_default.a.getSelectedDocument(),
     selections = doc.selectedLayers.layers; //copy string to pasteboard
 
 
@@ -308,7 +245,7 @@ var dateFormat = function dateFormat() {
   };
 }; //shortcut to change last or netx symbol instance
 
-var symbolLooper = function symbolLooper(counts) {
+var xscapeFunctions_symbolLooper = function symbolLooper(counts) {
   //function: WriteSymbolInfo
   var WriteSymbolInfo = function WriteSymbolInfo(item1, item2, item3) {
     settings.setSessionVariable("ReadSymbolInfo", {
@@ -342,7 +279,7 @@ var symbolLooper = function symbolLooper(counts) {
   }
 
   if (JudgeSymbolResult !== -1) {
-    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Please Select Symbol With Same Master");
+    external_sketch_default.a.UI.message("Please Select Symbol With Same Master");
   } //开始主要功能
   else {
       //所选为 library symbol 时
@@ -383,7 +320,7 @@ var symbolLooper = function symbolLooper(counts) {
       } //所选为 local symbol 时
       else {
           //不能用 let DocSymbols =  doc.getSymbols(), 会取到引入的其它 library symbol
-          var DocSymbols = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.find('[type="SymbolMaster"]'); //判断是否需要重新获取 ThisIndex
+          var DocSymbols = external_sketch_default.a.find('[type="SymbolMaster"]'); //判断是否需要重新获取 ThisIndex
 
           if (JudgeSymbolId === ReadSymbolInfo.JudgeSymbolId) {
             ThisIndex = ReadSymbolInfo.ThisIndex;
@@ -417,7 +354,7 @@ var symbolLooper = function symbolLooper(counts) {
         }
     }
 
-  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message(symbolMaster.name);
+  external_sketch_default.a.UI.message(symbolMaster.name);
   SelectedSymbols.forEach(function (item) {
     return item.master = symbolMaster;
   }); //储存 symbol 临时信息
@@ -426,7 +363,7 @@ var symbolLooper = function symbolLooper(counts) {
 }; //google analytics
 
 var GA = function GA(CommandResult) {
-  var track = __webpack_require__(/*! sketch-module-google-analytics */ "./node_modules/sketch-module-google-analytics/index.js"),
+  var track = __webpack_require__(2),
       variant = MSApplicationMetadata.metadata().variant,
       Appinfo = context.plugin.url().path().split("/")[context.plugin.url().path().split("/").findIndex(function (item) {
     return item === "Users";
@@ -526,32 +463,55 @@ var getFromWebview = function getFromWebview(infoKey) {
     return infoValue;
   });
 };
+// CONCATENATED MODULE: ./src/Paste Text Overrides [pto].js
 
-/***/ }),
+var Paste_Text_Overrides_pto_doc = external_sketch_default.a.getSelectedDocument();
+var Selection = Paste_Text_Overrides_pto_doc.selectedLayers.layers; //let SymbolInstance = require('sketch/dom').SymbolInstance
 
-/***/ "sketch":
-/*!*************************!*\
-  !*** external "sketch" ***!
-  \*************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+var Settings = __webpack_require__(1);
 
-module.exports = require("sketch");
 
-/***/ }),
+/* harmony default export */ var Paste_Text_Overrides_pto_ = __webpack_exports__["default"] = (function () {
+  //let CopiedInfo = NSPasteboard.generalPasteboard().stringForType(NSPasteboardTypeString).split("_.0._.0._.0._")
+  var CopiedInfo = Settings.settingForKey('copySymbolInfo').split("_.0._.0._.0._");
+  var CopiedId = CopiedInfo[0];
+  var copiedOverrides = Paste_Text_Overrides_pto_doc.getLayerWithID(CopiedId).overrides; //let copiedOverridesLen = copiedOverrides.length
 
-/***/ "sketch/settings":
-/*!**********************************!*\
-  !*** external "sketch/settings" ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+  var Result = 0;
+  Selection.forEach(function (item) {
+    //read size info if exsits
+    if (CopiedInfo[1] && CopiedInfo[2]) {
+      item.frame.width = CopiedInfo[1];
+      item.frame.height = CopiedInfo[2];
+    }
 
-module.exports = require("sketch/settings");
+    if (item.type === "SymbolInstance") {
+      var itemTextOverrides = item.overrides.filter(function (item2) {
+        return item2.editable === true && item2.property === "stringValue";
+      }),
+          copiedTextOverrides = copiedOverrides.filter(function (item2) {
+        return item2.editable === true && item2.property === "stringValue";
+      });
+
+      for (var i = 0; i < copiedTextOverrides.length && i < itemTextOverrides.length; i++) {
+        item.setOverrideValue(itemTextOverrides[i], copiedTextOverrides[i].value);
+        Result = 1;
+      }
+    }
+  });
+
+  if (Result === 1) {
+    external_sketch_default.a.UI.message("Succeed In Replacing");
+  } else {
+    external_sketch_default.a.UI.message("Fail Because Of The Not Similar Symbol");
+  } //GA
+
+
+  GA(":-)");
+});
 
 /***/ })
-
-/******/ });
+/******/ ]);
     if (key === 'default' && typeof exports === 'function') {
       exports(context);
     } else if (typeof exports[key] !== 'function') {

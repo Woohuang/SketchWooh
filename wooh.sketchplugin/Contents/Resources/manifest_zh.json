@@ -6,20 +6,20 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.88",
+    "version": "1.5.89",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
-            "name": "反转图层层级 [rlh]",
+            "name": "反转图层顺序 [rlh]",
             "identifier": "Reverse Layer Order [rlo]",
             "script": "Reverse Layer Order [rlo].js"
         },
         {
-            "name": "根据X轴位置调整图层层级 [stlhbx]",
+            "name": "根据X轴位置调整图层顺序 [stlhbx]",
             "identifier": "Sort Layer Order By X-Position [slobx]",
             "script": "Sort Layer Order By X-Position [slobx].js"
         },
         {
-            "name": "根据Y轴位置调整图层层级 [stlhby]",
+            "name": "根据Y轴位置调整图层顺序 [stlhby]",
             "identifier": "Sort Layer Order By Y-Position [sloby]",
             "script": "Sort Layer Order By Y-Position [sloby].js"
         },
