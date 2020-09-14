@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.92",
+    "version": "1.5.93",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
             "name": "Reverse Layer Order [rlo]",
@@ -42,7 +42,7 @@
             "script": "Text Auto Recorder [tar].js",
             "handlers": {
                 "actions": {
-                    "TextChanged.finish": "textRecorder_unfinished"
+                    "BlockTextChanged.finish": "textRecorder_unfinished"
                 }
             }
         },
