@@ -88,26 +88,19 @@ var exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/Last Symbol [ls].js");
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
+/******/ ({
 
-module.exports = require("sketch");
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-module.exports = require("sketch/settings");
-
-/***/ }),
-/* 2 */
+/***/ "./node_modules/sketch-module-google-analytics/index.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/sketch-module-google-analytics/index.js ***!
+  \**************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Settings = __webpack_require__(1);
+var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
 
 var kUUIDKey = "google.analytics.uuid";
 var uuid = null
@@ -185,24 +178,57 @@ module.exports = function(trackingId, hitType, props, options) {
 };
 
 /***/ }),
-/* 3 */
+
+/***/ "./src/Last Symbol [ls].js":
+/*!*********************************!*\
+  !*** ./src/Last Symbol [ls].js ***!
+  \*********************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/xscapeFunctions */ "./src/modules/xscapeFunctions.js");
 
-// EXTERNAL MODULE: external "sketch"
-var external_sketch_ = __webpack_require__(0);
-var external_sketch_default = /*#__PURE__*/__webpack_require__.n(external_sketch_);
 
-// CONCATENATED MODULE: ./src/modules/xscapeFunctions.js
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["symbolLooper"])(-1); //GA
+
+  Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])(":-)");
+});
+
+/***/ }),
+
+/***/ "./src/modules/xscapeFunctions.js":
+/*!****************************************!*\
+  !*** ./src/modules/xscapeFunctions.js ***!
+  \****************************************/
+/*! exports provided: copyStringToPasteboard, dateFormat, symbolLooper, GA, userInfo, runWebviewFunction, sendToWebview, getFromPlugin, sendToPlugin, getFromWebview */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "copyStringToPasteboard", function() { return copyStringToPasteboard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dateFormat", function() { return dateFormat; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "symbolLooper", function() { return symbolLooper; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GA", function() { return GA; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userInfo", function() { return userInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "runWebviewFunction", function() { return runWebviewFunction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendToWebview", function() { return sendToWebview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFromPlugin", function() { return getFromPlugin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendToPlugin", function() { return sendToPlugin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFromWebview", function() { return getFromWebview; });
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
 
-var settings = __webpack_require__(1),
-    doc = external_sketch_default.a.getSelectedDocument(),
+var settings = __webpack_require__(/*! sketch/settings */ "sketch/settings"),
+    doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
     selections = doc.selectedLayers.layers; //copy string to pasteboard
 
 
@@ -245,7 +271,7 @@ var dateFormat = function dateFormat() {
   };
 }; //shortcut to change last or netx symbol instance
 
-var xscapeFunctions_symbolLooper = function symbolLooper(counts) {
+var symbolLooper = function symbolLooper(counts) {
   //function: WriteSymbolInfo
   var WriteSymbolInfo = function WriteSymbolInfo(item1, item2, item3) {
     settings.setSessionVariable("ReadSymbolInfo", {
@@ -279,7 +305,7 @@ var xscapeFunctions_symbolLooper = function symbolLooper(counts) {
   }
 
   if (JudgeSymbolResult !== -1) {
-    external_sketch_default.a.UI.message("Please Select Symbol With Same Master");
+    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Please Select Symbol With Same Master");
   } //开始主要功能
   else {
       //所选为 library symbol 时
@@ -320,7 +346,7 @@ var xscapeFunctions_symbolLooper = function symbolLooper(counts) {
       } //所选为 local symbol 时
       else {
           //不能用 let DocSymbols =  doc.getSymbols(), 会取到引入的其它 library symbol
-          var DocSymbols = external_sketch_default.a.find('[type="SymbolMaster"]'); //判断是否需要重新获取 ThisIndex
+          var DocSymbols = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.find('[type="SymbolMaster"]'); //判断是否需要重新获取 ThisIndex
 
           if (JudgeSymbolId === ReadSymbolInfo.JudgeSymbolId) {
             ThisIndex = ReadSymbolInfo.ThisIndex;
@@ -354,7 +380,7 @@ var xscapeFunctions_symbolLooper = function symbolLooper(counts) {
         }
     }
 
-  external_sketch_default.a.UI.message(symbolMaster.name);
+  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message(symbolMaster.name);
   SelectedSymbols.forEach(function (item) {
     return item.master = symbolMaster;
   }); //储存 symbol 临时信息
@@ -363,7 +389,7 @@ var xscapeFunctions_symbolLooper = function symbolLooper(counts) {
 }; //google analytics
 
 var GA = function GA(CommandResult) {
-  var track = __webpack_require__(2),
+  var track = __webpack_require__(/*! sketch-module-google-analytics */ "./node_modules/sketch-module-google-analytics/index.js"),
       variant = MSApplicationMetadata.metadata().variant,
       Appinfo = context.plugin.url().path().split("/")[context.plugin.url().path().split("/").findIndex(function (item) {
     return item === "Users";
@@ -463,18 +489,32 @@ var getFromWebview = function getFromWebview(infoKey) {
     return infoValue;
   });
 };
-// CONCATENATED MODULE: ./src/Last Symbol [ls].js
 
+/***/ }),
 
+/***/ "sketch":
+/*!*************************!*\
+  !*** external "sketch" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-/* harmony default export */ var Last_Symbol_ls_ = __webpack_exports__["default"] = (function () {
-  xscapeFunctions_symbolLooper(-1); //GA
+module.exports = require("sketch");
 
-  GA(":-)");
-});
+/***/ }),
+
+/***/ "sketch/settings":
+/*!**********************************!*\
+  !*** external "sketch/settings" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("sketch/settings");
 
 /***/ })
-/******/ ]);
+
+/******/ });
     if (key === 'default' && typeof exports === 'function') {
       exports(context);
     } else if (typeof exports[key] !== 'function') {
