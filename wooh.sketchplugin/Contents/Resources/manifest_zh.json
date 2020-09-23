@@ -699,7 +699,7 @@
             },
             "-",
             {
-                "title": "TheSource",
+                "title": "Dev Mode",
                 "items": [{
                         "title": "组件库",
                         "items": [

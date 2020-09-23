@@ -696,7 +696,7 @@
             },
             "-",
             {
-                "title": "TheSource",
+                "title": "Dev Mode",
                 "items": [{
                         "title": "Library",
                         "items": [
