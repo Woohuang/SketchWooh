@@ -68,9 +68,9 @@
       }
     },
     {
-      "name": "Auto Refresh Settings [ars]",
-      "identifier": "Auto Refresh Settings [ars]",
-      "script": "Auto Refresh Settings [ars].js"
+      "name": "Auto Refresh Setting [ars]",
+      "identifier": "Auto Refresh Setting [ars]",
+      "script": "Auto Refresh Setting [ars].js"
     },
     {
       "name": "Paste Layer Size [pls]",
@@ -115,9 +115,9 @@
       "script": "Paste Layer Y-Position [ply].js"
     },
     {
-      "name": "Sync Artboard Link Lose Layer By Layer Name [salllbln]",
-      "identifier": "Sync Artboard Link Lose Layer By Layer Name [salllbln]",
-      "script": "Sync Artboard Link Lose Layer By Layer Name [salllbln].js"
+      "name": "Sync Artboard-Link Lose Layer By Layer Name [salllbln]",
+      "identifier": "Sync Artboard-Link Lose Layer By Layer Name [salllbln]",
+      "script": "Sync Artboard-Link Lose Layer By Layer Name [salllbln].js"
     },
     {
       "name": "Set Selection Height According To Parent Group Border [sshatpgb]",
@@ -331,14 +331,14 @@
       "script": "Set Symbol To Overrides Friendly Size [sstofs].js"
     },
     {
-      "name": "Create Artboard Link Layer [call]",
-      "identifier": "Create Artboard Link Layer [call]",
-      "script": "Create Artboard Link Layer [call].js"
+      "name": "Create Artboard-Link Layer [call]",
+      "identifier": "Create Artboard-Link Layer [call]",
+      "script": "Create Artboard-Link Layer [call].js"
     },
     {
-      "name": "Sync Artboard Link Layer [sall]",
-      "identifier": "Sync Artboard Link Layer [sall]",
-      "script": "Sync Artboard Link Layer [sall].js"
+      "name": "Sync Artboard-Link Layer [sall]",
+      "identifier": "Sync Artboard-Link Layer [sall]",
+      "script": "Sync Artboard-Link Layer [sall].js"
     },
     {
       "name": "Select All Rectangles Except AutoStyle [sarea]",
@@ -559,9 +559,9 @@
       {
         "title": "Artboard",
         "items": [
-          "Create Artboard Link Layer [call]",
-          "Sync Artboard Link Layer [sall]",
-          "Sync Artboard Link Lose Layer By Layer Name [salllbln]",
+          "Create Artboard-Link Layer [call]",
+          "Sync Artboard-Link Layer [sall]",
+          "Sync Artboard-Link Lose Layer By Layer Name [salllbln]",
           "-",
           "Sync Same Name Artboard From Sync Page [ssnafsp]"
         ]
@@ -702,7 +702,7 @@
         "title": "Preview",
         "items": [
           "Preview In Browser [pib]",
-          "Auto Refresh Settings [ars]"
+          "Auto Refresh Setting [ars]"
         ]
       },
       "-",

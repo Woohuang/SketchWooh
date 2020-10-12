@@ -10639,8 +10639,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/xscapeFunctions */ "./src/modules/xscapeFunctions.js");
 
-var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
-var Selection = doc.selectedLayers.layers;
+var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
+    Selection = doc.selectedLayers.layers;
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   Selection.forEach(function (item) {
@@ -10869,27 +10869,33 @@ var userInfo = {
     var methodOrObjectType = methodOrObject.type ? methodOrObject.type : methodOrObject;
 
     switch (methodOrObjectType) {
-      case "ss":
+      case "t":
+        /*temporaryInfo*/
         settings.sessionVariable(key, value);
         break;
 
       case "p":
+        /*pluginInfo*/
         settings.setSettingForKey(key, value);
         break;
 
       case "s":
+        /*sketchInfo*/
         settings.setGlobalSettingForKey(key, value);
         break;
 
       case "d":
+        /*documentInfo*/
         settings.setDocumentSettingForKey(methodOrObject, key, value);
         break;
 
       default:
-        //judge if it's a layer type by a frame parameter
-        if (methodOrObject.frame) {
-          settings.setLayerSettingForKey(methodOrObject, key, value);
-        }
+        /*layerInfo*/
+        if (methodOrObject.frame
+        /*judge if it's a layer type by a frame parameter*/
+        ) {
+            settings.setLayerSettingForKey(methodOrObject, key, value);
+          }
 
         break;
     }
@@ -10898,7 +10904,7 @@ var userInfo = {
     var methodOrObjectType = methodOrObject.type ? methodOrObject.type : methodOrObject;
 
     switch (methodOrObjectType) {
-      case "ss":
+      case "t":
         return settings.sessionVariable(key);
 
       case "p":

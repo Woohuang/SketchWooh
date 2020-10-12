@@ -10639,28 +10639,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/xscapeFunctions */ "./src/modules/xscapeFunctions.js");
 
-var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
-var Selection = doc.selectedLayers.layers;
 
+var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
+    Selection = doc.selectedLayers.layers;
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  var SelectionResult = 0;
-  var GlobalParameterResult = 0;
-  var AutoStyleLayerResult = 0;
-  var SyncRadiusResult = 0;
-  var SyncShadowsResult = 0; //收集对应 Radius 与 Shadows 的 masters
+  var SelectionResult = 0,
+      GlobalParameterResult = 0,
+      AutoStyleLayerResult = 0,
+      SyncRadiusResult = 0,
+      SyncShadowsResult = 0; //收集对应 Radius 与 Shadows 的 masters
 
   var CollectMasters = Selection.filter(function (item) {
     return item.type === "SymbolMaster";
   }); //if no selected global symbol masters then get all global symbol masters automately
 
   if (CollectMasters.length === 0) {
-    CollectMasters = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.find('SymbolMaster').filter(function (item) {
+    CollectMasters = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.find("SymbolMaster").filter(function (item) {
       return item.name.indexOf("lobal") !== -1 && item.name.indexOf("⚙️") !== -1;
     });
   } //get global symbol masters' instance control layer
 
 
-  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.find('SymbolMaster').filter(function (item) {
+  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.find("SymbolMaster").filter(function (item) {
     return item.name.indexOf("lobal") !== -1 && item.name.indexOf("⚙️") !== -1;
   }).forEach(function (item) {
     item.getAllInstances().forEach(function (item2) {
@@ -10689,7 +10689,7 @@ var Selection = doc.selectedLayers.layers;
     } else if (item.layers[0].type === "SymbolInstance") {
       return item.layers[0].master.layers[0].name.indexOf("hadow") !== -1 || item.layers[0].master.layers[0].name.indexOf("投影") !== -1 || item.layers[0].master.layers[0].name.indexOf("阴影") !== -1;
     }
-  }); //Radius function begins 
+  }); //Radius function begins
 
   CollectRadiusMasters.forEach(function (item) {
     SelectionResult = 1;
@@ -10742,7 +10742,7 @@ var Selection = doc.selectedLayers.layers;
             return item4.name.indexOf("AutoStyle") !== -1;
           });
 
-          if ('points' in AutoStyleLayer) {
+          if ("points" in AutoStyleLayer) {
             if (GlobalParameterResult === 1) {
               //形状已设置过圆角时，对 Radius 非0的 point 赋值新的 Radius
               if (AutoStyleLayer.points.find(function (item5) {
@@ -10775,7 +10775,7 @@ var Selection = doc.selectedLayers.layers;
         }
       }
     });
-  }); //Shadows function begins 
+  }); //Shadows function begins
 
   CollectShadowMasters.forEach(function (item) {
     var GlobalShadows = null; //获取 Global Parameter
@@ -11065,27 +11065,33 @@ var userInfo = {
     var methodOrObjectType = methodOrObject.type ? methodOrObject.type : methodOrObject;
 
     switch (methodOrObjectType) {
-      case "ss":
+      case "t":
+        /*temporaryInfo*/
         settings.sessionVariable(key, value);
         break;
 
       case "p":
+        /*pluginInfo*/
         settings.setSettingForKey(key, value);
         break;
 
       case "s":
+        /*sketchInfo*/
         settings.setGlobalSettingForKey(key, value);
         break;
 
       case "d":
+        /*documentInfo*/
         settings.setDocumentSettingForKey(methodOrObject, key, value);
         break;
 
       default:
-        //judge if it's a layer type by a frame parameter
-        if (methodOrObject.frame) {
-          settings.setLayerSettingForKey(methodOrObject, key, value);
-        }
+        /*layerInfo*/
+        if (methodOrObject.frame
+        /*judge if it's a layer type by a frame parameter*/
+        ) {
+            settings.setLayerSettingForKey(methodOrObject, key, value);
+          }
 
         break;
     }
@@ -11094,7 +11100,7 @@ var userInfo = {
     var methodOrObjectType = methodOrObject.type ? methodOrObject.type : methodOrObject;
 
     switch (methodOrObjectType) {
-      case "ss":
+      case "t":
         return settings.sessionVariable(key);
 
       case "p":

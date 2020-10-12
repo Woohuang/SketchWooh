@@ -12781,101 +12781,17 @@ var doc = sketch__WEBPACK_IMPORTED_MODULE_1___default.a.getSelectedDocument(),
 
 function _ref() {
   _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+    var thisDate;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            if (doc.pages[0].name === "ttest") {
-              (function () {
-                /*
-                                const option = {
-                                    identifier: new Date(),
-                                    width: 400,
-                                    height: 400,
-                                    transparent: true,
-                                };
-                                let browserWindow = new BrowserWindow(option);
-                                browserWindow.loadURL(require("../assets/webview.html"));
-                    
-                            */
-                // console.log(selections[0].parent)
-                //console.log(selections[1].parent)
-                //acquire Link_ layer
-                var AllImg = sketch__WEBPACK_IMPORTED_MODULE_1___default.a.find('Image', doc.selectedPage),
-                    allLinkPngs = AllImg.filter(function (item) {
-                  return item.name.indexOf("Link_") !== -1;
-                }),
-                    settings = __webpack_require__(/*! sketch/settings */ "sketch/settings"); //acquire all arrboards
-
-
-                var AllArtboards = [];
-                doc.pages.forEach(function (item) {
-                  AllArtboards = AllArtboards.concat(item.layers);
-                }); //collect Link_ id
-
-                var IdArray = [];
-
-                var _loop = function _loop(i, len) {
-                  if (IdArray.findIndex(function (item) {
-                    return item === settings.layerSettingForKey(allLinkPngs[i], 'ArtboardId');
-                  }) === -1) {
-                    IdArray.splice(IdArray.length, 0, settings.layerSettingForKey(allLinkPngs[i], 'ArtboardId'));
-                  }
-                };
-
-                for (var i = 0, len = allLinkPngs.length; i < len; i++) {
-                  _loop(i, len);
-                } //set export option
-
-
-                var LinkPngOptions = {
-                  formats: 'jpg',
-                  output: false,
-                  scales: 1.5
-                };
-                var ArtboardIndex,
-                    SyncResult = 0; //start syncing
-
-                IdArray.forEach(function (item) {
-                  ArtboardIndex = AllArtboards.findIndex(function (item2) {
-                    return item2.id === item;
-                  }); //id available
-
-                  if (ArtboardIndex !== -1) {
-                    var LinkArtboard = AllArtboards[ArtboardIndex];
-                    var LinkPng = sketch__WEBPACK_IMPORTED_MODULE_1___default.a.export(LinkArtboard, LinkPngOptions);
-                    var LinkPngLayer = sketch__WEBPACK_IMPORTED_MODULE_1___default.a.createLayerFromData(LinkPng, 'bitmap');
-                    allLinkPngs.filter(function (item2) {
-                      return settings.layerSettingForKey(item2, 'ArtboardId') === item;
-                    }).forEach(function (item3) {
-                      item3.image = LinkPngLayer.image;
-                      item3.frame.width = LinkArtboard.frame.width;
-                      item3.frame.height = LinkArtboard.frame.height;
-                      item3.name = "🧶Link_" + LinkArtboard.name;
-                      item3.locked = true;
-                      SyncResult = SyncResult + 1;
-                    });
-                  } //id unavailable
-                  else {
-                      allLinkPngs.filter(function (item2) {
-                        return settings.layerSettingForKey(item2, 'ArtboardId') === item;
-                      }).forEach(function (item3) {
-                        if (item3.name.indexOf("💀Lose") === -1) {
-                          item3.name = "💀Lose" + item3.name;
-                          item3.locked = true;
-                        }
-                      });
-                    }
-                }); //toast message
-
-                if (SyncResult === 0) {
-                  sketch__WEBPACK_IMPORTED_MODULE_1___default.a.UI.message("Fail In Syncing");
-                } else {
-                  sketch__WEBPACK_IMPORTED_MODULE_1___default.a.UI.message("Succeed In Syncing " + SyncResult + " Layer In This Page");
-                }
-
-                console.log('success');
-              })();
+            if (doc.pages[0].name === "xscapetest") {
+              _modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_2__["dateFormat"]();
+              thisDate = new Date().format("yyyy-MM-dd hh:mm:ss");
+              selection.forEach(function (item) {
+                _modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_2__["userInfo"].set(item, lastEditTime, thisDate);
+              });
             }
 
           case 1:
@@ -13100,27 +13016,33 @@ var userInfo = {
     var methodOrObjectType = methodOrObject.type ? methodOrObject.type : methodOrObject;
 
     switch (methodOrObjectType) {
-      case "ss":
+      case "t":
+        /*temporaryInfo*/
         settings.sessionVariable(key, value);
         break;
 
       case "p":
+        /*pluginInfo*/
         settings.setSettingForKey(key, value);
         break;
 
       case "s":
+        /*sketchInfo*/
         settings.setGlobalSettingForKey(key, value);
         break;
 
       case "d":
+        /*documentInfo*/
         settings.setDocumentSettingForKey(methodOrObject, key, value);
         break;
 
       default:
-        //judge if it's a layer type by a frame parameter
-        if (methodOrObject.frame) {
-          settings.setLayerSettingForKey(methodOrObject, key, value);
-        }
+        /*layerInfo*/
+        if (methodOrObject.frame
+        /*judge if it's a layer type by a frame parameter*/
+        ) {
+            settings.setLayerSettingForKey(methodOrObject, key, value);
+          }
 
         break;
     }
@@ -13129,7 +13051,7 @@ var userInfo = {
     var methodOrObjectType = methodOrObject.type ? methodOrObject.type : methodOrObject;
 
     switch (methodOrObjectType) {
-      case "ss":
+      case "t":
         return settings.sessionVariable(key);
 
       case "p":

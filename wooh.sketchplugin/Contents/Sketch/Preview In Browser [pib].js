@@ -10640,13 +10640,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "artboardBrowse", function() { return artboardBrowse; });
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/xscapeFunctions */ "./src/modules/xscapeFunctions.js");
+/* harmony import */ var _src_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../src/modules/xscapeFunctions */ "./src/modules/xscapeFunctions.js");
 
- //thank gaddafirusli
+ //thank to gaddafirusli
 
 var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
-    Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings"),
-    autoRefreshKey = Settings.sessionVariable("autoRefreshKey"),
+    autoRefreshKey = _src_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["userInfo"].get('s', "autoRefreshKey"),
     selection = doc.selectedLayers.layers,
     artboard = 0;
 
@@ -10670,33 +10669,29 @@ if (selection.length > 0) {
   } //GA
 
 
-  Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])(":-)");
+  _src_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"](autoRefreshKey);
 });
 function autoRefreshHandler() {
   if (autoRefreshKey === "Auto refresh @2x") {
-    refreshImg(2);
-    Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])("autoRefresh@2x");
-    console.log(autoRefreshKey);
-    console.log('auto2');
+    refreshImg(2); //console.log(autoRefreshKey)
+    //console.log('auto2')
   } else if (autoRefreshKey === "Auto refresh @1x") {
-    refreshImg(1);
-    Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])("autoRefresh@1x");
-    console.log(autoRefreshKey);
-    console.log('auto1');
+    refreshImg(1); //console.log(autoRefreshKey)
+    //console.log('auto1')
   }
+
+  _src_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"](autoRefreshKey);
 }
 function autoRefreshHandlerSave() {
   if (autoRefreshKey === "Refresh when saving document @2x") {
-    refreshImg(2);
-    Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])("saveRefresh@2x");
-    console.log(autoRefreshKey);
-    console.log('save2');
+    refreshImg(2); //console.log(autoRefreshKey)
+    //console.log('save2')
   } else if (autoRefreshKey === "Refresh when saving document @1x") {
-    refreshImg(1);
-    Object(_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"])("saveRefresh@1x");
-    console.log(autoRefreshKey);
-    console.log('save1');
+    refreshImg(1); //console.log(autoRefreshKey)
+    //console.log('save1')
   }
+
+  _src_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"](autoRefreshKey);
 } //functions
 
 function artboardBrowse(artboard, pageTitle, customBlockKey, scaleValue) {
@@ -10995,27 +10990,33 @@ var userInfo = {
     var methodOrObjectType = methodOrObject.type ? methodOrObject.type : methodOrObject;
 
     switch (methodOrObjectType) {
-      case "ss":
+      case "t":
+        /*temporaryInfo*/
         settings.sessionVariable(key, value);
         break;
 
       case "p":
+        /*pluginInfo*/
         settings.setSettingForKey(key, value);
         break;
 
       case "s":
+        /*sketchInfo*/
         settings.setGlobalSettingForKey(key, value);
         break;
 
       case "d":
+        /*documentInfo*/
         settings.setDocumentSettingForKey(methodOrObject, key, value);
         break;
 
       default:
-        //judge if it's a layer type by a frame parameter
-        if (methodOrObject.frame) {
-          settings.setLayerSettingForKey(methodOrObject, key, value);
-        }
+        /*layerInfo*/
+        if (methodOrObject.frame
+        /*judge if it's a layer type by a frame parameter*/
+        ) {
+            settings.setLayerSettingForKey(methodOrObject, key, value);
+          }
 
         break;
     }
@@ -11024,7 +11025,7 @@ var userInfo = {
     var methodOrObjectType = methodOrObject.type ? methodOrObject.type : methodOrObject;
 
     switch (methodOrObjectType) {
-      case "ss":
+      case "t":
         return settings.sessionVariable(key);
 
       case "p":

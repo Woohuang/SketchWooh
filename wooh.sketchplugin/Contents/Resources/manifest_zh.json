@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.5.96",
+    "version": "1.5.97",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
             "name": "反转图层顺序 [rlh]",
@@ -62,8 +62,8 @@
         },
         {
             "name": "自动刷新开关 [ars]",
-            "identifier": "Auto Refresh Settings [ars]",
-            "script": "Auto Refresh Settings [ars].js"
+            "identifier": "Auto Refresh Setting [ars]",
+            "script": "Auto Refresh Setting [ars].js"
         },
         {
             "name": "粘贴图层尺寸 [pls]",
@@ -109,8 +109,8 @@
         },
         {
             "name": "通过名字同步画板链接丢失的图层 [sall] [salllbln]",
-            "identifier": "Sync Artboard Link Lose Layer By Layer Name [salllbln]",
-            "script": "Sync Artboard Link Lose Layer By Layer Name [salllbln].js"
+            "identifier": "Sync Artboard-Link Lose Layer By Layer Name [salllbln]",
+            "script": "Sync Artboard-Link Lose Layer By Layer Name [salllbln].js"
         },
         {
             "name": "根据父级编组边界设置选中项高度 [sstph]",
@@ -325,13 +325,13 @@
         },
         {
             "name": "创建画板链接图层 [call]",
-            "identifier": "Create Artboard Link Layer [call]",
-            "script": "Create Artboard Link Layer [call].js"
+            "identifier": "Create Artboard-Link Layer [call]",
+            "script": "Create Artboard-Link Layer [call].js"
         },
         {
             "name": "同步画板链接图层 [sall]",
-            "identifier": "Sync Artboard Link Layer [sall]",
-            "script": "Sync Artboard Link Layer [sall].js"
+            "identifier": "Sync Artboard-Link Layer [sall]",
+            "script": "Sync Artboard-Link Layer [sall].js"
         },
         {
             "name": "选中除AutoStyle的所有矩形 [sarea]",
@@ -551,9 +551,9 @@
             {
                 "title": "画板",
                 "items": [
-                    "Create Artboard Link Layer [call]",
-                    "Sync Artboard Link Layer [sall]",
-                    "Sync Artboard Link Lose Layer By Layer Name [salllbln]",
+                    "Create Artboard-Link Layer [call]",
+                    "Sync Artboard-Link Layer [sall]",
+                    "Sync Artboard-Link Lose Layer By Layer Name [salllbln]",
                     "-",
                     "Sync Same Name Artboard From Sync Page [ssnafsp]"
                 ]
@@ -694,7 +694,7 @@
                 "title": "预览",
                 "items": [
                     "Preview In Browser [pib]",
-                    "Auto Refresh Settings [ars]"
+                    "Auto Refresh Setting [ars]"
                 ]
             },
             "-",

@@ -10639,16 +10639,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/xscapeFunctions */ "./src/modules/xscapeFunctions.js");
 
-var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
-var Selection = doc.selectedLayers.layers;
 
-var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
 
+var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
+    Selection = doc.selectedLayers.layers,
+    Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   if (Selection.length === 1 && Selection[0].type === "SymbolInstance") {
     var SelectedInfo = Selection[0].id + "_.0._.0._.0._" + Selection[0].frame.width + "_.0._.0._.0._" + Selection[0].frame.height;
-    Settings.setSettingForKey('copySymbolInfo', SelectedInfo);
+    Settings.setSettingForKey("copySymbolInfo", SelectedInfo);
   } else {
     sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Please Select 1 Symbol");
   } //GA
@@ -10868,27 +10868,33 @@ var userInfo = {
     var methodOrObjectType = methodOrObject.type ? methodOrObject.type : methodOrObject;
 
     switch (methodOrObjectType) {
-      case "ss":
+      case "t":
+        /*temporaryInfo*/
         settings.sessionVariable(key, value);
         break;
 
       case "p":
+        /*pluginInfo*/
         settings.setSettingForKey(key, value);
         break;
 
       case "s":
+        /*sketchInfo*/
         settings.setGlobalSettingForKey(key, value);
         break;
 
       case "d":
+        /*documentInfo*/
         settings.setDocumentSettingForKey(methodOrObject, key, value);
         break;
 
       default:
-        //judge if it's a layer type by a frame parameter
-        if (methodOrObject.frame) {
-          settings.setLayerSettingForKey(methodOrObject, key, value);
-        }
+        /*layerInfo*/
+        if (methodOrObject.frame
+        /*judge if it's a layer type by a frame parameter*/
+        ) {
+            settings.setLayerSettingForKey(methodOrObject, key, value);
+          }
 
         break;
     }
@@ -10897,7 +10903,7 @@ var userInfo = {
     var methodOrObjectType = methodOrObject.type ? methodOrObject.type : methodOrObject;
 
     switch (methodOrObjectType) {
-      case "ss":
+      case "t":
         return settings.sessionVariable(key);
 
       case "p":

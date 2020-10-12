@@ -10639,16 +10639,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/xscapeFunctions */ "./src/modules/xscapeFunctions.js");
 
-var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
 
-var Page = __webpack_require__(/*! sketch/dom */ "sketch/dom").Page;
 
+var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
+    Page = __webpack_require__(/*! sketch/dom */ "sketch/dom").Page;
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  var SyncResult = 0;
-  var NullResult = 0;
-  var SameNameResult = 0;
-  var SelectedPage = doc.selectedPage;
+  var SyncResult = 0,
+      NullResult = 0,
+      SameNameResult = 0,
+      SelectedPage = doc.selectedPage;
 
   if (doc.pages.findIndex(function (item) {
     return item.name === "Sync: 将新的同名画板复制到这里" || item.name === "Sync: 剩余画板不存在或存在多个同名匹配项" || item.name === "Sync: done!";
@@ -10665,10 +10665,10 @@ var Page = __webpack_require__(/*! sketch/dom */ "sketch/dom").Page;
           return item2.name === item.name;
         }).length;
         /*
-        if (SameNameArtboardsLen < SyncPageArtboard.filter(item2 => item2.name === item.name).length) {
-            SameNameArtboardsLen = SyncPageArtboard.filter(item2 => item2.name === item.name).length
-        }
-        */
+                if (SameNameArtboardsLen < SyncPageArtboard.filter(item2 => item2.name === item.name).length) {
+                    SameNameArtboardsLen = SyncPageArtboard.filter(item2 => item2.name === item.name).length
+                }
+                */
         //main function start
 
         var ToSyncIndex = SelectedPage.layers.findIndex(function (item2) {
@@ -10705,7 +10705,7 @@ var Page = __webpack_require__(/*! sketch/dom */ "sketch/dom").Page;
     }
   } else {
     var NewSyncPage = new Page({
-      name: 'Sync: 将新的同名画板复制到这里'
+      name: "Sync: 将新的同名画板复制到这里"
     });
     NewSyncPage.parent = doc;
     sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("请将新的同名画板复制到Sync页");
@@ -10926,27 +10926,33 @@ var userInfo = {
     var methodOrObjectType = methodOrObject.type ? methodOrObject.type : methodOrObject;
 
     switch (methodOrObjectType) {
-      case "ss":
+      case "t":
+        /*temporaryInfo*/
         settings.sessionVariable(key, value);
         break;
 
       case "p":
+        /*pluginInfo*/
         settings.setSettingForKey(key, value);
         break;
 
       case "s":
+        /*sketchInfo*/
         settings.setGlobalSettingForKey(key, value);
         break;
 
       case "d":
+        /*documentInfo*/
         settings.setDocumentSettingForKey(methodOrObject, key, value);
         break;
 
       default:
-        //judge if it's a layer type by a frame parameter
-        if (methodOrObject.frame) {
-          settings.setLayerSettingForKey(methodOrObject, key, value);
-        }
+        /*layerInfo*/
+        if (methodOrObject.frame
+        /*judge if it's a layer type by a frame parameter*/
+        ) {
+            settings.setLayerSettingForKey(methodOrObject, key, value);
+          }
 
         break;
     }
@@ -10955,7 +10961,7 @@ var userInfo = {
     var methodOrObjectType = methodOrObject.type ? methodOrObject.type : methodOrObject;
 
     switch (methodOrObjectType) {
-      case "ss":
+      case "t":
         return settings.sessionVariable(key);
 
       case "p":

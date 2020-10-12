@@ -10655,7 +10655,7 @@ var ThisDate = new Date().format("yyyy-MM-dd hh:mm:ss");
     //write introduction
     var Introduction = new String();
     UI.getInputFromUser("Enter Backup Instructions", {
-      initialValue: '',
+      initialValue: "",
       numberOfLines: 1
     }, function (err, value) {
       if (err) {
@@ -10664,10 +10664,10 @@ var ThisDate = new Date().format("yyyy-MM-dd hh:mm:ss");
         Introduction = value;
       }
     });
-    var doc_path = doc.path.replace();
-    var docName = path.basename(doc_path);
-    var SaveName = "Backup_" + docName.replace(".sketch", "【" + ThisDate + "】" + Introduction + ".sketch");
-    var save_path = decodeURI(doc_path.replace(docName, SaveName));
+    var doc_path = doc.path.replace(),
+        docName = path.basename(doc_path),
+        SaveName = "Backup_" + docName.replace(".sketch", "【" + ThisDate + "】" + Introduction + ".sketch"),
+        save_path = decodeURI(doc_path.replace(docName, SaveName));
     doc.save(save_path, {
       saveMode: Document.SaveMode.SaveTo
     });
@@ -10892,27 +10892,33 @@ var userInfo = {
     var methodOrObjectType = methodOrObject.type ? methodOrObject.type : methodOrObject;
 
     switch (methodOrObjectType) {
-      case "ss":
+      case "t":
+        /*temporaryInfo*/
         settings.sessionVariable(key, value);
         break;
 
       case "p":
+        /*pluginInfo*/
         settings.setSettingForKey(key, value);
         break;
 
       case "s":
+        /*sketchInfo*/
         settings.setGlobalSettingForKey(key, value);
         break;
 
       case "d":
+        /*documentInfo*/
         settings.setDocumentSettingForKey(methodOrObject, key, value);
         break;
 
       default:
-        //judge if it's a layer type by a frame parameter
-        if (methodOrObject.frame) {
-          settings.setLayerSettingForKey(methodOrObject, key, value);
-        }
+        /*layerInfo*/
+        if (methodOrObject.frame
+        /*judge if it's a layer type by a frame parameter*/
+        ) {
+            settings.setLayerSettingForKey(methodOrObject, key, value);
+          }
 
         break;
     }
@@ -10921,7 +10927,7 @@ var userInfo = {
     var methodOrObjectType = methodOrObject.type ? methodOrObject.type : methodOrObject;
 
     switch (methodOrObjectType) {
-      case "ss":
+      case "t":
         return settings.sessionVariable(key);
 
       case "p":

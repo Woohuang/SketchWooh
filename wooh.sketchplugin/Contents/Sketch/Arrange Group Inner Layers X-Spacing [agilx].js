@@ -10655,10 +10655,10 @@ var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
 
 
   var string = NSPasteboard.generalPasteboard().stringForType(NSPasteboardTypeString);
-  var CopyNumber = (string - 0) * 1;
-  var SetSpacing;
-  var CopiedNumberResult = 1;
-  var ArrangeResult = 0;
+  var CopyNumber = (string - 0) * 1,
+      SetSpacing,
+      CopiedNumberResult = 1,
+      ArrangeResult = 0;
 
   if (CopyNumber >= 0 || CopyNumber < 0) {
     SetSpacing = CopyNumber;
@@ -10695,14 +10695,14 @@ var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
         for (var _i3 = 0, _len2 = ArrangedIndex.length; _i3 < _len2; _i3++) {
           item.layers[ArrangedIndex[_i3]].frame.x = MinPosition;
           var RotationPI = toRadians(item.layers[ArrangedIndex[_i3]].transform.rotation);
-          var Width = item.layers[ArrangedIndex[_i3]].frame.width;
-          var Height = item.layers[ArrangedIndex[_i3]].frame.height;
+          var Width = item.layers[ArrangedIndex[_i3]].frame.width,
+              Height = item.layers[ArrangedIndex[_i3]].frame.height;
           MinPosition = MinPosition + Math.abs(Width * Math.cos(RotationPI)) + Math.abs(Height * Math.sin(RotationPI)) + SetSpacing;
         } //adjust parent groups' frame
 
 
-        var i = 0;
-        var findParentGroup = item;
+        var i = 0,
+            findParentGroup = item;
 
         for (; i < 1;) {
           if (findParentGroup.type === "Group") {
@@ -10939,27 +10939,33 @@ var userInfo = {
     var methodOrObjectType = methodOrObject.type ? methodOrObject.type : methodOrObject;
 
     switch (methodOrObjectType) {
-      case "ss":
+      case "t":
+        /*temporaryInfo*/
         settings.sessionVariable(key, value);
         break;
 
       case "p":
+        /*pluginInfo*/
         settings.setSettingForKey(key, value);
         break;
 
       case "s":
+        /*sketchInfo*/
         settings.setGlobalSettingForKey(key, value);
         break;
 
       case "d":
+        /*documentInfo*/
         settings.setDocumentSettingForKey(methodOrObject, key, value);
         break;
 
       default:
-        //judge if it's a layer type by a frame parameter
-        if (methodOrObject.frame) {
-          settings.setLayerSettingForKey(methodOrObject, key, value);
-        }
+        /*layerInfo*/
+        if (methodOrObject.frame
+        /*judge if it's a layer type by a frame parameter*/
+        ) {
+            settings.setLayerSettingForKey(methodOrObject, key, value);
+          }
 
         break;
     }
@@ -10968,7 +10974,7 @@ var userInfo = {
     var methodOrObjectType = methodOrObject.type ? methodOrObject.type : methodOrObject;
 
     switch (methodOrObjectType) {
-      case "ss":
+      case "t":
         return settings.sessionVariable(key);
 
       case "p":

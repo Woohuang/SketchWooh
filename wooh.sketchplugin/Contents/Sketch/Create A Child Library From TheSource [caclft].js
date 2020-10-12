@@ -10640,15 +10640,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/xscapeFunctions */ "./src/modules/xscapeFunctions.js");
 
 
-var system = __webpack_require__(/*! ./modules/System */ "./src/modules/System.js");
-
-var Page = __webpack_require__(/*! sketch/dom */ "sketch/dom").Page;
-
-var Document = __webpack_require__(/*! sketch/dom */ "sketch/dom").Document;
-
-var UI = __webpack_require__(/*! sketch/ui */ "sketch/ui");
-
-var SymbolMaster = __webpack_require__(/*! sketch/dom */ "sketch/dom").SymbolMaster;
+var system = __webpack_require__(/*! ./modules/System */ "./src/modules/System.js"),
+    Page = __webpack_require__(/*! sketch/dom */ "sketch/dom").Page,
+    Document = __webpack_require__(/*! sketch/dom */ "sketch/dom").Document,
+    UI = __webpack_require__(/*! sketch/ui */ "sketch/ui"),
+    SymbolMaster = __webpack_require__(/*! sketch/dom */ "sketch/dom").SymbolMaster;
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
@@ -11093,27 +11089,33 @@ var userInfo = {
     var methodOrObjectType = methodOrObject.type ? methodOrObject.type : methodOrObject;
 
     switch (methodOrObjectType) {
-      case "ss":
+      case "t":
+        /*temporaryInfo*/
         settings.sessionVariable(key, value);
         break;
 
       case "p":
+        /*pluginInfo*/
         settings.setSettingForKey(key, value);
         break;
 
       case "s":
+        /*sketchInfo*/
         settings.setGlobalSettingForKey(key, value);
         break;
 
       case "d":
+        /*documentInfo*/
         settings.setDocumentSettingForKey(methodOrObject, key, value);
         break;
 
       default:
-        //judge if it's a layer type by a frame parameter
-        if (methodOrObject.frame) {
-          settings.setLayerSettingForKey(methodOrObject, key, value);
-        }
+        /*layerInfo*/
+        if (methodOrObject.frame
+        /*judge if it's a layer type by a frame parameter*/
+        ) {
+            settings.setLayerSettingForKey(methodOrObject, key, value);
+          }
 
         break;
     }
@@ -11122,7 +11124,7 @@ var userInfo = {
     var methodOrObjectType = methodOrObject.type ? methodOrObject.type : methodOrObject;
 
     switch (methodOrObjectType) {
-      case "ss":
+      case "t":
         return settings.sessionVariable(key);
 
       case "p":
