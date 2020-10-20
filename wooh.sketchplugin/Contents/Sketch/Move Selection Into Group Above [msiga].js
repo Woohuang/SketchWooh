@@ -10639,8 +10639,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/xscapeFunctions */ "./src/modules/xscapeFunctions.js");
 
-var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument();
-var Selection = doc.selectedLayers.layers;
+var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
+    Selection = doc.selectedLayers.layers;
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   var MoveResult = 0;
@@ -10887,7 +10887,7 @@ var userInfo = {
     switch (methodOrObjectType) {
       case "t":
         /*temporaryInfo*/
-        settings.sessionVariable(key, value);
+        settings.setSessionVariable(key, value);
         break;
 
       case "p":

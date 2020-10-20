@@ -10888,7 +10888,7 @@ var userInfo = {
     switch (methodOrObjectType) {
       case "t":
         /*temporaryInfo*/
-        settings.sessionVariable(key, value);
+        settings.setSessionVariable(key, value);
         break;
 
       case "p":

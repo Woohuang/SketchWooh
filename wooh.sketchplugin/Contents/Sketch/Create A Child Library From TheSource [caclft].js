@@ -10656,9 +10656,9 @@ var system = __webpack_require__(/*! ./modules/System */ "./src/modules/System.j
   if (!chooseFile) {
     return;
   } else {
-    var fileURL = NSURL.fileURLWithPath(chooseFile);
-    var error = MOPointer.alloc().init();
-    var newDocument = MSDocument.alloc().init();
+    var fileURL = NSURL.fileURLWithPath(chooseFile),
+        error = MOPointer.alloc().init(),
+        newDocument = MSDocument.alloc().init();
     newDocument.readFromURL_ofType_error(fileURL, "com.bohemiancoding.sketch.drawing", error);
     var wrappedDoc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.fromNative(newDocument); //main function begins        
 
@@ -10683,7 +10683,7 @@ var system = __webpack_require__(/*! ./modules/System */ "./src/modules/System.j
       TC_library.pages.push(wrappedDoc.pages[0]);
     }
 
-    TC_library.pages = TC_library.pages.push(new Page({
+    TC_library.pages = TC_library.pages.splice(1, 0, new Page({
       name: "CustomStyles"
     }), new Page({
       name: "IrregularTxtStyles"
@@ -11091,7 +11091,7 @@ var userInfo = {
     switch (methodOrObjectType) {
       case "t":
         /*temporaryInfo*/
-        settings.sessionVariable(key, value);
+        settings.setSessionVariable(key, value);
         break;
 
       case "p":

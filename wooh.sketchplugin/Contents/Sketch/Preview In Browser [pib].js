@@ -10645,7 +10645,7 @@ __webpack_require__.r(__webpack_exports__);
  //thank to gaddafirusli
 
 var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
-    autoRefreshKey = _src_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["userInfo"].get('s', "autoRefreshKey"),
+    autoRefreshKey = _src_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["userInfo"].get('t', "autoRefreshKey") || "No auto refresh",
     selection = doc.selectedLayers.layers,
     artboard = 0;
 
@@ -10667,6 +10667,7 @@ if (selection.length > 0) {
   } else {
     artboardBrowse(artboard, artboard.name, true, 2);
   } //GA
+  //console.log(autoRefreshKey)
 
 
   _src_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"](autoRefreshKey);
@@ -10992,7 +10993,7 @@ var userInfo = {
     switch (methodOrObjectType) {
       case "t":
         /*temporaryInfo*/
-        settings.sessionVariable(key, value);
+        settings.setSessionVariable(key, value);
         break;
 
       case "p":

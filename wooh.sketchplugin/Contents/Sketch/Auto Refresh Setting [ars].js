@@ -10657,7 +10657,11 @@ var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
     if (err) {
       return;
     } else {
-      _modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["userInfo"].set('s', 'autoRefreshKey', value); //Settings.setSessionVariable('autoRefreshKey', value)
+      //必须设置为session userinfo，不能设置为global userinfo
+      //如果sketch重启，但是用户并未打开预览窗口，如果之前的自动刷新设置开启，这时用户没有预览页面的必要但一直在自动刷新浪费系统资源
+      _modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["userInfo"].set("t", "autoRefreshKey", value); //let settings = require("sketch/settings")
+      //settings.sessionVariable("autoRefreshKey", value);
+      //console.log(settings.sessionVariable("autoRefreshKey"))
 
       autoRefreshKey = value;
     }
@@ -10683,19 +10687,19 @@ var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
 
 
   if (autoRefreshKey === "Auto refresh @2x") {
-    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('Auto Refresh In Browser: On');
+    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Auto Refresh In Browser: On");
     Object(_Preview_In_Browser_pib___WEBPACK_IMPORTED_MODULE_2__["artboardBrowse"])(artboard, "AutoRefreshing", false, 2);
   } else if (autoRefreshKey === "Auto refresh @1x") {
-    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('Auto Refresh In Browser: On');
+    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Auto Refresh In Browser: On");
     Object(_Preview_In_Browser_pib___WEBPACK_IMPORTED_MODULE_2__["artboardBrowse"])(artboard, "AutoRefreshing", false, 1);
   } else if (autoRefreshKey === "Refresh when saving document @2x") {
-    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('It Will Refresh When You Save Document Pressing Command + S');
+    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("It Will Refresh When You Save Document Pressing Command + S");
     Object(_Preview_In_Browser_pib___WEBPACK_IMPORTED_MODULE_2__["artboardBrowse"])(artboard, "AutoRefreshing", false, 2);
   } else if (autoRefreshKey === "Refresh when saving document @1x") {
-    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('It Will Refresh When You Save Document Pressing Command + S');
+    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("It Will Refresh When You Save Document Pressing Command + S");
     Object(_Preview_In_Browser_pib___WEBPACK_IMPORTED_MODULE_2__["artboardBrowse"])(artboard, "AutoRefreshing", false, 1);
   } else {
-    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message('Auto Refresh In Browser: Off'); //artboardBrowse(artboard, artboard.name, true)
+    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Auto Refresh In Browser: Off"); //artboardBrowse(artboard, artboard.name, true)
   } //GA
 
 
@@ -10723,7 +10727,7 @@ __webpack_require__.r(__webpack_exports__);
  //thank to gaddafirusli
 
 var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
-    autoRefreshKey = _src_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["userInfo"].get('s', "autoRefreshKey"),
+    autoRefreshKey = _src_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["userInfo"].get('t', "autoRefreshKey") || "No auto refresh",
     selection = doc.selectedLayers.layers,
     artboard = 0;
 
@@ -10745,6 +10749,7 @@ if (selection.length > 0) {
   } else {
     artboardBrowse(artboard, artboard.name, true, 2);
   } //GA
+  //console.log(autoRefreshKey)
 
 
   _src_modules_xscapeFunctions__WEBPACK_IMPORTED_MODULE_1__["GA"](autoRefreshKey);
@@ -11070,7 +11075,7 @@ var userInfo = {
     switch (methodOrObjectType) {
       case "t":
         /*temporaryInfo*/
-        settings.sessionVariable(key, value);
+        settings.setSessionVariable(key, value);
         break;
 
       case "p":
