@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.6.0",
+    "version": "1.6.1",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
             "name": "反转图层顺序 [rlh]",
@@ -494,7 +494,7 @@
         },
         {
             "name": "粘贴文本覆盖层 [rstco]",
-            "identifier": "Replace Text Overrides [rto]",
+            "identifier": "Paste Text Overrides [pto]",
             "script": "Paste Text Overrides [pto]"
         },
         {
@@ -594,7 +594,7 @@
                     "-",
                     "Paste Symbol Master [psm]",
                     "Paste Overrides [po]",
-                    "Replace Text Overrides [rto]",
+                    "Paste Text Overrides [pto]",
                     "Paste Overrides Except Text [poet]",
                     "Reset Symbol Overrides [rso]",
                     "-",

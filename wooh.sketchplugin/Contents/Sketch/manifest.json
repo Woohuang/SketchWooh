@@ -6,7 +6,7 @@
   "author": "Wooh",
   "authorEmail": "im@hihy.me",
   "homepage": "http://xscape.fun/",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
   "commands": [
     {
@@ -500,8 +500,8 @@
       "script": "Paste Overrides [po].js"
     },
     {
-      "name": "Replace Text Overrides [rto]",
-      "identifier": "Replace Text Overrides [rto]",
+      "name": "Paste Text Overrides [pto]",
+      "identifier": "Paste Text Overrides [pto]",
       "script": "Paste Text Overrides [pto]"
     },
     {
@@ -602,7 +602,7 @@
           "-",
           "Paste Symbol Master [psm]",
           "Paste Overrides [po]",
-          "Replace Text Overrides [rto]",
+          "Paste Text Overrides [pto]",
           "Paste Overrides Except Text [poet]",
           "Reset Symbol Overrides [rso]",
           "-",
