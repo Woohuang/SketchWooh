@@ -209,11 +209,6 @@
             "script": "Create A Backup With Introduction [cabwi].js"
         },
         {
-            "name": "同步所有含有 [LinkFrom-Bridge] 的源组件 [sasmwl]",
-            "identifier": "Sync All Symbol Masters With [LinkFrom-Bridge] [sasmwl]",
-            "script": "Sync All Symbol Masters With [LinkFrom-Bridge] [sasmwl].js"
-        },
-        {
             "name": "选中当前页面所有画板 [saaitp]",
             "identifier": "Select All Artboards In This Page [saaitp]",
             "script": "Select All Artboards In This Page [saaitp].js"

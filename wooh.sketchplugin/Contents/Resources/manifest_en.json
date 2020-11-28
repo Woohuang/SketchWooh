@@ -34,19 +34,6 @@
             "script": "Test.js"
         },
         {
-            "name": "Text Auto Recorder [tar]",
-            "identifier": "Text Auto Recorder [tar]",
-            "script": "Text Auto Recorder [tar].js"
-        },
-        {
-            "script": "Text Auto Recorder [tar].js",
-            "handlers": {
-                "actions": {
-                    "BlockTextChanged.finish": "textRecorder_unfinished"
-                }
-            }
-        },
-        {
             "name": "Preview In Browser [pib]",
             "shortcut": "cmd shift .",
             "identifier": "Preview In Browser [pib]",
@@ -211,11 +198,6 @@
             "name": "Create A Backup With Introduction [cabwi]",
             "identifier": "Create A Backup With Introduction [cabwi]",
             "script": "Create A Backup With Introduction [cabwi].js"
-        },
-        {
-            "name": "Sync All Symbol Masters With [LinkFrom-Bridge] [sasmwl]",
-            "identifier": "Sync All Symbol Masters With [LinkFrom-Bridge] [sasmwl]",
-            "script": "Sync All Symbol Masters With [LinkFrom-Bridge] [sasmwl].js"
         },
         {
             "name": "Select All Artboards In This Page [saaitp]",
@@ -604,15 +586,21 @@
             },
             {
                 "title": "Image",
-                "items": ["Convert Image To Shape Layer [citsl]"]
+                "items": [
+                    "Convert Image To Shape Layer [citsl]"
+                ]
             },
             {
                 "title": "Text",
-                "items": ["Text Auto Recorder [tar]"]
+                "items": [
+                    
+                ]
             },
             {
                 "title": "Style",
-                "items": ["Rename Layer & Text Style After Layer Name [rltsaln]"]
+                "items": [
+                    "Rename Layer & Text Style After Layer Name [rltsaln]"
+                ]
             },
             {
                 "title": "Select",
@@ -687,7 +675,10 @@
             },
             {
                 "title": "Preview",
-                "items": ["Preview In Browser [pib]", "Auto Refresh Setting [ars]"]
+                "items": [
+                    "Preview In Browser [pib]",
+                    "Auto Refresh Setting [ars]"
+                ]
             },
             "-",
             {
@@ -717,11 +708,17 @@
                     },
                     {
                         "title": "Size",
-                        "items": ["Set Symbol To Fixed Size [sstfs]"]
+                        "items": [
+                            "Set Symbol To Fixed Size [sstfs]"
+                        ]
                     },
                     {
                         "title": "Dev",
-                        "items": ["Selection Data [sd]", "Test", "Reload"]
+                        "items": [
+                            "Selection Data [sd]",
+                            "Test",
+                            "Reload"
+                        ]
                     }
                 ]
             },

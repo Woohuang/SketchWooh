@@ -35,19 +35,6 @@
       "script": "Test.js"
     },
     {
-      "name": "Text Auto Recorder [tar]",
-      "identifier": "Text Auto Recorder [tar]",
-      "script": "Text Auto Recorder [tar].js"
-    },
-    {
-      "script": "Text Auto Recorder [tar].js",
-      "handlers": {
-        "actions": {
-          "BlockTextChanged.finish": "textRecorder_unfinished"
-        }
-      }
-    },
-    {
       "name": "Preview In Browser [pib]",
       "shortcut": "cmd shift .",
       "identifier": "Preview In Browser [pib]",
@@ -212,11 +199,6 @@
       "name": "Create A Backup With Introduction [cabwi]",
       "identifier": "Create A Backup With Introduction [cabwi]",
       "script": "Create A Backup With Introduction [cabwi].js"
-    },
-    {
-      "name": "Sync All Symbol Masters With [LinkFrom-Bridge] [sasmwl]",
-      "identifier": "Sync All Symbol Masters With [LinkFrom-Bridge] [sasmwl]",
-      "script": "Sync All Symbol Masters With [LinkFrom-Bridge] [sasmwl].js"
     },
     {
       "name": "Select All Artboards In This Page [saaitp]",
@@ -612,9 +594,7 @@
       },
       {
         "title": "Text",
-        "items": [
-          "Text Auto Recorder [tar]"
-        ]
+        "items": []
       },
       {
         "title": "Style",
