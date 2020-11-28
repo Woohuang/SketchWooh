@@ -1,0 +1,55 @@
+{
+    "name": "my-plugin",
+    "description": "## Installation",
+    "version": "1.6.2",
+    "engines": {
+        "sketch": ">=49.0"
+    },
+    "skpm": {
+        "name": "wooh",
+        "manifest": "src/manifest.json",
+        "main": "wooh.sketchplugin",
+        "assets": [
+            "assets/**/*"
+        ],
+        "sketch-assets-file": "sketch-assets/icons.sketch"
+    },
+    "scripts": {
+        "build": "skpm-build",
+        "watch": "skpm-build --watch",
+        "start": "skpm-build --watch --run",
+        "postinstall": "npm run build && skpm-link"
+    },
+    "devDependencies": {
+        "@babel/plugin-transform-runtime": "^7.11.5",
+        "@skpm/builder": "^0.7.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Woohuang/SketchWooh"
+    },
+    "dependencies": {
+        "@babel/polyfill": "^7.11.5",
+        "@skpm/fs": "^0.2.6",
+        "@types/node": "^14.0.13",
+        "axios": "^0.19.2",
+        "csv-parse": "^4.12.0",
+        "csv-writer": "^1.6.0",
+        "express": "^4.17.1",
+        "leancloud-storage": "^4.6.1",
+        "node-xlsx": "^0.15.0",
+        "openurl": "^1.1.1",
+        "sketch-module-google-analytics": "^0.2.1",
+        "sketch-module-web-view": "^3.4.3",
+        "sketch-polyfill-fetch": "^0.5.2",
+        "window": "^4.2.7"
+    },
+    "bugs": {
+        "url": "https://github.com/Woohuang/SketchWooh/issues"
+    },
+    "homepage": "https://github.com/Woohuang/SketchWooh#readme",
+    "main": "index.js",
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}
