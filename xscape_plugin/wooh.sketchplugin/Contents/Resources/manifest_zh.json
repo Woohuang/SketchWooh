@@ -8,7 +8,8 @@
     "homepage": "http://xscape.fun/",
     "version": "1.6.3",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
-    "commands": [{
+    "commands": [
+        {
             "name": "反转图层顺序 [rlh]",
             "identifier": "Reverse Layer Order [rlo]",
             "script": "Reverse Layer Order [rlo].js"
@@ -27,7 +28,8 @@
             "name": "将图像转化为形状图层 [citsl]",
             "identifier": "Convert Image To Shape Layer [citsl]",
             "script": "Convert Image To Shape Layer [citsl].js"
-        }, {
+        },
+        {
             "name": "自动文本记录 [tar]",
             "identifier": "Text Auto Recorder [tar]",
             "script": "Text Auto Recorder [tar].js"
@@ -108,22 +110,22 @@
             "script": "Paste Layer Y-Position [ply].js"
         },
         {
-            "name": "通过名字同步画板链接丢失的图层 [sall] [salllbln]",
+            "name": "通过名字同步画板链接丢失的图层 [salllbln]",
             "identifier": "Sync Artboard-Link Lose Layer By Layer Name [salllbln]",
             "script": "Sync Artboard-Link Lose Layer By Layer Name [salllbln].js"
         },
         {
-            "name": "根据父级编组边界设置选中项高度 [sstph]",
+            "name": "根据父级编组边界设置选中项高度 [sshtfpgb]",
             "identifier": "Set Selection Height To Fit Parent Group Border [sshtfpgb]",
             "script": "Set Selection Height To Fit Parent Group Border [sshtfpgb].js"
         },
         {
-            "name": "根据父级编组边界设置选中项宽度 [sstpw]",
+            "name": "根据父级编组边界设置选中项宽度 [sswtfpgb]",
             "identifier": "Set Selection Width To Fit Parent Group Border [sswtfpgb]",
             "script": "Set Selection Width To Fit Parent Group Border [sswtfpgb].js"
         },
         {
-            "name": "在 Finder 中显示文件  [sdif]",
+            "name": "在 Finder 中显示文件 [sdif]",
             "identifier": "Show Document In Finder [sdif]",
             "script": "Show Document In Finder [sdif].js"
         },
@@ -418,22 +420,22 @@
             "script": "Decrease Height [dh].js"
         },
         {
-            "name": "将选中项宽度设为画板宽度 [sstaw]",
+            "name": "将选中项宽度设为画板宽度 [sswtaw]",
             "identifier": "Sync Selection Width To Artboard Width [sswtaw].js",
-            "script": "Sync Selection Width To Artboard Width [sswtaw].js.js"
+            "script": "Sync Selection Width To Artboard Width [sswtaw].js"
         },
         {
-            "name": "将选中项高度设为画板高度 [sstah]",
+            "name": "将选中项高度设为画板高度 [sshtah]",
             "identifier": "Sync Selection Height To Artboard Height [sshtah].js",
-            "script": "Sync Selection Height To Artboard Height [sshtah].js.js"
+            "script": "Sync Selection Height To Artboard Height [sshtah].js"
         },
         {
-            "name": "根据选中项位置设置画板高度 [sahatsl]",
+            "name": "根据选中项位置设置画板高度 [sahtfsp]",
             "identifier": "Set Artboard Height To Fit Selection Position [sahtfsp]",
             "script": "Set Artboard Height To Fit Selection Position [sahtfsp].js"
         },
         {
-            "name": "根据选中项位置设置画板宽度 [sawatsl]",
+            "name": "根据选中项位置设置画板宽度 [sawtfsp]",
             "identifier": "Set Artboard Width To Fit Selection Position [sawtfsp]",
             "script": "Set Artboard Width To Fit Selection Position [sawtfsp].js"
         },
@@ -531,7 +533,8 @@
     "menu": {
         "title": "🧑🏻‍🚀Xscape!",
         "isRoot": false,
-        "items": [{
+        "items": [
+            {
                 "title": "文档",
                 "items": [
                     "Show Document In Finder [sdif]",
@@ -695,7 +698,8 @@
             "-",
             {
                 "title": "Dev Mode",
-                "items": [{
+                "items": [
+                    {
                         "title": "组件库",
                         "items": [
                             "Sync All From TheSource [saft]",

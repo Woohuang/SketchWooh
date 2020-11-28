@@ -426,12 +426,12 @@
         {
             "name": "Sync Selection Width To Artboard Width [sswtaw].js",
             "identifier": "Sync Selection Width To Artboard Width [sswtaw].js",
-            "script": "Sync Selection Width To Artboard Width [sswtaw].js.js"
+            "script": "Sync Selection Width To Artboard Width [sswtaw].js"
         },
         {
             "name": "Sync Selection Height To Artboard Height [sshtah].js",
             "identifier": "Sync Selection Height To Artboard Height [sshtah].js",
-            "script": "Sync Selection Height To Artboard Height [sshtah].js.js"
+            "script": "Sync Selection Height To Artboard Height [sshtah].js"
         },
         {
             "name": "Set Artboard Height To Fit Selection Position [sahtfsp]",

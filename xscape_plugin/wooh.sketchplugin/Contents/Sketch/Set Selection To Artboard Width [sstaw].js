@@ -10626,9 +10626,9 @@ module.exports = function(trackingId, hitType, props, options) {
 
 /***/ }),
 
-/***/ "./src/Sync Selection Width To Artboard Width [sswtaw].js.js":
+/***/ "./src/Sync Selection Width To Artboard Width [sswtaw].js":
 /*!********************************************************!*\
-  !*** ./src/Sync Selection Width To Artboard Width [sswtaw].js.js ***!
+  !*** ./src/Sync Selection Width To Artboard Width [sswtaw].js ***!
   \********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -10950,13 +10950,13 @@ var getFromWebview = function getFromWebview(infoKey) {
 
 /***/ 0:
 /*!******************************************************************************!*\
-  !*** multi @babel/polyfill ./src/Sync Selection Width To Artboard Width [sswtaw].js.js ***!
+  !*** multi @babel/polyfill ./src/Sync Selection Width To Artboard Width [sswtaw].js ***!
   \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! @babel/polyfill */"./node_modules/@babel/polyfill/lib/index.js");
-module.exports = __webpack_require__(/*! /Users/huangyu2/skpmcode/Xscape/src/Sync Selection Width To Artboard Width [sswtaw].js.js */"./src/Sync Selection Width To Artboard Width [sswtaw].js.js");
+module.exports = __webpack_require__(/*! /Users/huangyu2/skpmcode/Xscape/src/Sync Selection Width To Artboard Width [sswtaw].js */"./src/Sync Selection Width To Artboard Width [sswtaw].js");
 
 
 /***/ }),
@@ -11001,4 +11001,4 @@ module.exports = require("sketch/settings");
 }
 globalThis['onRun'] = __skpm_run.bind(this, 'default')
 
-//# sourceMappingURL=Sync Selection Width To Artboard Width [sswtaw].js.js.map
+//# sourceMappingURL=Sync Selection Width To Artboard Width [sswtaw].js.map

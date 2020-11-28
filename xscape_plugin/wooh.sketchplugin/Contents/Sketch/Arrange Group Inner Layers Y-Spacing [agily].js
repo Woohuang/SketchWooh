@@ -157,6 +157,33 @@ __webpack_require__(/*! regenerator-runtime/runtime */ "./node_modules/regenerat
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/helpers/typeof.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/typeof.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    module.exports = _typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    module.exports = _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+module.exports = _typeof;
+
+/***/ }),
+
 /***/ "./node_modules/@skpm/promise/index.js":
 /*!*********************************************!*\
   !*** ./node_modules/@skpm/promise/index.js ***!
@@ -786,7 +813,7 @@ module.exports = function (it) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.6.11' };
+var core = module.exports = { version: '2.6.12' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -1892,7 +1919,7 @@ module.exports = function (NAME, wrapper, methods, common, IS_MAP, IS_WEAK) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.6.11' };
+var core = module.exports = { version: '2.6.12' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -3896,7 +3923,7 @@ var store = global[SHARED] || (global[SHARED] = {});
 })('versions', []).push({
   version: core.version,
   mode: __webpack_require__(/*! ./_library */ "./node_modules/core-js/modules/_library.js") ? 'pure' : 'global',
-  copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
+  copyright: '© 2020 Denis Pushkarev (zloirock.ru)'
 });
 
 
@@ -9824,6 +9851,24 @@ var runtime = (function (exports) {
   var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
   var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
 
+  function define(obj, key, value) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+    return obj[key];
+  }
+  try {
+    // IE 8 has a broken Object.defineProperty that only works on DOM objects.
+    define({}, "");
+  } catch (err) {
+    define = function(obj, key, value) {
+      return obj[key] = value;
+    };
+  }
+
   function wrap(innerFn, outerFn, self, tryLocsList) {
     // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
     var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
@@ -9894,16 +9939,19 @@ var runtime = (function (exports) {
     Generator.prototype = Object.create(IteratorPrototype);
   GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
   GeneratorFunctionPrototype.constructor = GeneratorFunction;
-  GeneratorFunctionPrototype[toStringTagSymbol] =
-    GeneratorFunction.displayName = "GeneratorFunction";
+  GeneratorFunction.displayName = define(
+    GeneratorFunctionPrototype,
+    toStringTagSymbol,
+    "GeneratorFunction"
+  );
 
   // Helper for defining the .next, .throw, and .return methods of the
   // Iterator interface in terms of a single ._invoke method.
   function defineIteratorMethods(prototype) {
     ["next", "throw", "return"].forEach(function(method) {
-      prototype[method] = function(arg) {
+      define(prototype, method, function(arg) {
         return this._invoke(method, arg);
-      };
+      });
     });
   }
 
@@ -9922,9 +9970,7 @@ var runtime = (function (exports) {
       Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
     } else {
       genFun.__proto__ = GeneratorFunctionPrototype;
-      if (!(toStringTagSymbol in genFun)) {
-        genFun[toStringTagSymbol] = "GeneratorFunction";
-      }
+      define(genFun, toStringTagSymbol, "GeneratorFunction");
     }
     genFun.prototype = Object.create(Gp);
     return genFun;
@@ -10194,7 +10240,7 @@ var runtime = (function (exports) {
   // unified ._invoke helper method.
   defineIteratorMethods(Gp);
 
-  Gp[toStringTagSymbol] = "Generator";
+  define(Gp, toStringTagSymbol, "Generator");
 
   // A Generator should always return itself as the iterator object when the
   // @@iterator function is called on it. Some browsers' implementations of the
@@ -10540,92 +10586,6 @@ try {
 
 /***/ }),
 
-/***/ "./node_modules/sketch-module-google-analytics/index.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/sketch-module-google-analytics/index.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
-
-var kUUIDKey = "google.analytics.uuid";
-var uuid = null
-var uuid = NSUserDefaults.standardUserDefaults().objectForKey(kUUIDKey) + '-' + context.plugin.url().path().split('/')[context.plugin.url().path().split('/').findIndex(item => item === 'Users') + 1];
-if (!uuid) {
-    uuid = NSUUID.UUID().UUIDString();
-    NSUserDefaults.standardUserDefaults().setObject_forKey(uuid, kUUIDKey)
-}
-
-var variant = MSApplicationMetadata.metadata().variant;
-var source =
-    "Sketch " +
-    (variant == "NONAPPSTORE" ? "" : variant + " ") +
-    Settings.version.sketch;
-
-function jsonToQueryString(json) {
-    return Object.keys(json)
-        .map(function(key) {
-            return encodeURIComponent(key) + "=" + encodeURIComponent(json[key]);
-        })
-        .join("&");
-}
-
-function makeRequest(url, options) {
-    if (!url) {
-        return
-    }
-
-    if (options && options.makeRequest) {
-        return options.makeRequest(url)
-    }
-    if (options && options.debug) {
-        var request = NSURLRequest.requestWithURL(url)
-        var responsePtr = MOPointer.alloc().init();
-        var errorPtr = MOPointer.alloc().init();
-
-        var data = NSURLConnection.sendSynchronousRequest_returningResponse_error(request, responsePtr, errorPtr)
-        return data ? NSString.alloc().initWithData_encoding(data, NSUTF8StringEncoding) : errorPtr.value()
-    }
-
-    NSURLSession.sharedSession()
-        .dataTaskWithURL(url)
-        .resume();
-}
-
-module.exports = function(trackingId, hitType, props, options) {
-    var payload = {
-        v: 1,
-        tid: trackingId,
-        ds: source,
-        cid: uuid,
-        t: hitType
-    };
-
-    if (typeof __command !== "undefined") {
-        payload.an = __command.pluginBundle().name();
-        payload.aid = __command.pluginBundle().identifier();
-        payload.av = __command.pluginBundle().version();
-    }
-
-    if (props) {
-        Object.keys(props).forEach(function(key) {
-            payload[key] = props[key];
-        });
-    }
-
-    var url = NSURL.URLWithString(
-        "https://www.google-analytics.com/" + (options && options.debug ? "debug/" : "") + "collect?" +
-        jsonToQueryString(payload) +
-        "&z=" +
-        NSUUID.UUID().UUIDString()
-    );
-
-    return makeRequest(url, options)
-};
-
-/***/ }),
-
 /***/ "./src/Arrange Group Inner Layers Y-Spacing [agily].js":
 /*!*************************************************************!*\
   !*** ./src/Arrange Group Inner Layers Y-Spacing [agily].js ***!
@@ -10730,6 +10690,82 @@ var doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
 
 /***/ }),
 
+/***/ "./src/modules/sketch-module-google-analytics/index.js":
+/*!*************************************************************!*\
+  !*** ./src/modules/sketch-module-google-analytics/index.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Settings = __webpack_require__(/*! sketch/settings */ "sketch/settings");
+
+var kUUIDKey = "google.analytics.uuid";
+var uuid = null;
+var uuid = NSUserDefaults.standardUserDefaults().objectForKey(kUUIDKey) + '-' + context.plugin.url().path().split('/')[context.plugin.url().path().split('/').findIndex(function (item) {
+  return item === 'Users';
+}) + 1];
+
+if (!uuid) {
+  uuid = NSUUID.UUID().UUIDString();
+  NSUserDefaults.standardUserDefaults().setObject_forKey(uuid, kUUIDKey);
+}
+
+var variant = MSApplicationMetadata.metadata().variant;
+var source = "Sketch " + (variant == "NONAPPSTORE" ? "" : variant + " ") + Settings.version.sketch;
+
+function jsonToQueryString(json) {
+  return Object.keys(json).map(function (key) {
+    return encodeURIComponent(key) + "=" + encodeURIComponent(json[key]);
+  }).join("&");
+}
+
+function makeRequest(url, options) {
+  if (!url) {
+    return;
+  }
+
+  if (options && options.makeRequest) {
+    return options.makeRequest(url);
+  }
+
+  if (options && options.debug) {
+    var request = NSURLRequest.requestWithURL(url);
+    var responsePtr = MOPointer.alloc().init();
+    var errorPtr = MOPointer.alloc().init();
+    var data = NSURLConnection.sendSynchronousRequest_returningResponse_error(request, responsePtr, errorPtr);
+    return data ? NSString.alloc().initWithData_encoding(data, NSUTF8StringEncoding) : errorPtr.value();
+  }
+
+  NSURLSession.sharedSession().dataTaskWithURL(url).resume();
+}
+
+module.exports = function (trackingId, hitType, props, options) {
+  var payload = {
+    v: 1,
+    tid: trackingId,
+    ds: source,
+    cid: uuid,
+    t: hitType
+  };
+
+  if (typeof __command !== "undefined") {
+    payload.an = __command.pluginBundle().name();
+    payload.aid = __command.pluginBundle().identifier();
+    payload.av = __command.pluginBundle().version();
+  }
+
+  if (props) {
+    Object.keys(props).forEach(function (key) {
+      payload[key] = props[key];
+    });
+  }
+
+  var url = NSURL.URLWithString("https://www.google-analytics.com/" + (options && options.debug ? "debug/" : "") + "collect?" + jsonToQueryString(payload) + "&z=" + NSUUID.UUID().UUIDString());
+  return makeRequest(url, options);
+};
+
+/***/ }),
+
 /***/ "./src/modules/xscapeFunctions.js":
 /*!****************************************!*\
   !*** ./src/modules/xscapeFunctions.js ***!
@@ -10749,14 +10785,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFromPlugin", function() { return getFromPlugin; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendToPlugin", function() { return sendToPlugin; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFromWebview", function() { return getFromWebview; });
-/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sketch */ "sketch");
-/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_0__);
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/typeof */ "./node_modules/@babel/runtime/helpers/typeof.js");
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sketch */ "sketch");
+/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
 var settings = __webpack_require__(/*! sketch/settings */ "sketch/settings"),
-    doc = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.getSelectedDocument(),
+    doc = sketch__WEBPACK_IMPORTED_MODULE_1___default.a.getSelectedDocument(),
     selections = doc.selectedLayers.layers; //copy string to pasteboard
 
 
@@ -10833,7 +10870,7 @@ var symbolLooper = function symbolLooper(counts) {
   }
 
   if (JudgeSymbolResult !== -1) {
-    sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message("Please Select Symbol With Same Master");
+    sketch__WEBPACK_IMPORTED_MODULE_1___default.a.UI.message("Please Select Symbol With Same Master");
   } //开始主要功能
   else {
       //所选为 library symbol 时
@@ -10874,7 +10911,7 @@ var symbolLooper = function symbolLooper(counts) {
       } //所选为 local symbol 时
       else {
           //不能用 let DocSymbols =  doc.getSymbols(), 会取到引入的其它 library symbol
-          var DocSymbols = sketch__WEBPACK_IMPORTED_MODULE_0___default.a.find('[type="SymbolMaster"]'); //判断是否需要重新获取 ThisIndex
+          var DocSymbols = sketch__WEBPACK_IMPORTED_MODULE_1___default.a.find('[type="SymbolMaster"]'); //判断是否需要重新获取 ThisIndex
 
           if (JudgeSymbolId === ReadSymbolInfo.JudgeSymbolId) {
             ThisIndex = ReadSymbolInfo.ThisIndex;
@@ -10908,7 +10945,7 @@ var symbolLooper = function symbolLooper(counts) {
         }
     }
 
-  sketch__WEBPACK_IMPORTED_MODULE_0___default.a.UI.message(symbolMaster.name);
+  sketch__WEBPACK_IMPORTED_MODULE_1___default.a.UI.message(symbolMaster.name);
   SelectedSymbols.forEach(function (item) {
     return item.master = symbolMaster;
   }); //储存 symbol 临时信息
@@ -10917,7 +10954,7 @@ var symbolLooper = function symbolLooper(counts) {
 }; //google analytics
 
 var GA = function GA(CommandResult) {
-  var track = __webpack_require__(/*! sketch-module-google-analytics */ "./node_modules/sketch-module-google-analytics/index.js"),
+  var track = __webpack_require__(/*! ./sketch-module-google-analytics */ "./src/modules/sketch-module-google-analytics/index.js"),
       variant = MSApplicationMetadata.metadata().variant,
       Appinfo = context.plugin.url().path().split("/")[context.plugin.url().path().split("/").findIndex(function (item) {
     return item === "Users";
@@ -10999,7 +11036,7 @@ var userInfo = {
 }; //plugin runs webview function
 
 var runWebviewFunction = function runWebviewFunction(functionName, functionPara) {
-  return browserWindow.webContents.executeJavaScript("".concat(functionName, "(").concat(_typeof(functionPara) === "object" ? JSON.stringify(functionPara) : functionPara, ")")).then(function (res) {
+  return browserWindow.webContents.executeJavaScript("".concat(functionName, "(").concat(_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default()(functionPara) === "object" ? JSON.stringify(functionPara) : functionPara, ")")).then(function (res) {
     return res;
   });
 }; //plugin sends webview info
@@ -11034,7 +11071,7 @@ var getFromWebview = function getFromWebview(infoKey) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! @babel/polyfill */"./node_modules/@babel/polyfill/lib/index.js");
-module.exports = __webpack_require__(/*! /Users/huangyu2/skpmcode/Xscape/src/Arrange Group Inner Layers Y-Spacing [agily].js */"./src/Arrange Group Inner Layers Y-Spacing [agily].js");
+module.exports = __webpack_require__(/*! /Users/huangyu2/skpmcode/Xscape/xscape_plugin/src/Arrange Group Inner Layers Y-Spacing [agily].js */"./src/Arrange Group Inner Layers Y-Spacing [agily].js");
 
 
 /***/ }),
