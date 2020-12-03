@@ -14,8 +14,8 @@ export default function() {
             type: UI.INPUT_TYPE.selection,
             possibleValues: [
                 "No auto refresh",
-                "Auto refresh @1x",
-                "Auto refresh @2x",
+                // "Auto refresh @1x",
+                // "Auto refresh @2x",
                 "Refresh when saving document @1x",
                 "Refresh when saving document @2x",
             ],

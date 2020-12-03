@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.6.66",
+    "version": "1.6.67",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [
         {
@@ -52,13 +52,7 @@
             "script": "Preview In Browser [pib].js",
             "handlers": {
                 "actions": {
-                    "DocumentSaved": "autoRefreshHandlerSave",
-                    "SelectionChanged.finish": "autoRefreshHandler",
-                    "HideLayer": "autoRefreshHandler",
-                    "InsertImage": "autoRefreshHandler",
-                    "InsertVector": "autoRefreshHandler",
-                    "LayersMoved": "autoRefreshHandler",
-                    "Edit.finish": "autoRefreshHandler"
+                    "DocumentSaved": "autoRefreshHandlerSave"
                 }
             }
         },
