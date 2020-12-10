@@ -410,8 +410,8 @@
         },
         {
             "name": "将选中项宽度设为画板宽度 [sswtfaw]",
-            "identifier": "Set Selection Width To Artboard Width [sswtfaw].js",
-            "script": "Set Selection Width To Artboard Width [sswtfaw].js"
+            "identifier": "Set Selection Width To Fit Artboard Width [sswtfaw].js",
+            "script": "Set Selection Width To Fit Artboard Width [sswtfaw].js"
         },
         {
             "name": "将选中项高度设为画板高度 [sshtfah]",
@@ -651,7 +651,7 @@
                     "-",
                     "Set Selection Width To Fit Parent Group Border [sswtfpgb]",
                     "Set Selection Height To Fit Parent Group Border [sshtfpgb]",
-                    "Set Selection Width To Artboard Width [sswtfaw].js",
+                    "Set Selection Width To Fit Artboard Width [sswtfaw].js",
                     "Set Selection Height To Fit Artboard Height [sshtfah].js",
                     "-",
                     "Set Artboard Width To Fit Selection Position [sawtfsp]",

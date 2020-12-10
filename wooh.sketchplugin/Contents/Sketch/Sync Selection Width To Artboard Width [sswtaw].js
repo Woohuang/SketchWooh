@@ -10586,9 +10586,9 @@ try {
 
 /***/ }),
 
-/***/ "./src/Set Selection Width To Artboard Width [sswtfaw].js":
+/***/ "./src/Set Selection Width To Fit Artboard Width [sswtfaw].js":
 /*!****************************************************************!*\
-  !*** ./src/Set Selection Width To Artboard Width [sswtfaw].js ***!
+  !*** ./src/Set Selection Width To Fit Artboard Width [sswtfaw].js ***!
   \****************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -10987,13 +10987,13 @@ var getFromWebview = function getFromWebview(infoKey) {
 
 /***/ 0:
 /*!**************************************************************************************!*\
-  !*** multi @babel/polyfill ./src/Set Selection Width To Artboard Width [sswtfaw].js ***!
+  !*** multi @babel/polyfill ./src/Set Selection Width To Fit Artboard Width [sswtfaw].js ***!
   \**************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! @babel/polyfill */"./node_modules/@babel/polyfill/lib/index.js");
-module.exports = __webpack_require__(/*! /Users/huangyu2/Wooh_Code/Xscape/SketchPlugin/src/Set Selection Width To Artboard Width [sswtfaw].js */"./src/Set Selection Width To Artboard Width [sswtfaw].js");
+module.exports = __webpack_require__(/*! /Users/huangyu2/Wooh_Code/Xscape/SketchPlugin/src/Set Selection Width To Fit Artboard Width [sswtfaw].js */"./src/Set Selection Width To Fit Artboard Width [sswtfaw].js");
 
 
 /***/ }),
@@ -11038,4 +11038,4 @@ module.exports = require("sketch/settings");
 }
 globalThis['onRun'] = __skpm_run.bind(this, 'default')
 
-//# sourceMappingURL=Set Selection Width To Artboard Width [sswtfaw].js.map
+//# sourceMappingURL=Set Selection Width To Fit Artboard Width [sswtfaw].js.map
