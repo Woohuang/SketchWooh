@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.6.67",
+    "version": "1.6.68",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [{
             "name": "Reverse Layer Order [rlo]",
@@ -400,14 +400,14 @@
             "script": "Decrease Height [dh].js"
         },
         {
-            "name": "Sync Selection Width To Artboard Width [sswtaw].js",
-            "identifier": "Sync Selection Width To Artboard Width [sswtaw].js",
-            "script": "Sync Selection Width To Artboard Width [sswtaw].js"
+            "name": "Set Selection Width To Artboard Width [sswtfaw].js",
+            "identifier": "Set Selection Width To Artboard Width [sswtfaw].js",
+            "script": "Set Selection Width To Artboard Width [sswtfaw].js"
         },
         {
-            "name": "Sync Selection Height To Artboard Height [sshtah].js",
-            "identifier": "Sync Selection Height To Artboard Height [sshtah].js",
-            "script": "Sync Selection Height To Artboard Height [sshtah].js"
+            "name": "Set Selection Height To Fit Artboard Height [sshtfah].js",
+            "identifier": "Set Selection Height To Fit Artboard Height [sshtfah].js",
+            "script": "Set Selection Height To Fit Artboard Height [sshtfah].js"
         },
         {
             "name": "Set Artboard Height To Fit Selection Position [sahtfsp]",
@@ -641,8 +641,8 @@
                     "-",
                     "Set Selection Width To Fit Parent Group Border [sswtfpgb]",
                     "Set Selection Height To Fit Parent Group Border [sshtfpgb]",
-                    "Sync Selection Width To Artboard Width [sswtaw].js",
-                    "Sync Selection Height To Artboard Height [sshtah].js",
+                    "Set Selection Width To Artboard Width [sswtfaw].js",
+                    "Set Selection Height To Fit Artboard Height [sshtfah].js",
                     "-",
                     "Set Artboard Width To Fit Selection Position [sawtfsp]",
                     "Set Artboard Height To Fit Selection Position [sahtfsp]",

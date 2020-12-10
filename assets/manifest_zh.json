@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.6.67",
+    "version": "1.6.68",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [
         {
@@ -409,14 +409,14 @@
             "script": "Decrease Height [dh].js"
         },
         {
-            "name": "将选中项宽度设为画板宽度 [sswtaw]",
-            "identifier": "Sync Selection Width To Artboard Width [sswtaw].js",
-            "script": "Sync Selection Width To Artboard Width [sswtaw].js"
+            "name": "将选中项宽度设为画板宽度 [sswtfaw]",
+            "identifier": "Set Selection Width To Artboard Width [sswtfaw].js",
+            "script": "Set Selection Width To Artboard Width [sswtfaw].js"
         },
         {
-            "name": "将选中项高度设为画板高度 [sshtah]",
-            "identifier": "Sync Selection Height To Artboard Height [sshtah].js",
-            "script": "Sync Selection Height To Artboard Height [sshtah].js"
+            "name": "将选中项高度设为画板高度 [sshtfah]",
+            "identifier": "Set Selection Height To Fit Artboard Height [sshtfah].js",
+            "script": "Set Selection Height To Fit Artboard Height [sshtfah].js"
         },
         {
             "name": "根据选中项位置设置画板高度 [sahtfsp]",
@@ -651,8 +651,8 @@
                     "-",
                     "Set Selection Width To Fit Parent Group Border [sswtfpgb]",
                     "Set Selection Height To Fit Parent Group Border [sshtfpgb]",
-                    "Sync Selection Width To Artboard Width [sswtaw].js",
-                    "Sync Selection Height To Artboard Height [sshtah].js",
+                    "Set Selection Width To Artboard Width [sswtfaw].js",
+                    "Set Selection Height To Fit Artboard Height [sshtfah].js",
                     "-",
                     "Set Artboard Width To Fit Selection Position [sawtfsp]",
                     "Set Artboard Height To Fit Selection Position [sahtfsp]",
