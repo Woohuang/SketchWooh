@@ -36,10 +36,15 @@ export default function () {
     }
 
     //set export option
-    const LinkPngOptions = { formats: "png", output: false, scales: 1 };
-
-    let matchedArtboards,
+    let string = NSPasteboard.generalPasteboard().stringForType(
+        NSPasteboardTypeString
+      ),
+      CopyNumber = (string - 0) * 1,
+      scales = CopyNumber === 2 ? 2 : 1,
+      matchedArtboards,
       SyncResult = 0;
+
+    const LinkPngOptions = { formats: "png", output: false, scales: scales };
 
     //start syncing
     nameArray.forEach((item) => {
