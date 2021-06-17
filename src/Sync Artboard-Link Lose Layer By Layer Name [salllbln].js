@@ -40,7 +40,7 @@ export default function () {
         NSPasteboardTypeString
       ),
       CopyNumber = (string - 0) * 1,
-      scales = CopyNumber === 2 ? 2 : 1,
+      scales = CopyNumber === 3 ? 3 : CopyNumber === 2 ? 2 : 1,
       matchedArtboards,
       SyncResult = 0;
 
