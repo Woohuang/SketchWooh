@@ -1,4 +1,4 @@
-import sketch from 'sketch'
+// import sketch from 'sketch'
 import { symbolLooper } from "./modules/xscapeF"
 import { GA } from "./modules/xscapeF"
 
