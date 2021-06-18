@@ -356,7 +356,7 @@ module.exports = __webpack_require__(8) ? function (object, key, value) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // to indexed object, toObject with fallback for non-array-like ES3 strings
-var IObject = __webpack_require__(45);
+var IObject = __webpack_require__(44);
 var defined = __webpack_require__(24);
 module.exports = function (it) {
   return IObject(defined(it));
@@ -431,7 +431,7 @@ module.exports = function (it) {
 /* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var pIE = __webpack_require__(46);
+var pIE = __webpack_require__(45);
 var createDesc = __webpack_require__(28);
 var toIObject = __webpack_require__(15);
 var toPrimitive = __webpack_require__(26);
@@ -477,7 +477,7 @@ module.exports = function (KEY, exec) {
 // 5 -> Array#find
 // 6 -> Array#findIndex
 var ctx = __webpack_require__(17);
-var IObject = __webpack_require__(45);
+var IObject = __webpack_require__(44);
 var toObject = __webpack_require__(10);
 var toLength = __webpack_require__(6);
 var asc = __webpack_require__(105);
@@ -561,7 +561,7 @@ if (__webpack_require__(8)) {
   var toAbsoluteIndex = __webpack_require__(32);
   var toPrimitive = __webpack_require__(26);
   var has = __webpack_require__(13);
-  var classof = __webpack_require__(47);
+  var classof = __webpack_require__(46);
   var isObject = __webpack_require__(4);
   var toObject = __webpack_require__(10);
   var isArrayIter = __webpack_require__(77);
@@ -573,7 +573,7 @@ if (__webpack_require__(8)) {
   var wks = __webpack_require__(5);
   var createArrayMethod = __webpack_require__(22);
   var createArrayIncludes = __webpack_require__(50);
-  var speciesConstructor = __webpack_require__(48);
+  var speciesConstructor = __webpack_require__(47);
   var ArrayIterators = __webpack_require__(81);
   var Iterators = __webpack_require__(40);
   var $iterDetect = __webpack_require__(53);
@@ -1362,12 +1362,6 @@ module.exports = function (target, src, safe) {
 
 /***/ }),
 /* 44 */
-/***/ (function(module, exports) {
-
-module.exports = require("sketch");
-
-/***/ }),
-/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // fallback for non-array-like ES3 and non-enumerable old V8 strings
@@ -1379,14 +1373,14 @@ module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
 
 
 /***/ }),
-/* 46 */
+/* 45 */
 /***/ (function(module, exports) {
 
 exports.f = {}.propertyIsEnumerable;
 
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // getting tag from 19.1.3.6 Object.prototype.toString()
@@ -1415,7 +1409,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 48 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.3.20 SpeciesConstructor(O, defaultConstructor)
@@ -1428,6 +1422,12 @@ module.exports = function (O, D) {
   return C === undefined || (S = anObject(C)[SPECIES]) == undefined ? D : aFunction(S);
 };
 
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports) {
+
+module.exports = require("sketch");
 
 /***/ }),
 /* 49 */
@@ -1549,7 +1549,7 @@ module.exports = function () {
 "use strict";
 
 
-var classof = __webpack_require__(47);
+var classof = __webpack_require__(46);
 var builtinExec = RegExp.prototype.exec;
 
  // `RegExpExec` abstract operation
@@ -2167,7 +2167,7 @@ module.exports = function (object, index, value) {
 /* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var classof = __webpack_require__(47);
+var classof = __webpack_require__(46);
 var ITERATOR = __webpack_require__(5)('iterator');
 var Iterators = __webpack_require__(40);
 module.exports = __webpack_require__(7).getIteratorMethod = function (it) {
@@ -2825,9 +2825,9 @@ module.exports.f = function getOwnPropertyNames(it) {
 var DESCRIPTORS = __webpack_require__(8);
 var getKeys = __webpack_require__(31);
 var gOPS = __webpack_require__(51);
-var pIE = __webpack_require__(46);
+var pIE = __webpack_require__(45);
 var toObject = __webpack_require__(10);
-var IObject = __webpack_require__(45);
+var IObject = __webpack_require__(44);
 var $assign = Object.assign;
 
 // should work with symbols and should have deterministic property order (V8 bug)
@@ -3043,7 +3043,7 @@ module.exports = function (original, length) {
 
 var aFunction = __webpack_require__(18);
 var toObject = __webpack_require__(10);
-var IObject = __webpack_require__(45);
+var IObject = __webpack_require__(44);
 var toLength = __webpack_require__(6);
 
 module.exports = function (that, callbackfn, aLen, memo, isRight) {
@@ -3149,13 +3149,13 @@ if (__webpack_require__(8) && /./g.flags != 'g') __webpack_require__(9).f(RegExp
 var LIBRARY = __webpack_require__(30);
 var global = __webpack_require__(1);
 var ctx = __webpack_require__(17);
-var classof = __webpack_require__(47);
+var classof = __webpack_require__(46);
 var $export = __webpack_require__(0);
 var isObject = __webpack_require__(4);
 var aFunction = __webpack_require__(18);
 var anInstance = __webpack_require__(42);
 var forOf = __webpack_require__(57);
-var speciesConstructor = __webpack_require__(48);
+var speciesConstructor = __webpack_require__(47);
 var task = __webpack_require__(84).set;
 var microtask = __webpack_require__(239)();
 var newPromiseCapabilityModule = __webpack_require__(112);
@@ -3780,7 +3780,7 @@ module.exports = function (that, maxLength, fillString, left) {
 var DESCRIPTORS = __webpack_require__(8);
 var getKeys = __webpack_require__(31);
 var toIObject = __webpack_require__(15);
-var isEnum = __webpack_require__(46).f;
+var isEnum = __webpack_require__(45).f;
 module.exports = function (isEntries) {
   return function (it) {
     var O = toIObject(it);
@@ -4213,7 +4213,7 @@ if (!USE_NATIVE) {
   $GOPD.f = $getOwnPropertyDescriptor;
   $DP.f = $defineProperty;
   __webpack_require__(34).f = gOPNExt.f = $getOwnPropertyNames;
-  __webpack_require__(46).f = $propertyIsEnumerable;
+  __webpack_require__(45).f = $propertyIsEnumerable;
   $GOPS.f = $getOwnPropertySymbols;
 
   if (DESCRIPTORS && !__webpack_require__(30)) {
@@ -4323,7 +4323,7 @@ module.exports = __webpack_require__(49)('native-function-to-string', Function.t
 // all enumerable object keys, includes symbols
 var getKeys = __webpack_require__(31);
 var gOPS = __webpack_require__(51);
-var pIE = __webpack_require__(46);
+var pIE = __webpack_require__(45);
 module.exports = function (it) {
   var result = getKeys(it);
   var getSymbols = gOPS.f;
@@ -4541,7 +4541,7 @@ $export($export.S, 'Object', { setPrototypeOf: __webpack_require__(66).set });
 "use strict";
 
 // 19.1.3.6 Object.prototype.toString()
-var classof = __webpack_require__(47);
+var classof = __webpack_require__(46);
 var test = {};
 test[__webpack_require__(5)('toStringTag')] = 'z';
 if (test + '' != '[object z]') {
@@ -5844,7 +5844,7 @@ var toIObject = __webpack_require__(15);
 var arrayJoin = [].join;
 
 // fallback for not array-like strings
-$export($export.P + $export.F * (__webpack_require__(45) != Object || !__webpack_require__(16)(arrayJoin)), 'Array', {
+$export($export.P + $export.F * (__webpack_require__(44) != Object || !__webpack_require__(16)(arrayJoin)), 'Array', {
   join: function join(separator) {
     return arrayJoin.call(toIObject(this), separator === undefined ? ',' : separator);
   }
@@ -6482,7 +6482,7 @@ __webpack_require__(56)('search', 1, function (defined, SEARCH, $search, maybeCa
 
 var isRegExp = __webpack_require__(75);
 var anObject = __webpack_require__(3);
-var speciesConstructor = __webpack_require__(48);
+var speciesConstructor = __webpack_require__(47);
 var advanceStringIndex = __webpack_require__(83);
 var toLength = __webpack_require__(6);
 var callRegExpExec = __webpack_require__(55);
@@ -6851,7 +6851,7 @@ var toAbsoluteIndex = __webpack_require__(32);
 var toLength = __webpack_require__(6);
 var isObject = __webpack_require__(4);
 var ArrayBuffer = __webpack_require__(1).ArrayBuffer;
-var speciesConstructor = __webpack_require__(48);
+var speciesConstructor = __webpack_require__(47);
 var $ArrayBuffer = buffer.ArrayBuffer;
 var $DataView = buffer.DataView;
 var $isView = $typed.ABV && ArrayBuffer.isView;
@@ -7665,7 +7665,7 @@ module.exports = __webpack_require__(7).Promise['finally'];
 var $export = __webpack_require__(0);
 var core = __webpack_require__(7);
 var global = __webpack_require__(1);
-var speciesConstructor = __webpack_require__(48);
+var speciesConstructor = __webpack_require__(47);
 var promiseResolve = __webpack_require__(113);
 
 $export($export.P + $export.R, 'Promise', { 'finally': function (onFinally) {
@@ -9138,13 +9138,13 @@ module.exports = function (trackingId, hitType, props, options) {
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// EXTERNAL MODULE: external "sketch"
-var external_sketch_ = __webpack_require__(44);
-var external_sketch_default = /*#__PURE__*/__webpack_require__.n(external_sketch_);
-
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/typeof.js
 var helpers_typeof = __webpack_require__(123);
 var typeof_default = /*#__PURE__*/__webpack_require__.n(helpers_typeof);
+
+// EXTERNAL MODULE: external "sketch"
+var external_sketch_ = __webpack_require__(48);
+var external_sketch_default = /*#__PURE__*/__webpack_require__.n(external_sketch_);
 
 // CONCATENATED MODULE: ./src/modules/xscapeF.js
 
@@ -9419,7 +9419,7 @@ var getFromWebview = function getFromWebview(infoKey) {
   });
 };
 // CONCATENATED MODULE: ./src/Last Symbol [ls].js
-
+// import sketch from 'sketch'
 
 
 /* harmony default export */ var Last_Symbol_ls_ = __webpack_exports__["default"] = (function () {
