@@ -15,7 +15,7 @@ export default function() {
 
     //start main function
     UI.getInputFromUser(
-        "Input Key Text", {
+        "Enter Key Text", {
             initialValue: CopiedString,
         },
         (err, value) => {

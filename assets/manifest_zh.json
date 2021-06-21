@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.6.82",
+    "version": "1.6.83",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [
         {
@@ -380,9 +380,9 @@
             "script": "Copy Layer Name [cln].js"
         },
         {
-            "name": "粘贴图层名称 [pln]",
-            "identifier": "Paste Layer Name [pln]",
-            "script": "Paste Layer Name [pln].js"
+            "name": "重命名图层 [rl]",
+            "identifier": "Rename Layer [rl]",
+            "script": "Rename Layer [rl].js"
         },
         {
             "name": "增加宽度 [iw]",
@@ -539,7 +539,7 @@
                     "Move Each Selection Backward [mesb]",
                     "-",
                     "Copy Layer Name [cln]",
-                    "Paste Layer Name [pln]",
+                    "Rename Layer [rl]",
                     "-",
                     "Duplicate Selection [ds]",
                     "-",
