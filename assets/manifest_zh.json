@@ -6,7 +6,7 @@
     "author": "Wooh",
     "authorEmail": "im@hihy.me",
     "homepage": "http://xscape.fun/",
-    "version": "1.6.77",
+    "version": "1.6.78",
     "appcast": "https://raw.githubusercontent.com/Woohuang/SketchWooh/master/.appcast.xml",
     "commands": [
         {
@@ -433,30 +433,6 @@
             "shortcut": "ctrl command option /",
             "identifier": "Set Symbol To Fixed Size [sstfs]",
             "script": "Set Symbol To Fixed Size [sstfs].js"
-        },
-        {
-            "name": "向下切换1个组件 [ns]",
-            "shortcut": "ctrl option .",
-            "identifier": "Next Symbol [ns]",
-            "script": "Next Symbol [ns].js"
-        },
-        {
-            "name": "向上切换1个组件 [ls]",
-            "shortcut": "ctrl option ,",
-            "identifier": "Last Symbol [ls]",
-            "script": "Last Symbol [ls]"
-        },
-        {
-            "name": "向下切换10个组件 [n10s]",
-            "shortcut": "ctrl cmd option .",
-            "identifier": "Next 10th Symbol [n10s]",
-            "script": "Next 10th Symbol [n10s].js"
-        },
-        {
-            "name": "向上切换10个组件 [l10s]",
-            "shortcut": "ctrl cmd option ,",
-            "identifier": "Last 10th Symbol [l10s]",
-            "script": "Last 10th Symbol [l10s].js"
         },
         {
             "name": "复制组件 [cs]",
