@@ -6,7 +6,6 @@ import { GA } from "./modules/xscapeF"
 
 export default function() {
 
-    //let CopiedInfo = NSPasteboard.generalPasteboard().stringForType(NSPasteboardTypeString).split("_.0._.0._.0._")
     let CopiedInfo = Settings.settingForKey('copySymbolInfo').split("_.0._.0._.0._"),
         CopiedId = CopiedInfo[0],
         CopiedSymbolMaster = doc.getLayerWithID(CopiedId).master,
